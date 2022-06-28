@@ -1,0 +1,11 @@
+//
+// File created by:  ncverilog
+// Do not modify this file
+//
+/home/goodfrank1688/icc_template/sim/test.v
+/home/goodfrank1688/icc_template/src/avg.v
+/home/goodfrank1688/icc_template/src/def.v
++incdir+/home/goodfrank1688/icc_template/src
++nc64bit
++access+r
++define+FSDB_FILE=\"avg.fsdb\"

@@ -1,0 +1,8 @@
+//
+// File created by:  ncverilog
+// Do not modify this file
+//
+-INCDIR
+/home/goodfrank1688/icc_template/src
+-DEFINE
+FSDB_FILE=\"avg.fsdb\"

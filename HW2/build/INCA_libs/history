@@ -1,0 +1,7 @@
+//
+// File created by:  irun
+// Do not modify this file
+
+s1::(18Jan2022:21:58:09):( ncverilog /home/goodfrank1688/icc_template/sim/traffic_light_tb.v /home/goodfrank1688/icc_template/src/avg.v /home/goodfrank1688/icc_template/src/ctrl.v /home/goodfrank1688/icc_template/src/def.v /home/goodfrank1688/icc_template/src/dp.v /home/goodfrank1688/icc_template/src/traffic_light.v +incdir+/home/goodfrank1688/icc_template/src +nc64bit +access+r +define+SHM_FILE="traffic_light.shm" +define+FSDB_FILE="traffic_light.fsdb" )
+s2::(18Jan2022:22:25:56):( ncverilog /home/goodfrank1688/icc_template/sim/test.v /home/goodfrank1688/icc_template/src/avg.v /home/goodfrank1688/icc_template/src/def.v +incdir+/home/goodfrank1688/icc_template/src +nc64bit +access+r +define+FSDB_FILE="avg.fsdb" )
+s3::(19Jan2022:14:42:00):( ncverilog /home/goodfrank1688/icc_template/sim/test.v /home/goodfrank1688/icc_template/src/avg.v /home/goodfrank1688/icc_template/src/def.v +incdir+/home/goodfrank1688/icc_template/src +nc64bit +access+r +define+FSDB_FILE="avg.fsdb" )

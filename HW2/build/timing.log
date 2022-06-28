@@ -1,0 +1,28 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : avg
+Version: Q-2019.12
+Date   : Tue Jan 18 23:55:58 2022
+****************************************
+
+Operating Conditions: slow   Library: slow
+Wire Load Model Mode: top
+
+  Startpoint: ready (internal pin)
+  Endpoint: ready (output port clocked by clk)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  ready (out)                              0.00       0.00 r
+  data arrival time                                   0.00
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
