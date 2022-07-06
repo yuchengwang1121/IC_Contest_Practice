@@ -35,8 +35,8 @@ initial $sdf_annotate(`SDFFILE, u_set);
 
 initial begin
 	$fsdbDumpfile("SET.fsdb");
-	$fsdbDumpvars("+struct", "+mda", testfixture1);
-	// $fsdbDumpMDA();
+	$fsdbDumpvars;
+	$fsdbDumpMDA();
 end
 
 initial begin
@@ -102,8 +102,7 @@ initial begin
 for (k = 0; k<=63; k = k+1) begin
 	@(negedge clk);
 	//change inputs at strobe point
-        // #(`cycle/4)	wait(busy == 0);
-		wait(busy == 0)
+        #(`cycle/4)	wait(busy == 0);
 			en = 1;
 			central = central_pat_mem[k];                
       			radius = radius_pat_mem[k];

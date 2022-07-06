@@ -14,25 +14,19 @@ integer j;
 
 always @(posedge clk or posedge reset) begin  //intitial setup & count
     if(reset)begin                            //reset 0->1, reset "ready" 0; "counter" 0
-        ready <= 1'b0;
-        sum <= 1'b0;
-        avg <= 1'b0;
-        // dout <= 1'b0;
-        counter <= 1'b0;
-        out <= 1'b0;
-        temp <=1'b0;
+        sum = 1'b0;
+        avg = 1'b0;
+        counter = 1'b0;
+        out = 1'b0;
+        temp =1'b0;
     end
     else begin
         if(counter != 4'd12)begin
-            fifo[counter] <= din;
-            sum <= sum + din;
-            counter <= counter+1'b1; //not 12 number yet 
+            fifo[counter] = din;
+            sum = sum + din;
+            counter = counter+1'b1; //not 12 number yet 
         end
-    end
-end
-
-always @(posedge clk) begin
-    if(ready)begin
+        if(ready)begin
         avg = sum/4'd12;
         out = 4'd11;                            //initial out value
 
@@ -76,10 +70,15 @@ always @(posedge clk) begin
         sum = sum + din;
 
     end
+    end
 end
 
-always @(negedge clk) begin     //readt need to be set 1 half before dout
-    if(counter == 4'd12)
+
+always @(negedge clk or posedge reset) begin     //readt need to be set 1 half before dout
+    if (reset) begin
+        ready <= 1'b0;
+    end
+    else if(counter == 4'd12)
     ready <= 1'b1;
 end
 
