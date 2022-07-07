@@ -1,0 +1,77 @@
+ncverilog(64): 15.20-s084: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s084: Started on Jul 07, 2022 at 16:14:33 CST
+ncverilog
+	/home/caid023/Verilog_pratice/HW5/sim/testfixture.v
+	/home/caid023/Verilog_pratice/HW5/src/def.v
+	/home/caid023/Verilog_pratice/HW5/src/LBP.v
+	+incdir+/home/caid023/Verilog_pratice/HW5/src
+	+nc64bit
+	+access+r
+	+define+FSDB_FILE="LBP.fsdb"
+Recompiling... reason: file '../src/LBP.v' is newer than expected.
+	expected: Thu Jul  7 15:57:06 2022
+	actual:   Thu Jul  7 16:13:29 2022
+file: /home/caid023/Verilog_pratice/HW5/sim/testfixture.v
+ #`End_CYCLE ;
+           |
+ncvlog: *W,INTOVF (/home/caid023/Verilog_pratice/HW5/sim/testfixture.v,106|11): bit overflow during conversion from text [2.5(IEEE)] (32 bits).
+(`define macro: End_CYCLE [/home/caid023/Verilog_pratice/HW5/sim/testfixture.v line 4], file: /home/caid023/Verilog_pratice/HW5/sim/testfixture.v line 106)
+file: /home/caid023/Verilog_pratice/HW5/src/LBP.v
+ncvlog: *W,SPDUSD: Include directory /home/caid023/Verilog_pratice/HW5/src given but not used.
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 1
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: .................... Done
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:                  3       3
+		Registers:               22      22
+		Scalar wires:             7       -
+		Vectored wires:           4       -
+		Always blocks:            3       3
+		Initial blocks:          16      16
+		Pseudo assignments:       1       1
+		Simulation timescale:  10ps
+	Writing initial simulation snapshot: worklib.testfixture:v
+Loading snapshot worklib.testfixture:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+ncsim: *W,RMEMNOF: $readmem error: open failed on file "./pattern1.dat".
+            File: ../sim/testfixture.v, line = 46, pos = 32
+           Scope: testfixture
+            Time: 0 FS + 0
+
+ncsim: *W,RMEMNOF: $readmem error: open failed on file "./golden1.dat".
+            File: ../sim/testfixture.v, line = 47, pos = 31
+           Scope: testfixture
+            Time: 0 FS + 0
+
+FSDB Dumper for IUS, Release Verdi_O-2018.09, Linux x86_64/64bit, 08/30/2018
+(C) 1996 - 2018 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'LBP.fsdb'
+*Verdi* : Begin traversing the scopes, layer (0).
+*Verdi* : Enable +all dumping.
+*Verdi* : End of traversing.
+-----------------------------------------------------
+
+START!!! Simulation Start .....
+
+-----------------------------------------------------
+
+-----------------------------------------------------
+
+Error!!! Somethings' wrong with your code ...!
+
+-------------------------FAIL------------------------
+
+-----------------------------------------------------
+
+Simulation complete via $finish(1) at time 1215752192 NS + 0
+../sim/testfixture.v:111  	$finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s084: Exiting on Jul 07, 2022 at 16:15:27 CST  (total: 00:00:54)

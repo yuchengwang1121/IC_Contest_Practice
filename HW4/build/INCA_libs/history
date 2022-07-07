@@ -1,0 +1,5 @@
+//
+// File created by:  irun
+// Do not modify this file
+
+s1::(07Jul2022:16:29:34):( ncverilog /home/caid023/Verilog_pratice/HW4/sim/testfixture.v /home/caid023/Verilog_pratice/HW4/syn/mac_syn.v -v /home/caid023/Verilog_pratice/HW4/sim/fsa0m_a_generic_core_21.lib.src +nc64bit +access+r +define+SHM_FILE="mac.shm" +define+FSDB_FILE="mac.fsdb" +define+SDF +define+SDFFILE="/home/caid023/Verilog_pratice/HW4/syn/mac_syn.sdf" )

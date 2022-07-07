@@ -3,6 +3,6 @@
 // Do not modify this file
 //
 -INCDIR
-/home/goodfrank1688/icc_template/src
+/home/caid023/Verilog_pratice/HW2/src
 -DEFINE
 FSDB_FILE=\"avg.fsdb\"

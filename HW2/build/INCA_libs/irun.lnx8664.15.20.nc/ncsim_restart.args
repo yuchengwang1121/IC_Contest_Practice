@@ -2,7 +2,7 @@
 // File created by:  ncverilog
 // Do not modify this file
 //
-+incdir+/home/goodfrank1688/icc_template/src
++incdir+/home/caid023/Verilog_pratice/HW2/src
 +nc64bit
 +access+r
 +define+FSDB_FILE=\"avg.fsdb\"
@@ -10,7 +10,7 @@
 +EMGRLOG
 ncverilog.log
 -XLSTIME
-1642574520
+1657182025
 -XLKEEP
 -XLMODE
 ./INCA_libs/irun.lnx8664.15.20.nc
@@ -24,4 +24,4 @@ ncverilog
 -XLVERSION
 "TOOL:	ncverilog	15.20-s084"
 -XLNAME
-./INCA_libs/irun.lnx8664.15.20.nc/caidcpuserver1_3514542
+./INCA_libs/irun.lnx8664.15.20.nc/caidcpuserver1_3802833

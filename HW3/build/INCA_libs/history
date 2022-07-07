@@ -1,0 +1,8 @@
+//
+// File created by:  irun
+// Do not modify this file
+
+s1::(07Jul2022:15:32:51):( ncverilog /home/caid023/Verilog_pratice/HW3/sim/testfixture1.v /home/caid023/Verilog_pratice/HW3/src/def.v /home/caid023/Verilog_pratice/HW3/src/SET.v +incdir+/home/caid023/Verilog_pratice/HW3/src +nc64bit +access+r +define+FSDB_FILE="SET.fsdb" +define+MD1 )
+s2::(07Jul2022:16:21:23):( ncverilog /home/caid023/Verilog_pratice/HW3/sim/testfixture1.v /home/caid023/Verilog_pratice/HW3/syn/SET_syn.v -v /usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v +nc64bit +access+r +define+FSDB_FILE="SET.fsdb" +define+SDF +define+SDFFILE="/home/caid023/Verilog_pratice/HW3/syn/SET_syn.sdf" +define+MD4 )
+s3::(07Jul2022:16:21:38):( ncverilog /home/caid023/Verilog_pratice/HW3/sim/testfixture1.v /home/caid023/Verilog_pratice/HW3/src/def.v /home/caid023/Verilog_pratice/HW3/src/SET.v +incdir+/home/caid023/Verilog_pratice/HW3/src +nc64bit +access+r +define+FSDB_FILE="SET.fsdb" +define+MD4 )
+s4::(07Jul2022:16:28:49):( ncverilog /home/caid023/Verilog_pratice/HW3/sim/testfixture1.v /home/caid023/Verilog_pratice/HW3/syn/SET_syn.v -v /usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v +nc64bit +access+r +define+FSDB_FILE="SET.fsdb" +define+SDF +define+SDFFILE="/home/caid023/Verilog_pratice/HW3/syn/SET_syn.sdf" +define+MD4 )

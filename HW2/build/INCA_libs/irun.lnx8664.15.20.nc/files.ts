@@ -1,3 +1,3 @@
-1642517090 /home/goodfrank1688/icc_template/src/avg.v
-1642574520 /home/goodfrank1688/icc_template/src/def.v
-1642514259 /home/goodfrank1688/icc_template/sim/test.v
+1657178961 /home/caid023/Verilog_pratice/HW2/sim/test.v
+1657178961 /home/caid023/Verilog_pratice/HW2/src/avg.v
+1657182025 /home/caid023/Verilog_pratice/HW2/src/def.v

@@ -5,11 +5,11 @@
 -XLMODE
 ./INCA_libs/irun.lnx8664.15.20.nc
 -RUNMODE
-/home/goodfrank1688/icc_template/sim/test.v
-/home/goodfrank1688/icc_template/src/avg.v
-/home/goodfrank1688/icc_template/src/def.v
+/home/caid023/Verilog_pratice/HW2/sim/test.v
+/home/caid023/Verilog_pratice/HW2/src/avg.v
+/home/caid023/Verilog_pratice/HW2/src/def.v
 -INCDIR
-/home/goodfrank1688/icc_template/src
+/home/caid023/Verilog_pratice/HW2/src
 -DEFINE
 FSDB_FILE=\"avg.fsdb\"
 -CDSLIB

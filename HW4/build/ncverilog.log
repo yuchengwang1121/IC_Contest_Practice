@@ -1,0 +1,217 @@
+ncverilog(64): 15.20-s084: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s084: Started on Jul 07, 2022 at 16:29:34 CST
+ncverilog
+	/home/caid023/Verilog_pratice/HW4/sim/testfixture.v
+	/home/caid023/Verilog_pratice/HW4/syn/mac_syn.v
+	-v
+	/home/caid023/Verilog_pratice/HW4/sim/fsa0m_a_generic_core_21.lib.src
+	+nc64bit
+	+access+r
+	+define+SHM_FILE="mac.shm"
+	+define+FSDB_FILE="mac.fsdb"
+	+define+SDF
+	+define+SDFFILE="/home/caid023/Verilog_pratice/HW4/syn/mac_syn.sdf"
+file: /home/caid023/Verilog_pratice/HW4/sim/testfixture.v
+	module worklib.mac_sim:v
+		errors: 0, warnings: 0
+file: /home/caid023/Verilog_pratice/HW4/syn/mac_syn.v
+	module worklib.mac_DW01_add_0:v
+		errors: 0, warnings: 0
+	module worklib.mac_DW01_add_1:v
+		errors: 0, warnings: 0
+	module worklib.mac_DW01_add_2:v
+		errors: 0, warnings: 0
+	module worklib.mac_DW_mult_tc_2:v
+		errors: 0, warnings: 0
+	module worklib.mac_DW_mult_tc_0:v
+		errors: 0, warnings: 0
+	module worklib.mac_DW_mult_tc_1:v
+		errors: 0, warnings: 0
+	module worklib.mac:v
+		errors: 0, warnings: 0
+file: /home/caid023/Verilog_pratice/HW4/sim/fsa0m_a_generic_core_21.lib.src
+	module fsa0m_a_generic_core_21.AN2:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.AN2B1S:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.AN4B1S:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.AO112:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.AO12:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.AO13S:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.AO222:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.AOI12HS:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.AOI13HS:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.AOI22S:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.BUF1CK:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.DFFN:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.FA1S:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.HA1:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.INV1S:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.MOAI1S:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.MUX2:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.ND2:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.ND3:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.NR2:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.NR4:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.OA12:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.OA22:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.OAI112HS:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.OAI12HS:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.OAI22S:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.OR2:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.OR3B1:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.QDFFN:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.QDFFRBN:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.TIE0:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.XNR2HS:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.XOR2HS:src
+		errors: 0, warnings: 0
+	module fsa0m_a_generic_core_21.XOR3:src
+		errors: 0, warnings: 0
+	primitive fsa0m_a_generic_core_21.dffrsb_udp:src
+		errors: 0, warnings: 0
+	primitive fsa0m_a_generic_core_21.mux2_udp:src
+		errors: 0, warnings: 0
+		Caching library 'fsa0m_a_generic_core_21' ....... Done
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		fsa0m_a_generic_core_21.AO112:src <0x74db7177>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.AO12:src <0x6c001396>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.AO13S:src <0x49636461>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.AO222:src <0x54180c51>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.AOI12HS:src <0x5bdcef72>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.AOI13HS:src <0x548b108a>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.AOI22S:src <0x5208c394>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.DFFN:src <0x73072e91>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.FA1S:src <0x0dd52945>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.HA1:src <0x64b4a4a8>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.MOAI1S:src <0x2dd5bc83>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.MUX2:src <0x7c559788>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.OA12:src <0x34d9cdfb>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.OA22:src <0x18c44027>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.OAI112HS:src <0x64f88302>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.OAI12HS:src <0x40c3dbcb>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.OAI22S:src <0x754ea06f>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.QDFFN:src <0x7f7187a7>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.QDFFRBN:src <0x26c6d421>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.XNR2HS:src <0x51d354e0>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.XOR2HS:src <0x4ee5165e>
+			streams:   0, words:     0
+		fsa0m_a_generic_core_21.XOR3:src <0x4803d6ba>
+			streams:   0, words:     0
+		worklib.mac:v <0x556cb3b6>
+			streams:   0, words:     0
+		worklib.mac_sim:v <0x7fa4620e>
+			streams:  14, words: 72605
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                    Instances  Unique
+		Modules:                 1186      42
+		UDPs:                     182       2
+		Primitives:              2819       8
+		Timing outputs:          1442      30
+		Registers:                132      26
+		Scalar wires:            1557       -
+		Expanded wires:            35       3
+		Always blocks:              3       3
+		Initial blocks:             3       3
+		Pseudo assignments:         5       5
+		Timing checks:            972     112
+		Delayed tcheck signals:   324     111
+		Simulation timescale:     1ps
+	Writing initial simulation snapshot: worklib.mac_sim:v
+Loading snapshot worklib.mac_sim:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+start test
+------------------------------
+a1. test MUL_16, cycle = 00000001
+ERROR at cycle_cnt=          1: result(X000X000)!= EXPECT(00000000)
+ERROR at cycle_cnt=          2: result(xxxxxxxx)!= EXPECT(00000000)
+------------------------------
+a2. test MAC_16, overflow, cycle = 00000005
+------------------------------
+a3. test stall, cycle = 00000011
+------------------------------
+a4. test SAT_16, cycle = 00000013
+------------------------------
+a5. test MAC_16, cycle = 00000015
+------------------------------
+a6. stall insertion, cycle = 00000021
+a7. test stall, cycle = 00000026
+a8. test SAT_16, cycle = 00000027
+------------------------------
+b1. test MUL_8, cycle = 0000002a
+------------------------------
+b2. test MAC_8, overflow, cycle = 0000002e
+------------------------------
+b3. test stall, cycle = 0000003a
+------------------------------
+b4. test SAT_8, cycle = 0000003c
+------------------------------
+b5. test MAC_8, cycle = 0000003e
+------------------------------
+b6. stall insertion, cycle = 0000004a
+b7. test stall, cycle = 0000004f
+b8. test SAT_8, cycle = 00000051
+=================================================
+There're    2 errors in your design
+=================================================
+Simulation complete via $finish(1) at time 1744 NS + 0
+../sim/testfixture.v:172      $finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s084: Exiting on Jul 07, 2022 at 16:29:35 CST  (total: 00:00:01)

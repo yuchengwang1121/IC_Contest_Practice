@@ -1,0 +1,14 @@
+//
+// File created by:  ncverilog
+// Do not modify this file
+//
+-VFILE
+/home/caid023/Verilog_pratice/HW4/sim/fsa0m_a_generic_core_21.lib.src
+-DEFINE
+SHM_FILE=\"mac.shm\"
+-DEFINE
+FSDB_FILE=\"mac.fsdb\"
+-DEFINE
+SDF
+-DEFINE
+SDFFILE=\"/home/caid023/Verilog_pratice/HW4/syn/mac_syn.sdf\"
