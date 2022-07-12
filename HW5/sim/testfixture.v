@@ -1,10 +1,10 @@
 `timescale 1ns/10ps
 `define CYCLE      9          	  // Modify your clock period here
 `define SDFFILE    "./SYN/LBP_syn.sdf"	  // Modify your sdf file name
-`define End_CYCLE  100000000000              // Modify cycle times once your design need more cycle times!
+`define End_CYCLE  100000000              // Modify cycle times once your design need more cycle times!
 
-`define PAT        "./pattern1.dat"    
-`define EXP        "./golden1.dat"     
+`define PAT        "../sim/pattern1.dat"    
+`define EXP        "../sim/golden1.dat"     
 
 
 module testfixture;

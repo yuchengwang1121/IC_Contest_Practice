@@ -6,7 +6,6 @@
 ./INCA_libs/irun.lnx8664.15.20.nc
 -RUNMODE
 /home/caid023/Verilog_pratice/HW5/sim/testfixture.v
-/home/caid023/Verilog_pratice/HW5/src/def.v
 /home/caid023/Verilog_pratice/HW5/src/LBP.v
 -INCDIR
 /home/caid023/Verilog_pratice/HW5/src

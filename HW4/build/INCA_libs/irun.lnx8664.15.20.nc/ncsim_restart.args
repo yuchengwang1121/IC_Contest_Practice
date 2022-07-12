@@ -2,17 +2,17 @@
 // File created by:  ncverilog
 // Do not modify this file
 //
++incdir+/home/caid023/Verilog_pratice/HW4/src
 +nc64bit
 +access+r
 +define+SHM_FILE=\"mac.shm\"
 +define+FSDB_FILE=\"mac.fsdb\"
-+define+SDF
-+define+SDFFILE=\"/home/caid023/Verilog_pratice/HW4/syn/mac_syn.sdf\"
++define+FSDB
 -MESSAGES
 +EMGRLOG
 ncverilog.log
 -XLSTIME
-1657182574
+1657595597
 -XLKEEP
 -XLMODE
 ./INCA_libs/irun.lnx8664.15.20.nc
@@ -26,4 +26,4 @@ ncverilog
 -XLVERSION
 "TOOL:	ncverilog	15.20-s084"
 -XLNAME
-./INCA_libs/irun.lnx8664.15.20.nc/caidcpuserver1_3806201
+./INCA_libs/irun.lnx8664.15.20.nc/caidcpuserver1_451390
