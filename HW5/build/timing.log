@@ -1,0 +1,63 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : LBP
+Version: T-2022.03
+Date   : Wed Jul 13 16:41:06 2022
+****************************************
+
+Operating Conditions: slow   Library: slow
+Wire Load Model Mode: top
+
+  Startpoint: gray_ready (input port clocked by clk)
+  Endpoint: current_reg_12_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  LBP                tsmc13_wl10           slow
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.50       0.50
+  input external delay                     5.00       5.50 r
+  gray_ready (in)                          0.03       5.53 r
+  U601/Y (AND2X8)                          0.13       5.66 r
+  U610/Y (AND2X8)                          0.20       5.86 r
+  U336/Y (NAND2X6)                         0.13       5.99 f
+  U361/Y (NOR2X4)                          0.19       6.18 r
+  U360/Y (NAND2X4)                         0.17       6.35 f
+  U356/Y (NOR2X4)                          0.18       6.53 r
+  U355/Y (NAND2X2)                         0.20       6.73 f
+  U345/Y (NOR2X4)                          0.19       6.92 r
+  U462/Y (NAND2X1)                         0.29       7.20 f
+  U431/Y (NOR2X2)                          0.34       7.54 r
+  U430/Y (NAND2X1)                         0.36       7.90 f
+  U367/Y (NOR2X4)                          0.25       8.16 r
+  U389/Y (NAND2X4)                         0.14       8.30 f
+  U388/Y (NOR2BX2)                         0.29       8.60 r
+  U366/Y (NAND2X1)                         0.26       8.85 f
+  U801/Y (OA21XL)                          0.30       9.16 f
+  current_reg_12_/D (DFFRX1)               0.00       9.16 f
+  data arrival time                                   9.16
+
+  clock clk (rise edge)                    9.00       9.00
+  clock network delay (ideal)              0.50       9.50
+  clock uncertainty                       -0.10       9.40
+  current_reg_12_/CK (DFFRX1)              0.00       9.40 r
+  library setup time                      -0.23       9.17
+  data required time                                  9.17
+  -----------------------------------------------------------
+  data required time                                  9.17
+  data arrival time                                  -9.16
+  -----------------------------------------------------------
+  slack (MET)                                         0.01
+
+
+1

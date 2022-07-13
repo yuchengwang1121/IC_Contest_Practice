@@ -2,10 +2,11 @@
 // File created by:  ncverilog
 // Do not modify this file
 //
-+incdir+/home/caid023/Verilog_pratice/HW5/src
 +nc64bit
 +access+r
 +define+FSDB_FILE=\"LBP.fsdb\"
++define+SDF
++define+SDFFILE=\"/home/caid023/Verilog_pratice/HW5/syn/LBP_syn.sdf\"
 -noshowtop
 -ACCESS
 +r
