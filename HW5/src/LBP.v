@@ -78,7 +78,7 @@ always @(posedge clk or posedge reset) begin
                 b <= 1'd0;
                 a <= a + 1'd1;
                 if(a==2)begin
-                    if((lbp_addr%128==0)||(lbp_addr%128==127)||(lbp_addr/128==127)) lbp_data <=8'd0;
+                    if((lbp_addr[6:0]==0)||(lbp_addr[6:0]==127)||(lbp_addr>>7==127)) lbp_data <=8'd0;
                     lbp_valid <=1'b1;
                     full<=1'b0;
                     a <= 1'd0;
@@ -104,33 +104,5 @@ always @(posedge clk or posedge reset) begin
         end
     end
 end
-
-// always @(posedge clk or posedge reset) begin
-    // if(reset)begin
-    //     finish <= 1'b0;
-    //     lbp_valid <= 1'b0;
-    //     lbp_addr <=14'd128;
-    //     lbp_data <=8'd0;
-    //     count <= 6'd0;
-    //     temp <=8'd0;
-    // end
-    // else begin
-    //     // if (!gray_req&&gray_ready) begin                                                    //calculate
-    //     // if(lbp_valid) begin
-    //     //     lbp_data <= temp;
-    //     //     lbp_addr <= lbp_addr +1'd1;
-    //     //     gray_req <=1'b1;
-    //     // end
-        
-    //     // end
-    //     // else begin
-    //     //     temp <=8'd0;
-    //     //     lbp_valid <=1'b0;
-    //     // end
-    //     // if (lbp_addr == 16254) begin
-    //     //     finish <=1'b1;
-    //     // end
-    // end
-// end
 
 endmodule
