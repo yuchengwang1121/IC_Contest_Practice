@@ -84,7 +84,6 @@ always @(posedge clk or posedge reset) begin
                     a <= 1'd0;
                 end
             end
-        
         end
 
         if (!gray_req&&gray_ready) begin                                    //calculate
