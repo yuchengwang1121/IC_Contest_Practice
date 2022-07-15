@@ -22,7 +22,6 @@ module traffic_light (
             s_cur <= Green;
             g_time <= 2'b00;
             count <= cnt_zero;
-
         end
         else begin
             s_cur <= s_next;
