@@ -56,7 +56,6 @@ always @(posedge clk or negedge reset_n) begin
                 result[31:0] <= 32'h80000000;
             end 
         end
-        
         3'b100:begin
             protect[7:0] <= 8'h0;
             result[31:0] <= 32'h0;
@@ -76,7 +75,6 @@ always @(posedge clk or negedge reset_n) begin
             else if ($signed({protect[3:0], result[15:0]}) < $signed(20'hf8000)) begin
                 result[15:0] <= 16'h8000;
             end
-
             if ($signed({protect[7:4], result[31:16]}) > $signed(20'h07fff)) begin                 //result[31:16]
                 result[31:16] <= 16'h7fff;
             end
