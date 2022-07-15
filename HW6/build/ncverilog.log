@@ -1,5 +1,5 @@
 ncverilog(64): 15.20-s084: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s084: Started on Jul 15, 2022 at 18:05:32 CST
+TOOL:	ncverilog	15.20-s084: Started on Jul 15, 2022 at 18:22:27 CST
 ncverilog
 	/home/caid023/Verilog_pratice/HW6/sim/tb_term.sv
 	/home/caid023/Verilog_pratice/HW6/src/SME.v
@@ -8,8 +8,8 @@ ncverilog
 	+access+r
 	+define+FSDB_FILE="SME.fsdb"
 Recompiling... reason: file '../src/SME.v' is newer than expected.
-	expected: Fri Jul 15 18:02:44 2022
-	actual:   Fri Jul 15 18:05:30 2022
+	expected: Fri Jul 15 18:20:20 2022
+	actual:   Fri Jul 15 18:22:26 2022
 file: /home/caid023/Verilog_pratice/HW6/src/SME.v
 	module worklib.SME:v
 		errors: 0, warnings: 0
@@ -21,8 +21,8 @@ ncvlog: *W,SPDUSD: Include directory /home/caid023/Verilog_pratice/HW6/src given
 ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
-		worklib.SME:v <0x215e691c>
-			streams:  12, words:  8601
+		worklib.SME:v <0x3f662eda>
+			streams:  13, words:  9102
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -31,7 +31,7 @@ ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-
 		Registers:               42      42
 		Scalar wires:             6       -
 		Vectored wires:           2       -
-		Always blocks:            8       8
+		Always blocks:            9       9
 		Initial blocks:          10      10
 		Pseudo assignments:       1       1
 		Compilation units:        1       1
@@ -67,112 +67,112 @@ FSDB Dumper for IUS, Release Verdi_O-2018.09, Linux x86_64/64bit, 08/30/2018
   -- Pattern 5  "pqr.t"
        cycle 7e, expect(0,00) , get(0,0c) >> Pass
   -- Pattern 6  "c...k"
-       cycle 89, expect(1,02) , get(1,02) >> Pass
+       cycle 8b, expect(1,02) , get(1,02) >> Pass
   -- Pattern 7  "^lmno"
-       cycle 9b, expect(1,08) , get(1,08) >> Pass
+       cycle 9d, expect(1,08) , get(1,08) >> Pass
   -- Pattern 8  "rstuv$"
-       cycle b8, expect(1,10) , get(1,10) >> Pass
+       cycle ba, expect(1,10) , get(1,10) >> Pass
   -- Pattern 9  "^rmn"
-       cycle d2, expect(0,00) , get(0,10) >> Pass
+       cycle d4, expect(0,00) , get(0,10) >> Pass
   -- Pattern a  "ijk l$"
-       cycle ee, expect(0,00) , get(0,04) >> Pass
+       cycle f0, expect(0,00) , get(0,04) >> Pass
   -- Pattern b  "v"
-       cycle 105, expect(1,14) , get(1,14) >> Pass
+       cycle 107, expect(1,14) , get(1,14) >> Pass
   -- Pattern c  "lmnoprst"
-       cycle 138, expect(0,00) , get(0,08) >> Pass
+       cycle 13a, expect(0,00) , get(0,08) >> Pass
   -- Pattern d  "^ijk$"
-       cycle 168, expect(0,00) , get(0,00) >> Pass
+       cycle 16a, expect(0,00) , get(0,00) >> Pass
   -- Pattern e  "^q$"
-       cycle 17c, expect(1,0e) , get(1,0e) >> Pass
+       cycle 17e, expect(1,0e) , get(1,0e) >> Pass
   __________________________________________________________
   == String 2  "2x1=2 2x2=4 2x3=6"
   -- Pattern 1  "^2.2.2"
-       cycle 1a2, expect(0,00) , get(0,0c) >> Pass
+       cycle 1a7, expect(0,00) , get(0,0c) >> Pass
   -- Pattern 2  "2.2.2"
-       cycle 1b5, expect(1,04) , get([1;31m0,0c[0m) >> Fail
+       cycle 1b6, expect(1,04) , get(1,04) >> Pass
   -- Pattern 3  "^2.2.4$"
-       cycle 1cb, expect(1,06) , get([1;31m0,0c[0m) >> Fail
+       cycle 1ca, expect(1,06) , get(1,06) >> Pass
   -- Pattern 4  "."
-       cycle 1ce, expect(1,00) , get(1,00) >> Pass
+       cycle 1cd, expect(1,00) , get(1,00) >> Pass
   -- Pattern 5  "^.."
-       cycle 1e3, expect(1,00) , get([1;31m0,00[0m) >> Fail
+       cycle 1d3, expect(1,00) , get(1,00) >> Pass
   -- Pattern 6  "^.$"
-       cycle 1f8, expect(0,00) , get(0,00) >> Pass
+       cycle 1e8, expect(0,00) , get(0,00) >> Pass
   -- Pattern 7  "2.$"
-       cycle 20d, expect(0,00) , get(0,0c) >> Pass
+       cycle 1fd, expect(0,00) , get(0,0c) >> Pass
   -- Pattern 8  "2x4=7"
-       cycle 224, expect(0,00) , get(0,0c) >> Pass
+       cycle 214, expect(0,00) , get(0,0c) >> Pass
   -- Pattern 9  "3=6-3"
-       cycle 23b, expect(0,00) , get(0,0e) >> Pass
+       cycle 22b, expect(0,00) , get(0,0e) >> Pass
   -- Pattern a  "1.2=2"
-       cycle 252, expect(0,00) , get(0,02) >> Pass
+       cycle 242, expect(0,00) , get(0,02) >> Pass
   -- Pattern b  "2*2=4"
-       cycle 26a, expect(1,00) , get([1;31m0,00[0m) >> Fail
+       cycle 25a, expect(1,00) , get([1;31m0,00[0m) >> Fail
   __________________________________________________________
   == String 3  "She sees cheese"
   -- Pattern 1  "ees."
-       cycle 286, expect(1,05) , get(1,05) >> Pass
+       cycle 270, expect(1,05) , get(1,[1;31m00[0m) >> Wrong index
   -- Pattern 2  "ees.$"
-       cycle 29a, expect(1,0b) , get(1,[1;31m0a[0m) >> Wrong index
+       cycle 284, expect(1,0b) , get(1,[1;31m0a[0m) >> Wrong index
   -- Pattern 3  "e..se"
-       cycle 2ab, expect(0,00) , get(0,0a) >> Pass
+       cycle 297, expect(0,00) , get(0,0a) >> Pass
   -- Pattern 4  "e..ee$"
-       cycle 2bd, expect(0,00) , get(0,0a) >> Pass
+       cycle 2ab, expect(0,00) , get(0,0a) >> Pass
   -- Pattern 5  "^ees*"
-       cycle 2d0, expect(0,00) , get(0,00) >> Pass
+       cycle 2be, expect(0,00) , get(0,00) >> Pass
   -- Pattern 6  "hee*se"
-       cycle 2e5, expect(1,0a) , get([1;31m0,01[0m) >> Fail
+       cycle 2d3, expect(1,0a) , get([1;31m0,01[0m) >> Fail
   -- Pattern 7  "he.s"
-       cycle 2ef, expect(1,01) , get(1,01) >> Pass
+       cycle 2dd, expect(1,01) , get(1,01) >> Pass
   -- Pattern 8  "*see$"
-       cycle 303, expect(0,00) , get(0,00) >> Pass
+       cycle 2f1, expect(0,00) , get(0,00) >> Pass
   -- Pattern 9  "se*ce"
-       cycle 318, expect(0,00) , get(0,04) >> Pass
+       cycle 306, expect(0,00) , get(0,04) >> Pass
   __________________________________________________________
   == String 4  "But she said the butter's bitter"
   -- Pattern 1  "sa*said"
-       cycle 360, expect(0,00) , get(0,08) >> Pass
+       cycle 34e, expect(0,00) , get(0,08) >> Pass
   -- Pattern 2  "b*tter"
-       cycle 399, expect(1,11) , get([1;31m0,11[0m) >> Fail
+       cycle 387, expect(1,11) , get([1;31m0,11[0m) >> Fail
   -- Pattern 3  "b*tter$"
-       cycle 3e5, expect(1,11) , get([1;31m0,11[0m) >> Fail
+       cycle 3d3, expect(1,11) , get([1;31m0,11[0m) >> Fail
   -- Pattern 4  "ut*r"
-       cycle 3ef, expect(1,01) , get([1;31m0,01[0m) >> Fail
+       cycle 3dd, expect(1,01) , get([1;31m0,01[0m) >> Fail
   -- Pattern 5  "ut*tted"
-       cycle 3fd, expect(0,00) , get(0,01) >> Pass
+       cycle 3eb, expect(0,00) , get(0,01) >> Pass
   -- Pattern 6  "^ut*tter"
-       cycle 40c, expect(0,00) , get(0,00) >> Pass
+       cycle 3fa, expect(0,00) , get(0,00) >> Pass
   -- Pattern 7  "*tered"
-       cycle 419, expect(0,00) , get(0,00) >> Pass
+       cycle 407, expect(0,00) , get(0,00) >> Pass
   __________________________________________________________
   == String 5  "He threw three free throws"
   -- Pattern 1  "thr*the$"
-       cycle 455, expect(0,00) , get(0,03) >> Pass
+       cycle 443, expect(0,00) , get(0,03) >> Pass
   -- Pattern 2  "^thro*th"
-       cycle 47a, expect(0,00) , get(0,12) >> Pass
+       cycle 468, expect(0,00) , get(0,12) >> Pass
   -- Pattern 3  ".ree th"
-       cycle 49e, expect(1,0f) , get([1;31m0,00[0m) >> Fail
+       cycle 484, expect(1,0f) , get(1,0f) >> Pass
   -- Pattern 4  ".ree  fr"
-       cycle 4b7, expect(0,00) , get([1;31m1[0m,00) >> Fail
+       cycle 49d, expect(0,00) , get([1;31m1[0m,0b) >> Fail
   -- Pattern 5  ".ree *re"
-       cycle 4de, expect(1,0a) , get([1;31m0,00[0m) >> Fail
+       cycle 4c6, expect(1,0a) , get([1;31m0,0b[0m) >> Fail
   -- Pattern 6  "re. thr"
-       cycle 4f2, expect(1,05) , get(1,05) >> Pass
+       cycle 4da, expect(1,05) , get(1,05) >> Pass
   -- Pattern 7  "ee*ee fr"
-       cycle 51b, expect(0,00) , get(0,01) >> Pass
+       cycle 505, expect(0,00) , get(0,01) >> Pass
   -- Pattern 8  "ee*ee th"
-       cycle 546, expect(1,0c) , get([1;31m0,01[0m) >> Fail
+       cycle 532, expect(1,0c) , get([1;31m0,01[0m) >> Fail
   -- Pattern 9  "re*ee.$"
-       cycle 571, expect(0,00) , get(0,05) >> Pass
+       cycle 55f, expect(0,00) , get(0,05) >> Pass
   -- Pattern a  "^...$"
-       cycle 59a, expect(0,00) , get(0,00) >> Pass
+       cycle 58a, expect(0,00) , get(0,00) >> Pass
   -- Pattern b  "^....$"
-       cycle 5c4, expect(1,0f) , get([1;31m0,00[0m) >> Fail
+       cycle 5b6, expect(1,0f) , get([1;31m0,00[0m) >> Fail
 ----------------------------------
 -- Simulation finish            --
--- cycle =1477 , Score =61       --
+-- cycle =1463 , Score =71       --
 ----------------------------------
-Simulation complete via $finish(1) at time 29540 NS + 0
+Simulation complete via $finish(1) at time 29260 NS + 0
 ../sim/tb_term.sv:201                     $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s084: Exiting on Jul 15, 2022 at 18:05:32 CST  (total: 00:00:00)
+TOOL:	ncverilog	15.20-s084: Exiting on Jul 15, 2022 at 18:22:28 CST  (total: 00:00:01)

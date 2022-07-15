@@ -32,15 +32,23 @@ always @(posedge clk or posedge reset) begin        //switch state
     end
 end
 
+always @(posedge clk ) begin                        //use clk to store multi "."
+    if(chardata == 8'h2e) begin
+        pattern[count] = chardata;
+        count = count +1'd1;
+        p_len = count;
+    end
+end
+
 always @(*) begin                                   //FSM
     case (s_cur)
-        Idle: begin                     //initial var
+        Idle: begin                                 //initial var
             match = 1'b0;
             valid = 1'b0;
             count =1'd0;
             if (isstring)  s_next = String;
         end
-        String: begin                   //get String
+        String: begin                               //get String
             if (ispattern) begin
                 s_next = Pattern;
                 count = 1'd0;
@@ -52,19 +60,21 @@ always @(*) begin                                   //FSM
                 s_next = String;
             end
         end
-        Pattern: begin                  //get pattern
+        Pattern: begin                              //get pattern
             if (!ispattern) begin
                 s_next = Matching;
                 count = 1'd0;
             end 
             else begin
-                pattern[count] = chardata;
-                count = count +1'd1;
-                p_len = count;
-                s_next = Pattern;
+                if(chardata != 8'h2e) begin
+                    pattern[count] = chardata;
+                    count = count +1'd1;
+                    p_len = count;
+                    s_next = Pattern;
+                end
             end 
         end
-        Matching: begin                 //matching
+        Matching: begin                             //matching
             if (ispattern || isstring) begin
                 valid = 1'b0;
                 count = 1'd0;
@@ -89,10 +99,6 @@ always @(posedge clk or posedge reset) begin               //classfy match or no
             s_pointer <= 1'd0;
             match <= 1'b0;
             match_index <= 1'd0;
-            if (chardata == 8'h2e ) begin       //if there are contious ".", count the number
-                dot_len <= dot_len +1'd1;
-            end
-            // else dot_len <= 1'd1;                                              //if onlt one "." , set to 1
         end
         else if (s_next == Matching) begin
             if (p_pointer == p_len) begin                   //if match vaild is 1
@@ -125,7 +131,7 @@ always @(posedge clk or posedge reset) begin               //classfy match or no
                     end
                     8'h2e: begin                            //"." give p_len the missing "."
                         p_pointer <= p_pointer +1'd1;
-                        s_pointer <= s_pointer +dot_len;
+                        s_pointer <= s_pointer +1'd1;
                     end
                     8'h2a: begin                            //"*"
                         s_pointer <= s_pointer +1'd1;
@@ -136,8 +142,7 @@ always @(posedge clk or posedge reset) begin               //classfy match or no
                             p_pointer <= p_pointer +1'd1;
                         end
                         else p_pointer <= 1'd0;                                         //if not Continual, set to 0
-
-                        if (pattern[p_pointer+1] == 8'h2a || p_len ==1'd1) begin   //if the symbol is at last, need to check "$" or "*"
+                        if (pattern[p_pointer+1] == 8'h2a || p_len ==1'd1) begin   //if the symbol is at last, need to check"*"
                             s_len <= s_len+1'd1;
                         end
                         s_pointer <= s_pointer +1'd1;

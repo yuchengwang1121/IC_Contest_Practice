@@ -78,9 +78,9 @@ argv[4]=+nc64bit
 argv[5]=+access+r
 argv[6]=+define+FSDB_FILE="SME.fsdb"
 79 profile - 100
-          CPU/Mem usage: 0.020 sys,  0.030 user,  89.24M sys,  0.00M vm
+          CPU/Mem usage: 0.030 sys,  0.020 user,  89.23M sys,  0.00M vm
 80 VC callback profile - scalar:0 vector:0
-81 Fri Jul 15 18:05:32 2022
+81 Fri Jul 15 18:22:28 2022
 82 pliAppInit
 83 FSDB_GATE is disabled.
 84 Enable Parallel Dumping.
@@ -98,21 +98,21 @@ argv[6]=+define+FSDB_FILE="SME.fsdb"
 96 *Verdi* : Begin traversing the scopes, layer (0).
 97 *Verdi* : End of traversing.
 98 fsdbDumpvars traverse var: profile - 
-          CPU/Mem usage: 0.030 sys,  0.030 user,  176.57M sys,  0.00M vm
-                   incr: 0.010 sys,  0.000 user,  4.20M sys,  0.00M vm
-                   accu: 0.010 sys,  0.000 user,  4.20M sys,  0.00M vm
-              accu incr: 0.010 sys,  0.000 user,  4.20M sys,  0.00M vm
+          CPU/Mem usage: 0.040 sys,  0.030 user,  176.57M sys,  0.00M vm
+                   incr: 0.000 sys,  0.000 user,  4.20M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  4.20M sys,  0.00M vm
+              accu incr: 0.000 sys,  0.000 user,  4.20M sys,  0.00M vm
 
           Count usage: 36 var,  36 idcode,  36 callback
                  incr: 36 var,  36 idcode,  36 callback
                  accu: 36 var,  36 idcode,  36 callback
             accu incr: 36 var,  36 idcode,  36 callback
 99 VC callback profile - scalar:0 vector:0
-100 Fri Jul 15 18:05:32 2022
+100 Fri Jul 15 18:22:28 2022
 101 fsdbDumpvars: profile - 
-          CPU/Mem usage: 0.030 sys,  0.030 user,  177.63M sys,  0.00M vm
+          CPU/Mem usage: 0.040 sys,  0.030 user,  177.63M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  1.05M sys,  0.00M vm
-                   accu: 0.010 sys,  0.000 user,  5.25M sys,  0.00M vm
+                   accu: 0.000 sys,  0.000 user,  5.26M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  1.05M sys,  0.00M vm
 
           Count usage: 36 var,  36 idcode,  36 callback
@@ -120,13 +120,13 @@ argv[6]=+define+FSDB_FILE="SME.fsdb"
                  accu: 36 var,  36 idcode,  36 callback
             accu incr: 0 var,  0 idcode,  0 callback
 102 VC callback profile - scalar:16 vector:20
-103 Fri Jul 15 18:05:32 2022
+103 Fri Jul 15 18:22:28 2022
 104 sps_call_fsdbDumpMDA at 0 : /home/caid023/Verilog_pratice/HW6/sim/tb_term.sv(44)
 105 *Verdi* : Begin traversing the MDAs, layer (0).
 106 *Verdi* : Enable +mda and +packedmda dumping.
 107 *Verdi* : End of traversing the MDAs.
 108 fsdbDumpMDA traverse var: profile - 
-          CPU/Mem usage: 0.030 sys,  0.030 user,  177.63M sys,  0.00M vm
+          CPU/Mem usage: 0.040 sys,  0.030 user,  177.63M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
                    accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
@@ -136,9 +136,9 @@ argv[6]=+define+FSDB_FILE="SME.fsdb"
                  accu: 40 var,  40 idcode,  40 callback
             accu incr: 40 var,  40 idcode,  40 callback
 109 VC callback profile - scalar:16 vector:20
-110 Fri Jul 15 18:05:32 2022
+110 Fri Jul 15 18:22:28 2022
 111 fsdbDumpMDA: profile - 
-          CPU/Mem usage: 0.030 sys,  0.030 user,  177.63M sys,  0.00M vm
+          CPU/Mem usage: 0.040 sys,  0.030 user,  177.63M sys,  0.00M vm
                    incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
                    accu: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
               accu incr: 0.000 sys,  0.000 user,  0.00M sys,  0.00M vm
@@ -148,16 +148,16 @@ argv[6]=+define+FSDB_FILE="SME.fsdb"
                  accu: 40 var,  40 idcode,  40 callback
             accu incr: 0 var,  0 idcode,  0 callback
 112 VC callback profile - scalar:16 vector:60
-113 Fri Jul 15 18:05:32 2022
-114 End of simulation at 2954000
-115 VC callback profile - scalar:6571 vector:5743
-116 Fri Jul 15 18:05:32 2022
+113 Fri Jul 15 18:22:28 2022
+114 End of simulation at 2926000
+115 VC callback profile - scalar:6531 vector:5694
+116 Fri Jul 15 18:22:28 2022
 117 Begin FSDB profile info:
-118 FSDB Writer : bc1(6571) bcn(5743) mtf/stf(0/0)
-FSDB Writer elapsed time : flush(0.001873) io wait(0.000000) theadpool wait(0.000000) target functin(0.000000)
+118 FSDB Writer : bc1(6531) bcn(5694) mtf/stf(0/0)
+FSDB Writer elapsed time : flush(0.002529) io wait(0.000000) theadpool wait(0.000000) target functin(0.000000)
 FSDB Writer cpu time : MT Compression : 0
 119 End FSDB profile info
 120 Parallel profile    -  Flush:4 Expand:0 ProduceWait:0 ConsumerWait:0 BlockUsed:0
-121                        ProduceTime:0.080498652 ConsumerTime:0.000000000 Buffer:64MB
+121                        ProduceTime:0.089229571 ConsumerTime:0.000000000 Buffer:64MB
 122 SimExit
 123 Sim process exit
