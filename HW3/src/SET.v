@@ -43,7 +43,7 @@ always @(posedge clk or posedge rst) begin      //initial output value
             r[0] <= radius[11:8];
             r[1] <= radius[7:4];
             r[2] <= radius[3:0];
-
+            
             x<=4'd1;                                //start from 1 to 8 by each cycle
             y<=4'd1;
             busy <= 1'b1;
