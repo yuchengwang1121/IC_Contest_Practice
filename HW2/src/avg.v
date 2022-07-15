@@ -53,7 +53,6 @@ always @(posedge clk or posedge reset) begin  //intitial setup & count
         end
 
         dout = fifo[out];       //output
-
         sum = sum - fifo[0];    //fifo
         fifo[0] = fifo[1];
         fifo[1] = fifo[2];
