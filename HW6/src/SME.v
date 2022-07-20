@@ -17,68 +17,55 @@ reg[1:0] s_cur;
 reg[1:0] s_next;
 reg[7:0] string[31:0];
 reg[7:0] pattern[7:0];
-reg[4:0] count;
-reg[5:0] s_len,s_pointer;
-reg[5:0] p_len,p_pointer;
-reg[2:0] dot_len;
+reg[5:0] s_count,s_len,s_pointer;
+reg[5:0] p_count,p_len,p_pointer;
+reg ismul;
+integer i;
 
 
-always @(posedge clk or posedge reset) begin        //switch state
+always @(posedge clk or posedge reset) begin        //switch state && store cahr
     if(reset)begin
         s_cur <= Idle;
+        s_count <=1'd0;
+        p_count <=1'd0;
     end
     else begin
         s_cur <= s_next;
-    end
-end
-
-always @(posedge clk ) begin                        //use clk to store multi "."
-    if(chardata == 8'h2e) begin
-        pattern[count] = chardata;
-        count = count +1'd1;
-        p_len = count;
+        if (s_next==String) begin
+            string[s_count] <= chardata;
+            s_count <= s_count +1'd1;
+        end
+        else if (s_next==Pattern) begin
+            pattern[p_count] = chardata;
+            p_count <= p_count +1'd1;
+        end
+        else if (s_cur==Matching) begin
+            s_count <=1'd0;
+            p_count <=1'd0;
+        end
     end
 end
 
 always @(*) begin                                   //FSM
     case (s_cur)
         Idle: begin                                 //initial var
-            match = 1'b0;
-            valid = 1'b0;
-            count =1'd0;
-            if (isstring)  s_next = String;
+            if (isstring) s_next = String;
         end
-        String: begin                               //get String
+        String: begin                               //get String len
             if (ispattern) begin
                 s_next = Pattern;
-                count = 1'd0;
+                s_len = s_count;
             end 
-            else begin
-                string[count] = chardata;
-                count = count +1'd1;
-                s_len = count;
-                s_next = String;
-            end
+            else s_next = String;
         end
-        Pattern: begin                              //get pattern
+        Pattern: begin                              //get Pattern len
             if (!ispattern) begin
                 s_next = Matching;
-                count = 1'd0;
+                p_len = p_count;
             end 
-            else begin
-                if(chardata != 8'h2e) begin
-                    pattern[count] = chardata;
-                    count = count +1'd1;
-                    p_len = count;
-                    s_next = Pattern;
-                end
-            end 
+            else s_next = Pattern;
         end
-        Matching: begin                             //matching
-            if (ispattern || isstring) begin
-                valid = 1'b0;
-                count = 1'd0;
-            end
+        Matching: begin                             //reset counter
             if (ispattern) s_next = Pattern;
             else if (isstring) s_next = String;
             else s_next = Matching;
@@ -86,35 +73,35 @@ always @(*) begin                                   //FSM
     endcase
 end
 
-always @(posedge clk or posedge reset) begin               //classfy match or not
+always @(posedge clk or posedge reset) begin                   //classfy match or not
     if (reset) begin
+        valid <= 1'b0;
         p_pointer <=1'd0;
         s_pointer <= 1'd0;
         match_index <= 1'd0;
-        dot_len <= 1'd0;
     end
     else begin
-        if (s_next != Matching) begin
+        if (s_next != Matching) begin                           //if not matching reset value   
             p_pointer <=1'd0;
             s_pointer <= 1'd0;
-            match <= 1'b0;
             match_index <= 1'd0;
+            match <= 1'b0;
+            ismul <= 1'b0;
+            valid <= 1'b0;
         end
         else if (s_next == Matching) begin
-            if (p_pointer == p_len) begin                   //if match vaild is 1
-                dot_len <= 1'd0;
-                valid <=1'b1;
+            if (p_pointer == p_len) begin                                               //if match vaild is 1
+                valid <= 1'b1;
                 match <= 1'b1;
             end
             else if(s_pointer == s_len  && pattern[p_pointer] != 8'h24) begin          //if till the end then vaild, except "$"
-                dot_len <= 1'd0;
-                valid <=1'b1; 
+                valid <= 1'b1;
             end
             else begin
                 case (pattern[p_pointer])
-                    8'h5e: begin                            //"^"
+                    8'h5e: begin                                                        //"^"
                         if (s_pointer == 0 || string[s_pointer-1] == 8'h20) begin       //head or space
-                            if (pattern[p_pointer+1]==string[s_pointer]) begin
+                            if (pattern[p_pointer+1]==string[s_pointer] || pattern[p_pointer+1]==8'h2e) begin
                                 p_pointer <= p_pointer +2'd2;
                                 match_index <= s_pointer;
                             end
@@ -122,29 +109,44 @@ always @(posedge clk or posedge reset) begin               //classfy match or no
                         else  p_pointer <= 1'd0;
                         s_pointer <= s_pointer +1'd1;
                     end
-                    8'h24: begin                            //"$"
+                    8'h24: begin                                                        //"$"
                         if (s_pointer == s_len || string[s_pointer] == 8'h20) begin
                             p_pointer<= p_pointer +1'd1;
                         end
                         else p_pointer <= 1'd0;
                         s_pointer <= s_pointer +1'd1;
                     end
-                    8'h2e: begin                            //"." give p_len the missing "."
+                    8'h2e: begin                                                        //"." just pass by
+                        if (p_pointer ==0) begin                                        //if "." is at the beginning
+                            if (string[s_pointer] == pattern[p_pointer+1] && p_len>1) begin        //and if the second one is match & not only one "."
+                                match_index <= s_pointer-1'd1;
+                                p_pointer <= p_pointer +1'd1;
+                            end
+                            else begin
+                                match_index <= s_pointer;
+                                p_pointer <= p_pointer +1'd1;
+                                s_pointer <= s_pointer +1'd1;
+                            end
+                        end
+                        else begin
+                            p_pointer <= p_pointer +1'd1;
+                            s_pointer <= s_pointer +1'd1;
+                        end
+                    end
+                    8'h2a: begin                                                        //"*"
+                        for (i=p_pointer+1; i<p_len; i=i+1) begin                       //take char after "*" to front, only need to check the left pattern
+                            pattern[i-p_pointer-1] <= pattern[i];
+                        end
+                        ismul <=1'b1;                                                   //change some pattern value
+                        p_len <= p_len - p_pointer -1'd1;                               ///////////////////////////////////////////////////////fuck you
                         p_pointer <= p_pointer +1'd1;
-                        s_pointer <= s_pointer +1'd1;
                     end
-                    8'h2a: begin                            //"*"
-                        s_pointer <= s_pointer +1'd1;
-                    end
-                    default: begin                          //only words
-                        if (string[s_pointer] == pattern[p_pointer]) begin      //no special symbol
-                            if (p_pointer == 0) match_index <= s_pointer;
+                    default: begin                                                      //only words
+                        if (string[s_pointer] == pattern[p_pointer]) begin
+                            if (p_pointer == 0 && !ismul) match_index <= s_pointer;     //if have "*", don't update the value
                             p_pointer <= p_pointer +1'd1;
                         end
                         else p_pointer <= 1'd0;                                         //if not Continual, set to 0
-                        if (pattern[p_pointer+1] == 8'h2a || p_len ==1'd1) begin   //if the symbol is at last, need to check"*"
-                            s_len <= s_len+1'd1;
-                        end
                         s_pointer <= s_pointer +1'd1;
                     end
                 endcase
