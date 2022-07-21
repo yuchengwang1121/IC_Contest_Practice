@@ -1,0 +1,6 @@
+//
+// File created by:  irun
+// Do not modify this file
+
+s1::(21Jul2022:11:47:25):( ncverilog tb_term.sv SME.v +define+tb1+FSDB +access+r +nc64bit )
+s2::(21Jul2022:11:48:03):( ncverilog tb_term.sv SME_syn.v -v tsmc13_neg.v +ncmaxdelays +define+SDF +access+r +nc64bit )
