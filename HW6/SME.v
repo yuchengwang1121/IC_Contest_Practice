@@ -157,6 +157,5 @@ always @(posedge clk or posedge reset) begin                   //classfy match o
             end
         end
     end
-    
 end
 endmodule
