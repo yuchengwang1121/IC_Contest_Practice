@@ -85,7 +85,6 @@ always @(posedge clk or posedge reset) begin
                 end
             end
         end
-
         if (!gray_req&&gray_ready) begin                                    //calculate
             if(lbp_valid) begin
                 lbp_data <= temp;
