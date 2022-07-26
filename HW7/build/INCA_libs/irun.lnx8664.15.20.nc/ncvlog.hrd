@@ -1,0 +1,16 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+-INCDIR
+/home/YuChengWang/Verilog_pratice/HW7/./src
+-INCDIR
+/home/YuChengWang/Verilog_pratice/HW7/./include
+-INCDIR
+/home/YuChengWang/Verilog_pratice/HW7/./sim
+-DEFINE
+prog0
+-DEFINE
+CYCLE=20.0
+-DEFINE
+MAX=100000

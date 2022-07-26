@@ -1,0 +1,15 @@
+./top.sv
+./IF.sv
+./ProgramCounter.sv
+./ID.sv
+./RegisterFile.sv
+./EXE.sv
+./MEM.sv
+./WB.sv
+./ForwardUnit.sv
+./BranchCtrl.sv
+./HazardCtrl.sv
+./SRAM_wrapper.sv
+./SRAM/SRAM_rtl.sv
+/home/YuChengWang/Verilog_pratice/HW7/./src/SRAM/SRAM_rtl.sv
+/home/YuChengWang/Verilog_pratice/HW7/./include/SRAM/SRAM_rtl.sv
