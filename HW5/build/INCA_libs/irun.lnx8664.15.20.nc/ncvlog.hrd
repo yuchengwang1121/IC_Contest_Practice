@@ -2,11 +2,7 @@
 // File created by:  ncverilog
 // Do not modify this file
 //
--VFILE
-/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v
+-INCDIR
+/home/YuChengWang/Verilog_pratice/HW5/src
 -DEFINE
 FSDB_FILE=\"LBP.fsdb\"
--DEFINE
-SDF
--DEFINE
-SDFFILE=\"/home/caid023/Verilog_pratice/HW5/syn/LBP_syn.sdf\"

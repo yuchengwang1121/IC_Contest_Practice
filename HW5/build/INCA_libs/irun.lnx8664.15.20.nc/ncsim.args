@@ -2,16 +2,15 @@
 // File created by:  ncverilog
 // Do not modify this file
 //
++incdir+/home/YuChengWang/Verilog_pratice/HW5/src
 +nc64bit
 +access+r
 +define+FSDB_FILE=\"LBP.fsdb\"
-+define+SDF
-+define+SDFFILE=\"/home/caid023/Verilog_pratice/HW5/syn/LBP_syn.sdf\"
 -MESSAGES
 +EMGRLOG
 ncverilog.log
 -XLSTIME
-1657781724
+1658386978
 -XLKEEP
 -XLMODE
 ./INCA_libs/irun.lnx8664.15.20.nc
