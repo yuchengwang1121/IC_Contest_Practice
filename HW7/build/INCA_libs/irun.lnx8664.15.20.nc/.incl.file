@@ -2,8 +2,12 @@
 ./IF.sv
 ./ProgramCounter.sv
 ./ID.sv
+./ControlUnit.sv
 ./RegisterFile.sv
+./ImmediateGenerator.sv
 ./EXE.sv
+./ALUCtrl.sv
+./ALU.sv
 ./MEM.sv
 ./WB.sv
 ./ForwardUnit.sv

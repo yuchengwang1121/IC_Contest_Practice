@@ -1,9 +1,9 @@
 irun(64): 15.20-s084: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
-TOOL:	irun(64)	15.20-s084: Started on Jul 26, 2022 at 18:02:09 CST
+TOOL:	irun(64)	15.20-s084: Started on Aug 03, 2022 at 11:54:15 CST
 irun
 	/home/YuChengWang/Verilog_pratice/HW7/./sim/top_tb.sv
 	+incdir+/home/YuChengWang/Verilog_pratice/HW7/./src+/home/YuChengWang/Verilog_pratice/HW7/./include+/home/YuChengWang/Verilog_pratice/HW7/./sim
-	+define+prog0
+	+define+prog0+FSDB_ALL
 	-define CYCLE=20.0
 	-define MAX=100000
 	+access+r
@@ -13,9 +13,9 @@ irun
    User defined plus("+") options:
 	+prog_path=/home/YuChengWang/Verilog_pratice/HW7/./sim/prog0
 
-Recompiling... reason: file '../src/top.sv' is newer than expected.
-	expected: Tue Jul 26 17:26:50 2022
-	actual:   Tue Jul 26 17:41:28 2022
+Recompiling... reason: file '../src/EXE.sv' is newer than expected.
+	expected: Thu Jul 28 17:57:26 2022
+	actual:   Wed Aug  3 11:53:49 2022
 file: /home/YuChengWang/Verilog_pratice/HW7/./sim/top_tb.sv
 `define CYCLE 20.0 // Cycle time
                                 |
@@ -23,9 +23,7 @@ ncvlog: *W,MACNDF (/home/YuChengWang/Verilog_pratice/HW7/./sim/top_tb.sv,2|32): 
 `define MAX 100000 // Max cycle number
                                       |
 ncvlog: *W,MACNDF (/home/YuChengWang/Verilog_pratice/HW7/./sim/top_tb.sv,3|38): The text macro 'MAX' has also been defined on the command line using the -DEFINE command line option.  The compiler will ignore the definition found in the Verilog source code.
-	module worklib.RegisterFile:sv
-		errors: 0, warnings: 0
-	module worklib.top:sv
+	module worklib.EXE:sv
 		errors: 0, warnings: 0
     $value$plusargs("prog_path=%s", prog_path);
                   |
@@ -38,126 +36,133 @@ ncvlog: *W,SPDUSD: Include directory /home/YuChengWang/Verilog_pratice/HW7/./inc
 		errors: 0, warnings: 3
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
-    IF IF(
-        |
-ncelab: *W,CUVWSP (../src/top.sv,22|8): 1 output port was not connected:
-ncelab: (../src/IF.sv,15): PC_out
-
 	Top level design units:
 		$unit_0x3c76443d
-		RegisterFile
-		ID
-		BranchCtrl
-		HazardCtrl
 		top_tb
 ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+        .DM_dataout     (DM_dataout),
+                                  |
+ncelab: *W,CUVMPW (../src/top.sv,172|34): port sizes differ in port connection (5/32).
+        .DO             (DM_dataout)
+                                  |
+ncelab: *W,CUVMPW (../src/top.sv,193|34): port sizes differ in port connection (5/32).
+    $readmemh({prog_path, "/main0.hex"}, TOP.IM1.i_SRAM.Memory_byte0);
+                                                                   |
+ncelab: *W,MEMODR (../sim/top_tb.sv,42|67): $readmem default memory order incompatible with IEEE1364.
     $readmemh({prog_path, "/main0.hex"}, TOP.DM1.i_SRAM.Memory_byte0); 
                                                                    |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,43|67): Hierarchical name component lookup failed at 'DM1'.
+ncelab: *W,MEMODR (../sim/top_tb.sv,43|67): $readmem default memory order incompatible with IEEE1364.
+    $readmemh({prog_path, "/main1.hex"}, TOP.IM1.i_SRAM.Memory_byte1);
+                                                                   |
+ncelab: *W,MEMODR (../sim/top_tb.sv,44|67): $readmem default memory order incompatible with IEEE1364.
     $readmemh({prog_path, "/main1.hex"}, TOP.DM1.i_SRAM.Memory_byte1); 
                                                                    |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,45|67): Hierarchical name component lookup failed at 'DM1'.
+ncelab: *W,MEMODR (../sim/top_tb.sv,45|67): $readmem default memory order incompatible with IEEE1364.
+    $readmemh({prog_path, "/main2.hex"}, TOP.IM1.i_SRAM.Memory_byte2);
+                                                                   |
+ncelab: *W,MEMODR (../sim/top_tb.sv,46|67): $readmem default memory order incompatible with IEEE1364.
     $readmemh({prog_path, "/main2.hex"}, TOP.DM1.i_SRAM.Memory_byte2); 
                                                                    |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,47|67): Hierarchical name component lookup failed at 'DM1'.
+ncelab: *W,MEMODR (../sim/top_tb.sv,47|67): $readmem default memory order incompatible with IEEE1364.
+    $readmemh({prog_path, "/main3.hex"}, TOP.IM1.i_SRAM.Memory_byte3);
+                                                                   |
+ncelab: *W,MEMODR (../sim/top_tb.sv,48|67): $readmem default memory order incompatible with IEEE1364.
     $readmemh({prog_path, "/main3.hex"}, TOP.DM1.i_SRAM.Memory_byte3); 
                                                                    |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,49|67): Hierarchical name component lookup failed at 'DM1'.
-    wait(`mem_word(`SIM_END) == `SIM_END_CODE);
-                           |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,59|27): Hierarchical name component lookup failed at 'DM1'.
-    wait(`mem_word(`SIM_END) == `SIM_END_CODE);
-                           |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,59|27): Hierarchical name component lookup failed at 'DM1'.
-    wait(`mem_word(`SIM_END) == `SIM_END_CODE);
-                           |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,59|27): Hierarchical name component lookup failed at 'DM1'.
-    wait(`mem_word(`SIM_END) == `SIM_END_CODE);
-                           |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,59|27): Hierarchical name component lookup failed at 'DM1'.
-      if (`mem_word(`TEST_START + i) !== GOLDEN[i])
-                                   |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,65|35): Hierarchical name component lookup failed at 'DM1'.
-      if (`mem_word(`TEST_START + i) !== GOLDEN[i])
-                                   |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,65|35): Hierarchical name component lookup failed at 'DM1'.
-      if (`mem_word(`TEST_START + i) !== GOLDEN[i])
-                                   |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,65|35): Hierarchical name component lookup failed at 'DM1'.
-      if (`mem_word(`TEST_START + i) !== GOLDEN[i])
-                                   |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,65|35): Hierarchical name component lookup failed at 'DM1'.
-        $display("DM[%4d] = %h, expect = %h", `TEST_START + i, `mem_word(`TEST_START + i), GOLDEN[i]);
-                                                                                        |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,67|88): Hierarchical name component lookup failed at 'DM1'.
-        $display("DM[%4d] = %h, expect = %h", `TEST_START + i, `mem_word(`TEST_START + i), GOLDEN[i]);
-                                                                                        |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,67|88): Hierarchical name component lookup failed at 'DM1'.
-        $display("DM[%4d] = %h, expect = %h", `TEST_START + i, `mem_word(`TEST_START + i), GOLDEN[i]);
-                                                                                        |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,67|88): Hierarchical name component lookup failed at 'DM1'.
-        $display("DM[%4d] = %h, expect = %h", `TEST_START + i, `mem_word(`TEST_START + i), GOLDEN[i]);
-                                                                                        |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,67|88): Hierarchical name component lookup failed at 'DM1'.
-        $display("DM[%4d] = %h, pass", `TEST_START + i, `mem_word(`TEST_START + i));
-                                                                                 |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,72|81): Hierarchical name component lookup failed at 'DM1'.
-        $display("DM[%4d] = %h, pass", `TEST_START + i, `mem_word(`TEST_START + i));
-                                                                                 |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,72|81): Hierarchical name component lookup failed at 'DM1'.
-        $display("DM[%4d] = %h, pass", `TEST_START + i, `mem_word(`TEST_START + i));
-                                                                                 |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,72|81): Hierarchical name component lookup failed at 'DM1'.
-        $display("DM[%4d] = %h, pass", `TEST_START + i, `mem_word(`TEST_START + i));
-                                                                                 |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,72|81): Hierarchical name component lookup failed at 'DM1'.
-      if (`mem_word(`TEST_START + i) !== GOLDEN[i])
-                                   |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,95|35): Hierarchical name component lookup failed at 'DM1'.
-      if (`mem_word(`TEST_START + i) !== GOLDEN[i])
-                                   |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,95|35): Hierarchical name component lookup failed at 'DM1'.
-      if (`mem_word(`TEST_START + i) !== GOLDEN[i])
-                                   |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,95|35): Hierarchical name component lookup failed at 'DM1'.
-      if (`mem_word(`TEST_START + i) !== GOLDEN[i])
-                                   |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,95|35): Hierarchical name component lookup failed at 'DM1'.
-        $display("DM[%4d] = %h, expect = %h", `TEST_START + i, `mem_word(`TEST_START + i), GOLDEN[i]);
-                                                                                        |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,97|88): Hierarchical name component lookup failed at 'DM1'.
-        $display("DM[%4d] = %h, expect = %h", `TEST_START + i, `mem_word(`TEST_START + i), GOLDEN[i]);
-                                                                                        |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,97|88): Hierarchical name component lookup failed at 'DM1'.
-        $display("DM[%4d] = %h, expect = %h", `TEST_START + i, `mem_word(`TEST_START + i), GOLDEN[i]);
-                                                                                        |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,97|88): Hierarchical name component lookup failed at 'DM1'.
-        $display("DM[%4d] = %h, expect = %h", `TEST_START + i, `mem_word(`TEST_START + i), GOLDEN[i]);
-                                                                                        |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,97|88): Hierarchical name component lookup failed at 'DM1'.
-        $display("DM[%4d] = %h, pass", `TEST_START + i, `mem_word(`TEST_START + i));
-                                                                                 |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,102|81): Hierarchical name component lookup failed at 'DM1'.
-        $display("DM[%4d] = %h, pass", `TEST_START + i, `mem_word(`TEST_START + i));
-                                                                                 |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,102|81): Hierarchical name component lookup failed at 'DM1'.
-        $display("DM[%4d] = %h, pass", `TEST_START + i, `mem_word(`TEST_START + i));
-                                                                                 |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,102|81): Hierarchical name component lookup failed at 'DM1'.
-        $display("DM[%4d] = %h, pass", `TEST_START + i, `mem_word(`TEST_START + i));
-                                                                                 |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,102|81): Hierarchical name component lookup failed at 'DM1'.
-    $display("SIM_END(%5d) = %h, expect = %h", `SIM_END, `mem_word(`SIM_END), `SIM_END_CODE);
-                                                                           |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,105|75): Hierarchical name component lookup failed at 'DM1'.
-    $display("SIM_END(%5d) = %h, expect = %h", `SIM_END, `mem_word(`SIM_END), `SIM_END_CODE);
-                                                                           |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,105|75): Hierarchical name component lookup failed at 'DM1'.
-    $display("SIM_END(%5d) = %h, expect = %h", `SIM_END, `mem_word(`SIM_END), `SIM_END_CODE);
-                                                                           |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,105|75): Hierarchical name component lookup failed at 'DM1'.
-    $display("SIM_END(%5d) = %h, expect = %h", `SIM_END, `mem_word(`SIM_END), `SIM_END_CODE);
-                                                                           |
-ncelab: *E,CUVUNF (../sim/top_tb.sv,105|75): Hierarchical name component lookup failed at 'DM1'.
-irun: *E,ELBERR: Error during elaboration (status 1), exiting.
-TOOL:	irun(64)	15.20-s084: Exiting on Jul 26, 2022 at 18:02:09 CST  (total: 00:00:00)
+ncelab: *W,MEMODR (../sim/top_tb.sv,49|67): $readmem default memory order incompatible with IEEE1364.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.EXE:sv <0x2af8b56f>
+			streams:  14, words:  6434
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:                 20      18
+		Registers:              182     174
+		Scalar wires:           249       -
+		Expanded wires:         164       8
+		Vectored wires:         147       -
+		Always blocks:           25      23
+		Initial blocks:           2       2
+		Cont. assignments:      109      96
+		Pseudo assignments:     140     140
+		Compilation units:        1       1
+		Simulation timescale:  10ps
+	Writing initial simulation snapshot: worklib.top_tb:sv
+Loading snapshot worklib.top_tb:sv .................... Done
+ncsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+FSDB Dumper for IUS, Release Verdi_O-2018.09, Linux x86_64/64bit, 08/30/2018
+(C) 1996 - 2018 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'top.fsdb'
+*Verdi* : Begin traversing the scope (top_tb.TOP), layer (0).
+*Verdi* : Enable +struct and +mda dumping.
+*Verdi* : End of traversing.
+DM[8192] = xxxxxxxx, expect = fffffff0
+DM[8193] = xxxxxxxx, expect = fffffff8
+DM[8194] = xxxxxxxx, expect = 00000008
+DM[8195] = xxxxxxxx, expect = 00000001
+DM[8196] = xxxxxxxx, expect = 00000001
+DM[8197] = xxxxxxxx, expect = 78787878
+DM[8198] = xxxxxxxx, expect = 000091a2
+DM[8199] = xxxxxxxx, expect = 00000003
+DM[8200] = xxxxxxxx, expect = fefcfefd
+DM[8201] = xxxxxxxx, expect = 10305070
+DM[8202] = xxxxxxxx, expect = cccccccc
+DM[8203] = xxxxxxxx, expect = ffffffcc
+DM[8204] = xxxxxxxx, expect = ffffcccc
+DM[8205] = xxxxxxxx, expect = 000000cc
+DM[8206] = xxxxxxxx, expect = 0000cccc
+DM[8207] = xxxxxxxx, expect = 00000d9d
+DM[8208] = xxxxxxxx, expect = 00000004
+DM[8209] = xxxxxxxx, expect = 00000003
+DM[8210] = xxxxxxxx, expect = 000001a6
+DM[8211] = xxxxxxxx, expect = 00000ec6
+DM[8212] = xxxxxxxx, expect = 2468b7a8
+DM[8213] = xxxxxxxx, expect = 5dbf9f00
+DM[8214] = xxxxxxxx, expect = 00012b38
+DM[8215] = xxxxxxxx, expect = fa2817b7
+DM[8216] = xxxxxxxx, expect = ff000000
+DM[8217] = xxxxxxxx, expect = 12345678
+DM[8218] = xxxxxxxx, expect = 0000f000
+DM[8219] = xxxxxxxx, expect = 00000f00
+DM[8220] = xxxxxxxx, expect = 000000f0
+DM[8221] = xxxxxxxx, expect = 0000000f
+DM[8222] = xxxxxxxx, expect = 56780000
+DM[8223] = xxxxxxxx, expect = 78000000
+DM[8224] = xxxxxxxx, expect = 00005678
+DM[8225] = xxxxxxxx, expect = 00000078
+DM[8226] = xxxxxxxx, expect = 12345678
+DM[8227] = xxxxxxxx, expect = ce780000
+DM[8228] = xxxxxxxx, expect = fffff000
+DM[8229] = xxxxxxxx, expect = fffff000
+DM[8230] = xxxxxxxx, expect = fffff000
+DM[8231] = xxxxxxxx, expect = fffff000
+DM[8232] = xxxxxxxx, expect = fffff000
+DM[8233] = xxxxxxxx, expect = fffff000
+DM[8234] = xxxxxxxx, expect = 1357a064
+DM[8235] = xxxxxxxx, expect = 13578000
+DM[8236] = xxxxxxxx, expect = fffff004
+SIM_END(16383) = xxxxxxxx, expect = ffffffff
+
+
+
+
+        ****************************               
+        **                        **       |__||  
+        **  OOPS!!                **      / X,X  | 
+        **                        **    /_____   | 
+        **  Simulation Failed!!   **   /^ ^ ^ \  |
+        **                        **  |^ ^ ^ ^ |w| 
+        ****************************   \m___m__|_|
+         Totally has          45 errors                     
+
+
+Simulation complete via $finish(1) at time 2 MS + 0
+../sim/top_tb.sv:107     $finish;
+ncsim> exit
+TOOL:	irun(64)	15.20-s084: Exiting on Aug 03, 2022 at 11:54:18 CST  (total: 00:00:03)

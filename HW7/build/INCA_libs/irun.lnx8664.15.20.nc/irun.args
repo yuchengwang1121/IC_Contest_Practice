@@ -4,7 +4,7 @@
 //
 /home/YuChengWang/Verilog_pratice/HW7/./sim/top_tb.sv
 +incdir+/home/YuChengWang/Verilog_pratice/HW7/./src+/home/YuChengWang/Verilog_pratice/HW7/./include+/home/YuChengWang/Verilog_pratice/HW7/./sim
-+define+prog0
++define+prog0+FSDB_ALL
 -define
 CYCLE=20.0
 -define

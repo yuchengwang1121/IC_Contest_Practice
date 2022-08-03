@@ -2,13 +2,13 @@
 module IF(
     input clk,
     input rst,
-    input BranchCtrl,
-    input PC_imm,
-    input PC_jr,
+    input [1:0]BranchCtrl,
+    input [31:0] PC_imm,
+    input [31:0] PC_jr,
     input InstrFlush,
     input IFID_RegWrite,
     input PCWrite,
-    input Instr_out,
+    input [31:0] Instr_out,
 
     output logic [31:0] IF_pcout,
     output logic [31:0] IF_instrout,
@@ -22,7 +22,7 @@ parameter [1:0] PCJR = 2'b10;  //PC for jalr
 logic[31:0] PC_4,PC_in,PCtoIM;
 
 assign PC_4 = PCtoIM + 32'd4;
-assign PC_out = PCtoIM;
+assign PC_out = PCtoIM;     //output to PC_out
 
 ProgramCounter PC(.clk      (clk),  //connect PC into IF state
                   .rst      (rst),

@@ -1,5 +1,5 @@
 module ControlUnit(
-    input[6:0] OPcode;
+    input[6:0] OPcode,
 
     output logic [2:0] ImmType,
     output logic [2:0] ALUOP,
@@ -92,7 +92,7 @@ always_comb begin
             MemWrite = 1'b1;
             MemtoReg = 1'b0;
             RegWrite = 1'b0;
-            branch
+            branch = No_branch;
         end
         7'b1100011 : begin  //B-type
             ImmType = B_imm;

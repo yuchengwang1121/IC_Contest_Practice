@@ -1,10 +1,10 @@
 module ALU(
-    input [31:0] Rs1,
-    input [31:0] Rs2,
+    input [31:0] rs1,
+    input [31:0] rs2,
     input [4:0] ALUCtrl,
 
     output logic ZeroFlag,
-    output logic [31:0] ALU_out
+    output logic [31:0] ALUout
 );
     
 parameter [4:0] ALU_Add = 5'b00000;
@@ -28,36 +28,36 @@ parameter [4:0] ALU_Imm = 5'b10001;     //for lui
 
 logic signed [31:0] Srs1, Srs2, sum;
 
-assign Srs1 = Rs1;
-assign Srs2 = Rs2;
+assign Srs1 = rs1;
+assign Srs2 = rs2;
 assign Sum = Srs1 + Srs2;
 
 always_comb begin       //for alu_out value
     case (ALUCtrl)
-        ALU_Add: ALU_out = Sum;
-        ALU_Sub: ALU_out = Rs1 - Rs2;
-        Alu_Sll: ALU_out = Rs1 << Rs2[4:0];
-        ALU_Slt: ALU_out = (Srs1 < Srs2)?32'b1:32'b0;
-        ALU_Sltu: ALU_out = (Rs1 < Rs2)?32'b1:32'b0;
-        ALU_XOR: ALU_out = Rs1 ^ Rs2;
-        ALU_Srl: ALU_out = Rs1 >> Rs2[4:0];
-        ALU_Sra: ALU_out = Srs1 >> Rs2[4:0];
-        ALU_OR: ALU_out =  Rs1 | Rs2;
-        ALU_AND: ALU_out =  Rs1 & Rs2;
-        ALU_Jalr: ALU_out = {sum[31:1], 1'b0};
-        ALU_Imm: ALU_out = Rs2;
-        default: ALU_out =  32'b0;
+        ALU_Add: ALUout = Sum;
+        ALU_Sub: ALUout = rs1 - rs2;
+        Alu_Sll: ALUout = rs1 << rs2[4:0];
+        ALU_Slt: ALUout = (Srs1 < Srs2)?32'b1:32'b0;
+        ALU_Sltu: ALUout = (rs1 < rs2)?32'b1:32'b0;
+        ALU_XOR: ALUout = rs1 ^ rs2;
+        ALU_Srl: ALUout = rs1 >> rs2[4:0];
+        ALU_Sra: ALUout = Srs1 >> rs2[4:0];
+        ALU_OR: ALUout =  rs1 | rs2;
+        ALU_AND: ALUout =  rs1 & rs2;
+        ALU_Jalr: ALUout = {sum[31:1], 1'b0};
+        ALU_Imm: ALUout = rs2;
+        default: ALUout =  32'b0;
     endcase
 end
 
 always_comb begin       //for B-type
     case (ALUCtrl)
-        ALU_Beq: ZeroFlag = (Rs1==Rs2)?1'b1:1'b0;
-        ALU_Bne: ZeroFlag = (Rs1!=Rs2)??1'b1:1'b0;
+        ALU_Beq: ZeroFlag = (rs1==rs2)?1'b1:1'b0;
+        ALU_Bne: ZeroFlag = (rs1!=rs2)?1'b1:1'b0;
         ALU_Blt: ZeroFlag = (Srs1 < Srs2)?1'b1:1'b0;
         ALU_Bge: ZeroFlag = (Srs1 >= Srs2)?1'b1:1'b0;
-        ALU_Bltu: ZeroFlag = (Rs1 < Rs2)?1'b1:1'b0;
-        default: ZeroFlag = (Rs1 >= Rs2)?1'b1:1'b0;     //ALU_Bgeu
+        ALU_Bltu: ZeroFlag = (rs1 < rs2)?1'b1:1'b0;
+        default: ZeroFlag = (rs1 >= rs2)?1'b1:1'b0;     //ALU_Bgeu
     endcase
 end
 endmodule
