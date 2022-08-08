@@ -11,16 +11,21 @@ module ForwardUnit(
 );
     
     always_comb begin
-        if (EXE_RegWrite && ((EXE_rdaddr == ID_rs1addr) || (EXE_rdaddr == ID_rs2addr))) begin       //two R-type Forwarding
-            if (EXE_rdaddr == ID_rs1addr) Forward_rs1src = 2'b01;                                   //classify which reg to forward
-            else if (EXE_rdaddr == ID_rs2addr) Forward_rs2src = 2'b01;
-        end
-        else if (MEM_RegWrite && ((MEM_rdaddr == ID_rs1addr) || (MEM_rdaddr == ID_rs2addr))) begin  //load use
-            if (MEM_rdaddr == ID_rs1addr) Forward_rs1src = 2'b10;                                   //classify which reg to forward
-            else if (MEM_rdaddr == ID_rs2addr) Forward_rs2src = 2'b10;
-        end
+        if (EXE_RegWrite && (EXE_rdaddr == ID_rs1addr))     //two R-type Forwarding
+            Forward_rs1src = 2'b01;
+        else if (MEM_RegWrite && (MEM_rdaddr == ID_rs1addr))
+            Forward_rs1src = 2'b10;
         else begin                                                                                  //else normal situation
             Forward_rs1src = 2'b00;
+        end
+    end
+
+    always_comb begin
+        if (EXE_RegWrite && (EXE_rdaddr == ID_rs2addr))     //two R-type Forwarding
+            Forward_rs2src = 2'b01;
+        else if (MEM_RegWrite && (MEM_rdaddr == ID_rs2addr))
+            Forward_rs2src = 2'b10;
+        else begin                                                                                  //else normal situation
             Forward_rs2src = 2'b00;
         end
     end

@@ -20,7 +20,7 @@ module EXE(
     input ID_MemWrite,
     input ID_MemtoReg,
     input ID_RegWrite,
-    input [31:0] MEM_rddata,
+    input [31:0] Forward_Memrddata,
     input [31:0] WB_rddata,
     input [1:0] Forward_rs1src,
     input [1:0] Forward_rs2src,
@@ -46,20 +46,20 @@ logic [31:0] Wire_ALUout;
 logic [4:0] Wire_ALUCtrl;
 
 assign ALU_pcimm = ID_pcout + ID_imm;  //for EXE_PCtoReg
-assign ALU_pc4 = ID_pcout + 3'd4;
+assign ALU_pc4 = ID_pcout + 4;
 
 assign PC_imm = ID_pcout + ID_imm;     //for IF's PC
 assign PC_jr = Wire_ALUout;
 
 always_comb begin                       //rs1 MUX
     if (Forward_rs1src == 2'b00) ALU_rs1 = ID_rs1data;
-    else if (Forward_rs1src == 2'b01) ALU_rs1 = MEM_rddata;
+    else if (Forward_rs1src == 2'b01) ALU_rs1 = Forward_Memrddata;
     else ALU_rs1 = WB_rddata;
 end
 
 always_comb begin                       //rs2-1 MUX
-    if (Forward_rs2src == 2'b00) ALU_rs21 = ID_rs1data;
-    else if (Forward_rs2src == 2'b01) ALU_rs21 = MEM_rddata;
+    if (Forward_rs2src == 2'b00) ALU_rs21 = ID_rs2data;
+    else if (Forward_rs2src == 2'b01) ALU_rs21 = Forward_Memrddata;
     else ALU_rs21 = WB_rddata;
 end
 
@@ -99,6 +99,7 @@ always_ff @(posedge clk or posedge rst) begin
     else begin
         if (ID_PCtoRegSrc)  EXE_PCtoReg <= ALU_pcimm;
         else EXE_PCtoReg <= ALU_pc4;
+        
         EXE_ALUout  <= Wire_ALUout;
         EXE_rs2data <= ALU_rs21;
         EXE_rdaddr <= ID_rdaddr;

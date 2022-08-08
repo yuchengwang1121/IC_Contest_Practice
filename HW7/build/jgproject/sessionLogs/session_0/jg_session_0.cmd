@@ -1,14 +1,14 @@
 # ----------------------------------------
 # JasperGold Version Info
 # tool      : JasperGold 2021.03
-# platform  : Linux 5.15.0-41-generic
+# platform  : Linux 5.15.0-43-generic
 # version   : 2021.03 FCS 64 bits
 # build date: 2021.03.23 02:50:43 UTC
 # ----------------------------------------
-# started   : 2022-08-03 11:33:38 CST
+# started   : 2022-08-04 15:04:46 CST
 # hostname  : caidcpuserver1.(none)
-# pid       : 2341156
-# arguments : '-label' 'session_0' '-console' '//127.0.0.1:38059' '-style' 'windows' '-data' 'AAAAjHicY2RgYLCp////PwMYMFcBCQEGHwZfhiAGVyDpzxAGpOGA8QGUYcMIJJiAWIRBl6GYoZShgCGVoYghhyGTIY+hBCiuB4b6QLlkoHgmUL4EzENXqQfEyUAeAwM7AJWwFNA=' '-proj' '/home/YuChengWang/Verilog_pratice/HW7/build/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/YuChengWang/Verilog_pratice/HW7/build/jgproject/.tmp/.initCmds.tcl' '../script/superlint.tcl'
+# pid       : 193761
+# arguments : '-label' 'session_0' '-console' '//127.0.0.1:34629' '-style' 'windows' '-data' 'AAAAjHicY2RgYLCp////PwMYMFcBCQEGHwZfhiAGVyDpzxAGpOGA8QGUYcMIJJiAWIRBl6GYoZShgCGVoYghhyGTIY+hBCiuB4b6QLlkoHgmUL4EzENXqQfEyUAeAwM7AJWwFNA=' '-proj' '/home/YuChengWang/Verilog_pratice/HW7/build/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/YuChengWang/Verilog_pratice/HW7/build/jgproject/.tmp/.initCmds.tcl' '../script/superlint.tcl'
 check_superlint -init
 clear -all
 

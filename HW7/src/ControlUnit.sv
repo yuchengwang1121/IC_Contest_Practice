@@ -70,7 +70,7 @@ always_comb begin
             RegWrite = 1'b1;
             branch = No_branch;
         end
-        7'b110011 : begin  //Jalr
+        7'b1100111 : begin  //Jalr
             ImmType = I_imm;
             ALUOP = Jalr_type;
             PCtoRegSrc = 1'b0;

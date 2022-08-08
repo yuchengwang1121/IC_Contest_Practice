@@ -1,55 +1,62 @@
-2022-08-03 11:33:37.169736 (2341123) main____ INFO    ----------------------------------------
-2022-08-03 11:33:37.169796 (2341123) main____ INFO    JasperGold version info
-2022-08-03 11:33:37.169805 (2341123) main____ INFO      tool      : JasperGold 2021.03
-2022-08-03 11:33:37.169812 (2341123) main____ INFO      version   : 2021.03 FCS 64 bits
-2022-08-03 11:33:37.169817 (2341123) main____ INFO      build date: 2021.03.23 02:50:43 UTC
-2022-08-03 11:33:37.169821 (2341123) main____ INFO    ----------------------------------------
-2022-08-03 11:33:37.169826 (2341123) main____ INFO    Runtime info:
-2022-08-03 11:33:37.169831 (2341123) main____ INFO      platform  : Linux 5.15.0-41-generic x86_64
-2022-08-03 11:33:37.169837 (2341123) main____ INFO      hostname  : caidcpuserver1
-2022-08-03 11:33:37.169842 (2341123) main____ INFO      pid       : 2341123
-2022-08-03 11:33:37.169846 (2341123) main____ INFO      arguments : '-style' 'windows' '-superlint' '../script/superlint.tcl'
-2022-08-03 11:33:37.169855 (2341123) main____ INFO      locale    : UTF-8
-2022-08-03 11:33:37.169859 (2341123) main____ INFO    ----------------------------------------
-2022-08-03 11:33:37.169863 (2341123) main____ INFO    System resource limits info:
-2022-08-03 11:33:37.169868 (2341123) main____ INFO      virtual memory: unlimited
-2022-08-03 11:33:37.169872 (2341123) main____ INFO      cpu time      : unlimited
-2022-08-03 11:33:37.169881 (2341123) main____ INFO      stack size    : 8388608 B
-2022-08-03 11:33:37.169886 (2341123) main____ INFO      core file size: 0 B
-2022-08-03 11:33:37.169893 (2341123) main____ INFO      open files    : 1024
-2022-08-03 11:33:37.169898 (2341123) main____ INFO      file size     : unlimited
-2022-08-03 11:33:37.169902 (2341123) main____ INFO    ----------------------------------------
-2022-08-03 11:33:37.169906 (2341123) main____ INFO    Memory statistics:
-2022-08-03 11:33:37.169910 (2341123) main____ INFO      total physical memory  : 65591032 kB
-2022-08-03 11:33:37.169914 (2341123) main____ INFO      free physical memory   : 31411840 kB
-2022-08-03 11:33:37.169919 (2341123) main____ INFO      committed address space: 6776828 kB
-2022-08-03 11:33:37.169923 (2341123) main____ INFO    ----------------------------------------
-2022-08-03 11:33:37.170626 (2341123) main____ INFO    Important environment variables:
-2022-08-03 11:33:37.170640 (2341123) main____ INFO      DISPLAY           : 'localhost:13.0'
-2022-08-03 11:33:37.170646 (2341123) main____ INFO      JASPER_INSTALL_DIR: '/home/nfs_cad/cadence/JASPER/jasper_2021.03'
-2022-08-03 11:33:37.170650 (2341123) main____ INFO      LANG              : 'en_US.UTF-8'
-2022-08-03 11:33:37.170655 (2341123) main____ INFO      LM_LICENSE_FILE   : '1717@lshc:26585@lstn:5280@lshc'
-2022-08-03 11:33:37.170659 (2341123) main____ INFO    ----------------------------------------
-2022-08-03 11:33:37.171077 (2341123) lic_core INFO    Initializing license system ...
-2022-08-03 11:33:37.172602 (2341123) lic_core INFO    ... license system initialized.
-2022-08-03 11:33:37.173446 (2341123) lic__man INFO    Claim 'main' for <ui>.
-2022-08-03 11:33:37.173480 (2341123) lic_core INFO    (1) checking out 'jasper_interactive' ...
-2022-08-03 11:33:37.244620 (2341123) lic_core INFO    ... (1) checkout failed (error: -5) ("FLEXnet ERROR(-5, 0, 0): No such feature exists.")
-2022-08-03 11:33:37.244701 (2341123) lic_core INFO    (2) checking out 'jasper_pint' ...
-2022-08-03 11:33:37.423277 (2341123) lic_core INFO    ... (2) checkout succeeded
-2022-08-03 11:33:37.423335 (2341123) lic__man INFO    Claim 'superlint' for <ui>.
-2022-08-03 11:33:37.423349 (2341123) lic_core INFO    (3) checking out 'jasper_afl' ...
-2022-08-03 11:33:37.501669 (2341123) lic_core INFO    ... (3) checkout failed (error: -5) ("FLEXnet ERROR(-5, 0, 0): No such feature exists.")
-2022-08-03 11:33:37.501733 (2341123) lic_core INFO    (4) checking out 'jasper_dao' ...
-2022-08-03 11:33:37.669703 (2341123) lic_core INFO    ... (4) checkout succeeded
-2022-08-03 11:33:37.670257 (2341123) main____ INFO    Tool inactivity delay is 480000 ms.
-2022-08-03 11:33:38.124599 (2341123) lic__man INFO    Claim 'superlint' for <ui>.
-2022-08-03 11:33:38.389668 (2341123) lic__man INFO    Unclaim 'superlint' for <ui>.
-2022-08-03 11:33:38.389712 (2341123) lic__man INFO    Claim 'superlint' for <ui>.
-2022-08-03 11:33:38.404782 (2341123) session_ INFO    Starting analysis session with session id 'session_0' (launcher: <local>) ...
-2022-08-03 11:33:38.408542 (2341123) session_ INFO    Analysis session with session id 'session_0' started (pid: 2341156)
-2022-08-03 11:33:39.228690 (2341123) session_ INFO    Analysis session 'session_0' connected to the console (host: 127.0.0.1:51416)
-2022-08-03 11:33:40.113958 (2341123) lic__man INFO    Unclaim everything for 'session_0'.
-2022-08-03 11:33:41.076869 (2341123) lic__man INFO    Unclaim everything for 'session_0'.
-2022-08-03 11:33:41.339447 (2341123) lic__man INFO    Claim 'superlint' for 'session_0'.
-2022-08-03 11:54:02.854741 (2341123) lic__man INFO    Entering idle state.
+2022-08-04 15:04:44.540084 (193728) main____ INFO    ----------------------------------------
+2022-08-04 15:04:44.540134 (193728) main____ INFO    JasperGold version info
+2022-08-04 15:04:44.540142 (193728) main____ INFO      tool      : JasperGold 2021.03
+2022-08-04 15:04:44.540148 (193728) main____ INFO      version   : 2021.03 FCS 64 bits
+2022-08-04 15:04:44.540152 (193728) main____ INFO      build date: 2021.03.23 02:50:43 UTC
+2022-08-04 15:04:44.540156 (193728) main____ INFO    ----------------------------------------
+2022-08-04 15:04:44.540160 (193728) main____ INFO    Runtime info:
+2022-08-04 15:04:44.540163 (193728) main____ INFO      platform  : Linux 5.15.0-43-generic x86_64
+2022-08-04 15:04:44.540169 (193728) main____ INFO      hostname  : caidcpuserver1
+2022-08-04 15:04:44.540173 (193728) main____ INFO      pid       : 193728
+2022-08-04 15:04:44.540177 (193728) main____ INFO      arguments : '-style' 'windows' '-superlint' '../script/superlint.tcl'
+2022-08-04 15:04:44.540184 (193728) main____ INFO      locale    : UTF-8
+2022-08-04 15:04:44.540188 (193728) main____ INFO    ----------------------------------------
+2022-08-04 15:04:44.540192 (193728) main____ INFO    System resource limits info:
+2022-08-04 15:04:44.540196 (193728) main____ INFO      virtual memory: unlimited
+2022-08-04 15:04:44.540200 (193728) main____ INFO      cpu time      : unlimited
+2022-08-04 15:04:44.540207 (193728) main____ INFO      stack size    : 8388608 B
+2022-08-04 15:04:44.540212 (193728) main____ INFO      core file size: 0 B
+2022-08-04 15:04:44.540218 (193728) main____ INFO      open files    : 1024
+2022-08-04 15:04:44.540222 (193728) main____ INFO      file size     : unlimited
+2022-08-04 15:04:44.540226 (193728) main____ INFO    ----------------------------------------
+2022-08-04 15:04:44.540229 (193728) main____ INFO    Memory statistics:
+2022-08-04 15:04:44.540234 (193728) main____ INFO      total physical memory  : 65591024 kB
+2022-08-04 15:04:44.540238 (193728) main____ INFO      free physical memory   : 59937216 kB
+2022-08-04 15:04:44.540241 (193728) main____ INFO      committed address space: 6401556 kB
+2022-08-04 15:04:44.540244 (193728) main____ INFO    ----------------------------------------
+2022-08-04 15:04:44.540822 (193728) main____ INFO    Important environment variables:
+2022-08-04 15:04:44.540835 (193728) main____ INFO      DISPLAY           : 'localhost:12.0'
+2022-08-04 15:04:44.540840 (193728) main____ INFO      JASPER_INSTALL_DIR: '/home/nfs_cad/cadence/JASPER/jasper_2021.03'
+2022-08-04 15:04:44.540844 (193728) main____ INFO      LANG              : 'en_US.UTF-8'
+2022-08-04 15:04:44.540849 (193728) main____ INFO      LM_LICENSE_FILE   : '1717@lshc:26585@lstn:5280@lshc'
+2022-08-04 15:04:44.540853 (193728) main____ INFO    ----------------------------------------
+2022-08-04 15:04:44.567058 (193728) lic_core INFO    Initializing license system ...
+2022-08-04 15:04:44.580223 (193728) lic_core INFO    ... license system initialized.
+2022-08-04 15:04:44.581645 (193728) lic__man INFO    Claim 'main' for <ui>.
+2022-08-04 15:04:44.581699 (193728) lic_core INFO    (1) checking out 'jasper_interactive' ...
+2022-08-04 15:04:44.660589 (193728) lic_core INFO    ... (1) checkout failed (error: -5) ("FLEXnet ERROR(-5, 0, 0): No such feature exists.")
+2022-08-04 15:04:44.660654 (193728) lic_core INFO    (2) checking out 'jasper_pint' ...
+2022-08-04 15:04:44.830736 (193728) lic_core INFO    ... (2) checkout succeeded
+2022-08-04 15:04:44.830796 (193728) lic__man INFO    Claim 'superlint' for <ui>.
+2022-08-04 15:04:44.830809 (193728) lic_core INFO    (3) checking out 'jasper_afl' ...
+2022-08-04 15:04:44.909009 (193728) lic_core INFO    ... (3) checkout failed (error: -5) ("FLEXnet ERROR(-5, 0, 0): No such feature exists.")
+2022-08-04 15:04:44.909070 (193728) lic_core INFO    (4) checking out 'jasper_dao' ...
+2022-08-04 15:04:45.083232 (193728) lic_core INFO    ... (4) checkout succeeded
+2022-08-04 15:04:45.083595 (193728) main____ INFO    Tool inactivity delay is 480000 ms.
+2022-08-04 15:04:45.524698 (193728) lic__man INFO    Claim 'superlint' for <ui>.
+2022-08-04 15:04:45.775492 (193728) lic__man INFO    Unclaim 'superlint' for <ui>.
+2022-08-04 15:04:45.775576 (193728) lic__man INFO    Claim 'superlint' for <ui>.
+2022-08-04 15:04:45.781133 (193728) session_ INFO    Starting analysis session with session id 'session_0' (launcher: <local>) ...
+2022-08-04 15:04:45.783267 (193728) session_ INFO    Analysis session with session id 'session_0' started (pid: 193761)
+2022-08-04 15:04:46.621258 (193728) session_ INFO    Analysis session 'session_0' connected to the console (host: 127.0.0.1:49426)
+2022-08-04 15:04:47.373379 (193728) lic__man INFO    Unclaim everything for 'session_0'.
+2022-08-04 15:04:48.397388 (193728) lic__man INFO    Unclaim everything for 'session_0'.
+2022-08-04 15:04:48.531955 (193728) lic__man INFO    Claim 'superlint' for 'session_0'.
+2022-08-04 15:04:49.418648 (193728) lic__man INFO    Claim 'superlint' for 'session_0'.
+2022-08-04 15:04:49.418714 (193728) lic__man INFO    Claim 'superlint' for 'session_0/prove-0'.
+2022-08-04 15:04:49.619478 (193728) lic__man INFO    Unclaim everything for 'session_0/prove-0'.
+2022-08-04 15:06:20.005402 (193728) main____ INFO    About to exit: requested from GUI
+2022-08-04 15:06:20.063306 (193728) session_ INFO    Analysis session 'session_0' disconnected.
+2022-08-04 15:06:20.080847 (193728) lic_core INFO    (2) checkin jasper_pint
+2022-08-04 15:06:20.088297 (193728) lic_core INFO    (4) checkin jasper_dao
+2022-08-04 15:06:20.098686 (193728) main____ INFO    Exiting with status 0.

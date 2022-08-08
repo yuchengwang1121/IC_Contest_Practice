@@ -37,7 +37,7 @@ always_comb begin
         R_type : begin
             case (Funct3)
                 3'b000: begin
-                    if (Funct7 == 1'd0) ALUCtrl = ALU_Add;
+                    if (Funct7 == 7'b0) ALUCtrl = ALU_Add;
                     else ALUCtrl = ALU_Sub;
                 end
                 3'b001: ALUCtrl = Alu_Sll;
@@ -45,7 +45,7 @@ always_comb begin
                 3'b011: ALUCtrl = ALU_Sltu;
                 3'b100: ALUCtrl = ALU_XOR;
                 3'b101: begin
-                    if (Funct7 == 1'd0) ALUCtrl = ALU_Srl; 
+                    if (Funct7 == 7'b0) ALUCtrl = ALU_Srl; 
                     else ALUCtrl = ALU_Sra;
                 end
                 3'b110: ALUCtrl = ALU_OR;

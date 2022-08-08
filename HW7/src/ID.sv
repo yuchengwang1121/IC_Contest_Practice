@@ -33,16 +33,16 @@ module ID(
     output logic [4:0] rs2addr
 );
 
-assign rs1addr = IF_instrout[19:15];       //assign the address
-assign rs2addr = IF_instrout[24:20];
-
 logic [31:0] Wire_rs1,Wire_rs2,Wire_imm;    //wire's to connect submodule with ID state
 logic [2:0] Wire_ALUOP,Wire_immtype;
 logic Wire_PCtoRegSrc, Wire_ALUSrc, Wire_RDSrc, Wire_MemRead, Wire_MemWrite, Wire_MemtoReg, Wire_RegWrite;
 logic [1:0] Wire_branch;
 
+assign rs1addr = IF_instrout[19:15];       //assign the address
+assign rs2addr = IF_instrout[24:20];
+
 RegisterFile RF(
-    .clk        (clk),
+    .clk        (~clk),
     .rst        (rst),
     .RegWrite   (WB_RegWrite),
     .rs1_addr   (IF_instrout[19:15]),

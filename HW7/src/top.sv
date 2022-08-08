@@ -7,6 +7,10 @@
 `include "BranchCtrl.sv"
 `include "HazardCtrl.sv"
 `include "SRAM_wrapper.sv"
+module top(
+    input clk, // Clock
+    input rst
+);
 
 //IF input wire
 logic InstrFlush,IFID_RegWrite,PCWrite;
@@ -14,11 +18,6 @@ logic [1:0] BranchCtrl;
 logic [31:0] PC_imm, PC_jr, Instr_out;
 //IF output wire
 logic [31:0] IF_pcout, IF_instrout, PC_out;
-
-module top(
-    input clk, // Clock
-    input rst
-);
 
     IF IF(
         //input
@@ -94,7 +93,7 @@ logic ID_PCtoRegSrc,ID_ALUSrc, ID_RDSrc, ID_MemRead, ID_MemWrite, ID_MemtoReg, I
     );
 
 //EXE input wire
-logic [31:0] MEM_rddata;
+logic [31:0] Forward_Memrddata;
 logic [1:0] Forward_rs1src, Forward_rs2src;
 //EXE output wire
 logic [31:0] EXE_ALUout,EXE_PCtoReg,EXE_rs2data;
@@ -125,7 +124,7 @@ logic ZeroFlag, EXE_rdsrc,EXE_MemRead, EXE_MemWrite, EXE_MemtoReg, EXE_RegWrite;
         .ID_rs2addr     (ID_rs2addr),
         .WB_rddata      (WB_rddata ),
         //input
-        .MEM_rddata     (MEM_rddata),
+        .Forward_Memrddata(Forward_Memrddata),
         .Forward_rs1src (Forward_rs1src),
         .Forward_rs2src (Forward_rs2src),
         //output have wire
@@ -149,7 +148,7 @@ logic ZeroFlag, EXE_rdsrc,EXE_MemRead, EXE_MemWrite, EXE_MemtoReg, EXE_RegWrite;
 //MEM input wire
 logic [31:0] DM_dataout;
 //MEM output wire
-logic [31:0] MEM_dout,Forward_Memrddata,MEM_din;
+logic [31:0] MEM_dout,MEM_rddata,MEM_din;
 logic [4:0] MEM_rdaddr;
 logic [3:0] MEM_WEB;
 logic MEM_MemtoReg,MEM_RegWrite,MEM_CS;

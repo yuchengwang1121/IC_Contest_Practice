@@ -26,22 +26,23 @@ parameter [4:0] ALU_Bltu = 5'b01111;
 parameter [4:0] ALU_Bgeu = 5'b10000;
 parameter [4:0] ALU_Imm = 5'b10001;     //for lui
 
-logic signed [31:0] Srs1, Srs2, sum;
+logic signed [31:0] Srs1, Srs2;
+logic [31:0] sum;
 
 assign Srs1 = rs1;
 assign Srs2 = rs2;
-assign Sum = Srs1 + Srs2;
+assign sum = Srs1 + Srs2;
 
 always_comb begin       //for alu_out value
     case (ALUCtrl)
-        ALU_Add: ALUout = Sum;
+        ALU_Add: ALUout = sum;
         ALU_Sub: ALUout = rs1 - rs2;
         Alu_Sll: ALUout = rs1 << rs2[4:0];
         ALU_Slt: ALUout = (Srs1 < Srs2)?32'b1:32'b0;
         ALU_Sltu: ALUout = (rs1 < rs2)?32'b1:32'b0;
         ALU_XOR: ALUout = rs1 ^ rs2;
         ALU_Srl: ALUout = rs1 >> rs2[4:0];
-        ALU_Sra: ALUout = Srs1 >> rs2[4:0];
+        ALU_Sra: ALUout = Srs1 >>> rs2[4:0];
         ALU_OR: ALUout =  rs1 | rs2;
         ALU_AND: ALUout =  rs1 & rs2;
         ALU_Jalr: ALUout = {sum[31:1], 1'b0};
@@ -57,7 +58,8 @@ always_comb begin       //for B-type
         ALU_Blt: ZeroFlag = (Srs1 < Srs2)?1'b1:1'b0;
         ALU_Bge: ZeroFlag = (Srs1 >= Srs2)?1'b1:1'b0;
         ALU_Bltu: ZeroFlag = (rs1 < rs2)?1'b1:1'b0;
-        default: ZeroFlag = (rs1 >= rs2)?1'b1:1'b0;     //ALU_Bgeu
+        ALU_Bgeu: ZeroFlag = (rs1 >= rs2)?1'b1:1'b0;     //ALU_Bgeu
+        default : ZeroFlag = 1'b0;
     endcase
 end
 endmodule

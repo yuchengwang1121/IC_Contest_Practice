@@ -7,15 +7,14 @@ module RegisterFile(
     input [4:0] WB_rdaddr,
     input [31:0] WB_rddata,
 
-    output [31:0] rs1data,
-    output [31:0] rs2data
+    output logic [31:0] rs1data,
+    output logic [31:0] rs2data
 );
 
 logic [31:0] Reg [31:0];
 
 assign rs1data = Reg[rs1_addr];     //get data from the reg
 assign rs2data = Reg[rs2_addr];
-
 
 always_ff @(posedge clk or posedge rst) begin
     if (rst) begin
