@@ -4,7 +4,7 @@
 //
 +prog_path=/home/YuChengWang/Verilog_pratice/HW7/./sim/prog0
 +incdir+/home/YuChengWang/Verilog_pratice/HW7/./src+/home/YuChengWang/Verilog_pratice/HW7/./include+/home/YuChengWang/Verilog_pratice/HW7/./sim
-+define+prog0+FSDB_ALL
++define+prog0
 +access+r
 +nc64bit
 -ACCESS
