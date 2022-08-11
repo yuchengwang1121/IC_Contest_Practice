@@ -2,9 +2,9 @@
 // File created by:  irun
 // Do not modify this file
 //
-+prog_path=/home/YuChengWang/Verilog_pratice/HW7/./sim/prog0
++prog_path=/home/YuChengWang/Verilog_pratice/HW7/./sim/prog1
 +incdir+/home/YuChengWang/Verilog_pratice/HW7/./src+/home/YuChengWang/Verilog_pratice/HW7/./include+/home/YuChengWang/Verilog_pratice/HW7/./sim
-+define+prog0
++define+prog1+FSDB_ALL
 +access+r
 +nc64bit
 -ACCESS

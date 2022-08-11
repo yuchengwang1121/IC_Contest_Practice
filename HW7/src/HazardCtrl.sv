@@ -22,7 +22,7 @@ always_comb begin
         InstrFlush = 1'b1;
         IDFlush = 1'b1;
     end
-    else if (ID_MemRead && ((ID_rdaddr == rs1addr)||(ID_rdaddr == rs1addr))) begin   //load use (MEM<read && (rd=rs || rd=rt))
+    else if (ID_MemRead && ((ID_rdaddr == rs1addr)||(ID_rdaddr == rs2addr))) begin   //load use (MEM<read && (rd=rs || rd=rt))
         PCWrite = 1'b0;                 //stall the PC
         IFID_RegWrite = 1'b0;           //stall the IF/ID reg
         InstrFlush = 1'b0;              //stall the Instr

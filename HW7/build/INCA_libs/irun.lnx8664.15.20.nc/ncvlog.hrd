@@ -9,7 +9,9 @@
 -INCDIR
 /home/YuChengWang/Verilog_pratice/HW7/./sim
 -DEFINE
-prog0
+prog1
+-DEFINE
+FSDB_ALL
 -DEFINE
 CYCLE=20.0
 -DEFINE
