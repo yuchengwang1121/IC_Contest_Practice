@@ -9,7 +9,7 @@ module ReadAddr(
     inter_RA.M1 M1,
     inter_RA.S0 S0,
     inter_RA.S1 S1,
-    inter_RA.SDEFAULT SDEFAULT
+    inter_RA.SDEFAULT SD
 );
 
 interface VALIDCtrl;
@@ -17,7 +17,7 @@ interface VALIDCtrl;
 endinterface
 
 inter_RA wire;                      //used to connect submodule for "assign" output
-VALIDCtrl VS0, VS1, VSDEFAULT;      //parameter to control valid value
+VALIDCtrl VS0, VS1, VSD;      //parameter to control valid value
 logic wire_READY;                   //wire for READY signal
 
 //Slave 0 IM
@@ -35,33 +35,33 @@ assign S1.ARSIZE = wire.SIZE;
 assign S1.ARBURST = wire.BURST;
 
 //Slave Default
-assign SDEFAULT.ARID = wire.ID;
-assign SDEFAULT.ARADDR = wire.ADDR;
-assign SDEFAULT.ARLEN = wire.LEN;
-assign SDEFAULT.ARSIZE = wire.SIZE;
-assign SDEFAULT.ARBURST = wire.BURST;
+assign SD.ARID = wire.ID;
+assign SD.ARADDR = wire.ADDR;
+assign SD.ARLEN = wire.LEN;
+assign SD.ARSIZE = wire.SIZE;
+assign SD.ARBURST = wire.BURST;
 
 assign VS0.busy = VS0.reg_READY & ~S0.ARREADY;
 assign VS1.busy = VS1.reg_READY & ~S1.ARREADY;
-assign VSDEFAULT.busy = VSDEFAULT.reg_READY & ~SDEFAULT.ARREADY;
+assign VSD.busy = VSD.reg_READY & ~SD.ARREADY;
 
 assign S0.ARVALID = VS0.busy?1'b0:VS0.temp_ARVALID;
 assign S1.ARVALID = VS1.busy?1'b0:VS1.temp_ARVALID;
-assign SDEFAULT.ARVALID = VSDEFAULT.busy?1'b0:VSDEFAULT.temp_ARVALID;
+assign SD.ARVALID = VSD.busy?1'b0:VSD.temp_ARVALID;
 
 always_ff @(posedge clk or negedge rst) begin
     if (~rst) begin
         VS0.reg_READY <= 1'b0;
         VS1.reg_READY <= 1'b0;
-        VSDEFAULT.reg_READY <= 1'b0;
+        VSD.reg_READY <= 1'b0;
     end else begin
         VS0.reg_READY <= S0.ARREADY? 1'b0 : VS0.reg_READY;
         VS1.reg_READY <= S1.ARREADY? 1'b0 : VS1.reg_READY;
-        VSDEFAULT.reg_READY <= SDEFAULT.ARREADY? 1'b0 : VSDEFAULT.reg_READY;
+        VSD.reg_READY <= SD.ARREADY? 1'b0 : VSD.reg_READY;
     end
 end
 
-Arbiter Arbiter(
+Arbiter RArbiter(
     .clk                (clk),
     .rst                (rst),
     .inter_Arbiter.M0   (inter_RA.M0),
@@ -70,16 +70,16 @@ Arbiter Arbiter(
     .READY_M            (wire_READY)
 );
 
-Decoder Decoder(
-    .VALID                          (inter_RA.wire.VALID),
-    .ADDR                           (inter_RA.wire.ADDR),
-    .inter_Decoder.S0.VALID         (VALIDCtrl.VS0.temp_ARVALID),
-    .inter_Decoder.S1.VALID         (VALIDCtrl.VS1.temp_ARVALID),
-    .inter_Decoder.SDEFAULT.VALID   (VALIDCtrl.VSDEFAULT.temp_ARVALID),
-    .inter_Decoder.S0.READY         (inter_RA.S0.ARREADY),
-    .inter_Decoder.S1.READY         (inter_RA.S1.ARREADY),
-    .inter_Decoder.SDEFAULT.READY   (inter_RA.SDEFAULT.ARREADY),
-    .READY_S                        (wire_READY)
+Decoder RDecoder(
+    .VALID                      (inter_RA.wire.VALID),
+    .ADDR                       (inter_RA.wire.ADDR),
+    .inter_Decoder.S0.VALID     (VALIDCtrl.VS0.temp_ARVALID),
+    .inter_Decoder.S1.VALID     (VALIDCtrl.VS1.temp_ARVALID),
+    .inter_Decoder.SD.VALID     (VALIDCtrl.VSD.temp_ARVALID),
+    .inter_Decoder.S0.READY     (inter_RA.S0.ARREADY),
+    .inter_Decoder.S1.READY     (inter_RA.S1.ARREADY),
+    .inter_Decoder.SD.READY     (inter_RA.SD.ARREADY),
+    .READY_S                    (wire_READY)
 );
 
 endmodule
