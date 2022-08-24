@@ -11,6 +11,7 @@ module MEM(
     input [31:0] EXE_rs2data,
     input [4:0] EXE_rdaddr,
     input [2:0] EXE_Funct3,
+    input MEMWB_RegWrite,
 
     output logic [31:0] MEM_rddata,
     output logic [31:0] MEM_dout,
@@ -61,25 +62,24 @@ always_ff @(posedge clk or posedge rst) begin
         MEM_RegWrite <= 1'b0;
     end
     else begin
-        MEM_rdaddr <= EXE_rdaddr;
-        MEM_MemtoReg <= EXE_MemtoReg;
-        MEM_RegWrite <= EXE_RegWrite;
+        if (MEMWB_RegWrite) begin                  //new added
+            MEM_rdaddr <= EXE_rdaddr;
+            MEM_MemtoReg <= EXE_MemtoReg;
+            MEM_RegWrite <= EXE_RegWrite;
 
-        if (EXE_rdsrc) MEM_rddata <= EXE_PCtoReg;
-        else  MEM_rddata <= EXE_ALUout;
+            if (EXE_rdsrc) MEM_rddata <= EXE_PCtoReg;
+            else  MEM_rddata <= EXE_ALUout;
 
-        case (EXE_Funct3)
-            3'b000: MEM_dout <= {{24{DM_dataout[7]}}, DM_dataout[7:0]};
-            3'b001: MEM_dout <= {{16{DM_dataout[7]}}, DM_dataout[15:0]};
-            3'b010: MEM_dout <= DM_dataout;
-            3'b100: MEM_dout <= {24'b0, DM_dataout[7:0]};
-            3'b101: MEM_dout <= {16'b0, DM_dataout[15:0]};
-            default: begin
-                MEM_dout <= 32'b0;
-            end
-        endcase
-        // MEM_dout <= DM_dataout;        //only SW, may need to modify after?
-
+            case (EXE_Funct3)
+                3'b000: MEM_dout <= {{24{DM_dataout[7]}}, DM_dataout[7:0]};
+                3'b001: MEM_dout <= {{16{DM_dataout[7]}}, DM_dataout[15:0]};
+                3'b010: MEM_dout <= DM_dataout;
+                3'b100: MEM_dout <= {24'b0, DM_dataout[7:0]};
+                3'b101: MEM_dout <= {16'b0, DM_dataout[15:0]};
+                default: MEM_dout <= 32'b0;
+            endcase
+        end
+        
     end
 end
 endmodule

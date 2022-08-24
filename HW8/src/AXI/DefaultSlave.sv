@@ -1,6 +1,8 @@
 `include "../../include/AXI_define.svh"
-`include "Interface.sv"
+// `include "Interface.sv"
 module DefaultSlave(
+    input clk,
+    input rst,
     inter_RA.SDEFAULT SD_RA,
     inter_RD.SDEFAULT SD_RD,
     inter_WA.SDEFAULT SD_WA,
@@ -28,24 +30,77 @@ end
 always_comb begin
     case (s_slave)
         S_addr:begin
-            if(SD.ARREADY & SD.ARVALID) s_next = S_dataread;
-            else(SD.AWREADY & SD.AWVALID) s_next = S_datawrite;
+            if(SD_RA.ARREADY & SD_RA.ARVALID) s_next = S_dataread;
+            else if(SD_WA.AWREADY & SD_WA.AWVALID) s_next = S_datawrite;
             else s_next = S_addr;
         end
         S_dataread:begin
-            if(SD.RVALID & SD.RREADY) s_next = S_addr;
+            if(SD_RD.RVALID & SD_RD.RREADY) s_next = S_addr;
             else s_next = S_dataread;
         end
         S_datawrite:begin
-            if(SD.WVALID & SD.WREADY & WLAST) s_next = S_resp;
+            if(SD_WD.WVALID & SD_WD.WREADY & SD_WD.WLAST) s_next = S_resp;
             else s_next = S_datawrite;
         end
         S_resp:begin
-            if(SD,BVALID & SD,BREADY) s_next = S_addr;
+            if(SD_WR.BVALID & SD_WR.BREADY) s_next = S_addr;
             else s_next = S_resp;
         end
     endcase
 end
 
+always_ff @(posedge clk or negedge rst) begin
+    if (~rst) begin
+        temp_ARLEN <= 1'b0;
+    end else begin
+        temp_ARLEN <= (SD_RA.ARREADY & SD_RA.ARVALID)? SD_RA.ARLEN:temp_ARLEN;
+    end
+end
+
+//Read Addr & Read data
+assign SD_RA.ARREADY = (s_slave == S_addr)?1'b1:1'b0;
+
+always_ff @(posedge clk or negedge rst) begin
+    if (~rst) begin
+        SD_RD.RID <= 8'b0;
+    end else begin
+        SD_RD.RID <= (SD_RA.ARREADY & SD_RA.ARVALID)?SD_RA.ARID:SD_RD.RID;
+    end
+end
+
+assign SD_RD.RDATA = `AXI_DATA_BITS'b0;
+assign SD_RD.RRESP = `AXI_RESP_DECERR;
+
+always_ff @(posedge clk or negedge rst) begin
+    if (~rst) begin
+        SD_RD.RLAST <= 1'b1;
+    end else begin
+        if (SD_RA.ARREADY & SD_RA.ARVALID) begin
+            if (SD_RA.ARLEN == 4'b1) SD_RD.RLAST <= 1'b0;
+            else SD_RD.RLAST <= 1'b1;
+        end
+        else if(SD_RD.RVALID & SD_RD.RREADY) begin
+            if ((temp_ARLEN == 4'b1) & (SD_RD.RLAST == 1'b0)) begin
+                SD_RD.RLAST <= 1'b1;
+            end
+        end
+    end
+end
+assign SD_RD.RVALID = (s_slave == S_dataread)?1'b1:1'b0;
+
+//Write Addr
+assign SD_WA.AWREADY = (SD_WA.AWVALID & (s_slave == S_addr))?1'b1:1'b0;
+
+always_ff @(posedge clk or negedge rst) begin
+    if (~rst) begin
+        SD_WR.BID <= 8'b0;
+    end else begin
+        SD_WR.BID <= (SD_WA.AWREADY & SD_WA.AWVALID)?SD_WA.AWID:SD_WR.BID;
+    end
+end
+
+assign SD_WD.WREADY = (SD_WD.WVALID && (s_slave == S_datawrite));
+assign SD_WR.BRESP = `AXI_RESP_DECERR;
+assign SD_WR.BVALID = (s_slave == S_resp)?1'b1:1'b0;
 
 endmodule

@@ -1,375 +1,283 @@
-`include "def.v"
-`include "ex_mem.sv"
-`include "id_ex.sv"
-`include "if_id.sv"
-`include "mem_wb.sv"
-`include "regfile.sv"
-`include "ctrl.sv"
-`include "ex.sv"
-`include "id.sv"
-`include "mem.sv"
-`include "ifetch.sv"
-`include "wb.sv"
-
-module CPU (
-    input  logic                clk,
-    input  logic                rstn,
-    input  logic [    `InstBus] inst_out_i,
-    output logic                inst_read_o,
-    output logic [`InstAddrBus] inst_addr_o,
-    input  logic [    `DataBus] data_out_i,
-    output logic                data_read_o,
-    output logic                data_write_o,
-    output logic [         3:0] data_write_web_o,
-    output logic [`DataAddrBus] data_addr_o,
-    output logic [    `DataBus] data_in_o,
-    // Stall request from AXI
-    input  logic                stallreq_from_if,
-    input  logic                stallreq_from_mem
+`include "IF.sv"
+`include "ID.sv"
+`include "EXE.sv"
+`include "MEM.sv"
+`include "WB.sv"
+`include "ForwardUnit.sv"
+`include "BranchCtrl.sv"
+`include "HazardCtrl.sv"
+`include "AXI_define.svh"
+// `include "Interface.sv"
+module CPU(
+    input clk, // Clock
+    input rst,
+    //IFIO
+    input [`AXI_DATA_BITS-1:0] Instr_out,
+    output logic b_instr_read,
+    output logic [`AXI_ADDR_BITS-1:0] instr_addr,
+    //MEMIO
+    input [`AXI_DATA_BITS-1:0] MEM_dout,
+    output logic b_data_read,
+    output logic b_data_write,
+    output logic [3:0] write_type,
+    output logic [`AXI_ADDR_BITS-1:0] data_addr,
+    output logic [`AXI_DATA_BITS-1:0] MEM_din,
+    
+    input IM_stall,
+    input DM_stall
 );
+//ID MD stall
+logic IDEXE_RegWrite;
+logic EXEMEM_RegWrite;
+logic MEMWB_RegWrite;
 
-  /* Instruction Fetch (IF) */
-  logic [       `RegBus]  if_pc;
-  logic [      `InstBus]  if_inst;
+//IF input wire
+logic InstrFlush,IFID_RegWrite,PCWrite;
+logic [1:0] BranchCtrl;
+logic [31:0] PC_imm, PC_jr;
+//IF output wire
+logic [31:0] IF_pcout, IF_instrout, PC_out;
 
-  /* Instruction Decode (ID) */
-  logic [       `RegBus]  id_pc;
-  logic [      `InstBus]  id_inst;
-  logic [     `AluOpBus]  id_aluop;
-  logic                   id_alusrc1;
-  logic                   id_alusrc2;
-  logic [       `RegBus]  id_imm;
-  logic [       `RegBus]  id_rs1;
-  logic [       `RegBus]  id_rs2;
-  logic                   id_wreg;
-  logic [   `RegAddrBus]  id_rd;
-  logic                   id_memrd;
-  logic                   id_memwr;
-  logic                   id_mem2reg;
-  logic                   id_is_branch;
-  logic                   id_branch_taken;
-  logic [       `RegBus]  id_branch_target_addr;
-  logic                   id_is_in_delayslot;
-  logic [       `RegBus]  id_link_addr;
-  logic                   id_next_inst_in_delayslot;
-  logic [     `Func3Bus]  id_func3;
+    IF IF(
+        //input
+        .clk            (clk),        //module name (.module port  interface of modport's port)
+        .rst            (rst),
+        .BranchCtrl     (BranchCtrl),    
+        .PC_imm         (PC_imm),
+        .PC_jr          (PC_jr),
+        .InstrFlush     (InstrFlush),
+        .IFID_RegWrite  (IFID_RegWrite),
+        .PCWrite        (PCWrite),
+        .Instr_out      (Instr_out),        //for CPU's input
+        //output
+        .IF_pcout       (IF_pcout),
+        .IF_instrout    (IF_instrout),
+        .PC_out         (PC_out)
+    );
+    
 
-  /* Execution (EX) */
-  logic [       `RegBus]  ex_pc;
-  logic [     `AluOpBus]  ex_aluop;
-  logic                   ex_alusrc1;
-  logic                   ex_alusrc2;
-  logic [       `RegBus]  ex_imm;
-  logic [       `RegBus]  ex_rs1;
-  logic [       `RegBus]  ex_rs2;
-  logic                   ex_wreg;
-  logic [   `RegAddrBus]  ex_rd;
-  logic [       `RegBus]  ex_wdata;
-  logic [       `RegBus]  ex_wreg_data;
-  logic                   ex_memrd;
-  logic                   ex_memwr;
-  logic                   ex_mem2reg;
-  logic                   ex_is_in_delayslot;
-  logic [       `RegBus]  ex_link_addr;
-  logic                   ex_is_id_in_delayslot;
-  logic [     `Func3Bus]  ex_func3;
+    // SRAM_wrapper IM1(
+    //     .CK             (~clk),
+    //     .CS             (1'b1),         //Chip select
+    //     .OE             (1'b1),         //Output Enable 
+    //     .WEB            (4'b1111),      //Write Enable
+    //     .A              (PC_out[15:2]), //Address
+    //     .DI             (32'b0),        //Data in
+    //     .DO             (Instr_out)     //DAta out
+    // );
 
-  /* Memory Read Write (MEM) */
-  logic [       `RegBus]  mem_pc;
-  logic                   mem_wreg;
-  logic [   `RegAddrBus]  mem_rd;
-  logic [       `RegBus]  mem_wdata;
-  logic [       `RegBus]  mem_wreg_data;
-  logic                   mem_memrd;
-  logic                   mem_memwr;
-  logic                   mem_mem2reg;
-  logic [     `Func3Bus]  mem_func3;
-  logic                   mem_is_id_in_delayslot;
+//ID input wire
+logic [31:0] WB_rddata;
+logic [4:0] WB_rdaddr;
+logic WB_RegWrite,IDFlush;
+//ID output wire
+logic [31:0] ID_pcout, ID_rs1data, ID_rs2data, ID_imm;
+logic [6:0] ID_Funct7;
+logic [4:0] ID_rdaddr, ID_rs1addr, ID_rs2addr, rs1addr, rs2addr;
+logic [2:0] ID_ALUOP, ID_Funct3;
+logic [1:0] ID_branch;
+logic ID_PCtoRegSrc,ID_ALUSrc, ID_RDSrc, ID_MemRead, ID_MemWrite, ID_MemtoReg, ID_RegWrite;
 
-  /* Write Back (WB) */
-  logic [       `RegBus]  wb_pc;
-  logic                   wb_wreg;
-  logic [   `RegAddrBus]  wb_rd;
-  logic [       `RegBus]  wb_wdata;
-  logic                   wb_mem2reg;
-  logic [       `RegBus]  wb_from_alu;
-  logic [     `Func3Bus]  wb_func3;
-  logic                   wb_is_id_in_delayslot;
+    ID ID(
+        //input already have wire
+        .clk            (clk),
+        .rst            (rst),
+        .IF_instrout    (IF_instrout),
+        .IF_pcout       (IF_pcout),
+        //input
+        .WB_rdaddr      (WB_rdaddr),
+        .WB_rddata      (WB_rddata),
+        .WB_RegWrite    (WB_RegWrite),
+        .IDFlush        (IDFlush),
+        //output
+        .ID_pcout       (ID_pcout),
+        .ID_rs1data     (ID_rs1data),
+        .ID_rs2data     (ID_rs2data),
+        .ID_imm         (ID_imm),
+        .ID_ALUOP       (ID_ALUOP),
+        .ID_PCtoRegSrc  (ID_PCtoRegSrc),
+        .ID_ALUSrc      (ID_ALUSrc),
+        .ID_RDSrc       (ID_RDSrc),
+        .ID_MemRead     (ID_MemRead),
+        .ID_MemWrite    (ID_MemWrite),
+        .ID_MemtoReg    (ID_MemtoReg),
+        .ID_RegWrite    (ID_RegWrite),
+        .ID_branch      (ID_branch),
+        .ID_Funct3      (ID_Funct3),
+        .ID_Funct7      (ID_Funct7),
+        .ID_rdaddr      (ID_rdaddr),
+        .ID_rs1addr     (ID_rs1addr),
+        .ID_rs2addr     (ID_rs2addr),
+        .rs1addr        (rs1addr),
+        .rs2addr        (rs2addr),
+        .IDEXE_RegWrite (IDEXE_RegWrite)        //new added
+    );
 
-  /* Other */
-  logic [           3:0 ] wb_nxt_is_id_in_delayslot;
+//EXE input wire
+logic [31:0] Forward_Memrddata;
+logic [1:0] Forward_rs1src, Forward_rs2src;
+//EXE output wire
+logic [31:0] EXE_ALUout,EXE_PCtoReg,EXE_rs2data;
+logic [4:0] EXE_rdaddr;
+logic [2:0] EXE_Funct3;
+logic ZeroFlag, EXE_rdsrc,EXE_MemRead, EXE_MemWrite, EXE_MemtoReg, EXE_RegWrite;
 
-  /* Register file */
-  logic                   rs1_read;
-  logic                   rs2_read;
-  logic [       `RegBus]  rs1_data;
-  logic [       `RegBus]  rs2_data;
-  logic [   `RegAddrBus]  rs1_addr;
-  logic [   `RegAddrBus]  rs2_addr;
+    EXE EXE(
+        //input have wire
+        .clk            (clk),
+        .rst            (rst),
+        .ID_pcout       (ID_pcout),
+        .ID_rs1data     (ID_rs1data),
+        .ID_rs2data     (ID_rs2data),
+        .ID_imm         (ID_imm),
+        .ID_ALUOP       (ID_ALUOP),
+        .ID_PCtoRegSrc  (ID_PCtoRegSrc),
+        .ID_ALUSrc      (ID_ALUSrc),
+        .ID_RDSrc       (ID_RDSrc),
+        .ID_MemRead     (ID_MemRead),
+        .ID_MemWrite    (ID_MemWrite),
+        .ID_MemtoReg    (ID_MemtoReg),
+        .ID_RegWrite    (ID_RegWrite),
+        .ID_Funct3      (ID_Funct3),
+        .ID_Funct7      (ID_Funct7),
+        .ID_rdaddr      (ID_rdaddr),
+        .ID_rs1addr     (ID_rs1addr),
+        .ID_rs2addr     (ID_rs2addr),
+        .WB_rddata      (WB_rddata ),
+        //input
+        .Forward_Memrddata(Forward_Memrddata),
+        .Forward_rs1src (Forward_rs1src),
+        .Forward_rs2src (Forward_rs2src),
+        //output have wire
+        .PC_imm         (PC_imm),
+        .PC_jr          (PC_jr),
+        //output
+        .ZeroFlag       (ZeroFlag),
+        .EXE_ALUout     (EXE_ALUout),
+        .EXE_rdsrc      (EXE_rdsrc),
+        .EXE_MemRead    (EXE_MemRead),
+        .EXE_MemWrite   (EXE_MemWrite),
+        .EXE_MemtoReg   (EXE_MemtoReg),
+        .EXE_RegWrite   (EXE_RegWrite),
+        .EXE_rdaddr     (EXE_rdaddr),
+        .EXE_PCtoReg    (EXE_PCtoReg),
+        .EXE_rs2data    (EXE_rs2data),
+        .EXE_Funct3     (EXE_Funct3),
+        .EXEMEM_RegWrite(EXEMEM_RegWrite)       //newadded
+    );
 
-  /* Stall signal */
-  logic                   stallreq_from_id;
-  logic                   stallreq_from_ex;
-  logic [`STAGE_NUM-1:0 ] stallreq;
+//MEM input wire
+logic [31:0] DM_dataout;
+//MEM output wire
+logic [31:0] MEM_rddata;
+logic [4:0] MEM_rdaddr;
+logic [3:0] MEM_WEB;
+logic MEM_MemtoReg,MEM_RegWrite,MEM_CS;
 
-  /* Flush */
-  logic                   flush;
-  logic [       `RegBus]  new_pc;
+    MEM MEM(
+        //input have wire
+        .clk            (clk),
+        .rst            (rst),
+        .EXE_ALUout     (EXE_ALUout),
+        .EXE_rdsrc      (EXE_rdsrc),
+        .EXE_MemRead    (EXE_MemRead),
+        .EXE_MemWrite   (EXE_MemWrite),
+        .EXE_MemtoReg   (EXE_MemtoReg),
+        .EXE_RegWrite   (EXE_RegWrite),
+        .EXE_rdaddr     (EXE_rdaddr),
+        .EXE_PCtoReg    (EXE_PCtoReg),
+        .EXE_rs2data    (EXE_rs2data),
+        .EXE_Funct3     (EXE_Funct3),
+        //input
+        .DM_dataout     (DM_dataout),
+        //output have wire
+        .MEM_rddata     (MEM_rddata),
+        //output
+        .MEM_rdaddr     (MEM_rdaddr),
+        .MEM_dout       (MEM_dout),       //for CPU's input
+        .MEM_MemtoReg   (MEM_MemtoReg),
+        .MEM_RegWrite   (MEM_RegWrite),
+        .Forward_Memrddata (Forward_Memrddata),
+        .MEM_CS         (MEM_CS),
+        .MEM_WEB        (MEM_WEB),
+        .MEM_din        (MEM_din),
+        .MEMWB_RegWrite(MEMWB_RegWrite)         //new added
+    );
 
-  /* Register file */
-  regfile regfile0 (
-      .clk (clk),
-      .rstn(rstn),
+    // SRAM_wrapper DM1(
+    //     .CK             (~clk),
+    //     .CS             (MEM_CS),
+    //     .OE             (EXE_MemRead),
+    //     .WEB            (MEM_WEB),
+    //     .A              (EXE_ALUout[15:2]),
+    //     .DI             (MEM_din),
+    //     .DO             (DM_dataout)
+    // );
 
-      .we_i(wb_wreg),
-      .waddr_i(wb_rd),
-      .wdata_i(wb_wdata),
-      .re1_i(rs1_read),
-      .raddr1_i(rs1_addr),
-      .re2_i(rs2_read),
-      .raddr2_i(rs2_addr),
+    WB WB(
+        //input have wire
+        .clk            (clk),
+        .rst            (rst),
+        .MEM_rddata     (MEM_rddata),
+        .MEM_rdaddr     (MEM_rdaddr),
+        .MEM_dout       (MEM_dout),
+        .MEM_MemtoReg   (MEM_MemtoReg),
+        .MEM_RegWrite   (MEM_RegWrite),
+        //output have wire
+        .WB_rddata      (WB_rddata),
+        .WB_rdaddr      (WB_rdaddr),
+        .WB_RegWrite    (WB_RegWrite)
+    );
 
-      .rdata1_o(rs1_data),
-      .rdata2_o(rs2_data)
-  );
+    BranchCtrl BC(
+        //input have wire
+        .ID_branch      (ID_branch),
+        .ZeroFlag       (ZeroFlag),
+        //output have wire
+        .BranchCtrl     (BranchCtrl)
+    );
 
-  /* Contrller */
-  ctrl ctrl0 (
-      .stallreq_from_if (stallreq_from_if),
-      .stallreq_from_id (stallreq_from_id),
-      .stallreq_from_ex (stallreq_from_ex),
-      .stallreq_from_mem(stallreq_from_mem),
+    ForwardUnit FU(
+        //input have wire
+        .ID_rs1addr     (ID_rs1addr),
+        .ID_rs2addr     (ID_rs2addr),
+        .EXE_rdaddr     (EXE_rdaddr),
+        .EXE_RegWrite   (EXE_RegWrite),
+        .MEM_rdaddr     (MEM_rdaddr),
+        .MEM_RegWrite   (MEM_RegWrite),
+        //output have wire
+        .Forward_rs1src (Forward_rs1src),
+        .Forward_rs2src (Forward_rs2src)
+    );
+    
+    HazardCtrl HC(
+        //input have wire
+        .BranchCtrl     (BranchCtrl),
+        .ID_MemRead     (ID_MemRead),
+        .rs1addr        (rs1addr),
+        .rs2addr        (rs2addr),
+        .ID_rdaddr      (ID_rdaddr),
+        //output have wire
+        .PCWrite        (PCWrite),
+        .InstrFlush     (InstrFlush),
+        .IFID_RegWrite  (IFID_RegWrite),
+        .IDFlush        (IDFlush),
+        //new added
+        .IM_stall(IM_stall),
+        .IDEXE_RegWrite(IDEXE_RegWrite),
+        .DM_stall(DM_stall),
+        .EXEMEM_RegWrite(EXEMEM_RegWrite),
+        .MEMWB_RegWrite(MEMWB_RegWrite)
+    );
 
-      .stall(stallreq),
-      .new_pc_o(new_pc)
-  );
+//IFIO
+assign b_instr_read = 1'b1;
+assign instr_addr = PC_out;
+//MEMIO
+assign b_data_read = EXE_MemRead;
+assign b_data_write = EXE_MemWrite;
+assign write_type = MEM_WEB;
+assign data_addr = EXE_ALUout;
+assign MEM_din = MEM_din;
 
-  // IF
-  ifetch ifetch0 (
-      .clk (clk),
-      .rstn(rstn),
-
-      .stall(stallreq),
-      .flush(flush),
-      .branch_target_addr_i(id_branch_target_addr),
-      .branch_taken_i(id_branch_taken),
-      .is_id_branch_inst(id_is_branch),
-      .new_pc_i(new_pc),
-      .inst_i(inst_out_i),
-
-      .if_pc_o(if_pc),
-      .inst_read_o(inst_read_o),
-      .inst_addr_o(inst_addr_o),
-      .inst_o(if_inst)
-  );
-
-  // IF-ID
-  if_id if_id0 (
-      .clk (clk),
-      .rstn(rstn),
-
-      .if_pc  (if_pc),
-      .if_inst(if_inst),
-      .stall  (stallreq),
-      .flush  (flush),
-
-      .id_pc  (id_pc),
-      .id_inst(id_inst)
-  );
-
-  // ID
-  id id0 (
-      .pc_i(id_pc),
-      .inst_i(id_inst),
-      .rs1_data_i(rs1_data),
-      .rs2_data_i(rs2_data),
-      .ex_wreg_i(ex_wreg),
-      .ex_wreg_data_i(ex_wreg_data),
-      .ex_rd_i(ex_rd),
-      .ex_memrd_i(ex_memrd),
-      .mem_wreg_i(mem_wreg),
-      .mem_wreg_data_i(mem_wreg_data),
-      .mem_rd_i(mem_rd),
-      .mem_memrd_i(mem_memrd),
-      .is_in_delayslot_i(ex_is_id_in_delayslot | mem_is_id_in_delayslot | 
-        wb_is_id_in_delayslot | wb_nxt_is_id_in_delayslot[0] | wb_nxt_is_id_in_delayslot[1] |
-        wb_nxt_is_id_in_delayslot[2])
-      ,  // Current branch delay slot is 6 cycle
-      .func3_o(id_func3),
-      .rs1_read_o(rs1_read),
-      .rs2_read_o(rs2_read),
-      .rs1_addr_o(rs1_addr),
-      .rs2_addr_o(rs2_addr),
-      .aluop_o(id_aluop),
-      .alusrc1_o(id_alusrc1),
-      .alusrc2_o(id_alusrc2),
-      .imm_o(id_imm),
-      .rs1_data_o(id_rs1),
-      .rs2_data_o(id_rs2),
-      .rd_o(id_rd),
-      .wreg_o(id_wreg),
-      .memrd_o(id_memrd),
-      .memwr_o(id_memwr),
-      .mem2reg_o(id_mem2reg),
-      .is_branch_o(id_is_branch),
-      .branch_taken_o(id_branch_taken),
-      .branch_target_addr_o(id_branch_target_addr),
-      .is_in_delayslot_o(id_is_in_delayslot),
-      .link_addr_o(id_link_addr),
-      .next_inst_in_delayslot_o(id_next_inst_in_delayslot),
-      .stallreq(stallreq_from_id),
-      .flush_o(flush)
-  );
-
-  // ID-EX
-  id_ex id_ex0 (
-      .clk (clk),
-      .rstn(rstn),
-
-      .id_pc(id_pc),
-      .id_func3(id_func3),
-      .id_aluop(id_aluop),
-      .id_alusrc1(id_alusrc1),
-      .id_alusrc2(id_alusrc2),
-      .id_imm(id_imm),
-      .id_rs1(id_rs1),
-      .id_rs2(id_rs2),
-      .id_rd(id_rd),
-      .id_wreg(id_wreg),
-      .id_memrd(id_memrd),
-      .id_memwr(id_memwr),
-      .id_mem2reg(id_mem2reg),
-      .id_link_addr(id_link_addr),
-      .id_is_in_delayslot(id_is_in_delayslot),
-      .id_next_inst_in_delayslot(id_next_inst_in_delayslot),
-      .stall(stallreq),
-      .flush(flush),
-
-      .ex_pc(ex_pc),
-      .ex_func3(ex_func3),
-      .ex_aluop(ex_aluop),
-      .ex_alusrc1(ex_alusrc1),
-      .ex_alusrc2(ex_alusrc2),
-      .ex_imm(ex_imm),
-      .ex_rs1(ex_rs1),
-      .ex_rs2(ex_rs2),
-      .ex_rd(ex_rd),
-      .ex_wreg(ex_wreg),
-      .ex_memrd(ex_memrd),
-      .ex_memwr(ex_memwr),
-      .ex_mem2reg(ex_mem2reg),
-      .ex_link_addr(ex_link_addr),
-      .ex_is_id_in_delayslot(ex_is_id_in_delayslot)
-  );
-
-  // EX
-  ex ex0 (
-      .pc_i(ex_pc),
-      .aluop_i(ex_aluop),
-      .alusrc1_i(ex_alusrc1),
-      .alusrc2_i(ex_alusrc2),
-      .rs1_i(ex_rs1),
-      .rs2_i(ex_rs2),
-      .imm_i(ex_imm),
-
-      .link_addr_i(ex_link_addr),
-      .wdata_o(ex_wdata),
-      .wreg_data_o(ex_wreg_data),
-      .stallreq(stallreq_from_ex)
-  );
-
-  // EX-MEM
-  ex_mem ex_mem0 (
-      .clk (clk),
-      .rstn(rstn),
-
-      .ex_pc(ex_pc),
-      .ex_func3(ex_func3),
-      .ex_rd(ex_rd),
-      .ex_wreg(ex_wreg),
-      .ex_wdata(ex_wdata),
-      .ex_wreg_data(ex_wreg_data),
-      .ex_memrd(ex_memrd),
-      .ex_memwr(ex_memwr),
-      .ex_mem2reg(ex_mem2reg),
-      .ex_is_id_in_delayslot(ex_is_id_in_delayslot),
-      .stall(stallreq),
-      .flush(flush),
-
-      .mem_pc(mem_pc),
-      .mem_func3(mem_func3),
-      .mem_rd(mem_rd),
-      .mem_wreg(mem_wreg),
-      .mem_wdata(mem_wdata),
-      .mem_wreg_data(mem_wreg_data),
-      .mem_memrd(mem_memrd),
-      .mem_memwr(mem_memwr),
-      .mem_mem2reg(mem_mem2reg),
-      .mem_is_id_in_delayslot(mem_is_id_in_delayslot)
-  );
-
-  // MEM
-  mem mem0 (
-      .memrd_i(mem_memrd),
-      .memwr_i(mem_memwr),
-      .wreg_data_i(mem_wreg_data),
-      .wdata_i(mem_wdata),
-      .wb_mem2reg_i(wb_mem2reg),
-      .func3_i(mem_func3),
-
-      .data_read_o(data_read_o),
-      .data_write_o(data_write_o),
-      .data_write_web_o(data_write_web_o),
-      .data_addr_o(data_addr_o),
-      .data_in_o(data_in_o)
-  );
-
-  // MEM-WB
-  mem_wb mem_wb0 (
-      .clk (clk),
-      .rstn(rstn),
-
-      .mem_rd(mem_rd),
-      .mem_wreg(mem_wreg),
-      .mem_mem2reg(mem_mem2reg),
-      .mem_wreg_data(mem_wreg_data),
-      .mem_func3(mem_func3),
-      .mem_is_id_in_delayslot(mem_is_id_in_delayslot),
-      .mem_pc(mem_pc),
-      .stall(stallreq),
-      .flush(flush),
-
-      .wb_rd(wb_rd),
-      .wb_wreg(wb_wreg),
-      .wb_mem2reg(wb_mem2reg),
-      .wb_from_alu(wb_from_alu),
-      .wb_func3(wb_func3),
-      .wb_is_id_in_delayslot(wb_is_id_in_delayslot),
-      .wb_pc(wb_pc)
-  );
-
-  // WB
-  wb wb0 (
-      .mem2reg_i(wb_mem2reg),
-      .from_reg_i(wb_from_alu),
-      .from_mem_i(data_out_i),
-      .func3_i(wb_func3),
-
-      .wdata_o(wb_wdata)
-  );
-
-  // For branch delay slot
-  always_ff @(posedge clk, negedge rstn) begin
-    if (~rstn) begin
-      wb_nxt_is_id_in_delayslot[3] <= `NotInDelaySlot;
-      wb_nxt_is_id_in_delayslot[2] <= `NotInDelaySlot;
-      wb_nxt_is_id_in_delayslot[1] <= `NotInDelaySlot;
-      wb_nxt_is_id_in_delayslot[0] <= `NotInDelaySlot;
-    end else begin
-      wb_nxt_is_id_in_delayslot[3] <= wb_nxt_is_id_in_delayslot[2];
-      wb_nxt_is_id_in_delayslot[2] <= wb_nxt_is_id_in_delayslot[1];
-      wb_nxt_is_id_in_delayslot[1] <= wb_nxt_is_id_in_delayslot[0];
-      wb_nxt_is_id_in_delayslot[0] <= wb_is_id_in_delayslot;
-    end
-  end
 endmodule

@@ -1,45 +1,45 @@
 `include "../../include/AXI_define.svh"
-`include "Interface.sv"
-`include "Arbiter.sv"
-`include "Decoder.sv"
+// `include "Arbiter.sv"
+// `include "Decoder.sv"
+// `include "Interface.sv"
 
 module ReadAddr(
-    input clk,rst,
+    input clk,
+    input rst,
     inter_RA.M0 M0,
     inter_RA.M1 M1,
     inter_RA.S0 S0,
     inter_RA.S1 S1,
     inter_RA.SDEFAULT SD
 );
+//wire
+inter_RA Wire();                      //used to connect submodule for "assign" output
+VALIDCtrl VS0();
+VALIDCtrl VS1();
+VALIDCtrl VSD();    //parameter to control valid value
 
-interface VALIDCtrl;
-    logic temp_ARVALID, busy, reg_READY;
-endinterface
-
-inter_RA wire;                      //used to connect submodule for "assign" output
-VALIDCtrl VS0, VS1, VSD;      //parameter to control valid value
 logic wire_READY;                   //wire for READY signal
 
 //Slave 0 IM
-assign S0.ARID = wire.ID;
-assign S0.ARADDR = wire.ADDR;
-assign S0.ARLEN = wire.LEN;
-assign S0.ARSIZE = wire.SIZE;
-assign S0.ARBURST = wire.BURST;
+assign S0.ARID = Wire.ARID;
+assign S0.ARADDR = Wire.ARADDR;
+assign S0.ARLEN = Wire.ARLEN;
+assign S0.ARSIZE = Wire.ARSIZE;
+assign S0.ARBURST = Wire.ARBURST;
 
 //Slave 1 DM
-assign S1.ARID = wire.ID;
-assign S1.ARADDR = wire.ADDR;
-assign S1.ARLEN = wire.LEN;
-assign S1.ARSIZE = wire.SIZE;
-assign S1.ARBURST = wire.BURST;
+assign S1.ARID = Wire.ARID;
+assign S1.ARADDR = Wire.ARADDR;
+assign S1.ARLEN = Wire.ARLEN;
+assign S1.ARSIZE = Wire.ARSIZE;
+assign S1.ARBURST = Wire.ARBURST;
 
 //Slave Default
-assign SD.ARID = wire.ID;
-assign SD.ARADDR = wire.ADDR;
-assign SD.ARLEN = wire.LEN;
-assign SD.ARSIZE = wire.SIZE;
-assign SD.ARBURST = wire.BURST;
+assign SD.ARID = Wire.ARID;
+assign SD.ARADDR = Wire.ARADDR;
+assign SD.ARLEN = Wire.ARLEN;
+assign SD.ARSIZE = Wire.ARSIZE;
+assign SD.ARBURST = Wire.ARBURST;
 
 assign VS0.busy = VS0.reg_READY & ~S0.ARREADY;
 assign VS1.busy = VS1.reg_READY & ~S1.ARREADY;
@@ -62,24 +62,35 @@ always_ff @(posedge clk or negedge rst) begin
 end
 
 Arbiter RArbiter(
-    .clk                (clk),
-    .rst                (rst),
-    .inter_Arbiter.M0   (inter_RA.M0),
-    .inter_Arbiter.M1   (inter_RA.M1),
-    .inter_Arbiter.M    (inter_RA.wire),
-    .READY_M            (wire_READY)
+    .clk        (clk),
+    .rst        (rst),
+    .ID_M0      (M0.ARID),
+    .ADDR_M0    (M0.ARADDR),
+    .SIZE_M0    (M0.ARSIZE),
+    .LEN_M0     (M0.ARLEN),
+    .BURST_M0   (M0.ARBURST),
+    .VALID_M0   (M0.ARVALID),
+    .READY_M0   (M0.ARREADY),
+    .M1         (M1),
+    .ID_M       (Wire.ARID),
+    .ADDR_M     (Wire.ARADDR),
+    .SIZE_M     (Wire.ARSIZE),
+    .LEN_M      (Wire.ARLEN),
+    .BURST_M    (Wire.ARBURST),
+    .VALID_M    (Wire.ARVALID),
+    .READY_M    (Wire.ARREADY)
 );
 
 Decoder RDecoder(
-    .VALID                      (inter_RA.wire.VALID),
-    .ADDR                       (inter_RA.wire.ADDR),
-    .inter_Decoder.S0.VALID     (VALIDCtrl.VS0.temp_ARVALID),
-    .inter_Decoder.S1.VALID     (VALIDCtrl.VS1.temp_ARVALID),
-    .inter_Decoder.SD.VALID     (VALIDCtrl.VSD.temp_ARVALID),
-    .inter_Decoder.S0.READY     (inter_RA.S0.ARREADY),
-    .inter_Decoder.S1.READY     (inter_RA.S1.ARREADY),
-    .inter_Decoder.SD.READY     (inter_RA.SD.ARREADY),
-    .READY_S                    (wire_READY)
+    .VALID        (Wire.ARVALID),
+    .ADDR         (Wire.ARADDR),
+    .VALID_S0     (VS0.temp_ARVALID),
+    .VALID_S1     (VS1.temp_ARVALID),
+    .VALID_SD     (VSD.temp_ARVALID),
+    .READY_S0     (S0.ARREADY),
+    .READY_S1     (S1.ARREADY),
+    .READY_SD     (SD.ARREADY),
+    .READY_S      (Wire.ARREADY)
 );
 
 endmodule

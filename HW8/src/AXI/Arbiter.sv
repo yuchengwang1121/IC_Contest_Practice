@@ -2,10 +2,25 @@
 `include "Interface.sv"
 
 module Arbiter(
-    input clk,rst,
-    inter_Arbiter.M0 M0,
+    input clk,
+    input rst,
+    //M0
+    input ID_M0,
+    input ADDR_M0,
+    input LEN_M0,
+    input SIZE_M0,
+    input BURST_M0,
+    input VALID_M0,
+    output logic READY_M0,
+    //M1
     inter_Arbiter.M1 M1,
-    inter_Arbiter.M M,
+    //M
+    output logic ID_M,
+    output logic ADDR_M,
+    output logic LEN_M,
+    output logic SIZE_M,
+    output logic BURST_M,
+    output logic VALID_M,
     input READY_M
 );
     
@@ -21,16 +36,16 @@ always_ff @(posedge clk or negedge rst ) begin
         //if lock want & MEM is ready, then release
         //else ifMX is valid & MEM and otherMY is locked then locked
         //else lockMX == lockMX(old)
-        lockM0 <= (lockM0 & READY_M)? 1'b0 : (~M1.VALID & M0.VALID & ~READY_M) ? 1'b1 : LockM0;
-        lockM1 <= (lockM1 & READY_M)? 1'b0 : (M1.VALID & ~M0.VALID & ~READY_M) ? 1'b1 : LockM0;
+        lockM0 <= (lockM0 & READY_M)? 1'b0 : (~M1.VALID & VALID_M0 & ~READY_M) ? 1'b1 : lockM0;
+        lockM1 <= (lockM1 & READY_M)? 1'b0 : (M1.VALID & ~VALID_M0 & ~READY_M) ? 1'b1 : lockM0;
     end
 end
 
 always_comb begin
-    if (M1.VALID & ~lockM0) begin
+    if (M1.VALID & ~lockM0 || lockM1) begin
         master = 2'b10;
     end
-    else if (lockM0 || M0.VALID) begin
+    else if (lockM0 || VALID_M0) begin
         master = 2'b01;
     end
     else master = 2'b00;
@@ -39,36 +54,36 @@ end
 always_comb begin
     case (master)
         2'b01: begin
-            M.ID = {4'b0001, M0.ID};
-            M.ADDR = M0.ADDR;
-            M.LEN = M0.LEN;
-            M.SIZE = M0.SIZE;
-            M.BURST = M0.BURST;
-            M.VALID = M0.VALID;
+            ID_M = {4'b0001, ID_M0};
+            ADDR_M = ADDR_M0;
+            LEN_M = LEN_M0;
+            SIZE_M = SIZE_M0;
+            BURST_M = BURST_M0;
+            VALID_M = VALID_M0;
 
-            M0.READY = M0.VALID & M.READY;
+            READY_M0 = VALID_M0 & READY_M;
             M1.READY = 1'b0;
         end
         2'b10,2'b11: begin
-            M.ID = {4'b0010, M1.ID};
-            M.ADDR = M1.ADDR;
-            M.LEN = M1.LEN;
-            M.SIZE = M1.SIZE;
-            M.BURST = M1.BURST;
-            M.VALID = M1.VALID;
+            ID_M = {4'b0010, M1.ID};
+            ADDR_M = M1.ADDR;
+            LEN_M = M1.LEN;
+            SIZE_M = M1.SIZE;
+            BURST_M = M1.BURST;
+            VALID_M = M1.VALID;
 
-            M0.READY = 1'b0;
-            M1.READY = M1.VALID & M.READY;
+            READY_M0 = 1'b0;
+            M1.READY = M1.VALID & READY_M;
         end
         default: begin
-            M.ID = {4'b0, AXI_ID_BITS'b0};
-            M.ADDR = `AXI_ADDR_BITS'b0;
-            M.LEN = `AXI_LEN_BITS'b0;
-            M.SIZE = `AXI_SIZE_BITS'b0;
-            M.BURST = 2'b0;
-            M.VALID = 1'b0;
+            ID_M = {4'b0, `AXI_ID_BITS'b0};
+            ADDR_M = `AXI_ADDR_BITS'b0;
+            LEN_M = `AXI_LEN_BITS'b0;
+            SIZE_M = `AXI_SIZE_BITS'b0;
+            BURST_M = 2'b0;
+            VALID_M = 1'b0;
 
-            M0.READY = 1'b0;
+            READY_M0 = 1'b0;
             M1.READY = 1'b0;
         end
     endcase

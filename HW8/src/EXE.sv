@@ -24,6 +24,7 @@ module EXE(
     input [31:0] WB_rddata,
     input [1:0] Forward_rs1src,
     input [1:0] Forward_rs2src,
+    input EXEMEM_RegWrite,
 
     output logic [31:0] EXE_PCtoReg,
     output logic [31:0] EXE_ALUout,
@@ -97,18 +98,20 @@ always_ff @(posedge clk or posedge rst) begin
         EXE_RegWrite <= 1'b0;
     end
     else begin
-        if (ID_PCtoRegSrc)  EXE_PCtoReg <= ALU_pcimm;
-        else EXE_PCtoReg <= ALU_pc4;
+        if (EXEMEM_RegWrite) begin                          //new added
+            if (ID_PCtoRegSrc)  EXE_PCtoReg <= ALU_pcimm;
+            else EXE_PCtoReg <= ALU_pc4;
         
-        EXE_ALUout  <= Wire_ALUout;
-        EXE_rs2data <= ALU_rs21;
-        EXE_rdaddr <= ID_rdaddr;
-        EXE_Funct3 <= ID_Funct3;
-        EXE_rdsrc <= ID_RDSrc;
-        EXE_MemRead <= ID_MemRead;
-        EXE_MemWrite <= ID_MemWrite;
-        EXE_MemtoReg <= ID_MemtoReg;
-        EXE_RegWrite <= ID_RegWrite;
+            EXE_ALUout  <= Wire_ALUout;
+            EXE_rs2data <= ALU_rs21;
+            EXE_rdaddr <= ID_rdaddr;
+            EXE_Funct3 <= ID_Funct3;
+            EXE_rdsrc <= ID_RDSrc;
+            EXE_MemRead <= ID_MemRead;
+            EXE_MemWrite <= ID_MemWrite;
+            EXE_MemtoReg <= ID_MemtoReg;
+            EXE_RegWrite <= ID_RegWrite;
+        end
     end
 end
 endmodule

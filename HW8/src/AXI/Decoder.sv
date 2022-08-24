@@ -1,28 +1,30 @@
 `include "../../include/AXI_define.svh"
-`include "Interface.sv"
+// `include "Interface.sv"
 
 module Decoder(
-    input clk,rst,
     input VALID,
     input [`AXI_ADDR_BITS-1:0] ADDR,
-    inter_Decoder.S0 S0,
-    inter_Decoder.S1 S1,
-    inter_Decoder.SDEFAULT SD,
+    input READY_S0,
+    input READY_S1,
+    input READY_SD,
+    output logic VALID_S0,
+    output logic VALID_S1,
+    output logic VALID_SD,
     output logic READY_S
 );
     always_comb begin
         case (ADDR[31:16])
             16'h0000:begin
-                {SD.VALID, S1.VALID. S0.VALID} = {2'b0, VALID};
-                READY_S = (VALID)? S0.READY:1'b1;
+                {VALID_SD, VALID_S1, VALID_S0} = {2'b0, VALID};
+                READY_S = (VALID)? READY_S0:1'b1;
             end
             16'h0001: begin
-                {SD.VALID, S1.VALID. S0.VALID} = {1'b0, VALID, 1'b0};
-                READY_S = (VALID)? S1.READY:1'b1;
+                {VALID_SD, VALID_S1, VALID_S0} = {1'b0, VALID, 1'b0};
+                READY_S = (VALID)? READY_S1:1'b1;
             end
             default: begin
-                {SD.VALID, S1.VALID. S0.VALID} = {VALID, 2'b0};
-                READY_S = (VALID)? SD.READY:1'b1;
+                {VALID_SD, VALID_S1, VALID_S0} = {VALID, 2'b0};
+                READY_S = (VALID)? READY_SD:1'b1;
             end
         endcase
     end

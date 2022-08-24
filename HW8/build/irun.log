@@ -1,5 +1,5 @@
 irun: 15.20-s084: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
-TOOL:	irun	15.20-s084: Started on Aug 12, 2022 at 17:12:28 CST
+TOOL:	irun	15.20-s084: Started on Aug 24, 2022 at 23:21:16 CST
 irun
 	/home/YuChengWang/Verilog_pratice/HW8/./sim/top_tb.sv
 	+incdir+/home/YuChengWang/Verilog_pratice/HW8/./src+/home/YuChengWang/Verilog_pratice/HW8/./src/AXI+/home/YuChengWang/Verilog_pratice/HW8/./include+/home/YuChengWang/Verilog_pratice/HW8/./sim
@@ -12,6 +12,9 @@ irun
    User defined plus("+") options:
 	+prog_path=/home/YuChengWang/Verilog_pratice/HW8/./sim/prog0
 
+Recompiling... reason: file '../src/AXI/Interface.sv' is newer than expected.
+	expected: Wed Aug 24 22:15:26 2022
+	actual:   Wed Aug 24 23:04:03 2022
 file: /home/YuChengWang/Verilog_pratice/HW8/./sim/top_tb.sv
 `define CYCLE 10.0 // Cycle time
                                 |
@@ -19,39 +22,9 @@ ncvlog: *W,MACNDF (/home/YuChengWang/Verilog_pratice/HW8/./sim/top_tb.sv,2|32): 
 `define MAX 300000 // Max cycle number
                                       |
 ncvlog: *W,MACNDF (/home/YuChengWang/Verilog_pratice/HW8/./sim/top_tb.sv,3|38): The text macro 'MAX' has also been defined on the command line using the -DEFINE command line option.  The compiler will ignore the definition found in the Verilog source code.
-	module worklib.ProgramCounter:sv
+	module worklib.Arbiter:sv
 		errors: 0, warnings: 0
-	module worklib.IF:sv
-		errors: 0, warnings: 0
-	module worklib.ControlUnit:sv
-		errors: 0, warnings: 0
-	module worklib.RegisterFile:sv
-		errors: 0, warnings: 0
-	module worklib.ImmediateGenerator:sv
-		errors: 0, warnings: 0
-	module worklib.ID:sv
-		errors: 0, warnings: 0
-	module worklib.ALUCtrl:sv
-		errors: 0, warnings: 0
-	module worklib.ALU:sv
-		errors: 0, warnings: 0
-	module worklib.EXE:sv
-		errors: 0, warnings: 0
-	module worklib.MEM:sv
-		errors: 0, warnings: 0
-	module worklib.WB:sv
-		errors: 0, warnings: 0
-	module worklib.ForwardUnit:sv
-		errors: 0, warnings: 0
-	module worklib.BranchCtrl:sv
-		errors: 0, warnings: 0
-	module worklib.HazardCtrl:sv
-		errors: 0, warnings: 0
-	module worklib.SRAM_wrapper:sv
-		errors: 0, warnings: 0
-	module worklib.top:sv
-		errors: 0, warnings: 0
-	module worklib.SRAM:sv
+	module worklib.WriteData:sv
 		errors: 0, warnings: 0
     $value$plusargs("prog_path=%s", prog_path);
                   |
@@ -59,137 +32,128 @@ ncvlog: *W,NOSYST (/home/YuChengWang/Verilog_pratice/HW8/./sim/top_tb.sv,43|18):
       $fscanf(gf, "%h\n", GOLDEN[num]);
             |
 ncvlog: *W,NOSYST (/home/YuChengWang/Verilog_pratice/HW8/./sim/top_tb.sv,65|12): System function '$fscanf' invoked as a task. Return value will be ignored.
-	module worklib.top_tb:sv
-		errors: 0, warnings: 2
-ncvlog: *W,SPDUSD: Include directory /home/YuChengWang/Verilog_pratice/HW8/./src/AXI given but not used.
-ncvlog: *W,SPDUSD: Include directory /home/YuChengWang/Verilog_pratice/HW8/./include given but not used.
 	Total errors/warnings found outside modules and primitives:
-		errors: 0, warnings: 4
+		errors: 0, warnings: 2
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
+    .M1         (M1),
+                  |
+ncelab: *W,CUINFN (../src/AXI/ReadAddr.sv,74|18): A named interface port should be connected to an interface of the same name (top_tb.TOP.AXI.RA).
+    .M1         (M1),
+                  |
+ncelab: *W,CUINFN (../src/AXI/WriteAddr.sv,46|18): A named interface port should be connected to an interface of the same name (top_tb.TOP.AXI.WA).
+    .M_AW  (M0_AW),
+                |
+ncelab: *W,CUIBMP (../src/CPU_wrapper.sv,63|16): The modport of the instance (M0_AW) and the modport of the port (Master) do not match, using: Master (top_tb.TOP.CPU_wrapper).
+    .M_W   (M0_W),
+               |
+ncelab: *W,CUIBMP (../src/CPU_wrapper.sv,64|15): The modport of the instance (M0_W) and the modport of the port (Master) do not match, using: Master (top_tb.TOP.CPU_wrapper).
+    .M_B   (M0_B),
+               |
+ncelab: *W,CUIBMP (../src/CPU_wrapper.sv,65|15): The modport of the instance (M0_B) and the modport of the port (Master) do not match, using: Master (top_tb.TOP.CPU_wrapper).
+    .M_AR  (M0_AR),
+                |
+ncelab: *W,CUIBMP (../src/CPU_wrapper.sv,66|16): The modport of the instance (M0_AR) and the modport of the port (Master) do not match, using: Master (top_tb.TOP.CPU_wrapper).
+    .M_R   (M0_R)
+               |
+ncelab: *W,CUIBMP (../src/CPU_wrapper.sv,67|15): The modport of the instance (M0_R) and the modport of the port (Master) do not match, using: Master (top_tb.TOP.CPU_wrapper).
+    .M_AW  (M1_AW),
+                |
+ncelab: *W,CUIBMP (../src/CPU_wrapper.sv,80|16): The modport of the instance (M1_AW) and the modport of the port (Master) do not match, using: Master (top_tb.TOP.CPU_wrapper).
+    .M_W   (M1_W),
+               |
+ncelab: *W,CUIBMP (../src/CPU_wrapper.sv,81|15): The modport of the instance (M1_W) and the modport of the port (Master) do not match, using: Master (top_tb.TOP.CPU_wrapper).
+    .M_B   (M1_B),
+               |
+ncelab: *W,CUIBMP (../src/CPU_wrapper.sv,82|15): The modport of the instance (M1_B) and the modport of the port (Master) do not match, using: Master (top_tb.TOP.CPU_wrapper).
+    .M_AR  (M1_AR),
+                |
+ncelab: *W,CUIBMP (../src/CPU_wrapper.sv,83|16): The modport of the instance (M1_AR) and the modport of the port (Master) do not match, using: Master (top_tb.TOP.CPU_wrapper).
+    .M_R   (M1_R)
+               |
+ncelab: *W,CUIBMP (../src/CPU_wrapper.sv,84|15): The modport of the instance (M1_R) and the modport of the port (Master) do not match, using: Master (top_tb.TOP.CPU_wrapper).
 	Top level design units:
+		inter_Arbiter
+		inter_Decoder
 		top_tb
 ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
-	Building instance overlay tables: .................... Done
-	Generating native compiled code:
-		worklib.ALU:sv <0x0977ecc2>
-			streams:   5, words:  3149
-		worklib.ALUCtrl:sv <0x555f5741>
-			streams:   1, words:  2972
-		worklib.BranchCtrl:sv <0x35855702>
-			streams:   1, words:   678
-		worklib.ControlUnit:sv <0x63e5ba98>
-			streams:   1, words:  9247
-		worklib.EXE:sv <0x5194b9bc>
-			streams:  14, words:  5286
-		worklib.ForwardUnit:sv <0x224af71b>
-			streams:   2, words:  1030
-		worklib.HazardCtrl:sv <0x2fbcf262>
-			streams:   1, words:  1112
-		worklib.ID:sv <0x6b4b1348>
-			streams:  23, words:  9311
-		worklib.IF:sv <0x3aaad8df>
-			streams:   6, words:  1708
-		worklib.ImmediateGenerator:sv <0x49fd85a1>
-			streams:   1, words:  1756
-		worklib.MEM:sv <0x4b0a42da>
-			streams:   9, words:  5215
-		worklib.ProgramCounter:sv <0x7bf9ae7d>
-			streams:   2, words:   389
-		worklib.RegisterFile:sv <0x1ec9411f>
-			streams:   5, words:  6283
-		worklib.SRAM:sv <0x37d2529e>
-			streams:  61, words: 17192
-		worklib.SRAM:sv <0x4df264e8>
-			streams:  61, words: 16548
-		worklib.WB:sv <0x0427dd66>
-			streams:   3, words:   481
-		worklib.top:sv <0x0862ac37>
-			streams: 118, words: 23554
-		worklib.top_tb:sv <0x12c35445>
-			streams:   4, words: 25577
-	Building instance specific data structures.
-	Loading native compiled code:     .................... Done
-	Design hierarchy summary:
-		                  Instances  Unique
-		Modules:                 20      18
-		Registers:              188     180
-		Scalar wires:           248       -
-		Expanded wires:         164       8
-		Vectored wires:         150       -
-		Always blocks:           26      24
-		Initial blocks:           2       2
-		Cont. assignments:      109      96
-		Pseudo assignments:     140     140
-		Simulation timescale:  10ps
-	Writing initial simulation snapshot: worklib.top_tb:sv
-Loading snapshot worklib.top_tb:sv .................... Done
-ncsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
-ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
-ncsim> run
-
-Done
-
-DM[   0] = fffffff2, expect = fffffff0
-DM[   1] = fffffff9, expect = fffffff8
-DM[   2] = 00000008, pass
-DM[   3] = 00000001, pass
-DM[   4] = 00000000, expect = 00000001
-DM[   5] = 777770f0, expect = 78787878
-DM[   6] = 00000012, expect = 000091a2
-DM[   7] = 0eeeeeee, expect = 00000003
-DM[   8] = fefcfa9d, expect = fefcfefd
-DM[   9] = 00000000, expect = 10305070
-DM[  10] = fffffff6, expect = cccccccc
-DM[  11] = fffffff6, expect = ffffffcc
-DM[  12] = 00000012, expect = ffffcccc
-DM[  13] = 000000f6, expect = 000000cc
-DM[  14] = 0000fff6, expect = 0000cccc
-DM[  15] = 0000056b, expect = 00000d9d
-DM[  16] = fffffcad, expect = 00000004
-DM[  17] = 00000003, pass
-DM[  18] = aaaab424, expect = 000001a6
-DM[  19] = 00000599, expect = 00000ec6
-DM[  20] = 1234601e, expect = 2468b7a8
-DM[  21] = b09e58a0, expect = 5dbf9f00
-DM[  22] = 00000f00, expect = 00012b38
-DM[  23] = 005b0b39, expect = fa2817b7
-DM[  24] = 00100000, expect = ff000000
-DM[  25] = 12345678, pass
-DM[  26] = 0000f000, pass
-DM[  27] = 00000000, expect = 00000f00
-DM[  28] = 000000f0, pass
-DM[  29] = 12345678, expect = 0000000f
-DM[  30] = 56780000, pass
-DM[  31] = 78000000, pass
-DM[  32] = 00005678, pass
-DM[  33] = 00000078, pass
-DM[  34] = 00000000, expect = 12345678
-DM[  35] = 5678000f, expect = ce780000
-DM[  36] = fffff000, pass
-DM[  37] = fffff001, expect = fffff000
-DM[  38] = fffff001, expect = fffff000
-DM[  39] = fffff001, expect = fffff000
-DM[  40] = fffff001, expect = fffff000
-DM[  41] = fffff001, expect = fffff000
-DM[  42] = 1357a064, pass
-DM[  43] = 13578000, pass
-DM[  44] = fffff004, pass
-
-
-
-
-        ****************************               
-        **                        **       |__||  
-        **  OOPS!!                **      / X,X  | 
-        **                        **    /_____   | 
-        **  Simulation Failed!!   **   /^ ^ ^ \  |
-        **                        **  |^ ^ ^ ^ |w| 
-        ****************************   \m___m__|_|
-         Totally has          31 errors                     
-
-
-Simulation complete via $finish(1) at time 72540 NS + 3
-../sim/top_tb.sv:87     $finish;
-ncsim> exit
-TOOL:	irun	15.20-s084: Exiting on Aug 12, 2022 at 17:12:31 CST  (total: 00:00:03)
+        lockM0 <= (lockM0 & READY_M)? 1'b0 : (~M1.VALID & VALID_M0 & ~READY_M) ? 1'b1 : lockM0;
+                                                      |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,39|54): Hierarchical name component lookup failed at 'VALID'.
+        lockM1 <= (lockM1 & READY_M)? 1'b0 : (M1.VALID & ~VALID_M0 & ~READY_M) ? 1'b1 : lockM0;
+                                                     |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,40|53): Hierarchical name component lookup failed at 'VALID'.
+    if (M1.VALID & ~lockM0 || lockM1) begin
+               |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,45|15): Hierarchical name component lookup failed at 'VALID'.
+            M1.READY = 1'b0;
+                   |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,65|19): Hierarchical name component lookup failed at 'READY'.
+            ID_M = {4'b0010, M1.ID};
+                                 |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,68|33): Hierarchical name component lookup failed at 'ID'.
+            ADDR_M = M1.ADDR;
+                           |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,69|27): Hierarchical name component lookup failed at 'ADDR'.
+            LEN_M = M1.LEN;
+                         |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,70|25): Hierarchical name component lookup failed at 'LEN'.
+            SIZE_M = M1.SIZE;
+                           |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,71|27): Hierarchical name component lookup failed at 'SIZE'.
+            BURST_M = M1.BURST;
+                             |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,72|29): Hierarchical name component lookup failed at 'BURST'.
+            VALID_M = M1.VALID;
+                             |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,73|29): Hierarchical name component lookup failed at 'VALID'.
+            M1.READY = M1.VALID & READY_M;
+                   |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,76|19): Hierarchical name component lookup failed at 'READY'.
+            M1.READY = M1.VALID & READY_M;
+                              |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,76|30): Hierarchical name component lookup failed at 'VALID'.
+            M1.READY = 1'b0;
+                   |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,87|19): Hierarchical name component lookup failed at 'READY'.
+        lockM0 <= (lockM0 & READY_M)? 1'b0 : (~M1.VALID & VALID_M0 & ~READY_M) ? 1'b1 : lockM0;
+                                                      |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,39|54): Hierarchical name component lookup failed at 'VALID'.
+        lockM1 <= (lockM1 & READY_M)? 1'b0 : (M1.VALID & ~VALID_M0 & ~READY_M) ? 1'b1 : lockM0;
+                                                     |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,40|53): Hierarchical name component lookup failed at 'VALID'.
+    if (M1.VALID & ~lockM0 || lockM1) begin
+               |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,45|15): Hierarchical name component lookup failed at 'VALID'.
+            M1.READY = 1'b0;
+                   |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,65|19): Hierarchical name component lookup failed at 'READY'.
+            ID_M = {4'b0010, M1.ID};
+                                 |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,68|33): Hierarchical name component lookup failed at 'ID'.
+            ADDR_M = M1.ADDR;
+                           |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,69|27): Hierarchical name component lookup failed at 'ADDR'.
+            LEN_M = M1.LEN;
+                         |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,70|25): Hierarchical name component lookup failed at 'LEN'.
+            SIZE_M = M1.SIZE;
+                           |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,71|27): Hierarchical name component lookup failed at 'SIZE'.
+            BURST_M = M1.BURST;
+                             |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,72|29): Hierarchical name component lookup failed at 'BURST'.
+            VALID_M = M1.VALID;
+                             |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,73|29): Hierarchical name component lookup failed at 'VALID'.
+            M1.READY = M1.VALID & READY_M;
+                   |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,76|19): Hierarchical name component lookup failed at 'READY'.
+            M1.READY = M1.VALID & READY_M;
+                              |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,76|30): Hierarchical name component lookup failed at 'VALID'.
+            M1.READY = 1'b0;
+                   |
+ncelab: *E,CUVUNF (../src/AXI/Arbiter.sv,87|19): Hierarchical name component lookup failed at 'READY'.
+irun: *E,ELBERR: Error during elaboration (status 1), exiting.
+TOOL:	irun	15.20-s084: Exiting on Aug 24, 2022 at 23:21:16 CST  (total: 00:00:00)

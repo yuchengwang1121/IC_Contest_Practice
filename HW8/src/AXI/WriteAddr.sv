@@ -1,62 +1,67 @@
 `include "../../include/AXI_define.svh"
-`include "Interface.sv"
-`include "Arbiter.sv"
-`include "Decoder.sv"
+// `include "Arbiter.sv"
+// `include "Decoder.sv"
+// `include "Interface.sv"
 module WriteAddr(
-    input clk,rst,
+    input clk,
+    input rst,
     inter_WA.M1 M1,             //onlt DataMemory needs to Write
     inter_WA.S0 S0,
     inter_WA.S1 S1,
     inter_WA.SDEFAULT SD
 );
+inter_WA Wire();
 
-inter_WA wire;
-logic wire_READY;
 logic ARREADY_M0;
 
 
-assign S0.AWID = wire.ID;
-assign S0.AWADDR = wire.ADDR;
-assign S0.AWLEN = wire.LEN;
-assign S0.AWSIZE = wire.SIZE;
-assign S0.AWBURST = wire.BURST;
+assign S0.AWID = Wire.AWID;
+assign S0.AWADDR = Wire.AWADDR;
+assign S0.AWLEN = Wire.AWLEN;
+assign S0.AWSIZE = Wire.AWSIZE;
+assign S0.AWBURST = Wire.AWBURST;
 
-assign S1.AWID = wire.ID;
-assign S1.AWADDR = wire.ADDR;
-assign S1.AWLEN = wire.LEN;
-assign S1.AWSIZE = wire.SIZE;
-assign S1.AWBURST = wire.BURST;
+assign S1.AWID = Wire.AWID;
+assign S1.AWADDR = Wire.AWADDR;
+assign S1.AWLEN = Wire.AWLEN;
+assign S1.AWSIZE = Wire.AWSIZE;
+assign S1.AWBURST = Wire.AWBURST;
 
-assign SD.AWID = wire.ID;
-assign SD.AWADDR = wire.ADDR;
-assign SD.AWLEN = wire.LEN;
-assign SD.AWSIZE = wire.SIZE;
-assign SD.AWBURST = wire.BURST;
+assign SD.AWID = Wire.AWID;
+assign SD.AWADDR = Wire.AWADDR;
+assign SD.AWLEN = Wire.AWLEN;
+assign SD.AWSIZE = Wire.AWSIZE;
+assign SD.AWBURST = Wire.AWBURST;
 
 Arbiter WArbiter(
-    .clk                    (clk),
-    .rst                    (rst),
-    .inter_Arbiter.M0.ID    (`AXI_ID_BITS'b0),
-    .inter_Arbiter.M0.ADDR  (`AXI_ADDR_BITS'b0),
-    .inter_Arbiter.M0.SIZE  (`AXI_SIZE_BITS'b0),
-    .inter_Arbiter.M0.LEN   (`AXI_LEN_BITS'b0),
-    .inter_Arbiter.M0.BURST (2'b0),
-    .inter_Arbiter.M0.VALID (1'b0),
-    .inter_Arbiter.M0.READY (ARREADY_M0),
-    .inter_Arbiter.M1       (inter_WA.M1),
-    .inter_Arbiter.M        (inter_WA.wire),
-    .READY_M                (wire_READY)
+    .clk        (clk),
+    .rst        (rst),
+    .ID_M0      (`AXI_ID_BITS'b0),
+    .ADDR_M0    (`AXI_ADDR_BITS'b0),
+    .SIZE_M0    (`AXI_SIZE_BITS'b0),
+    .LEN_M0     (`AXI_LEN_BITS'b0),
+    .BURST_M0   (2'b0),
+    .VALID_M0   (1'b0),
+    .READY_M0   (ARREADY_M0),
+    .M1         (M1),
+    .ID_M       (Wire.AWID),
+    .ADDR_M     (Wire.AWADDR),
+    .SIZE_M     (Wire.AWSIZE),
+    .LEN_M      (Wire.AWLEN),
+    .BURST_M    (Wire.AWBURST),
+    .VALID_M    (Wire.AWVALID),
+    .READY_M    (Wire.AWREADY)
 );
 
 Decoder WDecoder(
-    .VALID                      (inter_WA.wire.VALID),
-    .ADDR                       (inter_WA.wire.ADDR),
-    .inter_Decoder.S0.VALID     (inter_WA.S0.AWVALID),
-    .inter_Decoder.S1.VALID     (inter_WA.S1.AWVALID),
-    .inter_Decoder.SD.VALID     (inter_WA.SD.AWVALID),
-    .inter_Decoder.S0.READY     (inter_WA.S0.AWREADY),
-    .inter_Decoder.S1.READY     (inter_WA.S1.AWREADY),
-    .inter_Decoder.SD.READY     (inter_WA.SD.AWREADY),
-    .READY_S                    (wire_READY)
+    .VALID        (Wire.AWVALID),
+    .ADDR         (Wire.AWADDR),
+    .READY_S0     (S0.AWVALID),
+    .READY_S1     (S1.AWVALID),
+    .READY_SD     (SD.AWVALID),
+    .VALID_S0     (S0.AWREADY),
+    .VALID_S1     (S1.AWREADY),
+    .VALID_SD     (SD.AWREADY),
+    .READY_S      (Wire.AWREADY)
 );
 endmodule

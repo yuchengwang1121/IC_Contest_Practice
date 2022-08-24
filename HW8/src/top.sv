@@ -1,245 +1,94 @@
-`include "IF.sv"
-`include "ID.sv"
-`include "EXE.sv"
-`include "MEM.sv"
-`include "WB.sv"
-`include "ForwardUnit.sv"
-`include "BranchCtrl.sv"
-`include "HazardCtrl.sv"
+`include "CPU_wrapper.sv"
+`include "AXI/AXI.sv"
 `include "SRAM_wrapper.sv"
+`include "AXI_define.svh"
+`include "Interface.sv"
+// `include "Struct.sv"
 module top(
-    input clk, // Clock
+    input clk,
     input rst
 );
+inter_WA wire_M0AW();
+inter_WA wire_M1AW(); 
+inter_WA wire_S0AW();
+inter_WA wire_S1AW();
 
-//IF input wire
-logic InstrFlush,IFID_RegWrite,PCWrite;
-logic [1:0] BranchCtrl;
-logic [31:0] PC_imm, PC_jr, Instr_out;
-//IF output wire
-logic [31:0] IF_pcout, IF_instrout, PC_out;
+inter_WD wire_M0W();
+inter_WD wire_M1W();
+inter_WD wire_S0W();
+inter_WD wire_S1W();
 
-    IF IF(
-        //input
-        .clk            (clk),        //module name (.module port  interface of modport's port)
-        .rst            (rst),
-        .BranchCtrl     (BranchCtrl),    
-        .PC_imm         (PC_imm),
-        .PC_jr          (PC_jr),
-        .InstrFlush     (InstrFlush),
-        .IFID_RegWrite  (IFID_RegWrite),
-        .PCWrite        (PCWrite),
-        .Instr_out      (Instr_out),
-        //output
-        .IF_pcout       (IF_pcout),
-        .IF_instrout    (IF_instrout),
-        .PC_out         (PC_out));
+inter_WR wire_M0B();
+inter_WR wire_M1B();
+inter_WR wire_S0B();
+inter_WR wire_S1B();
+
+inter_RA wire_M0AR();
+inter_RA wire_M1AR();
+inter_RA wire_S0AR();
+inter_RA wire_S1AR();
+
+inter_RD wire_M0R();
+inter_RD wire_M1R();
+inter_RD wire_S0R();
+inter_RD wire_S1R();
     
+AXI AXI(
+    .ACLK    (clk),
+    .ARESETn (~rst),
+    .RA_M0   (wire_M0AR),
+    .RD_M0   (wire_M0R),
 
-    SRAM_wrapper IM1(
-        .CK             (~clk),
-        .CS             (1'b1),         //Chip select
-        .OE             (1'b1),         //Output Enable 
-        .WEB            (4'b1111),      //Write Enable
-        .A              (PC_out[15:2]), //Address
-        .DI             (32'b0),        //Data in
-        .DO             (Instr_out)     //DAta out
-    );
+    .WA_M1  (wire_M1AW),
+    .WD_M1  (wire_M1W),
+    .WR_M1  (wire_M1B),
+    .RA_M1  (wire_M1AR),
+    .RD_M1  (wire_M1R),
 
-//ID input wire
-logic [31:0] WB_rddata;
-logic [4:0] WB_rdaddr;
-logic WB_RegWrite,IDFlush;
-//ID output wire
-logic [31:0] ID_pcout, ID_rs1data, ID_rs2data, ID_imm;
-logic [6:0] ID_Funct7;
-logic [4:0] ID_rdaddr, ID_rs1addr, ID_rs2addr, rs1addr, rs2addr;
-logic [2:0] ID_ALUOP, ID_Funct3;
-logic [1:0] ID_branch;
-logic ID_PCtoRegSrc,ID_ALUSrc, ID_RDSrc, ID_MemRead, ID_MemWrite, ID_MemtoReg, ID_RegWrite;
+    .WA_S0  (wire_S0AW),
+    .WD_S0  (wire_S0W),
+    .WR_S0  (wire_S0B),
+    .RA_S0  (wire_S0AR),
+    .RD_S0  (wire_S0R),
 
-    ID ID(
-        //input already have wire
-        .clk            (clk),
-        .rst            (rst),
-        .IF_instrout    (IF_instrout),
-        .IF_pcout       (IF_pcout),
-        //input
-        .WB_rdaddr      (WB_rdaddr),
-        .WB_rddata      (WB_rddata),
-        .WB_RegWrite    (WB_RegWrite),
-        .IDFlush        (IDFlush),
-        //output
-        .ID_pcout       (ID_pcout),
-        .ID_rs1data     (ID_rs1data),
-        .ID_rs2data     (ID_rs2data),
-        .ID_imm         (ID_imm),
-        .ID_ALUOP       (ID_ALUOP),
-        .ID_PCtoRegSrc  (ID_PCtoRegSrc),
-        .ID_ALUSrc      (ID_ALUSrc),
-        .ID_RDSrc       (ID_RDSrc),
-        .ID_MemRead     (ID_MemRead),
-        .ID_MemWrite    (ID_MemWrite),
-        .ID_MemtoReg    (ID_MemtoReg),
-        .ID_RegWrite    (ID_RegWrite),
-        .ID_branch      (ID_branch),
-        .ID_Funct3      (ID_Funct3),
-        .ID_Funct7      (ID_Funct7),
-        .ID_rdaddr      (ID_rdaddr),
-        .ID_rs1addr     (ID_rs1addr),
-        .ID_rs2addr     (ID_rs2addr),
-        .rs1addr        (rs1addr),
-        .rs2addr        (rs2addr)
-    );
+    .WA_S1  (wire_S1AW),
+    .WD_S1  (wire_S1W),
+    .WR_S1  (wire_S1B),
+    .RA_S1  (wire_S1AR),
+    .RD_S1  (wire_S1R)
+);
+CPU_wrapper CPU_wrapper(
+    .clk    (clk),      
+    .rst    (~rst),
+    .M0_AW  (wire_M0AW),
+    .M0_W   (wire_M0W),
+    .M0_B   (wire_M0B),
+    .M0_AR  (wire_M0AR),
+    .M0_R   (wire_M0R),
 
-//EXE input wire
-logic [31:0] Forward_Memrddata;
-logic [1:0] Forward_rs1src, Forward_rs2src;
-//EXE output wire
-logic [31:0] EXE_ALUout,EXE_PCtoReg,EXE_rs2data;
-logic [4:0] EXE_rdaddr;
-logic [2:0] EXE_Funct3;
-logic ZeroFlag, EXE_rdsrc,EXE_MemRead, EXE_MemWrite, EXE_MemtoReg, EXE_RegWrite;
-
-    EXE EXE(
-        //input have wire
-        .clk            (clk),
-        .rst            (rst),
-        .ID_pcout       (ID_pcout),
-        .ID_rs1data     (ID_rs1data),
-        .ID_rs2data     (ID_rs2data),
-        .ID_imm         (ID_imm),
-        .ID_ALUOP       (ID_ALUOP),
-        .ID_PCtoRegSrc  (ID_PCtoRegSrc),
-        .ID_ALUSrc      (ID_ALUSrc),
-        .ID_RDSrc       (ID_RDSrc),
-        .ID_MemRead     (ID_MemRead),
-        .ID_MemWrite    (ID_MemWrite),
-        .ID_MemtoReg    (ID_MemtoReg),
-        .ID_RegWrite    (ID_RegWrite),
-        .ID_Funct3      (ID_Funct3),
-        .ID_Funct7      (ID_Funct7),
-        .ID_rdaddr      (ID_rdaddr),
-        .ID_rs1addr     (ID_rs1addr),
-        .ID_rs2addr     (ID_rs2addr),
-        .WB_rddata      (WB_rddata ),
-        //input
-        .Forward_Memrddata(Forward_Memrddata),
-        .Forward_rs1src (Forward_rs1src),
-        .Forward_rs2src (Forward_rs2src),
-        //output have wire
-        .PC_imm         (PC_imm),
-        .PC_jr          (PC_jr),
-        //output
-        .ZeroFlag       (ZeroFlag),
-        .EXE_ALUout     (EXE_ALUout),
-        .EXE_rdsrc      (EXE_rdsrc),
-        .EXE_MemRead    (EXE_MemRead),
-        .EXE_MemWrite   (EXE_MemWrite),
-        .EXE_MemtoReg   (EXE_MemtoReg),
-        .EXE_RegWrite   (EXE_RegWrite),
-        .EXE_rdaddr     (EXE_rdaddr),
-        .EXE_PCtoReg    (EXE_PCtoReg),
-        .EXE_rs2data    (EXE_rs2data),
-        .EXE_Funct3     (EXE_Funct3)
-        
-    );
-
-//MEM input wire
-logic [31:0] DM_dataout;
-//MEM output wire
-logic [31:0] MEM_dout,MEM_rddata,MEM_din;
-logic [4:0] MEM_rdaddr;
-logic [3:0] MEM_WEB;
-logic MEM_MemtoReg,MEM_RegWrite,MEM_CS;
-
-    MEM MEM(
-        //input have wire
-        .clk            (clk),
-        .rst            (rst),
-        .EXE_ALUout     (EXE_ALUout),
-        .EXE_rdsrc      (EXE_rdsrc),
-        .EXE_MemRead    (EXE_MemRead),
-        .EXE_MemWrite   (EXE_MemWrite),
-        .EXE_MemtoReg   (EXE_MemtoReg),
-        .EXE_RegWrite   (EXE_RegWrite),
-        .EXE_rdaddr     (EXE_rdaddr),
-        .EXE_PCtoReg    (EXE_PCtoReg),
-        .EXE_rs2data    (EXE_rs2data),
-        .EXE_Funct3     (EXE_Funct3),
-        //input
-        .DM_dataout     (DM_dataout),
-        //output have wire
-        .MEM_rddata     (MEM_rddata),
-        //output
-        .MEM_rdaddr     (MEM_rdaddr),
-        .MEM_dout       (MEM_dout),
-        .MEM_MemtoReg   (MEM_MemtoReg),
-        .MEM_RegWrite   (MEM_RegWrite),
-        .Forward_Memrddata (Forward_Memrddata),
-        .MEM_CS         (MEM_CS),
-        .MEM_WEB        (MEM_WEB),
-        .MEM_din        (MEM_din)
-    );
-
-    SRAM_wrapper DM1(
-        .CK             (~clk),
-        .CS             (MEM_CS),
-        .OE             (EXE_MemRead),
-        .WEB            (MEM_WEB),
-        .A              (EXE_ALUout[15:2]),
-        .DI             (MEM_din),
-        .DO             (DM_dataout)
-    );
-
-    WB WB(
-        //input have wire
-        .clk            (clk),
-        .rst            (rst),
-        .MEM_rddata     (MEM_rddata),
-        .MEM_rdaddr     (MEM_rdaddr),
-        .MEM_dout       (MEM_dout),
-        .MEM_MemtoReg   (MEM_MemtoReg),
-        .MEM_RegWrite   (MEM_RegWrite),
-        //output have wire
-        .WB_rddata      (WB_rddata),
-        .WB_rdaddr      (WB_rdaddr),
-        .WB_RegWrite    (WB_RegWrite)
-    );
-
-    BranchCtrl BC(
-        //input have wire
-        .ID_branch      (ID_branch),
-        .ZeroFlag       (ZeroFlag),
-        //output have wire
-        .BranchCtrl     (BranchCtrl)
-    );
-
-    ForwardUnit FU(
-        //input have wire
-        .ID_rs1addr     (ID_rs1addr),
-        .ID_rs2addr     (ID_rs2addr),
-        .EXE_rdaddr     (EXE_rdaddr),
-        .EXE_RegWrite   (EXE_RegWrite),
-        .MEM_rdaddr     (MEM_rdaddr),
-        .MEM_RegWrite   (MEM_RegWrite),
-        //output have wire
-        .Forward_rs1src (Forward_rs1src),
-        .Forward_rs2src (Forward_rs2src)
-    );
-    
-    HazardCtrl HC(
-        //input have wire
-        .BranchCtrl     (BranchCtrl),
-        .ID_MemRead     (ID_MemRead),
-        .rs1addr        (rs1addr),
-        .rs2addr        (rs2addr),
-        .ID_rdaddr      (ID_rdaddr),
-        //output have wire
-        .PCWrite        (PCWrite),
-        .InstrFlush     (InstrFlush),
-        .IFID_RegWrite  (IFID_RegWrite),
-        .IDFlush        (IDFlush)
-    );
+    .M1_AW  (wire_M1AW),
+    .M1_W   (wire_M1W),
+    .M1_B   (wire_M1B),
+    .M1_AR  (wire_M1AR),
+    .M1_R   (wire_M1R)
+);
+SRAM_wrapper IM1(
+    .clk    (clk),
+    .rst    (~rst),
+    .S_AW   (wire_S0AW),
+    .S_W    (wire_S0W),
+    .S_B    (wire_S0B),
+    .S_AR   (wire_S0AR),
+    .S_R    (wire_S0R)
+);
+SRAM_wrapper DM1(
+    .clk             (clk),
+    .rst             (~rst),
+    .S_AW   (wire_S1AW),
+    .S_W    (wire_S1W),
+    .S_B    (wire_S1B),
+    .S_AR   (wire_S1AR),
+    .S_R    (wire_S1R)
+);
 
 endmodule

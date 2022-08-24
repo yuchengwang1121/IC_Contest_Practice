@@ -10,6 +10,7 @@ module ID(
     input [4:0] WB_rdaddr,
     input [31:0] WB_rddata,
     input IDFlush,
+    input IDEXE_RegWrite,
 
     output logic [31:0] ID_pcout,
     output logic [31:0] ID_rs1data,
@@ -95,33 +96,42 @@ always_ff @(posedge clk or posedge rst) begin
         ID_branch <= 2'b0;
     end
     else begin                                  //connect wire to output
-        ID_pcout <= IF_pcout;
-        ID_rs1data <= Wire_rs1;
-        ID_rs2data <= Wire_rs2;
-        ID_imm <= Wire_imm;
-        ID_Funct3 <= IF_instrout[14:12];
-        ID_Funct7 <= IF_instrout[31:25];
-        ID_rdaddr <= IF_instrout[11:7];
-        ID_rs1addr <= IF_instrout[19:15];
-        ID_rs2addr <= IF_instrout[24:20];
-        ID_ALUOP <= Wire_ALUOP;
-        ID_PCtoRegSrc <= Wire_PCtoRegSrc;
-        ID_ALUSrc <= Wire_ALUSrc;
-        ID_RDSrc <= Wire_RDSrc;
-        ID_MemtoReg <= Wire_MemtoReg;
-
-        if (IDFlush) begin
-            ID_MemRead <= 1'b0;
+        if (IDEXE_RegWrite) begin
+            ID_pcout <= IF_pcout;
+            ID_rs1data <= Wire_rs1;
+            ID_rs2data <= Wire_rs2;
+            ID_imm <= Wire_imm;
+            ID_Funct3 <= IF_instrout[14:12];
+            ID_Funct7 <= IF_instrout[31:25];
+            ID_rdaddr <= IF_instrout[11:7];
+            ID_rs1addr <= IF_instrout[19:15];
+            ID_rs2addr <= IF_instrout[24:20];
+            ID_ALUOP <= Wire_ALUOP;
+            ID_PCtoRegSrc <= Wire_PCtoRegSrc;
+            ID_ALUSrc <= Wire_ALUSrc;
+            ID_RDSrc <= Wire_RDSrc;
+            ID_MemtoReg <= Wire_MemtoReg;
+            if (IDFlush) begin
+                ID_MemRead <= 1'b0;
+                ID_MemWrite <= 1'b0;
+                ID_RegWrite <= 1'b0;
+                ID_branch <= 2'b0;
+            end
+            else begin
+                ID_MemRead <= Wire_MemRead;
+                ID_MemWrite <= Wire_MemWrite;
+                ID_RegWrite <= Wire_RegWrite;
+                ID_branch <= Wire_branch;
+            end
+        end
+        else if ((~IDEXE_RegWrite) & IDFlush) begin     // IM stall, new added
             ID_MemWrite <= 1'b0;
+            ID_MemRead  <= 1'b0;
             ID_RegWrite <= 1'b0;
-            ID_branch <= 2'b0;
         end
-        else begin
-            ID_MemRead <= Wire_MemRead;
-            ID_MemWrite <= Wire_MemWrite;
-            ID_RegWrite <= Wire_RegWrite;
-            ID_branch <= Wire_branch;
-        end
+        
+
+        
     end
 end
 endmodule
