@@ -18,24 +18,24 @@ VALIDCtrl VS0();
 VALIDCtrl VS1();
 VALIDCtrl VSD();    //parameter to control valid value
 
-logic wire_READY;                   //wire for READY signal
+// logic wire_READY;                   //wire for READY signal
 
 //Slave 0 IM
-assign S0.ARID = Wire.ARID;
+assign S0.S_ARID = Wire.S_ARID;
 assign S0.ARADDR = Wire.ARADDR;
 assign S0.ARLEN = Wire.ARLEN;
 assign S0.ARSIZE = Wire.ARSIZE;
 assign S0.ARBURST = Wire.ARBURST;
 
 //Slave 1 DM
-assign S1.ARID = Wire.ARID;
+assign S1.S_ARID = Wire.S_ARID;
 assign S1.ARADDR = Wire.ARADDR;
 assign S1.ARLEN = Wire.ARLEN;
 assign S1.ARSIZE = Wire.ARSIZE;
 assign S1.ARBURST = Wire.ARBURST;
 
 //Slave Default
-assign SD.ARID = Wire.ARID;
+assign SD.S_ARID = Wire.S_ARID;
 assign SD.ARADDR = Wire.ARADDR;
 assign SD.ARLEN = Wire.ARLEN;
 assign SD.ARSIZE = Wire.ARSIZE;
@@ -71,8 +71,14 @@ Arbiter RArbiter(
     .BURST_M0   (M0.ARBURST),
     .VALID_M0   (M0.ARVALID),
     .READY_M0   (M0.ARREADY),
-    .M1         (M1),
-    .ID_M       (Wire.ARID),
+    .ID_M1      (M1.ARID),
+    .ADDR_M1    (M1.ARADDR),
+    .SIZE_M1    (M1.ARSIZE),
+    .LEN_M1     (M1.ARLEN),
+    .BURST_M1   (M1.ARBURST),
+    .VALID_M1   (M1.ARVALID),
+    .READY_M1   (M1.ARREADY),
+    .ID_M       (Wire.S_ARID),
     .ADDR_M     (Wire.ARADDR),
     .SIZE_M     (Wire.ARSIZE),
     .LEN_M      (Wire.ARLEN),

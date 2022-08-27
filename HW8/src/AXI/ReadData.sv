@@ -18,13 +18,13 @@ logic [1:0] master;
 logic lockS0, lockS1, lockS2;
 
 //M0
-assign M0.RID = Wire.RID[`AXI_ID_BITS-1:0];
+assign M0.RID = Wire.S_RID[`AXI_ID_BITS-1:0];
 assign M0.RDATA = Wire.RDATA;
 assign M0.RRESP = Wire.RRESP;
 assign M0.RLAST = Wire.RLAST;
 
 //M1
-assign M1.RID = Wire.RID[`AXI_ID_BITS-1:0];
+assign M1.RID = Wire.S_RID[`AXI_ID_BITS-1:0];
 assign M1.RDATA = Wire.RDATA;
 assign M1.RRESP = Wire.RRESP;
 assign M1.RLAST = Wire.RLAST;
@@ -67,8 +67,8 @@ end
 always_comb begin
     case (slave)
         3'b001:begin
-            master = S0.RID[5:4];
-            Wire.RID = S0.RID;
+            master = S0.S_RID[5:4];
+            Wire.S_RID = S0.S_RID;
             Wire.RDATA = S0.RDATA;
             Wire.RRESP = S0.RRESP;
             Wire.RLAST = S0.RLAST;
@@ -77,8 +77,8 @@ always_comb begin
             {S0.RREADY,S1.RREADY, SD.RREADY} = {READY_M & S0.RVALID, 2'b0};
         end
         3'b010:begin
-            master = S1.RID[5:4];
-            Wire.RID = S1.RID;
+            master = S1.S_RID[5:4];
+            Wire.S_RID = S1.S_RID;
             Wire.RDATA = S1.RDATA;
             Wire.RRESP = S1.RRESP;
             Wire.RLAST = S1.RLAST;
@@ -87,8 +87,8 @@ always_comb begin
             {S0.RREADY, S1.RREADY, SD.RREADY} = {1'b0, READY_M & S1.RVALID, 1'b0};
         end
         3'b100:begin
-            master = SD.RID[5:4];
-            Wire.RID = SD.RID;
+            master = SD.S_RID[5:4];
+            Wire.S_RID = SD.S_RID;
             Wire.RDATA = SD.RDATA;
             Wire.RRESP = SD.RRESP;
             Wire.RLAST = SD.RLAST;
@@ -98,7 +98,7 @@ always_comb begin
         end
         default: begin
             master = 2'b0;
-            Wire.RID = `AXI_IDS_BITS'b0;
+            Wire.S_RID = `AXI_IDS_BITS'b0;
             Wire.RDATA = `AXI_DATA_BITS'b0;
             Wire.RRESP = 2'b0;
             Wire.RLAST = 1'b0;

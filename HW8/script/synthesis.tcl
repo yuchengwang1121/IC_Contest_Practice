@@ -1,39 +1,28 @@
 set_svf top.svf
-# Force multicore
-set_host_options -max_cores 16
-
-# Read all Files
 set top top
-read_file -autoread -top ${top} -recursive {../src ../include ../src/AXI} -library model
-current_design ${top}
-link
 
-# Setting Clock Constraits
+read_file -autoread -top ${top} -recursive {../src ../include ../src/AXI} -lib model
+current_design [get_designs ${top}] 
+
+
 source -echo -verbose ../script/DC.sdc
 
-# High fanout threshold
+# Compile
 set high_fanout_net_threshold 0
-report_net_fanout -high_fanout
 
 uniquify
 set_fix_multiple_port_nets -all -buffer_constants [get_designs *]
- 
-set_structure -timing true
- 
-check_design
 
-# Synthesize (high effort)
-compile -map_effort high 
+set_structure -timing true
+
+compile -map_effort high
 compile -map_effort high -inc
 
-# Ultra
-#compile_ultra 
-#compile_ultra -inc
+# Output
+current_design [get_designs top]
 
-current_design [get_designs ${top}]
- 
 remove_unconnected_ports -blast_buses [get_cells -hierarchical *]
- 
+
 set bus_inference_style {%s[%d]}
 set bus_naming_style {%s[%d]}
 set hdlout_internal_busses true
@@ -44,13 +33,13 @@ define_name_rules name_rule -map {{"\\*cell\\*" "cell"}}
 define_name_rules name_rule -case_insensitive
 change_names -hierarchy -rules name_rule
 
-write -format ddc  -hierarchy -output "${top}_syn.ddc"
-write_sdf -version 2.0 -context verilog  -load_delay net ../syn/${top}_syn.sdf
-write_sdc -version 2.0 "${top}_syn.sdc"
-write_file -format verilog -hierarchy -output ../syn/${top}_syn.v
-report_area > area.log
-report_timing > timing.log
-report_power > power.log
-report_qor > ${top}_syn.qor
 
-# exit
+#write_sdf LEDDC.sdf
+write -format ddc -hierarchy -output top.ddc
+write_file -format verilog -hierarchy    -output         ../syn/top_syn.v
+write_sdf -version 2.0 -context verilog  -load_delay net ../syn/top_syn.sdf
+write_sdc -version 2.0 top_syn.sdc
+report_area   > area.log
+report_timing > timing.log
+report_power  > power.log
+report_qor    > top.qor

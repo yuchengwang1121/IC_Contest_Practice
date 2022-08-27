@@ -82,8 +82,8 @@ SRAM_wrapper IM1(
     .S_R    (wire_S0R)
 );
 SRAM_wrapper DM1(
-    .clk             (clk),
-    .rst             (~rst),
+    .clk    (clk),
+    .rst    (~rst),
     .S_AW   (wire_S1AW),
     .S_W    (wire_S1W),
     .S_B    (wire_S1B),

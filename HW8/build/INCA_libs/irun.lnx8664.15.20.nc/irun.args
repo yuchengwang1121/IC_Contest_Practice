@@ -1,0 +1,14 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+/home/YuChengWang/Verilog_pratice/HW8/./sim/top_tb.sv
++incdir+/home/YuChengWang/Verilog_pratice/HW8/./src+/home/YuChengWang/Verilog_pratice/HW8/./src/AXI+/home/YuChengWang/Verilog_pratice/HW8/./include+/home/YuChengWang/Verilog_pratice/HW8/./sim
++define+prog0+FSDB_ALL
+-define
+CYCLE=15.0
+-define
+MAX=1000000
++access+r
++nc64bit
++prog_path=/home/YuChengWang/Verilog_pratice/HW8/./sim/prog0

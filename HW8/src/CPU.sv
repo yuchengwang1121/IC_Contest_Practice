@@ -169,7 +169,7 @@ logic ZeroFlag, EXE_rdsrc,EXE_MemRead, EXE_MemWrite, EXE_MemtoReg, EXE_RegWrite;
 //MEM input wire
 logic [31:0] DM_dataout;
 //MEM output wire
-logic [31:0] MEM_rddata;
+logic [31:0] MEM_rddata,wire_MEM_din;
 logic [4:0] MEM_rdaddr;
 logic [3:0] MEM_WEB;
 logic MEM_MemtoReg,MEM_RegWrite,MEM_CS;
@@ -200,7 +200,7 @@ logic MEM_MemtoReg,MEM_RegWrite,MEM_CS;
         .Forward_Memrddata (Forward_Memrddata),
         .MEM_CS         (MEM_CS),
         .MEM_WEB        (MEM_WEB),
-        .MEM_din        (MEM_din),
+        .MEM_din        (wire_MEM_din),
         .MEMWB_RegWrite(MEMWB_RegWrite)         //new added
     );
 
@@ -278,6 +278,6 @@ assign b_data_read = EXE_MemRead;
 assign b_data_write = EXE_MemWrite;
 assign write_type = MEM_WEB;
 assign data_addr = EXE_ALUout;
-assign MEM_din = MEM_din;
+assign MEM_din = wire_MEM_din;
 
 endmodule

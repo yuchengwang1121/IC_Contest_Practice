@@ -60,11 +60,46 @@ Master M0(
     .data_out       (wire_IFIO.Instr_out),
     .stall          (IM_stall),
 
-    .M_AW  (M0_AW),
-    .M_W   (M0_W),
-    .M_B   (M0_B),
-    .M_AR  (M0_AR),
-    .M_R   (M0_R)
+    //WA
+    .AWID       (M0_AW.AWID),
+    .AWLEN      (M0_AW.AWLEN),
+    .AWADDR     (M0_AW.AWADDR),
+    .AWSIZE     (M0_AW.AWSIZE),
+    .AWBURST    (M0_AW.AWBURST),
+    .AWVALID    (M0_AW.AWVALID),
+    .AWREADY    (M0_AW.AWREADY),
+    //WD
+    .WDATA      (M0_W.WDATA),
+    .WSTRB      (M0_W.WSTRB),
+    .WLAST      (M0_W.WLAST),
+    .WVALID     (M0_W.WVALID),
+    .WREADY     (M0_W.WREADY),
+    //WR
+    .BID        (M0_B.BID),
+    .BRESP      (M0_B.BRESP),
+    .BVALID     (M0_B.BVALID),
+    .BREADY     (M0_B.BREADY),
+    //AR
+    .ARID       (M0_AR.ARID),
+    .ARADDR     (M0_AR.ARADDR),
+    .ARLEN      (M0_AR.ARLEN),
+    .ARSIZE     (M0_AR.ARSIZE),
+    .ARBURST    (M0_AR.ARBURST),
+    .ARVALID    (M0_AR.ARVALID),
+    .ARREADY    (M0_AR.ARREADY),
+    //R
+    .RID        (M0_R.RID),
+    .RDATA      (M0_R.RDATA),
+    .RRESP      (M0_R.RRESP),
+    .RLAST      (M0_R.RLAST),
+    .RVALID     (M0_R.RVALID),
+    .RREADY     (M0_R.RREADY)
+
+    // .M_AW  (M0_AW),
+    // .M_W   (M0_W),
+    // .M_B   (M0_B),
+    // .M_AR  (M0_AR),
+    // .M_R   (M0_R)
 );
 Master M1(
     .clk            (clk),
@@ -77,11 +112,40 @@ Master M1(
     .data_out       (wire_MEMIO.MEM_dout),
     .stall          (DM_stall),
 
-    .M_AW  (M1_AW),
-    .M_W   (M1_W),
-    .M_B   (M1_B),
-    .M_AR  (M1_AR),
-    .M_R   (M1_R)
+    //WA
+    .AWID       (M1_AW.AWID),
+    .AWLEN      (M1_AW.AWLEN),
+    .AWADDR     (M1_AW.AWADDR),
+    .AWSIZE     (M1_AW.AWSIZE),
+    .AWBURST    (M1_AW.AWBURST),
+    .AWVALID    (M1_AW.AWVALID),
+    .AWREADY    (M1_AW.AWREADY),
+    //WD
+    .WDATA      (M1_W.WDATA),
+    .WSTRB      (M1_W.WSTRB),
+    .WLAST      (M1_W.WLAST),
+    .WVALID     (M1_W.WVALID),
+    .WREADY     (M1_W.WREADY),
+    //WR
+    .BID        (M1_B.BID),
+    .BRESP      (M1_B.BRESP),
+    .BVALID     (M1_B.BVALID),
+    .BREADY     (M1_B.BREADY),
+    //AR
+    .ARID       (M1_AR.ARID),
+    .ARADDR     (M1_AR.ARADDR),
+    .ARLEN      (M1_AR.ARLEN),
+    .ARSIZE     (M1_AR.ARSIZE),
+    .ARBURST    (M1_AR.ARBURST),
+    .ARVALID    (M1_AR.ARVALID),
+    .ARREADY    (M1_AR.ARREADY),
+    //R
+    .RID        (M1_R.RID),
+    .RDATA      (M1_R.RDATA),
+    .RRESP      (M1_R.RRESP),
+    .RLAST      (M1_R.RLAST),
+    .RVALID     (M1_R.RVALID),
+    .RREADY     (M1_R.RREADY)
 );
 
 endmodule

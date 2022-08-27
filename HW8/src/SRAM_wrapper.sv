@@ -103,13 +103,13 @@ always_ff @(posedge clk or negedge rst) begin
           reg_ARID <= `AXI_IDS_BITS'b0;
           reg_AWID <= `AXI_IDS_BITS'b0;
       end else begin
-          reg_ARID <= (AR_done)? S_AR.ARID:reg_ARID;
-          reg_AWID <= (AW_done)? S_AW.AWID:reg_AWID;
+          reg_ARID <= (AR_done)? S_AR.S_ARID:reg_ARID;
+          reg_AWID <= (AW_done)? S_AW.S_AWID:reg_AWID;
       end
 end
 
-assign S_R.RID = reg_ARID;
-assign S_B.BID = reg_AWID;
+assign S_R.S_RID = reg_ARID;
+assign S_B.S_BID = reg_AWID;
 
 //ARLEN, AWLEN
 logic [`AXI_LEN_BITS-1:0] reg_ARLEN, reg_AWLEN;
@@ -265,7 +265,7 @@ end
     .DI29 (DI[29]),
     .DI30 (DI[30]),
     .DI31 (DI[31]),
-    .CK   (CK    ),
+    .CK   (clk   ),
     .WEB0 (WEB[0]),
     .WEB1 (WEB[1]),
     .WEB2 (WEB[2]),

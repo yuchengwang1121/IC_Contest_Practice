@@ -1,16 +1,5 @@
 `include "../../include/AXI_define.svh"
 
-interface inter_Arbiter;
-    logic [`AXI_ID_BITS-1:0] ID;
-    logic [`AXI_ADDR_BITS-1:0] ADDR;
-    logic [`AXI_LEN_BITS-1:0] LEN;
-    logic [`AXI_SIZE_BITS-1:0] SIZE;
-    logic [1:0] BURST;
-    logic VALID,READY;
-
-    modport M1(input ID, input ADDR, input LEN, input SIZE, input BURST, input VALID, output READY);
-endinterface
-
 interface inter_Decoder;
     logic VALID,READY;
 
@@ -20,6 +9,7 @@ endinterface
 
 interface inter_RA;
     logic[`AXI_ID_BITS-1:0] ARID;
+    logic[`AXI_IDS_BITS-1:0] S_ARID;
     logic[`AXI_ADDR_BITS-1:0] ARADDR;
     logic[`AXI_LEN_BITS-1:0] ARLEN;
     logic[`AXI_SIZE_BITS-1:0] ARSIZE;
@@ -29,20 +19,21 @@ interface inter_RA;
     //for AXI's RD
     modport M0(input ARID, input ARADDR, input ARLEN, input ARSIZE, input ARBURST, input ARVALID, output ARREADY);
     modport M1(input ARID, input ARADDR, input ARLEN, input ARSIZE, input ARBURST, input ARVALID, output ARREADY);
-    modport S0(output ARID, output ARADDR, output ARLEN, output ARSIZE, output ARBURST, output ARVALID, input ARREADY);
-    modport S1(output ARID, output ARADDR, output ARLEN, output ARSIZE, output ARBURST, output ARVALID, input ARREADY);
-    modport SDEFAULT(output ARID, output ARADDR, output ARLEN, output ARSIZE, output ARBURST, output ARVALID, input ARREADY);
+    modport S0(output S_ARID, output ARADDR, output ARLEN, output ARSIZE, output ARBURST, output ARVALID, input ARREADY);
+    modport S1(output S_ARID, output ARADDR, output ARLEN, output ARSIZE, output ARBURST, output ARVALID, input ARREADY);
+    modport SDEFAULT(output S_ARID, output ARADDR, output ARLEN, output ARSIZE, output ARBURST, output ARVALID, input ARREADY);
     //for CPU_wrapper
     modport M0_AR(output ARID, output ARADDR, output ARLEN, output ARSIZE, output ARBURST, output ARVALID, input ARREADY);
     modport M1_AR(output ARID, output ARADDR, output ARLEN, output ARSIZE, output ARBURST, output ARVALID, input ARREADY);
     //for Master
-    modport Master(output ARID, output ARADDR, output ARLEN, output ARSIZE, output ARBURST, output ARVALID, input ARREADY);
+    // modport M_AR(output ARID, output ARADDR, output ARLEN, output ARSIZE, output ARBURST, output ARVALID, input ARREADY);
     //for SRAM_wrapper
-    modport SRAM(input ARID, input ARADDR, input ARLEN, input ARSIZE, input ARBURST, input ARVALID, output ARREADY);
+    modport SRAM(input S_ARID, input ARADDR, input ARLEN, input ARSIZE, input ARBURST, input ARVALID, output ARREADY);
 endinterface
 
 interface inter_RD;
     logic[`AXI_ID_BITS-1:0] RID;
+    logic [`AXI_IDS_BITS -1:0] S_RID;
     logic[`AXI_DATA_BITS-1:0] RDATA;
     logic[1:0]RRESP;
     logic RLAST,RVALID,RREADY;
@@ -50,20 +41,21 @@ interface inter_RD;
     //for AXI's RD
     modport M0(input RREADY, output RID, output RDATA, output RRESP, output RLAST,output RVALID);
     modport M1(input RREADY, output RID, output RDATA, output RRESP, output RLAST,output RVALID);
-    modport S0(output RREADY, input RID, input RDATA, input RRESP, input RLAST,input RVALID);
-    modport S1(output RREADY, input RID, input RDATA, input RRESP, input RLAST,input RVALID);
-    modport SDEFAULT(output RREADY, input RID, input RDATA, input RRESP, input RLAST,input RVALID);
+    modport S0(output RREADY, input S_RID, input RDATA, input RRESP, input RLAST,input RVALID);
+    modport S1(output RREADY, input S_RID, input RDATA, input RRESP, input RLAST,input RVALID);
+    modport SDEFAULT(output RREADY, input S_RID, input RDATA, input RRESP, input RLAST,input RVALID);
     //for CPU_wrapper
     modport M0_R(output RREADY, input RID, input RDATA, input RRESP, input RLAST,input RVALID);
     modport M1_R(output RREADY, input RID, input RDATA, input RRESP, input RLAST,input RVALID);
     //for Master
-    modport Master(output RREADY, input RID, input RDATA, input RRESP, input RLAST,input RVALID);
+    // modport M_R(output RREADY, input RID, input RDATA, input RRESP, input RLAST,input RVALID);
     //for SRAM_wrapper
-    modport SRAM(input RREADY, output RID, output RDATA, output RRESP, output RLAST,output RVALID);
+    modport SRAM(input RREADY, output S_RID, output RDATA, output RRESP, output RLAST,output RVALID);
 endinterface
 
 interface inter_WA;
     logic [`AXI_ID_BITS-1:0] AWID;
+    logic [`AXI_IDS_BITS -1:0] S_AWID;
     logic [`AXI_ADDR_BITS-1:0] AWADDR;
     logic [`AXI_LEN_BITS-1:0] AWLEN;
     logic [`AXI_SIZE_BITS-1:0] AWSIZE;
@@ -72,16 +64,16 @@ interface inter_WA;
     
     //for AXI's WA
     modport M1(input AWID, input AWADDR, input AWLEN, input AWSIZE, input AWBURST, input AWVALID, output AWREADY);
-    modport S0(output AWID, output AWADDR, output AWLEN, output AWSIZE, output AWBURST, output AWVALID, input AWREADY);
-    modport S1(output AWID, output AWADDR, output AWLEN, output AWSIZE, output AWBURST, output AWVALID, input AWREADY);
-    modport SDEFAULT(output AWID, output AWADDR, output AWLEN, output AWSIZE, output AWBURST, output AWVALID, input AWREADY);
+    modport S0(output S_AWID, output AWADDR, output AWLEN, output AWSIZE, output AWBURST, output AWVALID, input AWREADY);
+    modport S1(output S_AWID, output AWADDR, output AWLEN, output AWSIZE, output AWBURST, output AWVALID, input AWREADY);
+    modport SDEFAULT(output S_AWID, output AWADDR, output AWLEN, output AWSIZE, output AWBURST, output AWVALID, input AWREADY);
     //for CPU_wrapper
     modport M0_AW(output AWID, output AWADDR, output AWLEN, output AWSIZE, output AWBURST, output AWVALID, input AWREADY);
     modport M1_AW(output AWID, output AWADDR, output AWLEN, output AWSIZE, output AWBURST, output AWVALID, input AWREADY);
     //for Master
-    modport Master(output AWID, output AWADDR, output AWLEN, output AWSIZE, output AWBURST, output AWVALID, input AWREADY);
+    // modport M_AW(output AWID, output AWADDR, output AWLEN, output AWSIZE, output AWBURST, output AWVALID, input AWREADY);
     //for SRAM_wrapper
-    modport SRAM(input AWID, input AWADDR, input AWLEN, input AWSIZE, input AWBURST, input AWVALID, output AWREADY);
+    modport SRAM(input S_AWID, input AWADDR, input AWLEN, input AWSIZE, input AWBURST, input AWVALID, output AWREADY);
 
 endinterface
 
@@ -99,28 +91,29 @@ interface inter_WD;
     modport M0_W(output WDATA, output WSTRB, output WLAST, output WVALID, input WREADY);
     modport M1_W(output WDATA, output WSTRB, output WLAST, output WVALID, input WREADY);
     //for Master
-    modport Master(output WDATA, output WSTRB, output WLAST, output WVALID, input WREADY);
+    // modport M_W(output WDATA, output WSTRB, output WLAST, output WVALID, input WREADY);
     //for SRAM_wrapper
     modport SRAM(input WDATA, input WSTRB, input WLAST, input WVALID, output WREADY);
 endinterface
 
 interface inter_WR;
     logic [`AXI_ID_BITS-1:0] BID;
+    logic [`AXI_IDS_BITS-1:0] S_BID;
     logic [1:0] BRESP;
     logic BVALID, BREADY;
 
     //for AXI's WR
     modport M1(output BID, output BRESP, output BVALID, input BREADY);
-    modport S0(input BID, input BRESP, input BVALID, output BREADY);
-    modport S1(input BID, input BRESP, input BVALID, output BREADY);
-    modport SDEFAULT(input BID, input BRESP, input BVALID, output BREADY);
+    modport S0(input S_BID, input BRESP, input BVALID, output BREADY);
+    modport S1(input S_BID, input BRESP, input BVALID, output BREADY);
+    modport SDEFAULT(input S_BID, input BRESP, input BVALID, output BREADY);
     //for CPU_wrapper
     modport M0_B(input BID, input BRESP, input BVALID, output BREADY);
     modport M1_B(input BID, input BRESP, input BVALID, output BREADY);
     //for Master
-    modport Master(input BID, input BRESP, input BVALID, output BREADY);
+    // modport M_B(input BID, input BRESP, input BVALID, output BREADY);
     //for SRAM_wrapper
-    modport SRAM(output BID, output BRESP, output BVALID, input BREADY);
+    modport SRAM(output S_BID, output BRESP, output BVALID, input BREADY);
 
 endinterface
 

@@ -99,7 +99,7 @@ ReadData RD(
 WriteAddr WA(
     .clk            (ACLK),
     .rst            (ARESETn),
-    .M1             (WA_M1),             //onlt DataMemory needs to Write
+    .M1             (WA_M1),             //only DataMemory needs to Write
     .S0             (WA_S0),
     .S1             (WA_S1),
     .SD             (wire_AW)

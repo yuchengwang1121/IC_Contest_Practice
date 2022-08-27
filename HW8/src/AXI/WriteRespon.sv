@@ -30,22 +30,22 @@ end
 always_comb begin
     case (slave)
         3'b001:begin
-            master = S0.BID[5:4];
-            Wire.BID = S0.BID[`AXI_ID_BITS-1:0];
+            master = S0.S_BID[5:4];
+            Wire.BID = S0.S_BID[`AXI_ID_BITS-1:0];
             Wire.BRESP = S0.BRESP;
             Wire.BVALID = S0.BVALID;
             {S0.BREADY, S1.BREADY, SD.BREADY} = {wire_READY & S0.BVALID, 2'b0};
         end
         3'b010:begin
-            master = S1.BID[5:4];
-            Wire.BID = S1.BID[`AXI_ID_BITS-1:0];
+            master = S1.S_BID[5:4];
+            Wire.BID = S1.S_BID[`AXI_ID_BITS-1:0];
             Wire.BRESP = S1.BRESP;
             Wire.BVALID = S1.BVALID;
             {S0.BREADY, S1.BREADY, SD.BREADY} = {1'b0, wire_READY & S1.BVALID, 1'b0};
         end
         3'b100:begin
-            master = SD.BID[5:4];
-            Wire.BID = SD.BID[`AXI_ID_BITS-1:0];
+            master = SD.S_BID[5:4];
+            Wire.BID = SD.S_BID[`AXI_ID_BITS-1:0];
             Wire.BRESP = SD.BRESP;
             Wire.BVALID = SD.BVALID;
             {S0.BREADY, S1.BREADY, SD.BREADY} = {2'b0, wire_READY & SD.BVALID};

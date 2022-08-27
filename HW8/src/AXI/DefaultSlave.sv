@@ -62,9 +62,9 @@ assign SD_RA.ARREADY = (s_slave == S_addr)?1'b1:1'b0;
 
 always_ff @(posedge clk or negedge rst) begin
     if (~rst) begin
-        SD_RD.RID <= 8'b0;
+        SD_RD.S_RID <= 8'b0;
     end else begin
-        SD_RD.RID <= (SD_RA.ARREADY & SD_RA.ARVALID)?SD_RA.ARID:SD_RD.RID;
+        SD_RD.S_RID <= (SD_RA.ARREADY & SD_RA.ARVALID)?SD_RA.S_ARID:SD_RD.S_RID;
     end
 end
 
@@ -93,9 +93,9 @@ assign SD_WA.AWREADY = (SD_WA.AWVALID & (s_slave == S_addr))?1'b1:1'b0;
 
 always_ff @(posedge clk or negedge rst) begin
     if (~rst) begin
-        SD_WR.BID <= 8'b0;
+        SD_WR.S_BID <= 8'b0;
     end else begin
-        SD_WR.BID <= (SD_WA.AWREADY & SD_WA.AWVALID)?SD_WA.AWID:SD_WR.BID;
+        SD_WR.S_BID <= (SD_WA.AWREADY & SD_WA.AWVALID)?SD_WA.S_AWID:SD_WR.S_BID;
     end
 end
 
