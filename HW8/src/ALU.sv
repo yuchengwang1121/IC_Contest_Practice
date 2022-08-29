@@ -26,7 +26,8 @@ parameter [4:0] ALU_Bltu = 5'b01111;
 parameter [4:0] ALU_Bgeu = 5'b10000;
 parameter [4:0] ALU_Imm = 5'b10001;     //for lui
 
-logic signed [31:0] Srs1, Srs2;
+wire signed [31:0] Srs1;
+wire signed [31:0] Srs2;
 logic [31:0] sum;
 
 assign Srs1 = rs1;
@@ -42,7 +43,7 @@ always_comb begin       //for alu_out value
         ALU_Sltu: ALUout = (rs1 < rs2)?32'b1:32'b0;
         ALU_XOR: ALUout = rs1 ^ rs2;
         ALU_Srl: ALUout = rs1 >> rs2[4:0];
-        ALU_Sra: ALUout = Srs1 >> rs2[4:0];
+        ALU_Sra: ALUout = Srs1 >>> rs2[4:0];
         ALU_OR: ALUout =  rs1 | rs2;
         ALU_AND: ALUout =  rs1 & rs2;
         ALU_Jalr: ALUout = {sum[31:1], 1'b0};

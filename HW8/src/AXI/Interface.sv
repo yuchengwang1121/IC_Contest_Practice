@@ -129,7 +129,7 @@ interface inter_MEMIO;
     logic [3:0] write_type;
     logic [`AXI_ADDR_BITS-1:0] data_addr;
     logic [`AXI_DATA_BITS-1:0] MEM_din;
-    logic [`AXI_DATA_BITS-1:0] MEM_dout;
+    logic [`AXI_DATA_BITS-1:0] DM_dataout;
 endinterface
 
 interface VALIDCtrl;

@@ -31,7 +31,7 @@ CPU CPU(
     .b_instr_read       (wire_IFIO.b_instr_read),
     .instr_addr         (wire_IFIO.instr_addr),
     //MEMIO
-    .MEM_dout           (wire_MEMIO.MEM_dout),
+    .DM_dataout           (wire_MEMIO.DM_dataout),
     .b_data_read        (wire_MEMIO.b_data_read),
     .b_data_write       (wire_MEMIO.b_data_write),
     .write_type         (wire_MEMIO.write_type),
@@ -45,7 +45,7 @@ always_ff @(posedge clk or negedge rst) begin
     if (~rst) begin
         lock_DM <= 1'b0;
     end else begin
-        lock_DM <= (~IM_stall)?1'b0:(~IM_stall & ~DM_stall)?1'b1:lock_DM;
+        lock_DM <= (~IM_stall)?1'b0:((IM_stall & ~DM_stall)?1'b1:lock_DM);
     end
 end
 
@@ -109,7 +109,7 @@ Master M1(
     .write_type     (wire_MEMIO.write_type),
     .addr_in        (wire_MEMIO.data_addr),
     .data_in        (wire_MEMIO.MEM_din),
-    .data_out       (wire_MEMIO.MEM_dout),
+    .data_out       (wire_MEMIO.DM_dataout),
     .stall          (DM_stall),
 
     //WA

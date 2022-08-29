@@ -78,6 +78,9 @@ always_comb begin
         s_next = S_writedata;
       end
       else if (B_done & AR_done) begin
+        s_next = S_readdata;
+      end
+      else if (B_done) begin
         s_next = S_addr;
       end
       else s_next = S_resp;

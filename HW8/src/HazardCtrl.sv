@@ -22,7 +22,7 @@ parameter [1:0] PCB = 2'b01;  //PC for branch
 parameter [1:0] PCJR = 2'b10;  //PC for jalr
 
 always_comb begin
-    if (IM_stall ||  DM_stall) begin
+    if (IM_stall || DM_stall) begin
         InstrFlush = 1'b0;
         IDFlush = 1'b0;
         IFID_RegWrite = 1'b0;
@@ -31,7 +31,7 @@ always_comb begin
         EXEMEM_RegWrite = 1'b0;
         MEMWB_RegWrite = 1'b0;
     end
-    if (BranchCtrl!=PC4) begin  //if branch or jalr, flush the 1st,2nd instr
+    else if (BranchCtrl!=PC4) begin  //if branch or jalr, flush the 1st,2nd instr
         PCWrite = 1'b1;
         IFID_RegWrite = 1'b1;        
         InstrFlush = 1'b1;

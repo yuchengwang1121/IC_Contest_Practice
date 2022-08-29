@@ -16,7 +16,7 @@ module CPU(
     output logic b_instr_read,
     output logic [`AXI_ADDR_BITS-1:0] instr_addr,
     //MEMIO
-    input [`AXI_DATA_BITS-1:0] MEM_dout,
+    input [`AXI_DATA_BITS-1:0] DM_dataout,
     output logic b_data_read,
     output logic b_data_write,
     output logic [3:0] write_type,
@@ -167,7 +167,7 @@ logic ZeroFlag, EXE_rdsrc,EXE_MemRead, EXE_MemWrite, EXE_MemtoReg, EXE_RegWrite;
     );
 
 //MEM input wire
-logic [31:0] DM_dataout;
+logic [31:0] MEM_dout;
 //MEM output wire
 logic [31:0] MEM_rddata,wire_MEM_din;
 logic [4:0] MEM_rdaddr;

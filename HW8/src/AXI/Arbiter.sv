@@ -43,12 +43,12 @@ always_ff @(posedge clk or negedge rst ) begin
         //else ifMX is valid & MEM and otherMY is locked then locked
         //else lockMX == lockMX(old)
         lockM0 <= (lockM0 & READY_M)? 1'b0 : (~VALID_M1 & VALID_M0 & ~READY_M) ? 1'b1 : lockM0;
-        lockM1 <= (lockM1 & READY_M)? 1'b0 : (VALID_M1 & ~VALID_M0 & ~READY_M) ? 1'b1 : lockM0;
+        lockM1 <= (lockM1 & READY_M)? 1'b0 : (VALID_M1 & ~lockM0 & ~READY_M) ? 1'b1 : lockM1;
     end
 end
 
 always_comb begin
-    if (VALID_M1 & ~lockM0 || lockM1) begin
+    if ((VALID_M1 & ~lockM0) || lockM1) begin
         master = 2'b10;
     end
     else if (lockM0 || VALID_M0) begin
