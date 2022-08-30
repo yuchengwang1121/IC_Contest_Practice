@@ -53,7 +53,7 @@ always_comb begin
     case (slave)
         3'b001:begin
             wire_READY = S0.WREADY;
-            {S0.WVALID, S1.WVALID, SD.WVALID} = {2'b0, Wire.WVALID};
+            {S0.WVALID, S1.WVALID, SD.WVALID} = {Wire.WVALID, 2'b0};
         end
         3'b010:begin
             wire_READY = S1.WREADY;
@@ -61,7 +61,7 @@ always_comb begin
         end
         3'b100:begin
             wire_READY = SD.WREADY;
-            {S0.WVALID, S1.WVALID, SD.WVALID} = {Wire.WVALID, 2'b0};
+            {S0.WVALID, S1.WVALID, SD.WVALID} = {2'b0,Wire.WVALID};
         end
         default: begin
             wire_READY = 1'b1;

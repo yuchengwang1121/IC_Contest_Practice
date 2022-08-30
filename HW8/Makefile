@@ -67,6 +67,7 @@ rtl1: | $(bld_dir)
 	-define CYCLE=$(CYCLE) \
 	-define MAX=$(MAX) \
 	+access+r \
+	+nc64bit \
 	+prog_path=$(root_dir)/$(sim_dir)/prog1
 
 rtl2: | $(bld_dir)
@@ -82,6 +83,7 @@ rtl2: | $(bld_dir)
 	-define CYCLE=$(CYCLE) \
 	-define MAX=$(MAX) \
 	+access+r \
+	+nc64bit \
 	+prog_path=$(root_dir)/$(sim_dir)/prog2
 
 rtl3: | $(bld_dir)
@@ -97,6 +99,7 @@ rtl3: | $(bld_dir)
 	-define CYCLE=$(CYCLE) \
 	-define MAX=$(MAX) \
 	+access+r \
+	+nc64bit \
 	+prog_path=$(root_dir)/$(sim_dir)/prog3
 
 # Post-Synthesis simulation
@@ -116,6 +119,7 @@ syn0: | $(bld_dir)
 	-define CYCLE=$(CYCLE) \
 	-define MAX=$(MAX) \
 	+access+r \
+	+nc64bit \
 	+prog_path=$(root_dir)/$(sim_dir)/prog0
 
 syn1: | $(bld_dir)
@@ -132,6 +136,7 @@ syn1: | $(bld_dir)
 	-define CYCLE=$(CYCLE) \
 	-define MAX=$(MAX) \
 	+access+r \
+	+nc64bit \
 	+prog_path=$(root_dir)/$(sim_dir)/prog1
 
 syn2: | $(bld_dir)
@@ -148,6 +153,7 @@ syn2: | $(bld_dir)
 	-define CYCLE=$(CYCLE) \
 	-define MAX=$(MAX) \
 	+access+r \
+	+nc64bit \
 	+prog_path=$(root_dir)/$(sim_dir)/prog2
 
 syn3: | $(bld_dir)
@@ -164,6 +170,7 @@ syn3: | $(bld_dir)
 	-define CYCLE=$(CYCLE) \
 	-define MAX=$(MAX) \
 	+access+r \
+	+nc64bit \
 	+prog_path=$(root_dir)/$(sim_dir)/prog3
 
 # Utilities

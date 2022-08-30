@@ -1,21 +1,18 @@
 irun(64): 15.20-s084: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
-TOOL:	irun(64)	15.20-s084: Started on Aug 29, 2022 at 21:19:07 CST
+TOOL:	irun(64)	15.20-s084: Started on Aug 30, 2022 at 15:20:14 CST
 irun
 	/home/YuChengWang/Verilog_pratice/HW8/./sim/top_tb.sv
 	+incdir+/home/YuChengWang/Verilog_pratice/HW8/./src+/home/YuChengWang/Verilog_pratice/HW8/./src/AXI+/home/YuChengWang/Verilog_pratice/HW8/./include+/home/YuChengWang/Verilog_pratice/HW8/./sim
-	+define+prog0+FSDB_ALL
+	+define+prog3+FSDB_ALL
 	-define CYCLE=15.0
 	-define MAX=1000000
 	+access+r
 	+nc64bit
-	+prog_path=/home/YuChengWang/Verilog_pratice/HW8/./sim/prog0
+	+prog_path=/home/YuChengWang/Verilog_pratice/HW8/./sim/prog3
 
    User defined plus("+") options:
-	+prog_path=/home/YuChengWang/Verilog_pratice/HW8/./sim/prog0
+	+prog_path=/home/YuChengWang/Verilog_pratice/HW8/./sim/prog3
 
-Recompiling... reason: file '../src/ALU.sv' is newer than expected.
-	expected: Mon Aug 29 20:44:12 2022
-	actual:   Mon Aug 29 21:19:03 2022
 file: /home/YuChengWang/Verilog_pratice/HW8/./sim/top_tb.sv
 `define CYCLE 10.0 // Cycle time
                                 |
@@ -23,8 +20,6 @@ ncvlog: *W,MACNDF (/home/YuChengWang/Verilog_pratice/HW8/./sim/top_tb.sv,2|32): 
 `define MAX 300000 // Max cycle number
                                       |
 ncvlog: *W,MACNDF (/home/YuChengWang/Verilog_pratice/HW8/./sim/top_tb.sv,3|38): The text macro 'MAX' has also been defined on the command line using the -DEFINE command line option.  The compiler will ignore the definition found in the Verilog source code.
-	module worklib.ALU:sv
-		errors: 0, warnings: 0
     $value$plusargs("prog_path=%s", prog_path);
                   |
 ncvlog: *W,NOSYST (/home/YuChengWang/Verilog_pratice/HW8/./sim/top_tb.sv,43|18): System function '$value$plusargs' invoked as a task. Return value will be ignored.
@@ -40,9 +35,6 @@ ncvlog: *W,NOSYST (/home/YuChengWang/Verilog_pratice/HW8/./sim/top_tb.sv,65|12):
 		top_tb
 ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
 	Building instance overlay tables: .................... Done
-	Generating native compiled code:
-		worklib.ALU:sv <0x09710ff1>
-			streams:   5, words:  3197
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -73,51 +65,7 @@ FSDB Dumper for IUS, Release Verdi_O-2018.09, Linux x86_64/64bit, 08/30/2018
 
 Done
 
-DM[   0] = fffffff0, pass
-DM[   1] = fffffff8, pass
-DM[   2] = 00000008, pass
-DM[   3] = 00000001, pass
-DM[   4] = 00000001, pass
-DM[   5] = 78787878, pass
-DM[   6] = 000091a2, pass
-DM[   7] = 00000003, pass
-DM[   8] = fefcfefd, pass
-DM[   9] = 10305070, pass
-DM[  10] = cccccccc, pass
-DM[  11] = ffffffcc, pass
-DM[  12] = ffffcccc, pass
-DM[  13] = 000000cc, pass
-DM[  14] = 0000cccc, pass
-DM[  15] = 00000d9d, pass
-DM[  16] = 00000004, pass
-DM[  17] = 00000003, pass
-DM[  18] = 000001a6, pass
-DM[  19] = 00000ec6, pass
-DM[  20] = 2468b7a8, pass
-DM[  21] = 5dbf9f00, pass
-DM[  22] = 00012b38, pass
-DM[  23] = fa2817b7, pass
-DM[  24] = ff000000, pass
-DM[  25] = 12345678, pass
-DM[  26] = 0000f000, pass
-DM[  27] = 00000f00, pass
-DM[  28] = 000000f0, pass
-DM[  29] = 0000000f, pass
-DM[  30] = 56780000, pass
-DM[  31] = 78000000, pass
-DM[  32] = 00005678, pass
-DM[  33] = 00000078, pass
-DM[  34] = 12345678, pass
-DM[  35] = ce780000, pass
-DM[  36] = fffff000, pass
-DM[  37] = fffff000, pass
-DM[  38] = fffff000, pass
-DM[  39] = fffff000, pass
-DM[  40] = fffff000, pass
-DM[  41] = fffff000, pass
-DM[  42] = 1357a064, pass
-DM[  43] = 13578000, pass
-DM[  44] = fffff004, pass
+DM[   0] = 00000003, pass
 
 
 
@@ -131,7 +79,7 @@ DM[  44] = fffff004, pass
         ****************************   \m___m__|_|
 
 
-Simulation complete via $finish(1) at time 219577500 PS + 2
+Simulation complete via $finish(1) at time 260347500 PS + 2
 ../sim/top_tb.sv:87     $finish;
 ncsim> exit
-TOOL:	irun(64)	15.20-s084: Exiting on Aug 29, 2022 at 21:19:09 CST  (total: 00:00:02)
+TOOL:	irun(64)	15.20-s084: Exiting on Aug 30, 2022 at 15:20:18 CST  (total: 00:00:04)

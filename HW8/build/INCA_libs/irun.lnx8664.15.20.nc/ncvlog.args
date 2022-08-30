@@ -15,7 +15,7 @@
 -INCDIR
 /home/YuChengWang/Verilog_pratice/HW8/./sim
 -DEFINE
-prog0
+prog3
 -DEFINE
 FSDB_ALL
 -DEFINE

@@ -1,0 +1,15 @@
+//
+// File created by:  irun
+// Do not modify this file
+//
+/home/YuChengWang/Verilog_pratice/HW8/./sim/top_tb.sv
+-sdf_file
+/home/YuChengWang/Verilog_pratice/HW8/./syn/top_syn.sdf
++incdir+/home/YuChengWang/Verilog_pratice/HW8/./syn+/home/YuChengWang/Verilog_pratice/HW8/./include+/home/YuChengWang/Verilog_pratice/HW8/./sim
++define+SYN+prog0
+-define
+CYCLE=15.0
+-define
+MAX=1000000
++access+r
++prog_path=/home/YuChengWang/Verilog_pratice/HW8/./sim/prog0
