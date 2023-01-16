@@ -1,4 +1,4 @@
-# Verilog_pratice
+# 2022_Summer
 ### DOC file puts the corresponding problem sets.
 ### The Timeline of finishing these problems.
 * `HW1` : Finished at $05/18$.
