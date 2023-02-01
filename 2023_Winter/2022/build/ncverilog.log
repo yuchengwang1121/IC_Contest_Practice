@@ -1,0 +1,83 @@
+ncverilog(64): 15.20-s084: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s084: Started on Feb 01, 2023 at 17:08:13 CST
+ncverilog
+	/home/YuChengWang/Verilog_pratice/2023_Winter/2022/sim/tb.sv
+	/home/YuChengWang/Verilog_pratice/2023_Winter/2022/src/JAM.v
+	+incdir+/home/YuChengWang/Verilog_pratice/2023_Winter/2022/src
+	+nc64bit
+	+access+r
+	+define+FSDB_FILE="JAM.fsdb"
+Recompiling... reason: file '../src/JAM.v' is newer than expected.
+	expected: Wed Feb  1 17:07:27 2023
+	actual:   Wed Feb  1 17:08:11 2023
+file: /home/YuChengWang/Verilog_pratice/2023_Winter/2022/src/JAM.v
+	module worklib.JAM:v
+		errors: 0, warnings: 0
+ncvlog: *W,SPDUSD: Include directory /home/YuChengWang/Verilog_pratice/2023_Winter/2022/src given but not used.
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 1
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+        .MinCost(MinCost),
+                       |
+ncelab: *W,CUVMPW (../sim/tb.sv,40|23): port sizes differ in port connection (9/10).
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.JAM:v <0x789e79de>
+			streams:  17, words:  7752
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:                  2       2
+		Registers:               44      44
+		Scalar wires:             3       -
+		Expanded wires:          10       1
+		Vectored wires:           5       -
+		Always blocks:            7       7
+		Initial blocks:           7       7
+		Cont. assignments:        1       1
+		Pseudo assignments:       1       1
+		Simulation timescale:  10ps
+	Writing initial simulation snapshot: worklib.testfixture:sv
+Loading snapshot worklib.testfixture:sv .................... Done
+ncsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+FSDB Dumper for IUS, Release Verdi_O-2018.09, Linux x86_64/64bit, 08/30/2018
+(C) 1996 - 2018 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'JAM.fsdb'
+*Verdi* : Begin traversing the scopes, layer (0).
+*Verdi* : End of traversing.
+*Verdi* : Begin traversing the MDAs, layer (0).
+*Verdi* : Enable +mda and +packedmda dumping.
+*Verdi* : End of traversing the MDAs.
+*******************************
+** Simulation Start          **
+*******************************
+PATTERN:   1
+-------------- Cost Table --------------
+Jobs       0   1   2   3   4   5   6   7
+worker0:  11  25  53  41  59  32  25  59
+worker1:   4  11  25  11  59  31  53  11
+worker2:  11  59  15  11  15  15  53  53
+worker3:   4  59  32  34  53  41  34  59
+worker4:  15  32  41  34   4  59  34  32
+worker5:  41  59  59   4   4  41  34  34
+worker6:  53  31  25  41  59  32  31  53
+worker7:  11  31  25  11  34  34  53  32
+----------------------------------------------------------------------
+Get Valid at cycle:       275
+receive MinCost/MatchCount= 179/10 , golden MinCost/MatchCount= 119/ 3
+----------------------------------------------------------------------
+*************************
+**  FUNCTION WRONG!!   **
+*************************
+
+Simulation complete via $finish(1) at time 2745 NS + 0
+../sim/tb.sv:186                 $finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s084: Exiting on Feb 01, 2023 at 17:08:14 CST  (total: 00:00:01)

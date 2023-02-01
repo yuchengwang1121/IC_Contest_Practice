@@ -8,67 +8,75 @@ output reg [3:0] MatchCount,
 output reg [9:0] MinCost,
 output reg Valid );
 
-parameter [2:0] Getdata = 3'b000,
-                Calres = 3'b001,
-                Commin = 3'b010,
-                Calseq = 3'b011,
-                Finish = 3'b100;
+parameter [2:0] Reqdata = 3'b000,       //Request data
+                Recdata = 3'b001,       //Recive data
+                Calres = 3'b010,
+                Commin = 3'b011,
+                Calseq = 3'b100,
+                Finish = 3'b101;
 
-
+reg [9:0] Tempcost, mincost, Count;
+reg [3:0] worker;
 reg [2:0] Cur_state, Next_state;
 reg [2:0] Jobseq [7:0];
-reg [2:0] worker, pivot, q;
-reg [9:0] Tempcost, mincost;
-reg p,k;
+reg Res_done, Seq_done, Fin;
 integer w;
 
 always @(posedge CLK or negedge RST) begin
-    if (RST) Cur_state <=  Getdata;
+    if (RST) Cur_state <=  Reqdata;
     else Cur_state <= Next_state;
 end
 
 always @(*) begin
     case (Cur_state)
-        Getdata: begin
+        Reqdata: begin
+            Next_state = Recdata;
+        end
+        Recdata: begin
             Next_state = Calres;
         end
         Calres: begin
             if(Res_done) Next_state = Commin;
-            else Next_state = Getdata;
+            else Next_state = Reqdata;
         end
         Commin: Next_state = Calseq;
         default: begin //Calseq
-            // if (Seq_done) Next_state = Getdata;
-            // else if(Fin) Next_state = Finish;
-            // else Next_state = Calseq;
+            if (Seq_done) Next_state = Reqdata;
+            else if(Fin) Next_state = Finish;
+            else Next_state = Calseq;
         end 
     endcase
 end
 
-assign Res_done = (worker == 3'd7)? 1:0;
-// assign Seq_done = ;
-
 always@(posedge CLK or negedge RST) begin
     if (RST) begin
-        p <= 1'b0;
-        k <=1'b0;
-        pivot <= 3'b0;
-        worker <= 3'b0;
-        Tempcost <= 10'b0;
+        Res_done <= 1'b0;
+        Seq_done <= 1'b0;
+        Fin <= 1'b0;
+        worker <= 4'b0;
         MatchCount <= 4'b0;
+        Count <= 10'b0;
+        Tempcost <= 10'b0;
         mincost <= 10'h3ff;          //reset value into all 1
         for (w=0; w<8; w=w+1) begin  //assign array by its corresponding array value 
             Jobseq[w] <= w;
         end
     end 
     else begin
+        Count = Count +1'b1;        //need delete
         case (Cur_state)
-            Getdata: begin                      //Give the W,J once per cycle for cost_ROM
+            Reqdata: begin                      //Give the W,J once per cycle for cost_ROM
                 W <= worker;
                 J <= Jobseq[worker];
-                if (worker < 7) worker <= worker + 1;
-                else worker <= 0;
-            end 
+                worker <= worker + 1;
+                Seq_done <= 1'b0;
+            end
+            Recdata: begin
+                if (worker == 4'd8) begin
+                    worker <= 1'b0;
+                    Res_done <= 1'b1;
+                end
+            end
             Calres: begin
                 Tempcost = Tempcost + Cost;
             end
@@ -80,27 +88,12 @@ always@(posedge CLK or negedge RST) begin
                 if (Tempcost == mincost) begin
                     MatchCount <= MatchCount + 1'b1; //if same then count++
                 end
+                Res_done <= 1'b0;
+                Tempcost <= 10'b0;
             end
             Calseq: begin
-                //Step 1
-                for (w=7 ;w>0 ;w=w-1 ) begin
-                    if (Jobseq[w-1] < Jobseq[w] && ~p) begin  //if left smaller right & not fing pivot
-                        pivot <= w-1;
-                        p <= 1'b1;
-                    end
-                end
-                //Step 2 (Not finished!!!!)
-                for (w=pivot+1 ;w<8 ; w=w+1) begin
-                    if((Jobseq[pivot]<Jobseq[w]) && (Jobseq[w]<Jobseq[q])) q <= w;
-                end
-                Jobseq[q] <= Jobseq[pivot];
-                Jobseq[pivot] <= Jobseq[q];
-                //Step 3 (Not finished!!!!)
-                for (w=pivot+1; w<8; w=w+1) begin
-                    Jobseq[w] <= Jobseq[7-k];
-                    Jobseq[7-k] <= Jobseq[w];
-                    k = k+1;
-                end
+                if (Count > 9'd256) Fin <=1'b1; 
+                else  Seq_done <= 1'b1;
             end
             default: begin  //Finish & pull Valid HIGH
                 MinCost <= mincost;

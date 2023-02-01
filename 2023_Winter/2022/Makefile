@@ -9,11 +9,12 @@ SCRIPT_DIR         =$(ROOT_DIR)/script
 REPORT_DIR         =$(ROOT_DIR)/report
 NC_DIR             =$(ROOT_DIR)/conf
 
-TB_TOP             =test
-TOP                =avg
+# Need to modify
+TB_TOP             =tb
+TOP                =JAM
 
 SRC=$(shell ls $(SRC_DIR)/*.v)
-# Need to modify for TB
+# Need to modify
 TB_SRC=$(shell ls $(SIM_DIR)/cost_rom)
 
 
@@ -53,26 +54,18 @@ icc_init:
 	mkdir -p $(APR_DIR)/verify/drc; \
 	mkdir -p $(APR_DIR)/verify/lvs;
 
-# Generate header
-gen_def:
-	sh $(SRC_DIR)/gen_def.sh > $(SRC_DIR)/def.v; \
-
-cp_tb_src: gen_hex
+cp_tb_src:
 	cd $(BUILD_DIR); \
 	cp $(TB_SRC) .;
-
-# Add your script here
-gen_hex:
-	cd sw;
 
 # Check HDL syntax
 check:
 	jg -superlint $(SCRIPT_DIR)/superlint.tcl &
 
 # Run RTL simulation
-rtl: $(BUILD) gen_def cp_tb_src
+rtl: $(BUILD) cp_tb_src
 	cd $(BUILD_DIR); \
-	ncverilog $(SIM_DIR)/$(TB_TOP).v $(SRC) \
+	ncverilog $(SIM_DIR)/$(TB_TOP).sv $(SRC) \
 	+incdir+$(SRC_DIR) \
 	+nc64bit \
 	+access+r \
@@ -102,7 +95,7 @@ autosyn: $(BUILD) syn_init
 syn: $(BUILD) cp_tb_src syn_init
 	cd $(BUILD_DIR); \
 	cp $(SYN_DIR)/$(TOP)_syn.sdf $(BUILD_DIR); \
-	ncverilog $(SIM_DIR)/$(TB_TOP).v $(SYN_DIR)/$(TOP)_syn.v \
+	ncverilog $(SIM_DIR)/$(TB_TOP).sv $(SYN_DIR)/$(TOP)_syn.v \
 	-v $(CBDK_DIR)/$(CORE_CELL) \
 	+nc64bit \
 	+access+r \

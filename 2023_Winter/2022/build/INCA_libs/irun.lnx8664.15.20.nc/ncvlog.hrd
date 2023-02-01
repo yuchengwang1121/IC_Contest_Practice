@@ -1,0 +1,8 @@
+//
+// File created by:  ncverilog
+// Do not modify this file
+//
+-INCDIR
+/home/YuChengWang/Verilog_pratice/2023_Winter/2022/src
+-DEFINE
+FSDB_FILE=\"JAM.fsdb\"
