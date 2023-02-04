@@ -1,119 +1,44 @@
 ncverilog(64): 15.20-s084: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s084: Started on Feb 04, 2023 at 23:40:40 CST
+TOOL:	ncverilog	15.20-s084: Started on Feb 04, 2023 at 23:51:12 CST
 ncverilog
 	/home/YuChengWang/Verilog_pratice/2023_Winter/2022/sim/tb.sv
-	/home/YuChengWang/Verilog_pratice/2023_Winter/2022/syn/JAM_syn.v
-	-v
-	/usr/cad/lib/CBDK_IC_Contest_v2.5/Verilog/tsmc13_neg.v
+	/home/YuChengWang/Verilog_pratice/2023_Winter/2022/src/JAM.v
+	+incdir+/home/YuChengWang/Verilog_pratice/2023_Winter/2022/src
 	+nc64bit
 	+access+r
+	+define++P1
 	+define+FSDB_FILE="JAM.fsdb"
-	+define+SDF
-	+define++P2
-	+define+SDFFILE="/home/YuChengWang/Verilog_pratice/2023_Winter/2022/syn/JAM_syn.sdf"
 file: /home/YuChengWang/Verilog_pratice/2023_Winter/2022/sim/tb.sv
-`define SDFFILE    "../syn/JAM_syn.sdf"
-                                       |
-ncvlog: *W,MACNDF (/home/YuChengWang/Verilog_pratice/2023_Winter/2022/sim/tb.sv,3|39): The text macro 'SDFFILE' has also been defined on the command line using the -DEFINE command line option.  The compiler will ignore the definition found in the Verilog source code.
 	module worklib.testfixture:sv
 		errors: 0, warnings: 0
-file: /home/YuChengWang/Verilog_pratice/2023_Winter/2022/syn/JAM_syn.v
-	module worklib.JAM_DW01_add_0_DW01_add_4:v
-		errors: 0, warnings: 0
+file: /home/YuChengWang/Verilog_pratice/2023_Winter/2022/src/JAM.v
 	module worklib.JAM:v
 		errors: 0, warnings: 0
+ncvlog: *W,SPDUSD: Include directory /home/YuChengWang/Verilog_pratice/2023_Winter/2022/src given but not used.
 	Total errors/warnings found outside modules and primitives:
 		errors: 0, warnings: 1
 		Caching library 'worklib' ....... Done
-		Caching library 'tsmc13_neg' ....... Done
 	Elaborating the design hierarchy:
-  JAM_DW01_add_0_DW01_add_4 add_61_S2 ( .A(Tempcost), .B({1'b0, 1'b0, 1'b0, 
-                                    |
-ncelab: *W,CUVWSP (../syn/JAM_syn.v,117|36): 1 output port was not connected:
-ncelab: (../syn/JAM_syn.v,8): CO
-
-  DFFRX1 \worker_reg[3]  ( .D(n457), .CK(CLK), .RN(n570), .Q(\worker[3] ) );
-                       |
-ncelab: *W,CUVWSP (../syn/JAM_syn.v,148|23): 1 output port was not connected:
-ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.5/Verilog/tsmc13_neg.v,18307): QN
-
-  DFFRX1 \bias_reg[0]  ( .D(N430), .CK(CLK), .RN(n746), .QN(n302) );
-                     |
-ncelab: *W,CUVWSP (../syn/JAM_syn.v,193|21): 1 output port was not connected:
-ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.5/Verilog/tsmc13_neg.v,18307): Q
-
-  DFFRX1 \bias_reg[3]  ( .D(N433), .CK(CLK), .RN(n746), .QN(n385) );
-                     |
-ncelab: *W,CUVWSP (../syn/JAM_syn.v,195|21): 1 output port was not connected:
-ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.5/Verilog/tsmc13_neg.v,18307): Q
-
-  DFFRX1 SWAP_done_reg ( .D(n474), .CK(CLK), .RN(n746), .QN(n387) );
-                     |
-ncelab: *W,CUVWSP (../syn/JAM_syn.v,196|21): 1 output port was not connected:
-ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.5/Verilog/tsmc13_neg.v,18307): Q
-
-  DFFRX1 Res_done_reg ( .D(n439), .CK(CLK), .RN(n746), .QN(n317) );
-                    |
-ncelab: *W,CUVWSP (../syn/JAM_syn.v,197|20): 1 output port was not connected:
-ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.5/Verilog/tsmc13_neg.v,18307): Q
-
-  DFFSXL \minMAX_reg[2]  ( .D(n398), .CK(CLK), .SN(n746), .QN(n745) );
-                       |
-ncelab: *W,CUVWSP (../syn/JAM_syn.v,215|23): 1 output port was not connected:
-ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.5/Verilog/tsmc13_neg.v,18514): Q
-
-  DFFSXL \minMAX_reg[1]  ( .D(n399), .CK(CLK), .SN(n746), .QN(n744) );
-                       |
-ncelab: *W,CUVWSP (../syn/JAM_syn.v,216|23): 1 output port was not connected:
-ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.5/Verilog/tsmc13_neg.v,18514): Q
-
-  DFFSX1 \mincost_reg[6]  ( .D(n449), .CK(CLK), .SN(n746), .QN(n732) );
-                        |
-ncelab: *W,CUVWSP (../syn/JAM_syn.v,261|24): 1 output port was not connected:
-ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.5/Verilog/tsmc13_neg.v,18583): Q
-
 ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
-	Reading SDF file from location "/home/YuChengWang/Verilog_pratice/2023_Winter/2022/syn/JAM_syn.sdf"
-	Annotating SDF timing data:
-		Compiled SDF file:     JAM_syn.sdf.X
-		Log file:              
-		Backannotation scope:  testfixture.u_JAM
-		Configuration file:    
-		MTM control:           
-		Scale factors:         
-		Scale type:            
-	Annotation completed successfully...
-	SDF statistics: No. of Pathdelays = 2280  Annotated = 100.00% -- No. of Tchecks = 564  Annotated = 100.00% 
-				        Total 	   Annotated	  Percentage
-		 Path Delays	        2280	        2280	      100.00
-		      $width	         282	         282	      100.00
-		  $setuphold	         282	         282	      100.00
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
-		worklib.JAM:v <0x0fd5a770>
-			streams:   0, words:     0
-		worklib.testfixture:sv <0x2442afd2>
-			streams:  14, words: 30950
+		worklib.JAM:v <0x1477e539>
+			streams:  30, words: 16705
+		worklib.testfixture:sv <0x18b99431>
+			streams:  13, words: 30214
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
-		                    Instances  Unique
-		Modules:                  668      75
-		UDPs:                      94       1
-		Primitives:              1674       8
-		Timing outputs:           765      27
-		Registers:                122      35
-		Scalar wires:             865       -
-		Expanded wires:             7       1
-		Vectored wires:             1       -
-		Always blocks:              4       4
-		Initial blocks:             8       8
-		Cont. assignments:          1       1
-		Pseudo assignments:         1       1
-		Timing checks:            846     113
-		Interconnect:            2088       -
-		Delayed tcheck signals:   282     100
-		Simulation timescale:     1ps
+		                  Instances  Unique
+		Modules:                  2       2
+		Registers:               47      47
+		Scalar wires:             3       -
+		Vectored wires:           6       -
+		Always blocks:            8       8
+		Initial blocks:           7       7
+		Cont. assignments:        1       1
+		Pseudo assignments:       1       1
+		Simulation timescale:  10ps
 	Writing initial simulation snapshot: worklib.testfixture:sv
 Loading snapshot worklib.testfixture:sv .................... Done
 ncsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
@@ -132,26 +57,26 @@ FSDB Dumper for IUS, Release Verdi_O-2018.09, Linux x86_64/64bit, 08/30/2018
 *******************************
 ** Simulation Start          **
 *******************************
-PATTERN:   2
+PATTERN:   1
 -------------- Cost Table --------------
 Jobs       0   1   2   3   4   5   6   7
-worker0:  54  59  59  59  32  40  62  40
-worker1:  54  32  32  79  32  38  32  62
-worker2:  54  54  30  38  32  38  59  54
-worker3:  30  59  32  32  62  40  45  79
-worker4:  32  32  38  32  62  38  62  32
-worker5:  79  45  32  62  32  32  32  59
-worker6:  32  38  32  59  54  30  30  45
-worker7:  30  79  32  32  62  30  45  32
+worker0:  11  25  53  41  59  32  25  59
+worker1:   4  11  25  11  59  31  53  11
+worker2:  11  59  15  11  15  15  53  53
+worker3:   4  59  32  34  53  41  34  59
+worker4:  15  32  41  34   4  59  34  32
+worker5:  41  59  59   4   4  41  34  34
+worker6:  53  31  25  41  59  32  31  53
+worker7:  11  31  25  11  34  34  53  32
 ----------------------------------------------------------------------
-Get Valid at cycle:    858062
-receive MinCost/MatchCount=  250/ 6 , golden MinCost/MatchCount= 250/ 6
+Get Valid at cycle:    709006
+receive MinCost/MatchCount=  119/ 3 , golden MinCost/MatchCount= 119/ 3
 ----------------------------------------------------------------------
 *************************
 **  FUNCTION  CORRECT  **
 *************************
 
-Simulation complete via $finish(1) at time 8580615 NS + 0
+Simulation complete via $finish(1) at time 7090055 NS + 0
 ../sim/tb.sv:186                 $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s084: Exiting on Feb 04, 2023 at 23:41:01 CST  (total: 00:00:21)
+TOOL:	ncverilog	15.20-s084: Exiting on Feb 04, 2023 at 23:51:15 CST  (total: 00:00:03)

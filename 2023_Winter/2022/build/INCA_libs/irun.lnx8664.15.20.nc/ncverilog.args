@@ -3,12 +3,9 @@
 // Do not modify this file
 //
 /home/YuChengWang/Verilog_pratice/2023_Winter/2022/sim/tb.sv
-/home/YuChengWang/Verilog_pratice/2023_Winter/2022/syn/JAM_syn.v
--v
-/usr/cad/lib/CBDK_IC_Contest_v2.5/Verilog/tsmc13_neg.v
+/home/YuChengWang/Verilog_pratice/2023_Winter/2022/src/JAM.v
++incdir+/home/YuChengWang/Verilog_pratice/2023_Winter/2022/src
 +nc64bit
 +access+r
++define++P1
 +define+FSDB_FILE=\"JAM.fsdb\"
-+define+SDF
-+define++P2
-+define+SDFFILE=\"/home/YuChengWang/Verilog_pratice/2023_Winter/2022/syn/JAM_syn.sdf\"

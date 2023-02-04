@@ -2,17 +2,16 @@
 // File created by:  ncverilog
 // Do not modify this file
 //
++incdir+/home/YuChengWang/Verilog_pratice/2023_Winter/2022/src
 +nc64bit
 +access+r
++define++P1
 +define+FSDB_FILE=\"JAM.fsdb\"
-+define+SDF
-+define++P2
-+define+SDFFILE=\"/home/YuChengWang/Verilog_pratice/2023_Winter/2022/syn/JAM_syn.sdf\"
 -MESSAGES
 +EMGRLOG
 ncverilog.log
 -XLSTIME
-1675525240
+1675525872
 -XLKEEP
 -XLMODE
 ./INCA_libs/irun.lnx8664.15.20.nc

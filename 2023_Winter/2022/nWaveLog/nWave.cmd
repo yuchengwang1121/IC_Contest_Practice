@@ -449,3 +449,207 @@ wvZoomOut -win $_nWave1
 wvZoomOut -win $_nWave1
 wvZoomOut -win $_nWave1
 wvZoomOut -win $_nWave1
+wvDisplayGridCount -win $_nWave1 -off
+wvGetSignalClose -win $_nWave1
+wvReloadFile -win $_nWave1
+wvSelectSignal -win $_nWave1 {( "G1" 1 2 3 4 5 6 7 8 9 10 11 )} 
+wvCut -win $_nWave1
+wvSetPosition -win $_nWave1 {("G1" 0)}
+wvGetSignalOpen -win $_nWave1
+wvGetSignalSetScope -win $_nWave1 "/testfixture/u_JAM"
+wvSetPosition -win $_nWave1 {("G1" 2)}
+wvSetPosition -win $_nWave1 {("G1" 2)}
+wvAddSignal -win $_nWave1 -clear
+wvAddSignal -win $_nWave1 -group {"G1" \
+{/testfixture/u_JAM/CLK} \
+{/testfixture/u_JAM/Cur_state\[2:0\]} \
+}
+wvAddSignal -win $_nWave1 -group {"G2" \
+}
+wvAddSignal -win $_nWave1 -group {"G3" \
+}
+wvSelectSignal -win $_nWave1 {( "G1" 1 2 )} 
+wvSetPosition -win $_nWave1 {("G1" 2)}
+wvSetPosition -win $_nWave1 {("G1" 4)}
+wvSetPosition -win $_nWave1 {("G1" 4)}
+wvAddSignal -win $_nWave1 -clear
+wvAddSignal -win $_nWave1 -group {"G1" \
+{/testfixture/u_JAM/CLK} \
+{/testfixture/u_JAM/Cur_state\[2:0\]} \
+{/testfixture/u_JAM/Cost\[6:0\]} \
+{/testfixture/u_JAM/Jobseq\[0:7\]} \
+}
+wvAddSignal -win $_nWave1 -group {"G2" \
+}
+wvAddSignal -win $_nWave1 -group {"G3" \
+}
+wvSelectSignal -win $_nWave1 {( "G1" 3 4 )} 
+wvSetPosition -win $_nWave1 {("G1" 4)}
+wvSetPosition -win $_nWave1 {("G1" 4)}
+wvSetPosition -win $_nWave1 {("G1" 4)}
+wvAddSignal -win $_nWave1 -clear
+wvAddSignal -win $_nWave1 -group {"G1" \
+{/testfixture/u_JAM/CLK} \
+{/testfixture/u_JAM/Cur_state\[2:0\]} \
+{/testfixture/u_JAM/Cost\[6:0\]} \
+{/testfixture/u_JAM/Jobseq\[0:7\]} \
+}
+wvAddSignal -win $_nWave1 -group {"G2" \
+}
+wvAddSignal -win $_nWave1 -group {"G3" \
+}
+wvSelectSignal -win $_nWave1 {( "G1" 3 4 )} 
+wvSetPosition -win $_nWave1 {("G1" 4)}
+wvGetSignalClose -win $_nWave1
+wvSetCursor -win $_nWave1 16422.722672 -snap {("G3" 0)}
+wvSelectGroup -win $_nWave1 {G3}
+wvSetPosition -win $_nWave1 {("G3" 0)}
+wvMoveSelected -win $_nWave1
+wvGetSignalOpen -win $_nWave1
+wvGetSignalSetScope -win $_nWave1 "/testfixture"
+wvGetSignalSetScope -win $_nWave1 "/testfixture/u_JAM"
+wvGetSignalSetScope -win $_nWave1 "/testfixture/u_JAM"
+wvSetPosition -win $_nWave1 {("G3" 1)}
+wvSetPosition -win $_nWave1 {("G3" 1)}
+wvAddSignal -win $_nWave1 -clear
+wvAddSignal -win $_nWave1 -group {"G1" \
+{/testfixture/u_JAM/CLK} \
+{/testfixture/u_JAM/Cur_state\[2:0\]} \
+{/testfixture/u_JAM/Cost\[6:0\]} \
+{/testfixture/u_JAM/Jobseq\[0:7\]} \
+}
+wvAddSignal -win $_nWave1 -group {"G2" \
+}
+wvAddSignal -win $_nWave1 -group {"G3" \
+{/testfixture/u_JAM/RST} \
+}
+wvAddSignal -win $_nWave1 -group {"G4" \
+}
+wvSelectSignal -win $_nWave1 {( "G3" 1 )} 
+wvSetPosition -win $_nWave1 {("G3" 1)}
+wvSetPosition -win $_nWave1 {("G3" 1)}
+wvSetPosition -win $_nWave1 {("G3" 1)}
+wvAddSignal -win $_nWave1 -clear
+wvAddSignal -win $_nWave1 -group {"G1" \
+{/testfixture/u_JAM/CLK} \
+{/testfixture/u_JAM/Cur_state\[2:0\]} \
+{/testfixture/u_JAM/Cost\[6:0\]} \
+{/testfixture/u_JAM/Jobseq\[0:7\]} \
+}
+wvAddSignal -win $_nWave1 -group {"G2" \
+}
+wvAddSignal -win $_nWave1 -group {"G3" \
+{/testfixture/u_JAM/RST} \
+}
+wvAddSignal -win $_nWave1 -group {"G4" \
+}
+wvSelectSignal -win $_nWave1 {( "G3" 1 )} 
+wvSetPosition -win $_nWave1 {("G3" 1)}
+wvGetSignalClose -win $_nWave1
+wvSelectSignal -win $_nWave1 {( "G3" 1 )} 
+wvSetPosition -win $_nWave1 {("G1" 2)}
+wvSetPosition -win $_nWave1 {("G1" 1)}
+wvSetPosition -win $_nWave1 {("G1" 2)}
+wvSetPosition -win $_nWave1 {("G1" 1)}
+wvMoveSelected -win $_nWave1
+wvSetPosition -win $_nWave1 {("G1" 1)}
+wvSetPosition -win $_nWave1 {("G1" 2)}
+wvSelectGroup -win $_nWave1 {G2} {G3} {G4}
+wvSetPosition -win $_nWave1 {("G4" 0)}
+wvMoveSelected -win $_nWave1
+wvSetCursor -win $_nWave1 5520.242915 -snap {("G4" 0)}
+wvSetCursor -win $_nWave1 3404.149798 -snap {("G1" 1)}
+wvSetCursor -win $_nWave1 4416.194332 -snap {("G1" 1)}
+wvSetCursor -win $_nWave1 26313.157895 -snap {("G4" 0)}
+wvGetSignalOpen -win $_nWave1
+wvGetSignalSetScope -win $_nWave1 "/testfixture"
+wvGetSignalSetScope -win $_nWave1 "/testfixture/u_JAM"
+wvGetSignalSetScope -win $_nWave1 "/testfixture/u_JAM"
+wvSetPosition -win $_nWave1 {("G4" 2)}
+wvSetPosition -win $_nWave1 {("G4" 2)}
+wvAddSignal -win $_nWave1 -clear
+wvAddSignal -win $_nWave1 -group {"G1" \
+{/testfixture/u_JAM/CLK} \
+{/testfixture/u_JAM/RST} \
+{/testfixture/u_JAM/Cur_state\[2:0\]} \
+{/testfixture/u_JAM/Cost\[6:0\]} \
+{/testfixture/u_JAM/Jobseq\[0:7\]} \
+}
+wvAddSignal -win $_nWave1 -group {"G2" \
+}
+wvAddSignal -win $_nWave1 -group {"G3" \
+}
+wvAddSignal -win $_nWave1 -group {"G4" \
+{/testfixture/u_JAM/minMAX\[9:0\]} \
+{/testfixture/u_JAM/mincost\[9:0\]} \
+}
+wvAddSignal -win $_nWave1 -group {"G5" \
+}
+wvSelectSignal -win $_nWave1 {( "G4" 1 2 )} 
+wvSetPosition -win $_nWave1 {("G4" 2)}
+wvSelectSignal -win $_nWave1 {( "G4" 1 )} 
+wvSelectSignal -win $_nWave1 {( "G4" 1 )} 
+wvSelectSignal -win $_nWave1 {( "G4" 2 )} 
+wvSelectSignal -win $_nWave1 {( "G4" 1 2 )} 
+wvSetPosition -win $_nWave1 {("G4" 1)}
+wvSetPosition -win $_nWave1 {("G3" 0)}
+wvSetPosition -win $_nWave1 {("G2" 0)}
+wvMoveSelected -win $_nWave1
+wvSetPosition -win $_nWave1 {("G2" 0)}
+wvSetPosition -win $_nWave1 {("G2" 2)}
+wvSetPosition -win $_nWave1 {("G2" 3)}
+wvSetPosition -win $_nWave1 {("G2" 3)}
+wvAddSignal -win $_nWave1 -clear
+wvAddSignal -win $_nWave1 -group {"G1" \
+{/testfixture/u_JAM/CLK} \
+{/testfixture/u_JAM/RST} \
+{/testfixture/u_JAM/Cur_state\[2:0\]} \
+{/testfixture/u_JAM/Cost\[6:0\]} \
+{/testfixture/u_JAM/Jobseq\[0:7\]} \
+}
+wvAddSignal -win $_nWave1 -group {"G2" \
+{/testfixture/u_JAM/minMAX\[9:0\]} \
+{/testfixture/u_JAM/mincost\[9:0\]} \
+{/testfixture/u_JAM/Tempcost\[9:0\]} \
+}
+wvAddSignal -win $_nWave1 -group {"G3" \
+}
+wvAddSignal -win $_nWave1 -group {"G4" \
+}
+wvAddSignal -win $_nWave1 -group {"G5" \
+}
+wvSelectSignal -win $_nWave1 {( "G2" 3 )} 
+wvSetPosition -win $_nWave1 {("G2" 3)}
+wvSetPosition -win $_nWave1 {("G2" 3)}
+wvSetPosition -win $_nWave1 {("G2" 3)}
+wvAddSignal -win $_nWave1 -clear
+wvAddSignal -win $_nWave1 -group {"G1" \
+{/testfixture/u_JAM/CLK} \
+{/testfixture/u_JAM/RST} \
+{/testfixture/u_JAM/Cur_state\[2:0\]} \
+{/testfixture/u_JAM/Cost\[6:0\]} \
+{/testfixture/u_JAM/Jobseq\[0:7\]} \
+}
+wvAddSignal -win $_nWave1 -group {"G2" \
+{/testfixture/u_JAM/minMAX\[9:0\]} \
+{/testfixture/u_JAM/mincost\[9:0\]} \
+{/testfixture/u_JAM/Tempcost\[9:0\]} \
+}
+wvAddSignal -win $_nWave1 -group {"G3" \
+}
+wvAddSignal -win $_nWave1 -group {"G4" \
+}
+wvAddSignal -win $_nWave1 -group {"G5" \
+}
+wvSelectSignal -win $_nWave1 {( "G2" 3 )} 
+wvSetPosition -win $_nWave1 {("G2" 3)}
+wvGetSignalClose -win $_nWave1
+wvSetPosition -win $_nWave1 {("G2" 2)}
+wvSetPosition -win $_nWave1 {("G2" 1)}
+wvSetPosition -win $_nWave1 {("G2" 0)}
+wvMoveSelected -win $_nWave1
+wvSetPosition -win $_nWave1 {("G2" 0)}
+wvSetPosition -win $_nWave1 {("G2" 1)}
+wvSelectGroup -win $_nWave1 {G5}
+wvSetPosition -win $_nWave1 {("G5" 0)}
+wvMoveSelected -win $_nWave1

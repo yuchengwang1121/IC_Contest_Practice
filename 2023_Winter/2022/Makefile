@@ -21,9 +21,7 @@ endif
 TB_TOP             =tb
 TOP                =JAM
 SYN_TCL  		   =dc_syn
-
 SRC=$(shell ls $(SRC_DIR)/*.v)
-# Need to modify
 TB_SRC=$(shell ls $(SIM_DIR)/cost_rom)
 
 
