@@ -5,7 +5,7 @@
 -XLMODE
 ./INCA_libs/irun.lnx8664.15.20.nc
 -RUNMODE
-/home/YuChengWang/Verilog_pratice/2023_Winter/2020/sim/tb_term.sv
+/home/YuChengWang/Verilog_pratice/2023_Winter/2020/sim/tb.sv
 /home/YuChengWang/Verilog_pratice/2023_Winter/2020/syn/SME_syn.v
 -sv
 /usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v

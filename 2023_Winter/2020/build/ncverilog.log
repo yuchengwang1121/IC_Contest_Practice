@@ -1,7 +1,7 @@
 ncverilog(64): 15.20-s084: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s084: Started on Feb 04, 2023 at 19:06:25 CST
+TOOL:	ncverilog	15.20-s084: Started on Feb 04, 2023 at 22:12:57 CST
 ncverilog
-	/home/YuChengWang/Verilog_pratice/2023_Winter/2020/sim/tb_term.sv
+	/home/YuChengWang/Verilog_pratice/2023_Winter/2020/sim/tb.sv
 	/home/YuChengWang/Verilog_pratice/2023_Winter/2020/syn/SME_syn.v
 	-sv
 	/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v
@@ -10,10 +10,10 @@ ncverilog
 	+define+FSDB_FILE="SME.fsdb"
 	+define+SDF
 	+define+SDFFILE="/home/YuChengWang/Verilog_pratice/2023_Winter/2020/syn/SME_syn.sdf"
-file: /home/YuChengWang/Verilog_pratice/2023_Winter/2020/sim/tb_term.sv
+file: /home/YuChengWang/Verilog_pratice/2023_Winter/2020/sim/tb.sv
 `define SDFFILE    "../syn/SME_syn.sdf"
                                        |
-ncvlog: *W,MACNDF (/home/YuChengWang/Verilog_pratice/2023_Winter/2020/sim/tb_term.sv,3|39): The text macro 'SDFFILE' has also been defined on the command line using the -DEFINE command line option.  The compiler will ignore the definition found in the Verilog source code.
+ncvlog: *W,MACNDF (/home/YuChengWang/Verilog_pratice/2023_Winter/2020/sim/tb.sv,3|39): The text macro 'SDFFILE' has also been defined on the command line using the -DEFINE command line option.  The compiler will ignore the definition found in the Verilog source code.
 	module worklib.testfixture:sv
 		errors: 0, warnings: 0
 file: /home/YuChengWang/Verilog_pratice/2023_Winter/2020/syn/SME_syn.v
@@ -1074,30 +1074,6 @@ file: /usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v
 		errors: 0, warnings: 0
 	module worklib.TIELO:v
 		errors: 0, warnings: 0
-	primitive worklib.udp_sedff:v
-		errors: 0, warnings: 0
-	primitive worklib.udp_edfft:v
-		errors: 0, warnings: 0
-	primitive worklib.udp_mux:v
-		errors: 0, warnings: 0
-	primitive worklib.udp_sedfft:v
-		errors: 0, warnings: 0
-	primitive worklib.udp_mux2:v
-		errors: 0, warnings: 0
-	primitive worklib.udp_tlatrf:v
-		errors: 0, warnings: 0
-	primitive worklib.udp_mux4:v
-		errors: 0, warnings: 0
-	primitive worklib.udp_outrf:v
-		errors: 0, warnings: 0
-	primitive worklib.udp_dff:v
-		errors: 0, warnings: 0
-	primitive worklib.udp_tlat:v
-		errors: 0, warnings: 0
-	primitive worklib.udp_edff:v
-		errors: 0, warnings: 0
-	primitive worklib.udp_bmx:v
-		errors: 0, warnings: 0
 	Total errors/warnings found outside modules and primitives:
 		errors: 0, warnings: 1
 		Caching library 'worklib' ....... Done
@@ -1244,6 +1220,8 @@ ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18376): QN
 
 ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
 	Reading SDF file from location "/home/YuChengWang/Verilog_pratice/2023_Winter/2020/syn/SME_syn.sdf"
+	Compiled SDF file "SME_syn.sdf.X" older than source SDF file "/home/YuChengWang/Verilog_pratice/2023_Winter/2020/syn/SME_syn.sdf".
+	Recompiling.
 	Writing compiled SDF file to "SME_syn.sdf.X".
 	Annotating SDF timing data:
 		Compiled SDF file:     SME_syn.sdf.X
@@ -1262,530 +1240,530 @@ ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-
 		  $setuphold	        1546	         786	       50.84
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
-		worklib.ACCSHCINX2:v <0x528c2de4>
+		worklib.ACCSHCINX2:v <0x5e7a3db4>
 			streams:   0, words:     0
-		worklib.ACCSHCINX4:v <0x4b09f281>
+		worklib.ACCSHCINX4:v <0x47ffe2d1>
 			streams:   0, words:     0
-		worklib.ACCSHCONX2:v <0x314f2e25>
+		worklib.ACCSHCONX2:v <0x3db93e75>
 			streams:   0, words:     0
-		worklib.ACCSHCONX4:v <0x28caf140>
+		worklib.ACCSHCONX4:v <0x243ce110>
 			streams:   0, words:     0
-		worklib.ACHCINX2:v <0x2ad3fffd>
+		worklib.ACHCINX2:v <0x65dc80b3>
 			streams:   0, words:     0
-		worklib.ACHCINX4:v <0x52e099b5>
+		worklib.ACHCINX4:v <0x1defe6fb>
 			streams:   0, words:     0
-		worklib.ACHCONX2:v <0x69cb3ed8>
+		worklib.ACHCONX2:v <0x26c44196>
 			streams:   0, words:     0
-		worklib.ACHCONX4:v <0x11f85890>
+		worklib.ACHCONX4:v <0x5ef727de>
 			streams:   0, words:     0
-		worklib.ADDFHX1:v <0x24556d0f>
+		worklib.ADDFHX1:v <0x34a89209>
 			streams:   0, words:     0
-		worklib.ADDFHX2:v <0x47263efe>
+		worklib.ADDFHX2:v <0x57dbc1f8>
 			streams:   0, words:     0
-		worklib.ADDFHX4:v <0x5ab19f5d>
+		worklib.ADDFHX4:v <0x4a4c605b>
 			streams:   0, words:     0
-		worklib.ADDFHXL:v <0x2ee405a0>
+		worklib.ADDFHXL:v <0x3e19faa6>
 			streams:   0, words:     0
-		worklib.ADDFX1:v <0x380f1ef0>
+		worklib.ADDFX1:v <0x1f8a426a>
 			streams:   0, words:     0
-		worklib.ADDFX2:v <0x5b7c4d01>
+		worklib.ADDFX2:v <0x7cf9119b>
 			streams:   0, words:     0
-		worklib.ADDFX4:v <0x46ebeca2>
+		worklib.ADDFX4:v <0x616eb038>
 			streams:   0, words:     0
-		worklib.ADDFXL:v <0x32be765f>
+		worklib.ADDFXL:v <0x153b2ac5>
 			streams:   0, words:     0
-		worklib.ADDHX1:v <0x2c66f782>
+		worklib.ADDHX1:v <0x3097722c>
 			streams:   0, words:     0
-		worklib.ADDHX2:v <0x06d5e274>
+		worklib.ADDHX2:v <0x1a2467da>
 			streams:   0, words:     0
-		worklib.ADDHX4:v <0x307ea8bc>
+		worklib.ADDHX4:v <0x2c8f2d12>
 			streams:   0, words:     0
-		worklib.ADDHXL:v <0x78f17107>
+		worklib.ADDHXL:v <0x6400f4a9>
 			streams:   0, words:     0
-		worklib.AFCSHCINX2:v <0x69754894>
+		worklib.AFCSHCINX2:v <0x5e5d7f32>
 			streams:   0, words:     0
-		worklib.AFCSHCINX4:v <0x680ea2a3>
+		worklib.AFCSHCINX4:v <0x5f269505>
 			streams:   0, words:     0
-		worklib.AFCSHCONX2:v <0x7694c199>
+		worklib.AFCSHCONX2:v <0x41bcf63f>
 			streams:   0, words:     0
-		worklib.AFCSHCONX4:v <0x77ef2bae>
+		worklib.AFCSHCONX4:v <0x40c71c08>
 			streams:   0, words:     0
-		worklib.AFCSIHCONX2:v <0x45094bb2>
+		worklib.AFCSIHCONX2:v <0x686d32a3>
 			streams:   0, words:     0
-		worklib.AFCSIHCONX4:v <0x39978cef>
+		worklib.AFCSIHCONX4:v <0x14f3f5fe>
 			streams:   0, words:     0
-		worklib.AFHCINX2:v <0x319845d2>
+		worklib.AFHCINX2:v <0x49baaf7a>
 			streams:   0, words:     0
-		worklib.AFHCINX4:v <0x5f0ccd8e>
+		worklib.AFHCINX4:v <0x272e2726>
 			streams:   0, words:     0
-		worklib.AFHCONX2:v <0x14d397b4>
+		worklib.AFHCONX2:v <0x6cf17d1c>
 			streams:   0, words:     0
-		worklib.AFHCONX4:v <0x7a471fe8>
+		worklib.AFHCONX4:v <0x0265f540>
 			streams:   0, words:     0
-		worklib.AHCSHCINX2:v <0x5781277f>
+		worklib.AHCSHCINX2:v <0x038dd33a>
 			streams:   0, words:     0
-		worklib.AHCSHCINX4:v <0x0b561a90>
+		worklib.AHCSHCINX4:v <0x5f5aeed5>
 			streams:   0, words:     0
-		worklib.AHCSHCONX2:v <0x6155efa9>
+		worklib.AHCSHCONX2:v <0x35591bec>
 			streams:   0, words:     0
-		worklib.AHCSHCONX4:v <0x3d82d246>
+		worklib.AHCSHCONX4:v <0x698e2603>
 			streams:   0, words:     0
-		worklib.AHHCINX2:v <0x66e00abf>
+		worklib.AHHCINX2:v <0x6532aa54>
 			streams:   0, words:     0
-		worklib.AHHCINX4:v <0x6c3716b0>
+		worklib.AHHCINX4:v <0x6fe5b65b>
 			streams:   0, words:     0
-		worklib.AHHCONX2:v <0x2974b2fc>
+		worklib.AHHCONX2:v <0x2aa61217>
 			streams:   0, words:     0
-		worklib.AHHCONX4:v <0x23a3aef3>
+		worklib.AHHCONX4:v <0x20710e18>
 			streams:   0, words:     0
-		worklib.BENCX1:v <0x2f4ab1a6>
+		worklib.BENCX1:v <0x4489feb6>
 			streams:   0, words:     0
-		worklib.BENCX2:v <0x769127fc>
+		worklib.BENCX2:v <0x1d5268ec>
 			streams:   0, words:     0
-		worklib.BENCX4:v <0x170ddafe>
+		worklib.BENCX4:v <0x7cce95ee>
 			streams:   0, words:     0
-		worklib.BMXIX2:v <0x615a6de3>
+		worklib.BMXIX2:v <0x09f5c76f>
 			streams:   0, words:     0
-		worklib.BMXIX4:v <0x7a3fce44>
+		worklib.BMXIX4:v <0x129064c8>
 			streams:   0, words:     0
-		worklib.BMXX2:v <0x7581db8d>
+		worklib.BMXX2:v <0x07664727>
 			streams:   0, words:     0
-		worklib.BMXX4:v <0x0db2bdc5>
+		worklib.BMXX4:v <0x7f55216f>
 			streams:   0, words:     0
-		worklib.CLKMX2X12:v <0x2a7d9f56>
+		worklib.CLKMX2X12:v <0x0f35596f>
 			streams:   0, words:     0
-		worklib.CLKMX2X2:v <0x2d8fb4fa>
+		worklib.CLKMX2X2:v <0x5e1a564f>
 			streams:   0, words:     0
-		worklib.CLKMX2X3:v <0x733894ff>
+		worklib.CLKMX2X3:v <0x00ad764a>
 			streams:   0, words:     0
-		worklib.CLKMX2X4:v <0x3648ceb5>
+		worklib.CLKMX2X4:v <0x45dd2c00>
 			streams:   0, words:     0
-		worklib.CLKMX2X6:v <0x61b1386c>
+		worklib.CLKMX2X6:v <0x1224dad9>
 			streams:   0, words:     0
-		worklib.CLKMX2X8:v <0x397a5d4e>
+		worklib.CLKMX2X8:v <0x4aefbffb>
 			streams:   0, words:     0
-		worklib.CLKXOR2X1:v <0x6156889a>
+		worklib.CLKXOR2X1:v <0x6601ae65>
 			streams:   0, words:     0
-		worklib.CLKXOR2X2:v <0x5139415e>
+		worklib.CLKXOR2X2:v <0x566e67a1>
 			streams:   0, words:     0
-		worklib.CLKXOR2X4:v <0x63cd0360>
+		worklib.CLKXOR2X4:v <0x649a259f>
 			streams:   0, words:     0
-		worklib.CLKXOR2X8:v <0x540e56aa>
+		worklib.CLKXOR2X8:v <0x53597055>
 			streams:   0, words:     0
-		worklib.CMPR22X2:v <0x208dab18>
+		worklib.CMPR22X2:v <0x05cdbbd3>
 			streams:   0, words:     0
-		worklib.CMPR22X4:v <0x1626e1d0>
+		worklib.CMPR22X4:v <0x3366f11b>
 			streams:   0, words:     0
-		worklib.CMPR32X2:v <0x5bd4dde2>
+		worklib.CMPR32X2:v <0x23f6374a>
 			streams:   0, words:     0
-		worklib.CMPR32X4:v <0x354055be>
+		worklib.CMPR32X4:v <0x4d62bf16>
 			streams:   0, words:     0
-		worklib.CMPR42X1:v <0x0029a6b3>
+		worklib.CMPR42X1:v <0x4d5a8dcc>
 			streams:   0, words:     0
-		worklib.CMPR42X2:v <0x1a1acfad>
+		worklib.CMPR42X2:v <0x5769e4d2>
 			streams:   0, words:     0
-		worklib.CMPR42X4:v <0x44ebab42>
+		worklib.CMPR42X4:v <0x0998803d>
 			streams:   0, words:     0
-		worklib.DFFHQX1:v <0x0bcd1644>
+		worklib.DFFHQX1:v <0x17c1d342>
 			streams:   0, words:     0
-		worklib.DFFHQX2:v <0x1bbf74a2>
+		worklib.DFFHQX2:v <0x07b3b1a4>
 			streams:   0, words:     0
-		worklib.DFFHQX4:v <0x3b5bb16e>
+		worklib.DFFHQX4:v <0x27577468>
 			streams:   0, words:     0
-		worklib.DFFHQX8:v <0x4b748a64>
+		worklib.DFFHQX8:v <0x57784f62>
 			streams:   0, words:     0
-		worklib.DFFNSRX1:v <0x6a25da95>
+		worklib.DFFNSRX1:v <0x49b46d45>
 			streams:   0, words:     0
-		worklib.DFFNSRX2:v <0x4c9d87fa>
+		worklib.DFFNSRX2:v <0x6f0c302a>
 			streams:   0, words:     0
-		worklib.DFFNSRX4:v <0x6b7a8bf7>
+		worklib.DFFNSRX4:v <0x48eb3c27>
 			streams:   0, words:     0
-		worklib.DFFNSRXL:v <0x395e2126>
+		worklib.DFFNSRXL:v <0x1acf96f6>
 			streams:   0, words:     0
-		worklib.DFFQX1:v <0x5b604ec9>
+		worklib.DFFQX1:v <0x5ea3e10d>
 			streams:   0, words:     0
-		worklib.DFFQX2:v <0x2d148ac4>
+		worklib.DFFQX2:v <0x28d72500>
 			streams:   0, words:     0
-		worklib.DFFQX4:v <0x0df04f08>
+		worklib.DFFQX4:v <0x0833e0cc>
 			streams:   0, words:     0
-		worklib.DFFQXL:v <0x5c5abea9>
+		worklib.DFFQXL:v <0x5999116d>
 			streams:   0, words:     0
-		worklib.DFFRHQX1:v <0x5358ab0c>
+		worklib.DFFRHQX1:v <0x0277701a>
 			streams:   0, words:     0
-		worklib.DFFRHQX2:v <0x30cb87db>
+		worklib.DFFRHQX2:v <0x61e45ccd>
 			streams:   0, words:     0
-		worklib.DFFRHQX4:v <0x460b6ee7>
+		worklib.DFFRHQX4:v <0x1724b5f1>
 			streams:   0, words:     0
-		worklib.DFFRHQX8:v <0x1336dbfa>
+		worklib.DFFRHQX8:v <0x421900ec>
 			streams:   0, words:     0
-		worklib.DFFRX1:v <0x2cd7aa6c>
+		worklib.DFFRX1:v <0x5f64f9c9>
 			streams:   0, words:     0
-		worklib.DFFRX2:v <0x7d72ff42>
+		worklib.DFFRX2:v <0x0ec1ace7>
 			streams:   0, words:     0
-		worklib.DFFRX4:v <0x5b66b7a5>
+		worklib.DFFRX4:v <0x28d5e400>
 			streams:   0, words:     0
-		worklib.DFFRXL:v <0x50a05690>
+		worklib.DFFRXL:v <0x23130535>
 			streams:   0, words:     0
-		worklib.DFFSHQX1:v <0x579054d4>
+		worklib.DFFSHQX1:v <0x06bf8fc2>
 			streams:   0, words:     0
-		worklib.DFFSHQX2:v <0x34037803>
+		worklib.DFFSHQX2:v <0x652ca315>
 			streams:   0, words:     0
-		worklib.DFFSHQX4:v <0x42c3913f>
+		worklib.DFFSHQX4:v <0x13ec4a29>
 			streams:   0, words:     0
-		worklib.DFFSHQX8:v <0x17fe2422>
+		worklib.DFFSHQX8:v <0x46d1ff34>
 			streams:   0, words:     0
-		worklib.DFFSRHQX1:v <0x238b118e>
+		worklib.DFFSRHQX1:v <0x021ff27e>
 			streams:   0, words:     0
-		worklib.DFFSRHQX2:v <0x2d7f1bd4>
+		worklib.DFFSRHQX2:v <0x0cebf824>
 			streams:   0, words:     0
-		worklib.DFFSRHQX4:v <0x5a00b9b3>
+		worklib.DFFSRHQX4:v <0x7b945a43>
 			streams:   0, words:     0
-		worklib.DFFSRHQX8:v <0x3da52a8a>
+		worklib.DFFSRHQX8:v <0x1c31c97a>
 			streams:   0, words:     0
-		worklib.DFFSRX1:v <0x21a8653b>
+		worklib.DFFSRX1:v <0x61467762>
 			streams:   0, words:     0
-		worklib.DFFSRX2:v <0x07103854>
+		worklib.DFFSRX2:v <0x47fe2a0d>
 			streams:   0, words:     0
-		worklib.DFFSRX4:v <0x20f73459>
+		worklib.DFFSRX4:v <0x60192600>
 			streams:   0, words:     0
-		worklib.DFFSRXL:v <0x72d39e88>
+		worklib.DFFSRXL:v <0x323d8cd1>
 			streams:   0, words:     0
-		worklib.DFFSX1:v <0x66c522b2>
+		worklib.DFFSX1:v <0x15767117>
 			streams:   0, words:     0
-		worklib.DFFSX2:v <0x3760779c>
+		worklib.DFFSX2:v <0x44d32439>
 			streams:   0, words:     0
-		worklib.DFFSX4:v <0x1d700a37>
+		worklib.DFFSX4:v <0x6ec35992>
 			streams:   0, words:     0
-		worklib.DFFSXL:v <0x16b6eb02>
+		worklib.DFFSXL:v <0x6505b8a7>
 			streams:   0, words:     0
-		worklib.DFFTRX1:v <0x777dfe2b>
+		worklib.DFFTRX1:v <0x67300dc0>
 			streams:   0, words:     0
-		worklib.DFFTRX2:v <0x04ac8ff7>
+		worklib.DFFTRX2:v <0x14e17c1c>
 			streams:   0, words:     0
-		worklib.DFFTRX4:v <0x3125bdf9>
+		worklib.DFFTRX4:v <0x21684e12>
 			streams:   0, words:     0
-		worklib.DFFTRXL:v <0x572b0955>
+		worklib.DFFTRXL:v <0x4766fabe>
 			streams:   0, words:     0
-		worklib.DFFX1:v <0x65979a77>
+		worklib.DFFX1:v <0x292f90f2>
 			streams:   0, words:     0
-		worklib.DFFX2:v <0x64480d08>
+		worklib.DFFX2:v <0x28f0078d>
 			streams:   0, words:     0
-		worklib.DFFX4:v <0x56e436a0>
+		worklib.DFFX4:v <0x1a5c3c25>
 			streams:   0, words:     0
-		worklib.DFFXL:v <0x6fc88e66>
+		worklib.DFFXL:v <0x237084e3>
 			streams:   0, words:     0
-		worklib.EDFFHQX1:v <0x3ae7b34b>
+		worklib.EDFFHQX1:v <0x183554b3>
 			streams:   0, words:     0
-		worklib.EDFFHQX2:v <0x59749f9c>
+		worklib.EDFFHQX2:v <0x7ba67864>
 			streams:   0, words:     0
-		worklib.EDFFHQX4:v <0x2fb476a0>
+		worklib.EDFFHQX4:v <0x0d669158>
 			streams:   0, words:     0
-		worklib.EDFFHQX8:v <0x7a89c3bd>
+		worklib.EDFFHQX8:v <0x585b2445>
 			streams:   0, words:     0
-		worklib.EDFFTRX1:v <0x6203f8d9>
+		worklib.EDFFTRX1:v <0x022570cb>
 			streams:   0, words:     0
-		worklib.EDFFTRX2:v <0x44bba5b6>
+		worklib.EDFFTRX2:v <0x249d2da4>
 			streams:   0, words:     0
-		worklib.EDFFTRX4:v <0x635ca9bb>
+		worklib.EDFFTRX4:v <0x037a21a9>
 			streams:   0, words:     0
-		worklib.EDFFTRXL:v <0x3178036a>
+		worklib.EDFFTRXL:v <0x515e8b78>
 			streams:   0, words:     0
-		worklib.EDFFX1:v <0x7277dc8a>
+		worklib.EDFFX1:v <0x17346369>
 			streams:   0, words:     0
-		worklib.EDFFX2:v <0x23d289a4>
+		worklib.EDFFX2:v <0x46913647>
 			streams:   0, words:     0
-		worklib.EDFFX4:v <0x09c2f40f>
+		worklib.EDFFX4:v <0x6c814bec>
 			streams:   0, words:     0
-		worklib.EDFFXL:v <0x0204153a>
+		worklib.EDFFXL:v <0x6747aad9>
 			streams:   0, words:     0
-		worklib.MDFFHQX1:v <0x244b81f1>
+		worklib.MDFFHQX1:v <0x110392b6>
 			streams:   0, words:     0
-		worklib.MDFFHQX2:v <0x261b2c0a>
+		worklib.MDFFHQX2:v <0x13533f4d>
 			streams:   0, words:     0
-		worklib.MDFFHQX4:v <0x417716d8>
+		worklib.MDFFHQX4:v <0x743f059f>
 			streams:   0, words:     0
-		worklib.MDFFHQX8:v <0x0faf637c>
+		worklib.MDFFHQX8:v <0x3ae7703b>
 			streams:   0, words:     0
-		worklib.MX2X1:v <0x7e775c4e>
+		worklib.MX2X1:v <0x79c83b61>
 			streams:   0, words:     0
-		worklib.MX2X2:v <0x77398a92>
+		worklib.MX2X2:v <0x7086edbd>
 			streams:   0, words:     0
-		worklib.MX2X4:v <0x6cfef0dd>
+		worklib.MX2X4:v <0x6b4197f2>
 			streams:   0, words:     0
-		worklib.MX2X6:v <0x3b070604>
+		worklib.MX2X6:v <0x3cb8612b>
 			streams:   0, words:     0
-		worklib.MX2X8:v <0x63cc6326>
+		worklib.MX2X8:v <0x64730409>
 			streams:   0, words:     0
-		worklib.MX2XL:v <0x3abeeba6>
+		worklib.MX2XL:v <0x3d018c89>
 			streams:   0, words:     0
-		worklib.MX3X1:v <0x70b7a542>
+		worklib.MX3X1:v <0x5db0b118>
 			streams:   0, words:     0
-		worklib.MX3X2:v <0x45ab1ddb>
+		worklib.MX3X2:v <0x68ac0981>
 			streams:   0, words:     0
-		worklib.MX3X4:v <0x2f926ce9>
+		worklib.MX3X4:v <0x029578b3>
 			streams:   0, words:     0
-		worklib.MX3XL:v <0x4924a205>
+		worklib.MX3XL:v <0x6423b65f>
 			streams:   0, words:     0
-		worklib.MX4X1:v <0x4fc12a18>
+		worklib.MX4X1:v <0x3e11149a>
 			streams:   0, words:     0
-		worklib.MX4X2:v <0x71417113>
+		worklib.MX4X2:v <0x00914f91>
 			streams:   0, words:     0
-		worklib.MX4X4:v <0x0c41c705>
+		worklib.MX4X4:v <0x7d91f987>
 			streams:   0, words:     0
-		worklib.MX4XL:v <0x1efd6178>
+		worklib.MX4XL:v <0x6f2d5ffa>
 			streams:   0, words:     0
-		worklib.MXI2X1:v <0x33023981>
+		worklib.MXI2X1:v <0x2f8d9a89>
 			streams:   0, words:     0
-		worklib.MXI2X2:v <0x5d643a98>
+		worklib.MXI2X2:v <0x41eb9990>
 			streams:   0, words:     0
-		worklib.MXI2X4:v <0x5ad93aeb>
+		worklib.MXI2X4:v <0x465699e3>
 			streams:   0, words:     0
-		worklib.MXI2X6:v <0x69ab75a8>
+		worklib.MXI2X6:v <0x7524d6a0>
 			streams:   0, words:     0
-		worklib.MXI2X8:v <0x55a33a0d>
+		worklib.MXI2X8:v <0x492c9905>
 			streams:   0, words:     0
-		worklib.MXI2XL:v <0x3ffd3c17>
+		worklib.MXI2XL:v <0x23729f1f>
 			streams:   0, words:     0
-		worklib.MXI3X1:v <0x0d4b18dc>
+		worklib.MXI3X1:v <0x258aa16e>
 			streams:   0, words:     0
-		worklib.MXI3X2:v <0x7152abf8>
+		worklib.MXI3X2:v <0x5993124a>
 			streams:   0, words:     0
-		worklib.MXI3X4:v <0x0961cdb0>
+		worklib.MXI3X4:v <0x21a07402>
 			streams:   0, words:     0
-		worklib.MXI3XL:v <0x6d67b849>
+		worklib.MXI3XL:v <0x45a601fb>
 			streams:   0, words:     0
-		worklib.MXI4X1:v <0x3e83f48e>
+		worklib.MXI4X1:v <0x793a1b9c>
 			streams:   0, words:     0
-		worklib.MXI4X2:v <0x4ad99382>
+		worklib.MXI4X2:v <0x0d607c90>
 			streams:   0, words:     0
-		worklib.MXI4X4:v <0x138bed08>
+		worklib.MXI4X4:v <0x5432021a>
 			streams:   0, words:     0
-		worklib.MXI4XL:v <0x6698baf0>
+		worklib.MXI4XL:v <0x212155e2>
 			streams:   0, words:     0
-		worklib.RF1R1WX1:v <0x5586de9b>
+		worklib.RF1R1WX1:v <0x5948147a>
 			streams:   0, words:     0
-		worklib.RF2R1WX1:v <0x3a1cf415>
+		worklib.RF2R1WX1:v <0x6da40c82>
 			streams:   0, words:     0
-		worklib.SDFFHQX1:v <0x144a9fe0>
+		worklib.SDFFHQX1:v <0x21028ca7>
 			streams:   0, words:     0
-		worklib.SDFFHQX2:v <0x161a321b>
+		worklib.SDFFHQX2:v <0x2352215c>
 			streams:   0, words:     0
-		worklib.SDFFHQX4:v <0x717608c9>
+		worklib.SDFFHQX4:v <0x443e1b8e>
 			streams:   0, words:     0
-		worklib.SDFFHQX8:v <0x3fae7d6d>
+		worklib.SDFFHQX8:v <0x0ae66e2a>
 			streams:   0, words:     0
-		worklib.SDFFNSRX1:v <0x54f08701>
+		worklib.SDFFNSRX1:v <0x1f26e245>
 			streams:   0, words:     0
-		worklib.SDFFNSRX2:v <0x5b69f93c>
+		worklib.SDFFNSRX2:v <0x10bf9c78>
 			streams:   0, words:     0
-		worklib.SDFFNSRX4:v <0x7ce76223>
+		worklib.SDFFNSRX4:v <0x37310767>
 			streams:   0, words:     0
-		worklib.SDFFNSRXL:v <0x46ef2270>
+		worklib.SDFFNSRXL:v <0x0d394734>
 			streams:   0, words:     0
-		worklib.SDFFQX1:v <0x3972ecfa>
+		worklib.SDFFQX1:v <0x7d119cee>
 			streams:   0, words:     0
-		worklib.SDFFQX2:v <0x3b224101>
+		worklib.SDFFQX2:v <0x7f413115>
 			streams:   0, words:     0
-		worklib.SDFFQX4:v <0x5c4e7bd3>
+		worklib.SDFFQX4:v <0x182d0bc7>
 			streams:   0, words:     0
-		worklib.SDFFQXL:v <0x5af924bf>
+		worklib.SDFFQXL:v <0x1e9a54ab>
 			streams:   0, words:     0
-		worklib.SDFFRHQX1:v <0x7f5fcd94>
+		worklib.SDFFRHQX1:v <0x651255fd>
 			streams:   0, words:     0
-		worklib.SDFFRHQX2:v <0x783b721d>
+		worklib.SDFFRHQX2:v <0x6276ea74>
 			streams:   0, words:     0
-		worklib.SDFFRHQX4:v <0x153f6c2b>
+		worklib.SDFFRHQX4:v <0x0f72f442>
 			streams:   0, words:     0
-		worklib.SDFFRHQX8:v <0x4f375047>
+		worklib.SDFFRHQX8:v <0x557ac82e>
 			streams:   0, words:     0
-		worklib.SDFFRX1:v <0x51284ef5>
+		worklib.SDFFRX1:v <0x18decea2>
 			streams:   0, words:     0
-		worklib.SDFFRX2:v <0x001f1b8f>
+		worklib.SDFFRX2:v <0x49e99bd8>
 			streams:   0, words:     0
-		worklib.SDFFRX4:v <0x1acdd61e>
+		worklib.SDFFRX4:v <0x533b5649>
 			streams:   0, words:     0
-		worklib.SDFFRXL:v <0x363d8f99>
+		worklib.SDFFRXL:v <0x7fcb0fce>
 			streams:   0, words:     0
-		worklib.SDFFSHQX1:v <0x777fd557>
+		worklib.SDFFSHQX1:v <0x6d324d3e>
 			streams:   0, words:     0
-		worklib.SDFFSHQX2:v <0x701b6ade>
+		worklib.SDFFSHQX2:v <0x6a56f2b7>
 			streams:   0, words:     0
-		worklib.SDFFSHQX4:v <0x1d1f74e8>
+		worklib.SDFFSHQX4:v <0x0752ec81>
 			streams:   0, words:     0
-		worklib.SDFFSHQX8:v <0x47174884>
+		worklib.SDFFSHQX8:v <0x5d5ad0ed>
 			streams:   0, words:     0
-		worklib.SDFFSRHQX1:v <0x3554986d>
+		worklib.SDFFSRHQX1:v <0x71d66b5f>
 			streams:   0, words:     0
-		worklib.SDFFSRHQX2:v <0x2947e7fc>
+		worklib.SDFFSRHQX2:v <0x6dc514ce>
 			streams:   0, words:     0
-		worklib.SDFFSRHQX4:v <0x434ac968>
+		worklib.SDFFSRHQX4:v <0x07c83a5a>
 			streams:   0, words:     0
-		worklib.SDFFSRHQX8:v <0x457b45f6>
+		worklib.SDFFSRHQX8:v <0x01f9b6c4>
 			streams:   0, words:     0
-		worklib.SDFFSRX1:v <0x1f4a62ba>
+		worklib.SDFFSRX1:v <0x45c51c31>
 			streams:   0, words:     0
-		worklib.SDFFSRX2:v <0x10d31c87>
+		worklib.SDFFSRX2:v <0x4a5c620c>
 			streams:   0, words:     0
-		worklib.SDFFSRX4:v <0x375d8798>
+		worklib.SDFFSRX4:v <0x6dd2f913>
 			streams:   0, words:     0
-		worklib.SDFFSRXL:v <0x0d55c7cb>
+		worklib.SDFFSRXL:v <0x57dab940>
 			streams:   0, words:     0
-		worklib.SDFFSX1:v <0x5d7384d9>
+		worklib.SDFFSX1:v <0x1485048e>
 			streams:   0, words:     0
-		worklib.SDFFSX2:v <0x0c44d1a3>
+		worklib.SDFFSX2:v <0x45b251f4>
 			streams:   0, words:     0
-		worklib.SDFFSX4:v <0x16961c32>
+		worklib.SDFFSX4:v <0x5f609c65>
 			streams:   0, words:     0
-		worklib.SDFFSXL:v <0x3a6645b5>
+		worklib.SDFFSXL:v <0x7390c5e2>
 			streams:   0, words:     0
-		worklib.SDFFTRX1:v <0x51735739>
+		worklib.SDFFTRX1:v <0x0be3c1a4>
 			streams:   0, words:     0
-		worklib.SDFFTRX2:v <0x00440243>
+		worklib.SDFFTRX2:v <0x5ad494de>
 			streams:   0, words:     0
-		worklib.SDFFTRX4:v <0x1a96cfd2>
+		worklib.SDFFTRX4:v <0x4006594f>
 			streams:   0, words:     0
-		worklib.SDFFTRXL:v <0x36669655>
+		worklib.SDFFTRXL:v <0x6cf600c8>
 			streams:   0, words:     0
-		worklib.SDFFX1:v <0x6675f83c>
+		worklib.SDFFX1:v <0x6e1a3e70>
 			streams:   0, words:     0
-		worklib.SDFFX2:v <0x7a6687ad>
+		worklib.SDFFX2:v <0x720941e1>
 			streams:   0, words:     0
-		worklib.SDFFX4:v <0x106ba939>
+		worklib.SDFFX4:v <0x18046f75>
 			streams:   0, words:     0
-		worklib.SDFFXL:v <0x2bbc9455>
+		worklib.SDFFXL:v <0x23d35219>
 			streams:   0, words:     0
-		worklib.SEDFFHQX1:v <0x7ef4a205>
+		worklib.SEDFFHQX1:v <0x6f9fd8d6>
 			streams:   0, words:     0
-		worklib.SEDFFHQX2:v <0x1b4b4a6e>
+		worklib.SEDFFHQX2:v <0x0a2030bd>
 			streams:   0, words:     0
-		worklib.SEDFFHQX4:v <0x021f4b0e>
+		worklib.SEDFFHQX4:v <0x137431dd>
 			streams:   0, words:     0
-		worklib.SEDFFHQX8:v <0x080b2eab>
+		worklib.SEDFFHQX8:v <0x19605478>
 			streams:   0, words:     0
-		worklib.SEDFFTRX1:v <0x1554d276>
+		worklib.SEDFFTRX1:v <0x05fe7205>
 			streams:   0, words:     0
-		worklib.SEDFFTRX2:v <0x699bc3df>
+		worklib.SEDFFTRX2:v <0x793163ac>
 			streams:   0, words:     0
-		worklib.SEDFFTRX4:v <0x422e313b>
+		worklib.SEDFFTRX4:v <0x52849148>
 			streams:   0, words:     0
-		worklib.SEDFFTRXL:v <0x55883e4c>
+		worklib.SEDFFTRXL:v <0x45229e3f>
 			streams:   0, words:     0
-		worklib.SEDFFX1:v <0x037b867e>
+		worklib.SEDFFX1:v <0x60fb6129>
 			streams:   0, words:     0
-		worklib.SEDFFX2:v <0x1f68f9ef>
+		worklib.SEDFFX2:v <0x7ce81eb8>
 			streams:   0, words:     0
-		worklib.SEDFFX4:v <0x7565d77b>
+		worklib.SEDFFX4:v <0x16e5302c>
 			streams:   0, words:     0
-		worklib.SEDFFXL:v <0x4eb2ea17>
+		worklib.SEDFFXL:v <0x2d320d40>
 			streams:   0, words:     0
-		worklib.SMDFFHQX1:v <0x56882f6d>
+		worklib.SMDFFHQX1:v <0x187f8e86>
 			streams:   0, words:     0
-		worklib.SMDFFHQX2:v <0x35e0fc31>
+		worklib.SMDFFHQX2:v <0x7b175dda>
 			streams:   0, words:     0
-		worklib.SMDFFHQX4:v <0x19a6ec5a>
+		worklib.SMDFFHQX4:v <0x57514db1>
 			streams:   0, words:     0
-		worklib.SMDFFHQX8:v <0x13011d3a>
+		worklib.SMDFFHQX8:v <0x5df6bcd1>
 			streams:   0, words:     0
-		worklib.TLATNCAX12:v <0x0bf314a3>
+		worklib.TLATNCAX12:v <0x258e6bb9>
 			streams:   0, words:     0
-		worklib.TLATNCAX16:v <0x409bd1f1>
+		worklib.TLATNCAX16:v <0x6ee6aeeb>
 			streams:   0, words:     0
-		worklib.TLATNCAX20:v <0x6719be21>
+		worklib.TLATNCAX20:v <0x4964c13b>
 			streams:   0, words:     0
-		worklib.TLATNCAX2:v <0x378b4ba0>
+		worklib.TLATNCAX2:v <0x13a066e6>
 			streams:   0, words:     0
-		worklib.TLATNCAX3:v <0x48e9f9d4>
+		worklib.TLATNCAX3:v <0x6cc2d492>
 			streams:   0, words:     0
-		worklib.TLATNCAX4:v <0x5957ec5b>
+		worklib.TLATNCAX4:v <0x7d7cc11d>
 			streams:   0, words:     0
-		worklib.TLATNCAX6:v <0x7ce38ef2>
+		worklib.TLATNCAX6:v <0x58c8a3b4>
 			streams:   0, words:     0
-		worklib.TLATNCAX8:v <0x3508133f>
+		worklib.TLATNCAX8:v <0x11233e79>
 			streams:   0, words:     0
-		worklib.TLATNSRX1:v <0x6a48c1f4>
+		worklib.TLATNSRX1:v <0x4e9e10c9>
 			streams:   0, words:     0
-		worklib.TLATNSRX2:v <0x6f1d3e65>
+		worklib.TLATNSRX2:v <0x4bcbef58>
 			streams:   0, words:     0
-		worklib.TLATNSRX4:v <0x3ec7c706>
+		worklib.TLATNSRX4:v <0x1a11163b>
 			streams:   0, words:     0
-		worklib.TLATNSRXL:v <0x3f8b86b2>
+		worklib.TLATNSRXL:v <0x1b5d578f>
 			streams:   0, words:     0
-		worklib.TLATNTSCAX12:v <0x242a2183>
+		worklib.TLATNTSCAX12:v <0x11272308>
 			streams:   0, words:     0
-		worklib.TLATNTSCAX16:v <0x6c89fb5d>
+		worklib.TLATNTSCAX16:v <0x5984f9d6>
 			streams:   0, words:     0
-		worklib.TLATNTSCAX20:v <0x73a6775a>
+		worklib.TLATNTSCAX20:v <0x46ab75d1>
 			streams:   0, words:     0
-		worklib.TLATNTSCAX2:v <0x2b11a5a5>
+		worklib.TLATNTSCAX2:v <0x2a6319b1>
 			streams:   0, words:     0
-		worklib.TLATNTSCAX3:v <0x7481d032>
+		worklib.TLATNTSCAX3:v <0x75f36c26>
 			streams:   0, words:     0
-		worklib.TLATNTSCAX4:v <0x07e39214>
+		worklib.TLATNTSCAX4:v <0x06912e00>
 			streams:   0, words:     0
-		worklib.TLATNTSCAX6:v <0x63b27f7b>
+		worklib.TLATNTSCAX6:v <0x62c0c36f>
 			streams:   0, words:     0
-		worklib.TLATNTSCAX8:v <0x34904ba5>
+		worklib.TLATNTSCAX8:v <0x35e2f7b1>
 			streams:   0, words:     0
-		worklib.TLATNX1:v <0x7e44e9f4>
+		worklib.TLATNX1:v <0x4d1d09ac>
 			streams:   0, words:     0
-		worklib.TLATNX2:v <0x58fcb49b>
+		worklib.TLATNX2:v <0x6ba554c3>
 			streams:   0, words:     0
-		worklib.TLATNX4:v <0x7f1bb896>
+		worklib.TLATNX4:v <0x4c4258ce>
 			streams:   0, words:     0
-		worklib.TLATNXL:v <0x2d3f1247>
+		worklib.TLATNXL:v <0x1e66f21f>
 			streams:   0, words:     0
-		worklib.TLATSRX1:v <0x31e47478>
+		worklib.TLATSRX1:v <0x62705f19>
 			streams:   0, words:     0
-		worklib.TLATSRX2:v <0x34b18be9>
+		worklib.TLATSRX2:v <0x6725a088>
 			streams:   0, words:     0
-		worklib.TLATSRX4:v <0x656b728a>
+		worklib.TLATSRX4:v <0x36ff59eb>
 			streams:   0, words:     0
-		worklib.TLATSRXL:v <0x6427333e>
+		worklib.TLATSRXL:v <0x37b3185f>
 			streams:   0, words:     0
-		worklib.TLATX1:v <0x51a2e94f>
+		worklib.TLATX1:v <0x6e389fb7>
 			streams:   0, words:     0
-		worklib.TLATX2:v <0x5d9a5986>
+		worklib.TLATX2:v <0x62002f7e>
 			streams:   0, words:     0
-		worklib.TLATX4:v <0x7a7d558b>
+		worklib.TLATX4:v <0x45e72373>
 			streams:   0, words:     0
-		worklib.TLATXL:v <0x2859ff5a>
+		worklib.TLATXL:v <0x17c389a2>
 			streams:   0, words:     0
-		worklib.XNOR2X1:v <0x0bc27781>
+		worklib.XNOR2X1:v <0x3a815e2a>
 			streams:   0, words:     0
-		worklib.XNOR2X2:v <0x57ea2f3b>
+		worklib.XNOR2X2:v <0x66a90690>
 			streams:   0, words:     0
-		worklib.XNOR2X4:v <0x651e6d05>
+		worklib.XNOR2X4:v <0x545d44ae>
 			streams:   0, words:     0
-		worklib.XNOR2XL:v <0x343d1c0b>
+		worklib.XNOR2XL:v <0x057e35a0>
 			streams:   0, words:     0
-		worklib.XNOR3X1:v <0x346bd545>
+		worklib.XNOR3X1:v <0x77898ea1>
 			streams:   0, words:     0
-		worklib.XNOR3X2:v <0x01776ddc>
+		worklib.XNOR3X2:v <0x42953638>
 			streams:   0, words:     0
-		worklib.XNOR3X4:v <0x6b4e1cee>
+		worklib.XNOR3X4:v <0x28ac470a>
 			streams:   0, words:     0
-		worklib.XNOR3XL:v <0x0df8d202>
+		worklib.XNOR3XL:v <0x4e1a89e6>
 			streams:   0, words:     0
-		worklib.XOR2X1:v <0x15104fd6>
+		worklib.XOR2X1:v <0x55eebd43>
 			streams:   0, words:     0
-		worklib.XOR2X2:v <0x4938176c>
+		worklib.XOR2X2:v <0x09c6e5f9>
 			streams:   0, words:     0
-		worklib.XOR2X4:v <0x7bcc5552>
+		worklib.XOR2X4:v <0x3b32a7c7>
 			streams:   0, words:     0
-		worklib.XOR2XL:v <0x46a8b522>
+		worklib.XOR2XL:v <0x065647b7>
 			streams:   0, words:     0
-		worklib.XOR3X1:v <0x5969e71c>
+		worklib.XOR3X1:v <0x3f82df4f>
 			streams:   0, words:     0
-		worklib.XOR3X2:v <0x6c755f85>
+		worklib.XOR3X2:v <0x0a9e67d6>
 			streams:   0, words:     0
-		worklib.XOR3X4:v <0x064c2eb7>
+		worklib.XOR3X4:v <0x60a716e4>
 			streams:   0, words:     0
-		worklib.XOR3XL:v <0x60fae05b>
+		worklib.XOR3XL:v <0x0611d808>
 			streams:   0, words:     0
-		worklib.\$unit_0x4ed2bbf7 :compilation_unit <0x73e4b2af>
+		worklib.\$unit_0x6e5f475d :compilation_unit <0x18048c90>
 			streams:   1, words:  7301
-		worklib.testfixture:sv <0x6fcc795b>
-			streams:  16, words: 26000
+		worklib.testfixture:sv <0x15cc263f>
+			streams:  15, words: 30501
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
@@ -1840,15 +1818,15 @@ Warning!  Timing violation
   __________________________________________________________
   == String 1  "abcdijk lmnop q rstuv"
   -- Pattern 1  "1234"
-       cycle 33, expect(0,00) , get(0,00) >> Pass
+       cycle 33, expect(0,--) , get(0,--) >> Pass
   -- Pattern 2  "abcd"
        cycle 3c, expect(1,00) , get(1,00) >> Pass
   -- Pattern 3  "dijk"
        cycle 48, expect(1,03) , get(1,03) >> Pass
   -- Pattern 4  "pqrst"
-       cycle 63, expect(0,00) , get(0,0c) >> Pass
+       cycle 63, expect(0,--) , get(0,--) >> Pass
   -- Pattern 5  "pqr.t"
-       cycle 7e, expect(0,00) , get(0,0c) >> Pass
+       cycle 7e, expect(0,--) , get(0,--) >> Pass
   -- Pattern 6  "c...k"
        cycle 8b, expect(1,02) , get(1,02) >> Pass
   -- Pattern 7  "^lmno"
@@ -1856,21 +1834,21 @@ Warning!  Timing violation
   -- Pattern 8  "rstuv$"
        cycle ba, expect(1,10) , get(1,10) >> Pass
   -- Pattern 9  "^rmn"
-       cycle d4, expect(0,00) , get(0,10) >> Pass
+       cycle d4, expect(0,--) , get(0,--) >> Pass
   -- Pattern a  "ijk l$"
-       cycle f0, expect(0,00) , get(0,04) >> Pass
+       cycle f0, expect(0,--) , get(0,--) >> Pass
   -- Pattern b  "v"
        cycle 107, expect(1,14) , get(1,14) >> Pass
   -- Pattern c  "lmnoprst"
-       cycle 125, expect(0,00) , get(0,08) >> Pass
+       cycle 125, expect(0,--) , get(0,--) >> Pass
   -- Pattern d  "^ijk$"
-       cycle 140, expect(0,00) , get(0,00) >> Pass
+       cycle 140, expect(0,--) , get(0,--) >> Pass
   -- Pattern e  "^q$"
        cycle 154, expect(1,0e) , get(1,0e) >> Pass
   __________________________________________________________
   == String 2  "2x1=2 2x2=4 2x3=6"
   -- Pattern 1  "^2.2.2"
-       cycle 17d, expect(0,00) , get(0,0c) >> Pass
+       cycle 17d, expect(0,--) , get(0,--) >> Pass
   -- Pattern 2  "2.2.2"
        cycle 18c, expect(1,04) , get(1,04) >> Pass
   -- Pattern 3  "^2.2.4$"
@@ -1880,15 +1858,15 @@ Warning!  Timing violation
   -- Pattern 5  "^.."
        cycle 1a9, expect(1,00) , get(1,00) >> Pass
   -- Pattern 6  "^.$"
-       cycle 1be, expect(0,00) , get(0,0c) >> Pass
+       cycle 1be, expect(0,--) , get(0,--) >> Pass
   -- Pattern 7  "2.$"
-       cycle 1d3, expect(0,00) , get(0,0c) >> Pass
+       cycle 1d3, expect(0,--) , get(0,--) >> Pass
   -- Pattern 8  "2x4=7"
-       cycle 1ea, expect(0,00) , get(0,0c) >> Pass
+       cycle 1ea, expect(0,--) , get(0,--) >> Pass
   -- Pattern 9  "3=6-3"
-       cycle 201, expect(0,00) , get(0,0e) >> Pass
+       cycle 201, expect(0,--) , get(0,--) >> Pass
   -- Pattern a  "1.2=2"
-       cycle 218, expect(0,00) , get(0,02) >> Pass
+       cycle 218, expect(0,--) , get(0,--) >> Pass
   -- Pattern b  "2*2=4"
        cycle 22f, expect(1,00) , get(1,00) >> Pass
   __________________________________________________________
@@ -1898,23 +1876,23 @@ Warning!  Timing violation
   -- Pattern 2  "ees.$"
        cycle 262, expect(1,0b) , get(1,0b) >> Pass
   -- Pattern 3  "e..se"
-       cycle 277, expect(0,00) , get(0,0b) >> Pass
+       cycle 277, expect(0,--) , get(0,--) >> Pass
   -- Pattern 4  "e..ee$"
-       cycle 28d, expect(0,00) , get(0,0b) >> Pass
+       cycle 28d, expect(0,--) , get(0,--) >> Pass
   -- Pattern 5  "^ees*"
-       cycle 2a2, expect(0,00) , get(0,00) >> Pass
+       cycle 2a2, expect(0,--) , get(0,--) >> Pass
   -- Pattern 6  "hee*se"
        cycle 2b9, expect(1,0a) , get(1,0a) >> Pass
   -- Pattern 7  "he.s"
        cycle 2c3, expect(1,01) , get(1,01) >> Pass
   -- Pattern 8  "*see$"
-       cycle 2e3, expect(0,00) , get(0,00) >> Pass
+       cycle 2e3, expect(0,--) , get(0,--) >> Pass
   -- Pattern 9  "se*ce"
-       cycle 300, expect(0,00) , get(0,04) >> Pass
+       cycle 300, expect(0,--) , get(0,--) >> Pass
   __________________________________________________________
   == String 4  "But she said the butter's bitter"
   -- Pattern 1  "sa*said"
-       cycle 35d, expect(0,00) , get(0,08) >> Pass
+       cycle 35d, expect(0,--) , get(0,--) >> Pass
   -- Pattern 2  "b*tter"
        cycle 37d, expect(1,11) , get(1,11) >> Pass
   -- Pattern 3  "b*tter$"
@@ -1922,33 +1900,33 @@ Warning!  Timing violation
   -- Pattern 4  "ut*r"
        cycle 3dc, expect(1,01) , get(1,01) >> Pass
   -- Pattern 5  "ut*tted"
-       cycle 41a, expect(0,00) , get(0,01) >> Pass
+       cycle 41a, expect(0,--) , get(0,--) >> Pass
   -- Pattern 6  "^ut*tter"
-       cycle 443, expect(0,00) , get(0,00) >> Pass
+       cycle 443, expect(0,--) , get(0,--) >> Pass
   -- Pattern 7  "*tered"
-       cycle 486, expect(0,00) , get(0,00) >> Pass
+       cycle 486, expect(0,--) , get(0,--) >> Pass
   __________________________________________________________
   == String 5  "He threw three free throws"
   -- Pattern 1  "thr*the$"
-       cycle 4d3, expect(0,00) , get(0,03) >> Pass
+       cycle 4d3, expect(0,--) , get(0,--) >> Pass
   -- Pattern 2  "^thro*th"
-       cycle 4f8, expect(0,00) , get(0,14) >> Pass
+       cycle 4f8, expect(0,--) , get(0,--) >> Pass
   -- Pattern 3  ".ree th"
        cycle 517, expect(1,0f) , get(1,0f) >> Pass
   -- Pattern 4  ".ree  fr"
-       cycle 53b, expect(0,00) , get(0,18) >> Pass
+       cycle 53b, expect(0,--) , get(0,--) >> Pass
   -- Pattern 5  ".ree *re"
        cycle 558, expect(1,0a) , get(1,0a) >> Pass
   -- Pattern 6  "re. thr"
        cycle 56c, expect(1,05) , get(1,05) >> Pass
   -- Pattern 7  "ee*ee fr"
-       cycle 598, expect(0,00) , get(0,0c) >> Pass
+       cycle 598, expect(0,--) , get(0,--) >> Pass
   -- Pattern 8  "ee*ee th"
        cycle 5bb, expect(1,0c) , get(1,0c) >> Pass
   -- Pattern 9  "re*ee.$"
-       cycle 5ea, expect(0,00) , get(0,05) >> Pass
+       cycle 5ea, expect(0,--) , get(0,--) >> Pass
   -- Pattern a  "^...$"
-       cycle 60a, expect(0,00) , get(0,14) >> Pass
+       cycle 60a, expect(0,--) , get(0,--) >> Pass
   -- Pattern b  "^....$"
        cycle 625, expect(1,0f) , get(1,0f) >> Pass
 ----------------------------------
@@ -1956,6 +1934,6 @@ Warning!  Timing violation
 -- cycle =1574 , Score =100       --
 ----------------------------------
 Simulation complete via $finish(1) at time 31480 NS + 0
-../sim/tb_term.sv:201                     $finish;
+../sim/tb.sv:201                     $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s084: Exiting on Feb 04, 2023 at 19:06:28 CST  (total: 00:00:03)
+TOOL:	ncverilog	15.20-s084: Exiting on Feb 04, 2023 at 22:12:58 CST  (total: 00:00:01)

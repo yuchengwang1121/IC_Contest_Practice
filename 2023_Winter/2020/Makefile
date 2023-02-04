@@ -9,7 +9,7 @@ SCRIPT_DIR         =$(ROOT_DIR)/script
 REPORT_DIR         =$(ROOT_DIR)/report
 NC_DIR             =$(ROOT_DIR)/conf
 
-TB_TOP             =tb_term
+TB_TOP             =tb
 TOP                =SME
 SYN_TCL  		   =dc_syn
 

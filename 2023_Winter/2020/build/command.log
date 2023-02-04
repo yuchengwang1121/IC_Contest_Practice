@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version T-2022.03 for linux64 -- Feb 22, 2022
-#@ # Date:   Sat Feb  4 19:06:10 2023
+#@ # Date:   Sat Feb  4 22:12:30 2023
 #@ # Run by: YuChengWang@caidcpuserver1
 #@ 
 
@@ -8671,7 +8671,7 @@ source -echo -verbose /home/YuChengWang/Verilog_pratice/2023_Winter/2020/script/
 #@ write -format verilog -hierarchy -output ../syn/${top}_syn.v
 #@ report_area > area.log
 #@ report_timing > timing.log
-#@ report_qor   >  JAM_syn.qor
+#@ report_qor   >  ${top}_syn.qor
 #@ # -- End source /home/YuChengWang/Verilog_pratice/2023_Winter/2020/script/dc_syn.tcl
 
 exit
