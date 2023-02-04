@@ -1,6 +1,6 @@
 `timescale 1ns/10ps
 `define CYCLE      10.0  
-`define SDFFILE    "./JAM_syn.sdf"
+`define SDFFILE    "../syn/JAM_syn.sdf"
 `define End_CYCLE  10000000
 `define PAT        "cost_rom"
 
@@ -30,7 +30,7 @@ wire [2:0] W;
 wire [2:0] J;
 reg [6:0] Cost;
 wire [3:0] MatchCount;
-wire [8:0] MinCost;
+wire [9:0] MinCost;
 JAM u_JAM(.CLK(CLK),
         .RST(RST),
         .W(W),

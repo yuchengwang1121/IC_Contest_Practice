@@ -8,6 +8,14 @@ APR_DIR            =$(ROOT_DIR)/icc
 SCRIPT_DIR         =$(ROOT_DIR)/script
 REPORT_DIR         =$(ROOT_DIR)/report
 NC_DIR             =$(ROOT_DIR)/conf
+PATTERN 		   =
+ifeq ($(P),1)
+PATTERN  := +P1
+else ifeq ($(P),2)
+PATTERN  := +P2
+else ifeq ($(P),3)
+PATTERN  := +P3
+endif
 
 # Need to modify
 TB_TOP             =tb
@@ -19,9 +27,8 @@ TB_SRC=$(shell ls $(SIM_DIR)/cost_rom)
 
 
 # For IC contest
-CBDK_DIR         =/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog
+CBDK_DIR         =/usr/cad/lib/CBDK_IC_Contest_v2.5/Verilog
 CORE_CELL        =tsmc13_neg.v
-IO_CELL          =
 
 .PHONY: default init syn_init icc_init 
 .PHONY: gen_def gen_hex cp_tb_src check
@@ -69,6 +76,7 @@ rtl: $(BUILD) cp_tb_src
 	+incdir+$(SRC_DIR) \
 	+nc64bit \
 	+access+r \
+	+define$(PATTERN) \
 	+define+FSDB_FILE=\"$(TOP).fsdb\"
 
 # View waveform using nWave
@@ -82,14 +90,14 @@ synthesize: $(BUILD) syn_init
 	rm -rf $(SYN_DIR)/*; \
 	cd $(BUILD_DIR); \
 	cp $(SCRIPT_DIR)/synopsys_dc.setup $(BUILD_DIR)/.synopsys_dc.setup; \
-	dcnxt_shell -f $(SCRIPT_DIR)/synthesize.tcl;
+	dcnxt_shell -f $(SCRIPT_DIR)/dc_syn.tcl;
 
 # Auto run synthesize with Design Compiler
 autosyn: $(BUILD) syn_init
 	rm -rf $(SYN_DIR)/*; \
 	cd $(BUILD_DIR); \
 	cp $(SCRIPT_DIR)/synopsys_dc.setup $(BUILD_DIR)/.synopsys_dc.setup; \
-	nohup dcnxt_shell -f $(SCRIPT_DIR)/synthesize.tcl &
+	nohup dcnxt_shell -f $(SCRIPT_DIR)/dc_syn.tcl &
 
 # Run gate-level simulation (nWave)
 syn: $(BUILD) cp_tb_src syn_init
@@ -101,6 +109,7 @@ syn: $(BUILD) cp_tb_src syn_init
 	+access+r \
 	+define+FSDB_FILE=\"$(TOP).fsdb\" \
 	+define+SDF \
+	+define$(PATTERN) \
 	+define+SDFFILE=\"$(SYN_DIR)/$(TOP)_syn.sdf\"
 
 # Remove all files

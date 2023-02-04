@@ -10,6 +10,8 @@
 -INCDIR
 /home/YuChengWang/Verilog_pratice/2023_Winter/2022/src
 -DEFINE
+P3
+-DEFINE
 FSDB_FILE=\"JAM.fsdb\"
 -CDSLIB
 ./INCA_libs/irun.lnx8664.15.20.nc/cdsrun.lib

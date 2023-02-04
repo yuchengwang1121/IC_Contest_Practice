@@ -1,15 +1,16 @@
 ncverilog(64): 15.20-s084: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s084: Started on Feb 01, 2023 at 17:08:13 CST
+TOOL:	ncverilog	15.20-s084: Started on Feb 04, 2023 at 18:37:49 CST
 ncverilog
 	/home/YuChengWang/Verilog_pratice/2023_Winter/2022/sim/tb.sv
 	/home/YuChengWang/Verilog_pratice/2023_Winter/2022/src/JAM.v
 	+incdir+/home/YuChengWang/Verilog_pratice/2023_Winter/2022/src
 	+nc64bit
 	+access+r
+	+define+P3
 	+define+FSDB_FILE="JAM.fsdb"
-Recompiling... reason: file '../src/JAM.v' is newer than expected.
-	expected: Wed Feb  1 17:07:27 2023
-	actual:   Wed Feb  1 17:08:11 2023
+file: /home/YuChengWang/Verilog_pratice/2023_Winter/2022/sim/tb.sv
+	module worklib.testfixture:sv
+		errors: 0, warnings: 0
 file: /home/YuChengWang/Verilog_pratice/2023_Winter/2022/src/JAM.v
 	module worklib.JAM:v
 		errors: 0, warnings: 0
@@ -19,23 +20,21 @@ ncvlog: *W,SPDUSD: Include directory /home/YuChengWang/Verilog_pratice/2023_Wint
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
 ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
-        .MinCost(MinCost),
-                       |
-ncelab: *W,CUVMPW (../sim/tb.sv,40|23): port sizes differ in port connection (9/10).
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
-		worklib.JAM:v <0x789e79de>
-			streams:  17, words:  7752
+		worklib.JAM:v <0x3da208d0>
+			streams:  28, words: 15713
+		worklib.testfixture:sv <0x18b99431>
+			streams:  13, words: 30214
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
 		                  Instances  Unique
 		Modules:                  2       2
-		Registers:               44      44
+		Registers:               47      47
 		Scalar wires:             3       -
-		Expanded wires:          10       1
-		Vectored wires:           5       -
-		Always blocks:            7       7
+		Vectored wires:           6       -
+		Always blocks:            8       8
 		Initial blocks:           7       7
 		Cont. assignments:        1       1
 		Pseudo assignments:       1       1
@@ -58,26 +57,26 @@ FSDB Dumper for IUS, Release Verdi_O-2018.09, Linux x86_64/64bit, 08/30/2018
 *******************************
 ** Simulation Start          **
 *******************************
-PATTERN:   1
+PATTERN:   3
 -------------- Cost Table --------------
 Jobs       0   1   2   3   4   5   6   7
-worker0:  11  25  53  41  59  32  25  59
-worker1:   4  11  25  11  59  31  53  11
-worker2:  11  59  15  11  15  15  53  53
-worker3:   4  59  32  34  53  41  34  59
-worker4:  15  32  41  34   4  59  34  32
-worker5:  41  59  59   4   4  41  34  34
-worker6:  53  31  25  41  59  32  31  53
-worker7:  11  31  25  11  34  34  53  32
+worker0:  81  60  60  65  96  60  65  96
+worker1:  96  60  66  96  60  60  60  81
+worker2:  96  66  60  99  60  81  65  65
+worker3:  66  96  80  99  81  81  96  60
+worker4:  81  96  65  96  60  96  60  81
+worker5:  60  96  80  96  80  60  81  60
+worker6:  99  60  99  65  80  80  81  66
+worker7:  65  60  60  99  99  80  60  96
 ----------------------------------------------------------------------
-Get Valid at cycle:       275
-receive MinCost/MatchCount= 179/10 , golden MinCost/MatchCount= 119/ 3
+Get Valid at cycle:    909702
+receive MinCost/MatchCount=  485/ 9 , golden MinCost/MatchCount= 485/ 9
 ----------------------------------------------------------------------
 *************************
-**  FUNCTION WRONG!!   **
+**  FUNCTION  CORRECT  **
 *************************
 
-Simulation complete via $finish(1) at time 2745 NS + 0
+Simulation complete via $finish(1) at time 9097015 NS + 0
 ../sim/tb.sv:186                 $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s084: Exiting on Feb 01, 2023 at 17:08:14 CST  (total: 00:00:01)
+TOOL:	ncverilog	15.20-s084: Exiting on Feb 04, 2023 at 18:37:52 CST  (total: 00:00:03)

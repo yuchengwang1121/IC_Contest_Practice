@@ -1,0 +1,164 @@
+# ----------------------------------------
+# JasperGold Version Info
+# tool      : JasperGold 2021.03
+# platform  : Linux 5.15.0-58-generic
+# version   : 2021.03 FCS 64 bits
+# build date: 2021.03.23 02:50:43 UTC
+# ----------------------------------------
+# started   : 2023-02-04 18:14:00 CST
+# hostname  : caidcpuserver1.(none)
+# pid       : 2392372
+# arguments : '-label' 'session_0' '-console' '//127.0.0.1:41101' '-style' 'windows' '-data' 'AAAA7HicbY69CsJAEIS/08LWwtfQk9imEzuDYGGwEglBA8aE/DQ2voHP6Jucc0e0cmH/ZmaHNUD8dM4RYvxQmbIlYc9GdcdB/RfmPQyxURkpZ8xp6anJabhRcKcT/sJypaIUbjlKsdaei72Qcg7dytxfFbqrtJ/k0ojrhGThLmKpXIlJB2ev/+KRplZK71CLs38+WSgzbTD5APOnJiw=' '-proj' '/home/YuChengWang/Verilog_pratice/2023_Winter/2022/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/YuChengWang/Verilog_pratice/2023_Winter/2022/jgproject/.tmp/.initCmds.tcl' '/home/YuChengWang/Verilog_pratice/2023_Winter/2022/script/superlint.tcl'
+
+Any disclosure about the Cadence Design Systems software or its use
+model to any third party violates the written Non-Disclosure Agreement
+between Cadence Design Systems, Inc. and the customer.
+
+THIS SOFTWARE CONTAINS CONFIDENTIAL INFORMATION AND TRADE SECRETS OF
+CADENCE DESIGN SYSTEMS, INC. USE, DISCLOSURE, OR REPRODUCTION IS
+PROHIBITED WITHOUT THE PRIOR EXPRESS WRITTEN PERMISSION OF CADENCE
+DESIGN SYSTEMS, INC.
+
+Copyright (C) 2000-2021 Cadence Design Systems, Inc. All Rights
+Reserved.  Unpublished -- rights reserved under the copyright laws of
+the United States.
+
+This product includes software developed by others and redistributed
+according to license agreement. See doc/third_party_readme.txt for
+further details.
+
+RESTRICTED RIGHTS LEGEND
+
+Use, duplication, or disclosure by the Government is subject to
+restrictions as set forth in subparagraph (c) (1) (ii) of the Rights in
+Technical Data and Computer Software clause at DFARS 252.227-7013 or
+subparagraphs (c) (1) and (2) of Commercial Computer Software -- Restricted
+Rights at 48 CFR 52.227-19, as applicable.
+
+
+                          Cadence Design Systems, Inc. 
+                          2655 Seely Avenue
+                          San Jose, CA 95134
+                          Phone: 408.943.1234
+
+For technical assistance visit http://support.cadence.com.
+
+JasperGold Apps Analysis Session - /home/YuChengWang/Verilog_pratice/2023_Winter/2022/jgproject/sessionLogs/session_0
+
+INFO: successfully checked out licenses "jasper_pint" and "jasper_dao".
+INFO: reading configuration file "/home/YuChengWang/.config/jasper/jaspergold.conf".
+% check_superlint -init
+% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+% 
+% # Config rules
+% config_rtlds -rule -enable -domain { LINT AUTO_FORMAL }
+% config_rtlds -rule -disable -tag { CAS_IS_DFRC SIG_IS_DLCK SIG_NO_TGFL SIG_NO_TGRS SIG_NO_TGST FSM_NO_MTRN FSM_NO_TRRN }
+% # vsd2018_constrain //
+% config_rtlds -rule  -disable -category { NAMING AUTO_FORMAL_DEAD_CODE AUTO_FORMAL_SIGNALS AUTO_FORMAL_ARITHMETIC_OVERFLOW }
+% config_rtlds -rule  -disable -tag { IDN_NR_SVKY ARY_MS_DRNG IDN_NR_AMKY IDN_NR_CKYW IDN_NR_SVKW ARY_NR_LBND VAR_NR_INDL INS_NR_PTEX INP_NO_USED OTP_NR_ASYA FLP_NR_MXCS OTP_UC_INST OTP_NR_UDRV REG_NR_TRRC INS_NR_INPR MOD_NS_GLGC } 
+WARNING (WRTL017): Unable to find a matching tag for IDN_NR_SVKY,IDN_NR_AMKY,VAR_NR_INDL. This command will be completely ignored.
+% config_rtlds -rule  -disable -tag { REG_NR_RWRC }
+% # vsd2018_constrain //
+% 
+% analyze -sv ./src/JAM.v 
+[-- (VERI-1482)] Analyzing Verilog file '/home/nfs_cad/cadence/JASPER/jasper_2021.03/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file './src/JAM.v'
+% elaborate -bbox true -top JAM
+INFO (ISW003): Top module name is "JAM".
+[INFO (HIER-8002)] ./src/JAM.v(166): Disabling old hierarchical reference handler
+[INFO (VERI-1018)] ./src/JAM.v(1): compiling module 'JAM'
+[WARN (VERI-1209)] ./src/JAM.v(62): expression size 4 truncated to fit in target size 3
+[WARN (VERI-1209)] ./src/JAM.v(64): expression size 32 truncated to fit in target size 4
+INFO (INL208): Elaboration synthesis summary:
+  Number of synthesized netlists          1 (0 packages)
+  Single run mode                         On
+  Pipeline                                On (1 pipelined netlists)
+  Late hierarchical reference connection  On
+  Number of analyzed Verilog modules      1 (1 synthesized)
+  Number of analyzed VHDL entities        0 (0 synthesized)
+INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
+JAM
+[<embedded>] % 
+[<embedded>] % # Setup clock and reset
+[<embedded>] % clock clk
+ERROR (ENL002): Unable to find signal "clk".
+
+ERROR: problem encountered at line 16 in file /home/YuChengWang/Verilog_pratice/2023_Winter/2022/script/superlint.tcl
+
+[<embedded>] % include /home/YuChengWang/Verilog_pratice/2023_Winter/2022/script/superlint.tcl
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% # Config rules
+%% config_rtlds -rule -enable -domain { LINT AUTO_FORMAL }
+%% config_rtlds -rule -disable -tag { CAS_IS_DFRC SIG_IS_DLCK SIG_NO_TGFL SIG_NO_TGRS SIG_NO_TGST FSM_NO_MTRN FSM_NO_TRRN }
+%% # vsd2018_constrain //
+%% config_rtlds -rule  -disable -category { NAMING AUTO_FORMAL_DEAD_CODE AUTO_FORMAL_SIGNALS AUTO_FORMAL_ARITHMETIC_OVERFLOW }
+%% config_rtlds -rule  -disable -tag { IDN_NR_SVKY ARY_MS_DRNG IDN_NR_AMKY IDN_NR_CKYW IDN_NR_SVKW ARY_NR_LBND VAR_NR_INDL INS_NR_PTEX INP_NO_USED OTP_NR_ASYA FLP_NR_MXCS OTP_UC_INST OTP_NR_UDRV REG_NR_TRRC INS_NR_INPR MOD_NS_GLGC } 
+WARNING (WRTL017): Unable to find a matching tag for IDN_NR_SVKY,IDN_NR_AMKY,VAR_NR_INDL. This command will be completely ignored.
+%% config_rtlds -rule  -disable -tag { REG_NR_RWRC }
+%% # vsd2018_constrain //
+%% 
+%% analyze -sv ./src/JAM.v 
+[-- (VERI-1482)] Analyzing Verilog file '/home/nfs_cad/cadence/JASPER/jasper_2021.03/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file './src/JAM.v'
+%% elaborate -bbox true -top JAM
+INFO (ISW003): Top module name is "JAM".
+[INFO (HIER-8002)] ./src/JAM.v(166): Disabling old hierarchical reference handler
+[INFO (VERI-1018)] ./src/JAM.v(1): compiling module 'JAM'
+[ERROR (VERI-1165)] ./src/JAM.v(62): part-select direction is opposite from prefix index direction
+[INFO (VERI-1177)] ./src/JAM.v(19): see declaration of 'worker'
+[WARN (VERI-1209)] ./src/JAM.v(62): expression size 4 truncated to fit in target size 3
+[INFO (VERI-1073)] ./src/JAM.v(1): module 'JAM' remains a black box due to errors in its contents
+[ERROR (VDB-9017)] Module JAM could not be elaborated
+Summary of errors detected:
+	[ERROR (VERI-1165)] ./src/JAM.v(62): part-select direction is opposite from prefix index direction
+	[ERROR (VDB-9017)] Module JAM could not be elaborated
+ERROR at line 13 in file /home/YuChengWang/Verilog_pratice/2023_Winter/2022/script/superlint.tcl, more info in Tcl-variable errorInfo
+ERROR (ENL034): 2 errors detected in the design file(s).
+
+
+% include /home/YuChengWang/Verilog_pratice/2023_Winter/2022/script/superlint.tcl
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% # Config rules
+%% config_rtlds -rule -enable -domain { LINT AUTO_FORMAL }
+%% config_rtlds -rule -disable -tag { CAS_IS_DFRC SIG_IS_DLCK SIG_NO_TGFL SIG_NO_TGRS SIG_NO_TGST FSM_NO_MTRN FSM_NO_TRRN }
+%% # vsd2018_constrain //
+%% config_rtlds -rule  -disable -category { NAMING AUTO_FORMAL_DEAD_CODE AUTO_FORMAL_SIGNALS AUTO_FORMAL_ARITHMETIC_OVERFLOW }
+%% config_rtlds -rule  -disable -tag { IDN_NR_SVKY ARY_MS_DRNG IDN_NR_AMKY IDN_NR_CKYW IDN_NR_SVKW ARY_NR_LBND VAR_NR_INDL INS_NR_PTEX INP_NO_USED OTP_NR_ASYA FLP_NR_MXCS OTP_UC_INST OTP_NR_UDRV REG_NR_TRRC INS_NR_INPR MOD_NS_GLGC } 
+WARNING (WRTL017): Unable to find a matching tag for IDN_NR_SVKY,IDN_NR_AMKY,VAR_NR_INDL. This command will be completely ignored.
+%% config_rtlds -rule  -disable -tag { REG_NR_RWRC }
+%% # vsd2018_constrain //
+%% 
+%% analyze -sv ./src/JAM.v 
+[-- (VERI-1482)] Analyzing Verilog file '/home/nfs_cad/cadence/JASPER/jasper_2021.03/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file './src/JAM.v'
+%% elaborate -bbox true -top JAM
+INFO (ISW003): Top module name is "JAM".
+[INFO (HIER-8002)] ./src/JAM.v(166): Disabling old hierarchical reference handler
+[INFO (VERI-1018)] ./src/JAM.v(1): compiling module 'JAM'
+[WARN (VERI-1209)] ./src/JAM.v(62): expression size 4 truncated to fit in target size 3
+INFO (INL208): Elaboration synthesis summary:
+  Number of synthesized netlists          1 (0 packages)
+  Single run mode                         On
+  Pipeline                                On (1 pipelined netlists)
+  Late hierarchical reference connection  On
+  Number of analyzed Verilog modules      1 (1 synthesized)
+  Number of analyzed VHDL entities        0 (0 synthesized)
+INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
+JAM
+%% 
+%% # Setup clock and reset
+%% clock clk
+ERROR at line 16 in file /home/YuChengWang/Verilog_pratice/2023_Winter/2022/script/superlint.tcl, more info in Tcl-variable errorInfo
+ERROR (ENL002): Unable to find signal "clk".
+
+
+INFO (IPL005): Received request to exit from the console.
+INFO (IPL014): Waiting for the Tcl-thread to exit.
+INFO (IPL018): The peak resident set memory use for this session was 0.449 GB.
+INFO (IPL015): The Tcl-thread exited with status 0.
+INFO (IPL016): Exiting the analysis session with status 0.
