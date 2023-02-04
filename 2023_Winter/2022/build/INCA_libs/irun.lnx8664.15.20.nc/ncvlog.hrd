@@ -2,9 +2,13 @@
 // File created by:  ncverilog
 // Do not modify this file
 //
--INCDIR
-/home/YuChengWang/Verilog_pratice/2023_Winter/2022/src
--DEFINE
-P3
+-VFILE
+/usr/cad/lib/CBDK_IC_Contest_v2.5/Verilog/tsmc13_neg.v
 -DEFINE
 FSDB_FILE=\"JAM.fsdb\"
+-DEFINE
+SDF
+-DEFINE
+P2
+-DEFINE
+SDFFILE=\"/home/YuChengWang/Verilog_pratice/2023_Winter/2022/syn/JAM_syn.sdf\"

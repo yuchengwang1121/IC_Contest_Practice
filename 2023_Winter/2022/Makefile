@@ -20,6 +20,7 @@ endif
 # Need to modify
 TB_TOP             =tb
 TOP                =JAM
+SYN_TCL  		   =dc_syn
 
 SRC=$(shell ls $(SRC_DIR)/*.v)
 # Need to modify
@@ -76,7 +77,7 @@ rtl: $(BUILD) cp_tb_src
 	+incdir+$(SRC_DIR) \
 	+nc64bit \
 	+access+r \
-	+define$(PATTERN) \
+	+define+$(PATTERN) \
 	+define+FSDB_FILE=\"$(TOP).fsdb\"
 
 # View waveform using nWave
@@ -90,14 +91,14 @@ synthesize: $(BUILD) syn_init
 	rm -rf $(SYN_DIR)/*; \
 	cd $(BUILD_DIR); \
 	cp $(SCRIPT_DIR)/synopsys_dc.setup $(BUILD_DIR)/.synopsys_dc.setup; \
-	dcnxt_shell -f $(SCRIPT_DIR)/dc_syn.tcl;
+	dcnxt_shell -f $(SCRIPT_DIR)/$(SYN_TCL).tcl;
 
 # Auto run synthesize with Design Compiler
 autosyn: $(BUILD) syn_init
 	rm -rf $(SYN_DIR)/*; \
 	cd $(BUILD_DIR); \
 	cp $(SCRIPT_DIR)/synopsys_dc.setup $(BUILD_DIR)/.synopsys_dc.setup; \
-	nohup dcnxt_shell -f $(SCRIPT_DIR)/dc_syn.tcl &
+	nohup dcnxt_shell -f $(SCRIPT_DIR)/$(SYN_TCL).tcl &
 
 # Run gate-level simulation (nWave)
 syn: $(BUILD) cp_tb_src syn_init
@@ -109,7 +110,7 @@ syn: $(BUILD) cp_tb_src syn_init
 	+access+r \
 	+define+FSDB_FILE=\"$(TOP).fsdb\" \
 	+define+SDF \
-	+define$(PATTERN) \
+	+define+$(PATTERN) \
 	+define+SDFFILE=\"$(SYN_DIR)/$(TOP)_syn.sdf\"
 
 # Remove all files

@@ -6,7 +6,7 @@ Report : timing
         -max_paths 1
 Design : JAM
 Version: T-2022.03
-Date   : Sat Feb  4 18:34:51 2023
+Date   : Sat Feb  4 23:39:48 2023
 ****************************************
 
 Operating Conditions: slow   Library: slow
@@ -28,18 +28,18 @@ Wire Load Model Mode: top
   clock network delay (ideal)                             0.50       5.50
   input external delay                                    0.00       5.50 f
   Cost[1] (in)                                            0.00       5.50 f
-  add_59_S2/B[1] (JAM_DW01_add_0_DW01_add_4)              0.00       5.50 f
-  add_59_S2/U1_1/CO (ADDFXL)                              0.69       6.19 f
-  add_59_S2/U1_2/CO (ADDFXL)                              0.53       6.72 f
-  add_59_S2/U1_3/CO (ADDFXL)                              0.53       7.25 f
-  add_59_S2/U1_4/CO (ADDFXL)                              0.53       7.77 f
-  add_59_S2/U1_5/CO (ADDFXL)                              0.53       8.30 f
-  add_59_S2/U1_6/CO (ADDFXL)                              0.63       8.94 f
-  add_59_S2/U6/Y (AND2X2)                                 0.33       9.27 f
-  add_59_S2/U2/Y (AND2X2)                                 0.22       9.49 f
-  add_59_S2/U5/Y (XOR2X1)                                 0.22       9.71 r
-  add_59_S2/SUM[9] (JAM_DW01_add_0_DW01_add_4)            0.00       9.71 r
-  U535/Y (OAI2BB2XL)                                      0.33      10.04 r
+  add_61_S2/B[1] (JAM_DW01_add_0_DW01_add_4)              0.00       5.50 f
+  add_61_S2/U1_1/CO (ADDFXL)                              0.69       6.19 f
+  add_61_S2/U1_2/CO (ADDFXL)                              0.53       6.72 f
+  add_61_S2/U1_3/CO (ADDFXL)                              0.53       7.25 f
+  add_61_S2/U1_4/CO (ADDFXL)                              0.53       7.77 f
+  add_61_S2/U1_5/CO (ADDFXL)                              0.53       8.30 f
+  add_61_S2/U1_6/CO (ADDFXL)                              0.63       8.94 f
+  add_61_S2/U6/Y (AND2X2)                                 0.33       9.27 f
+  add_61_S2/U2/Y (AND2X2)                                 0.22       9.49 f
+  add_61_S2/U5/Y (XOR2X1)                                 0.22       9.71 r
+  add_61_S2/SUM[9] (JAM_DW01_add_0_DW01_add_4)            0.00       9.71 r
+  U517/Y (OAI2BB2XL)                                      0.33      10.04 r
   Tempcost_reg[9]/D (DFFRX1)                              0.00      10.04 r
   data arrival time                                                 10.04
 

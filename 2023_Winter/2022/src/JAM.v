@@ -33,7 +33,7 @@ always @(*) begin
             if(Res_done) Next_state = SWAPpiv;
             else Next_state = Reqdata;
         end
-        SWAPpiv: begin
+        default: begin  //SWAPpiv
             if(SWAP_done) Next_state = Reqdata;
             else Next_state = SWAPpiv;
         end
@@ -44,6 +44,8 @@ always@(posedge CLK or posedge RST) begin
     if (RST) begin
         Fin <= 1'b0;
         Res_done <= 1'b0;
+        W <= 3'b000;
+        J <= 3'b000;
         pivot <= 3'b000;
         worker <= 4'b0000;
         MatchCount <= 4'b0000;
@@ -96,8 +98,10 @@ end
 always@(posedge CLK or posedge RST) begin
     if (RST) begin
         SWAP_done <= 1'b0;
+        Valid <= 1'b0;
         expoint <= 3'b000;
         bias <= 3'b000;
+        MinCost <= 10'b0; 
         minMAX <= 10'h3ff;
         {Jobseq[0], Jobseq[1], Jobseq[2], Jobseq[3], Jobseq[4], Jobseq[5], Jobseq[6], Jobseq[7]} <=
         {3'b000, 3'b001, 3'b010, 3'b011, 3'b100, 3'b101, 3'b110, 3'b111};
@@ -132,6 +136,7 @@ always@(posedge CLK or posedge RST) begin
                         end
                         3'b100: {Jobseq[5], Jobseq[7]} <= {Jobseq[7], Jobseq[5]};
                         3'b101: {Jobseq[6], Jobseq[7]} <= {Jobseq[7], Jobseq[6]};
+                        default: Jobseq[7] <= Jobseq[7];
                     endcase
                 end
                 else if ((pivot + bias) < 4'd8) begin

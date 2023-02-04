@@ -2,11 +2,12 @@
 // File created by:  ncverilog
 // Do not modify this file
 //
-+incdir+/home/YuChengWang/Verilog_pratice/2023_Winter/2022/src
 +nc64bit
 +access+r
-+define+P3
 +define+FSDB_FILE=\"JAM.fsdb\"
++define+SDF
++define++P2
++define+SDFFILE=\"/home/YuChengWang/Verilog_pratice/2023_Winter/2022/syn/JAM_syn.sdf\"
 -noshowtop
 -ACCESS
 +r

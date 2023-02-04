@@ -23,4 +23,4 @@ write_sdf -version 1.0 -context verilog  ../syn/${top}_syn.sdf
 write -format verilog -hierarchy -output ../syn/${top}_syn.v
 report_area > area.log
 report_timing > timing.log
-report_qor   >  JAM_syn.qor
+report_qor   >  ${top}_syn.qor
