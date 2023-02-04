@@ -9,12 +9,11 @@ SCRIPT_DIR         =$(ROOT_DIR)/script
 REPORT_DIR         =$(ROOT_DIR)/report
 NC_DIR             =$(ROOT_DIR)/conf
 
+# Need Modify Below
 TB_TOP             =tb
 TOP                =SME
 SYN_TCL  		   =dc_syn
-
 SRC=$(shell ls $(SRC_DIR)/*.v)
-# Need to modify for TB
 TB_SRC=$(shell ls $(SIM_DIR)/Btestdata.txt)
 
 
