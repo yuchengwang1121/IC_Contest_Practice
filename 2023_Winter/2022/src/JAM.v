@@ -10,9 +10,9 @@ output reg Valid );
 
 parameter [2:0] Reqdata = 3'b000,       //Request data
                 Recdata = 3'b001,       //Recive data & Calcul temp result
-                // Commin = 3'b011,        //Compare result to minimal & Find pivot
+                // Commin = 3'b011,     //Compare result to minimal & Find pivot
                 SWAPpiv = 3'b010,       //SWAP pivot & exchange point
-                Revseq = 3'b011;       //Reverse the data
+                Revseq = 3'b011;        //Reverse the data
 
 reg [9:0] Tempcost, mincost, minMAX;
 reg [3:0] worker;
