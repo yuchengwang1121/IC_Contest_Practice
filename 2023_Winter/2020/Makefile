@@ -10,7 +10,7 @@ REPORT_DIR         =$(ROOT_DIR)/report
 NC_DIR             =$(ROOT_DIR)/conf
 
 # Need Modify Below
-TB_TOP             =tb
+TB_TOP             =tb.sv
 TOP                =SME
 SYN_TCL  		   =dc_syn
 SRC=$(shell ls $(SRC_DIR)/*.v)
@@ -72,7 +72,7 @@ check:
 # Run RTL simulation
 rtl: $(BUILD) cp_tb_src
 	cd $(BUILD_DIR); \
-	ncverilog $(SIM_DIR)/$(TB_TOP).sv $(SRC) \
+	ncverilog $(SIM_DIR)/$(TB_TOP) $(SRC) \
 	+incdir+$(SRC_DIR) \
 	+nc64bit \
 	+access+r \
@@ -102,7 +102,7 @@ autosyn: $(BUILD) syn_init
 syn: $(BUILD) cp_tb_src syn_init
 	cd $(BUILD_DIR); \
 	cp $(SYN_DIR)/$(TOP)_syn.sdf $(BUILD_DIR); \
-	ncverilog $(SIM_DIR)/$(TB_TOP).sv $(SYN_DIR)/$(TOP)_syn.v \
+	ncverilog $(SIM_DIR)/$(TB_TOP) $(SYN_DIR)/$(TOP)_syn.v \
 	-sv $(CBDK_DIR)/$(CORE_CELL) \
 	+nc64bit \
 	+access+r \
