@@ -8,6 +8,15 @@ APR_DIR            =$(ROOT_DIR)/icc
 SCRIPT_DIR         =$(ROOT_DIR)/script
 REPORT_DIR         =$(ROOT_DIR)/report
 NC_DIR             =$(ROOT_DIR)/conf
+TB				   =
+ifeq ($(tb),1)
+TB  := +tb1
+else ifeq ($(tb),2)
+TB  := +tb2
+else ifeq ($(tb),3)
+TB  := +tb3
+endif
+
 
 # Need Modify Below
 TB_TOP             =tb.v
@@ -76,6 +85,7 @@ rtl: $(BUILD) cp_tb_src
 	+incdir+$(SRC_DIR) \
 	+nc64bit \
 	+access+r \
+	+define+$(TB) \
 	+define+FSDB_FILE=\"$(TOP).fsdb\"
 
 # View waveform using nWave
@@ -108,6 +118,7 @@ syn: $(BUILD) cp_tb_src syn_init
 	+access+r \
 	+define+FSDB_FILE=\"$(TOP).fsdb\" \
 	+define+SDF \
+	+define+$(TB) \
 	+define+SDFFILE=\"$(SYN_DIR)/$(TOP)_syn.sdf\"
 
 # Remove all files

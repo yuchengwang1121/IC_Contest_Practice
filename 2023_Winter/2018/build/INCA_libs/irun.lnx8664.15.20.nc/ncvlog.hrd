@@ -2,7 +2,12 @@
 // File created by:  ncverilog
 // Do not modify this file
 //
--INCDIR
-/home/YuChengWang/Verilog_pratice/2023_Winter/2018/src
+-sv
 -DEFINE
 FSDB_FILE=\"huffman.fsdb\"
+-DEFINE
+SDF
+-DEFINE
+tb3
+-DEFINE
+SDFFILE=\"/home/YuChengWang/Verilog_pratice/2023_Winter/2018/syn/huffman_syn.sdf\"

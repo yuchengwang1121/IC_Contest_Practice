@@ -2,15 +2,17 @@
 // File created by:  ncverilog
 // Do not modify this file
 //
-+incdir+/home/YuChengWang/Verilog_pratice/2023_Winter/2018/src
 +nc64bit
 +access+r
 +define+FSDB_FILE=\"huffman.fsdb\"
++define+SDF
++define++tb3
++define+SDFFILE=\"/home/YuChengWang/Verilog_pratice/2023_Winter/2018/syn/huffman_syn.sdf\"
 -MESSAGES
 +EMGRLOG
 ncverilog.log
 -XLSTIME
-1675590420
+1675752997
 -XLKEEP
 -XLMODE
 ./INCA_libs/irun.lnx8664.15.20.nc

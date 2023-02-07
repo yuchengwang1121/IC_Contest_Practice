@@ -1,19 +1,21 @@
-# Read all Files
-read_verilog huffman.v
-current_design huffman
+set top huffman
+
+#Read All Files
+read_file -format verilog  ../src/${top}.v
+current_design [get_designs ${top}]
 link
 
 # Setting Clock Constraits
-source -echo -verbose huffman.sdc
+source -echo -verbose ../script/${top}.sdc
 
 # Synthesis all design
 compile -map_effort high -area_effort high
 compile -map_effort high -area_effort high -inc
 
-write -format ddc  -hierarchy -output "huffman_syn.ddc"
-write_sdf huffman_syn.sdf
-write_file -format verilog -hierarchy -output huffman_syn.v
+write -format ddc     -hierarchy -output "${top}_syn.ddc"
+write_sdf ../syn/${top}_syn.sdf
+write -format verilog -hierarchy -output ../syn/${top}_syn.v
 report_area > area.log
 report_timing > timing.log
-report_qor > huffman_syn.qor
+report_qor   >  ${top}_syn.qor
 
