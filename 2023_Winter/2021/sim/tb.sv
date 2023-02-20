@@ -36,14 +36,9 @@ always begin #(`CYCLE/2) clk = ~clk; end
 
 initial begin
     $fsdbDumpfile("geofence.fsdb");
-    $fsdbDumpvars();
-    $fsdbDumpMDA;
+    $fsdbDumpvars("+struct", "+mda", testfixture);
 end
 
-//initial begin
-//    $dumpfile("geofence.vcd");
-//    $dumpvars;
-//end
 
 initial begin
     $display("----------------------");
