@@ -16,7 +16,7 @@ set_fix_multiple_port_nets -all -buffer_constants [get_designs *]
 #Synthesis all design
 #compile -map_effort high -area_effort high
 #compile -map_effort high -area_effort high -inc
-compile
+compile_ultra
 
 write -format ddc     -hierarchy -output "${top}_syn.ddc"
 write_sdf -version 1.0 ../syn/${top}_syn.sdf

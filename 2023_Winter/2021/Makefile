@@ -11,7 +11,7 @@ NC_DIR             =$(ROOT_DIR)/conf
 
 # Need to modify for TB
 TB_TOP             =tb.sv
-TOP                =Geofence
+TOP                =geofence
 SYN_TCL  		   =dc_syn
 SRC=$(shell ls $(SRC_DIR)/*.v)
 TB_SRC=$(shell ls $(SIM_DIR)/grad.data)

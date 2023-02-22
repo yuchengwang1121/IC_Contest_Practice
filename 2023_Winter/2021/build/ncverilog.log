@@ -1,41 +1,1421 @@
 ncverilog(64): 15.20-s084: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s084: Started on Feb 20, 2023 at 23:11:49 CST
+TOOL:	ncverilog	15.20-s084: Started on Feb 22, 2023 at 16:55:43 CST
 ncverilog
 	/home/YuChengWang/Verilog_pratice/2023_Winter/2021/sim/tb.sv
-	/home/YuChengWang/Verilog_pratice/2023_Winter/2021/src/geofence.v
-	+incdir+/home/YuChengWang/Verilog_pratice/2023_Winter/2021/src
+	/home/YuChengWang/Verilog_pratice/2023_Winter/2021/syn/geofence_syn.v
+	-sv
+	/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v
 	+nc64bit
 	+access+r
-	+define+FSDB_FILE="Geofence.fsdb"
-Recompiling... reason: file '../src/geofence.v' is newer than expected.
-	expected: Mon Feb 20 23:09:40 2023
-	actual:   Mon Feb 20 23:11:35 2023
-file: /home/YuChengWang/Verilog_pratice/2023_Winter/2021/src/geofence.v
+	+define+FSDB_FILE="geofence.fsdb"
+	+define+SDF
+	+define+SDFFILE="/home/YuChengWang/Verilog_pratice/2023_Winter/2021/syn/geofence_syn.sdf"
+Recompiling... reason: file '../syn/geofence_syn.sdf' is newer than expected.
+	expected: Wed Feb 22 16:52:36 2023
+	actual:   Wed Feb 22 16:55:29 2023
+file: /home/YuChengWang/Verilog_pratice/2023_Winter/2021/sim/tb.sv
+`define SDFFILE    "./geofence_syn.sdf"
+                                       |
+ncvlog: *W,MACNDF (/home/YuChengWang/Verilog_pratice/2023_Winter/2021/sim/tb.sv,3|39): The text macro 'SDFFILE' has also been defined on the command line using the -DEFINE command line option.  The compiler will ignore the definition found in the Verilog source code.
+file: /home/YuChengWang/Verilog_pratice/2023_Winter/2021/syn/geofence_syn.v
 	module worklib.geofence:v
 		errors: 0, warnings: 0
-ncvlog: *W,SPDUSD: Include directory /home/YuChengWang/Verilog_pratice/2023_Winter/2021/src given but not used.
 	Total errors/warnings found outside modules and primitives:
 		errors: 0, warnings: 1
 		Caching library 'worklib' ....... Done
 	Elaborating the design hierarchy:
+  DFFRX1 \sortCount_reg[2]  ( .D(n1325), .CK(clk), .RN(n6554), .Q(sortCount[2]) );
+                          |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1689|26): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \comarea_reg[0]  ( .D(n1291), .CK(clk), .RN(n6553), .Q(comarea[0]) );
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1692|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \comarea_reg[3]  ( .D(n1288), .CK(clk), .RN(n6553), .Q(comarea[3]) );
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1693|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \comarea_reg[4]  ( .D(n1287), .CK(clk), .RN(n6553), .Q(comarea[4]) );
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1694|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \comarea_reg[5]  ( .D(n1286), .CK(clk), .RN(n6553), .Q(comarea[5]) );
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1695|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \comarea_reg[6]  ( .D(n1285), .CK(clk), .RN(n6553), .Q(comarea[6]) );
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1696|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \comarea_reg[7]  ( .D(n1284), .CK(clk), .RN(n6553), .Q(comarea[7]) );
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1697|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \comarea_reg[8]  ( .D(n1283), .CK(clk), .RN(n6553), .Q(comarea[8]) );
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1698|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \comarea_reg[9]  ( .D(n1282), .CK(clk), .RN(n6553), .Q(comarea[9]) );
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1699|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \comarea_reg[10]  ( .D(n1281), .CK(clk), .RN(n6552), .Q(comarea[10])
+                         |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1700|25): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \comarea_reg[14]  ( .D(n1277), .CK(clk), .RN(n6552), .Q(comarea[14])
+                         |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1702|25): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \comarea_reg[16]  ( .D(n1275), .CK(clk), .RN(n6552), .Q(comarea[16])
+                         |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1706|25): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \comarea_reg[18]  ( .D(n1273), .CK(clk), .RN(n6552), .Q(comarea[18])
+                         |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1710|25): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \comarea_reg[20]  ( .D(n1271), .CK(clk), .RN(n6552), .Q(comarea[20])
+                         |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1714|25): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \comarea_reg[21]  ( .D(n1270), .CK(clk), .RN(n6552), .Q(comarea[21])
+                         |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1716|25): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[5][1][0]  ( .D(n1258), .CK(clk), .RN(n6551), .QN(n1526)
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1718|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): Q
+
+  DFFRX1 \Dotseq_reg[5][1][3]  ( .D(n1255), .CK(clk), .RN(n6551), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1720|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[5][1][4]  ( .D(n1254), .CK(clk), .RN(n6551), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1722|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[5][1][6]  ( .D(n1252), .CK(clk), .RN(n6551), .QN(n1514)
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1724|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): Q
+
+  DFFRX1 \Dotseq_reg[5][1][7]  ( .D(n1251), .CK(clk), .RN(n6551), .QN(n1547)
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1726|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): Q
+
+  DFFRX1 \Dotseq_reg[5][1][9]  ( .D(n1249), .CK(clk), .RN(n6551), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1728|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[5][1][10]  ( .D(n1248), .CK(clk), .RN(n6551), .Q(
+                              |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1730|30): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[5][0][0]  ( .D(n1236), .CK(clk), .RN(n6551), .QN(n1508)
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1732|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): Q
+
+  DFFRX1 \Dotseq_reg[5][0][2]  ( .D(n1234), .CK(clk), .RN(n6550), .QN(n1540)
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1734|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): Q
+
+  DFFRX1 \Dotseq_reg[5][0][3]  ( .D(n1233), .CK(clk), .RN(n6550), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1736|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[5][0][5]  ( .D(n1231), .CK(clk), .RN(n6550), .QN(n1527)
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1738|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): Q
+
+  DFFRX1 \Dotseq_reg[5][0][7]  ( .D(n1229), .CK(clk), .RN(n6550), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1740|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[5][0][9]  ( .D(n1227), .CK(clk), .RN(n6550), .QN(n1521)
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1742|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): Q
+
+  DFFRX1 \Dotseq_reg[5][0][10]  ( .D(n1226), .CK(clk), .RN(n6550), .Q(
+                              |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1744|30): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[4][1][3]  ( .D(n1211), .CK(clk), .RN(n6549), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1746|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[4][1][4]  ( .D(n1210), .CK(clk), .RN(n6549), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1748|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[4][1][6]  ( .D(n1208), .CK(clk), .RN(n6549), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1750|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[4][1][7]  ( .D(n1207), .CK(clk), .RN(n6549), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1752|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[4][0][2]  ( .D(n1190), .CK(clk), .RN(n6537), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1754|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[4][0][5]  ( .D(n1187), .CK(clk), .RN(n6545), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1756|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[4][0][7]  ( .D(n1185), .CK(clk), .RN(n6539), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1758|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[4][0][9]  ( .D(n1183), .CK(clk), .RN(n6552), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1760|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[3][1][0]  ( .D(n1170), .CK(clk), .RN(n6539), .QN(n1515)
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1762|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): Q
+
+  DFFRX1 \Dotseq_reg[3][1][1]  ( .D(n1169), .CK(clk), .RN(n6539), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1764|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[3][1][2]  ( .D(n1168), .CK(clk), .RN(n6539), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1766|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[3][1][3]  ( .D(n1167), .CK(clk), .RN(n6539), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1768|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[3][1][4]  ( .D(n1166), .CK(clk), .RN(n6538), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1770|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[3][1][5]  ( .D(n1165), .CK(clk), .RN(n6539), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1772|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[3][1][6]  ( .D(n1164), .CK(clk), .RN(n6560), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1774|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[3][1][7]  ( .D(n1163), .CK(clk), .RN(n6539), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1776|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[3][1][8]  ( .D(n1162), .CK(clk), .RN(n6552), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1778|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[3][1][9]  ( .D(n1161), .CK(clk), .RN(n6536), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1780|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[3][0][1]  ( .D(n1147), .CK(clk), .RN(n6553), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1782|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[3][0][3]  ( .D(n1145), .CK(clk), .RN(n6553), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1786|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[3][0][4]  ( .D(n1144), .CK(clk), .RN(n6553), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1788|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[3][0][5]  ( .D(n1143), .CK(clk), .RN(n6547), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1790|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[3][0][6]  ( .D(n1142), .CK(clk), .RN(n6543), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1792|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[3][0][8]  ( .D(n1140), .CK(clk), .RN(n6545), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1794|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[3][0][9]  ( .D(n1139), .CK(clk), .RN(n6535), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1796|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[2][1][0]  ( .D(n1126), .CK(clk), .RN(n6551), .QN(n1548)
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1798|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): Q
+
+  DFFRX1 \Dotseq_reg[2][1][1]  ( .D(n1125), .CK(clk), .RN(n6540), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1800|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[2][1][2]  ( .D(n1124), .CK(clk), .RN(n6542), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1802|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[2][1][3]  ( .D(n1123), .CK(clk), .RN(n6541), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1804|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[2][1][4]  ( .D(n1122), .CK(clk), .RN(n1498), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1806|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[2][1][5]  ( .D(n1121), .CK(clk), .RN(n6557), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1808|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[2][1][6]  ( .D(n1120), .CK(clk), .RN(n6548), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1810|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[2][1][7]  ( .D(n1119), .CK(clk), .RN(n6555), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1812|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[2][1][8]  ( .D(n1118), .CK(clk), .RN(n6548), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1814|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[2][1][10]  ( .D(n1116), .CK(clk), .RN(n6548), .Q(
+                              |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1816|30): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[2][0][0]  ( .D(n1104), .CK(clk), .RN(n6548), .QN(n1562)
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1818|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): Q
+
+  DFFRX1 \Dotseq_reg[2][0][1]  ( .D(n1103), .CK(clk), .RN(n6550), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1820|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[2][0][2]  ( .D(n1102), .CK(clk), .RN(n6548), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1822|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[2][0][4]  ( .D(n1100), .CK(clk), .RN(n6548), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1824|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[2][0][5]  ( .D(n1099), .CK(clk), .RN(n6548), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1826|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[2][0][6]  ( .D(n1098), .CK(clk), .RN(n6548), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1828|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[2][0][7]  ( .D(n1097), .CK(clk), .RN(n6548), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1830|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[2][0][8]  ( .D(n1096), .CK(clk), .RN(n6548), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1832|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[2][0][9]  ( .D(n1095), .CK(clk), .RN(n6545), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1834|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[1][1][0]  ( .D(n1082), .CK(clk), .RN(n6539), .QN(n1509)
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1836|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): Q
+
+  DFFRX1 \Dotseq_reg[1][1][1]  ( .D(n1081), .CK(clk), .RN(n6548), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1838|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[1][1][2]  ( .D(n1080), .CK(clk), .RN(n6547), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1840|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[1][1][5]  ( .D(n1077), .CK(clk), .RN(n6547), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1842|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[1][1][6]  ( .D(n1076), .CK(clk), .RN(n6547), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1844|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[1][1][7]  ( .D(n1075), .CK(clk), .RN(n6547), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1846|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[1][1][8]  ( .D(n1074), .CK(clk), .RN(n6547), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1848|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[1][1][9]  ( .D(n1073), .CK(clk), .RN(n6547), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1850|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[1][0][0]  ( .D(n1060), .CK(clk), .RN(n6547), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1854|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[1][0][1]  ( .D(n1059), .CK(clk), .RN(n6547), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1856|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[1][0][3]  ( .D(n1057), .CK(clk), .RN(n6546), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1858|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[1][0][4]  ( .D(n1056), .CK(clk), .RN(n6546), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1860|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[1][0][5]  ( .D(n1055), .CK(clk), .RN(n6546), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1862|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[1][0][6]  ( .D(n1054), .CK(clk), .RN(n6546), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1864|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[1][0][7]  ( .D(n1053), .CK(clk), .RN(n6545), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1866|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[1][0][8]  ( .D(n1052), .CK(clk), .RN(n6545), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1868|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[1][0][9]  ( .D(n1051), .CK(clk), .RN(n6546), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1870|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[0][2][5]  ( .D(n1317), .CK(clk), .RN(n6541), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1874|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[0][2][6]  ( .D(n1316), .CK(clk), .RN(n6541), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1876|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[0][2][7]  ( .D(n1315), .CK(clk), .RN(n6541), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1878|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \hexarea_reg[21]  ( .D(n1328), .CK(clk), .RN(n6546), .Q(hexarea[21])
+                         |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1884|25): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[3][0]  ( .D(n991), .CK(clk), .RN(n6546), .Q(\Edge[3][0] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1886|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[3][1]  ( .D(n985), .CK(clk), .RN(n6546), .Q(\Edge[3][1] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1888|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[3][2]  ( .D(n979), .CK(clk), .RN(n6549), .Q(\Edge[3][2] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1890|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[3][3]  ( .D(n973), .CK(clk), .RN(n6541), .Q(\Edge[3][3] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1892|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[3][4]  ( .D(n967), .CK(clk), .RN(n6534), .Q(\Edge[3][4] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1894|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[3][5]  ( .D(n961), .CK(clk), .RN(n6557), .Q(\Edge[3][5] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1896|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[3][6]  ( .D(n955), .CK(clk), .RN(n6559), .Q(\Edge[3][6] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1898|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[3][7]  ( .D(n949), .CK(clk), .RN(n6533), .Q(\Edge[3][7] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1900|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[3][8]  ( .D(n943), .CK(clk), .RN(n6544), .Q(\Edge[3][8] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1902|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[3][9]  ( .D(n937), .CK(clk), .RN(n6533), .Q(\Edge[3][9] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1904|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[3][10]  ( .D(n931), .CK(clk), .RN(n6534), .Q(\Edge[3][10] )
+                         |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1906|25): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[3][0]  ( .D(n925), .CK(clk), .RN(n6545), .Q(\S[3][0] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1908|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[3][1]  ( .D(n919), .CK(clk), .RN(n6544), .Q(\S[3][1] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1909|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[3][2]  ( .D(n913), .CK(clk), .RN(n6544), .Q(\S[3][2] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1910|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[3][3]  ( .D(n907), .CK(clk), .RN(n6543), .Q(\S[3][3] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1911|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[3][4]  ( .D(n901), .CK(clk), .RN(n6543), .Q(\S[3][4] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1912|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[3][5]  ( .D(n895), .CK(clk), .RN(n6533), .Q(\S[3][5] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1913|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[3][6]  ( .D(n889), .CK(clk), .RN(n6533), .Q(\S[3][6] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1914|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[3][7]  ( .D(n883), .CK(clk), .RN(n1498), .Q(\S[3][7] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1915|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[3][8]  ( .D(n877), .CK(clk), .RN(n6554), .Q(\S[3][8] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1916|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[3][9]  ( .D(n871), .CK(clk), .RN(n6542), .Q(\S[3][9] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1917|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \hexarea_reg[19]  ( .D(n1330), .CK(clk), .RN(n6542), .QN(n6334) );
+                         |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1920|25): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): Q
+
+  DFFRX1 \hexarea_reg[18]  ( .D(n1331), .CK(clk), .RN(n6544), .QN(n1581) );
+                         |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1921|25): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): Q
+
+  DFFRX1 \hexarea_reg[0]  ( .D(n1349), .CK(clk), .RN(n6560), .QN(n6367) );
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1942|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): Q
+
+  DFFRX1 \Edge_reg[5][0]  ( .D(n993), .CK(clk), .RN(n6560), .Q(\Edge[5][0] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1943|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[5][1]  ( .D(n987), .CK(clk), .RN(n6560), .Q(\Edge[5][1] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1945|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[5][2]  ( .D(n981), .CK(clk), .RN(n6559), .Q(\Edge[5][2] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1947|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[5][3]  ( .D(n975), .CK(clk), .RN(n6559), .Q(\Edge[5][3] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1949|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[5][4]  ( .D(n969), .CK(clk), .RN(n6559), .Q(\Edge[5][4] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1951|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[5][5]  ( .D(n963), .CK(clk), .RN(n6559), .Q(\Edge[5][5] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1953|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[5][6]  ( .D(n957), .CK(clk), .RN(n6559), .Q(\Edge[5][6] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1955|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[5][7]  ( .D(n951), .CK(clk), .RN(n6559), .Q(\Edge[5][7] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1957|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[5][8]  ( .D(n945), .CK(clk), .RN(n6559), .Q(\Edge[5][8] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1959|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[5][9]  ( .D(n939), .CK(clk), .RN(n6559), .Q(\Edge[5][9] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1961|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[5][10]  ( .D(n933), .CK(clk), .RN(n6559), .Q(\Edge[5][10] )
+                         |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1963|25): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[5][0]  ( .D(n927), .CK(clk), .RN(n6545), .Q(\S[5][0] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1965|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[5][1]  ( .D(n921), .CK(clk), .RN(n6544), .Q(\S[5][1] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1966|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[5][2]  ( .D(n915), .CK(clk), .RN(n6544), .Q(\S[5][2] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1967|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[5][3]  ( .D(n909), .CK(clk), .RN(n6543), .Q(\S[5][3] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1968|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[5][4]  ( .D(n903), .CK(clk), .RN(n6543), .Q(\S[5][4] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1969|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[5][5]  ( .D(n897), .CK(clk), .RN(n6547), .Q(\S[5][5] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1970|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[5][6]  ( .D(n891), .CK(clk), .RN(n6547), .Q(\S[5][6] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1971|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[5][7]  ( .D(n885), .CK(clk), .RN(n6557), .Q(\S[5][7] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1972|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[5][8]  ( .D(n879), .CK(clk), .RN(n6542), .Q(\S[5][8] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1973|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[5][9]  ( .D(n873), .CK(clk), .RN(n6542), .Q(\S[5][9] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1974|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[1][0]  ( .D(n989), .CK(clk), .RN(n6559), .Q(\Edge[1][0] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1975|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[1][1]  ( .D(n983), .CK(clk), .RN(n6559), .Q(\Edge[1][1] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1977|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[1][2]  ( .D(n977), .CK(clk), .RN(n6559), .Q(\Edge[1][2] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1979|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[1][3]  ( .D(n971), .CK(clk), .RN(n6533), .Q(\Edge[1][3] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1981|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[1][4]  ( .D(n965), .CK(clk), .RN(n6558), .Q(\Edge[1][4] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1983|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[1][5]  ( .D(n959), .CK(clk), .RN(n6558), .Q(\Edge[1][5] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1985|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[1][6]  ( .D(n953), .CK(clk), .RN(n6558), .Q(\Edge[1][6] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1987|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[1][7]  ( .D(n947), .CK(clk), .RN(n6558), .Q(\Edge[1][7] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1989|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[1][8]  ( .D(n941), .CK(clk), .RN(n6558), .Q(\Edge[1][8] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1991|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[1][9]  ( .D(n935), .CK(clk), .RN(n6558), .Q(\Edge[1][9] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1993|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[1][10]  ( .D(n929), .CK(clk), .RN(n6558), .Q(\Edge[1][10] )
+                         |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,1995|25): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[2][0]  ( .D(n990), .CK(clk), .RN(n6558), .Q(\Edge[2][0] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2013|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[2][1]  ( .D(n984), .CK(clk), .RN(n6533), .Q(\Edge[2][1] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2015|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[2][2]  ( .D(n978), .CK(clk), .RN(n6533), .Q(\Edge[2][2] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2017|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[2][3]  ( .D(n972), .CK(clk), .RN(n6558), .Q(\Edge[2][3] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2019|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[2][4]  ( .D(n966), .CK(clk), .RN(n6558), .Q(\Edge[2][4] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2021|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[2][5]  ( .D(n960), .CK(clk), .RN(n6533), .Q(\Edge[2][5] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2023|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[2][6]  ( .D(n954), .CK(clk), .RN(n6558), .Q(\Edge[2][6] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2025|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[2][7]  ( .D(n948), .CK(clk), .RN(n6558), .Q(\Edge[2][7] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2027|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[2][8]  ( .D(n942), .CK(clk), .RN(n6558), .Q(\Edge[2][8] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2029|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[2][9]  ( .D(n936), .CK(clk), .RN(n1498), .Q(\Edge[2][9] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2031|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[2][10]  ( .D(n930), .CK(clk), .RN(n1498), .Q(\Edge[2][10] )
+                         |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2033|25): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[2][0]  ( .D(n924), .CK(clk), .RN(n6545), .Q(\S[2][0] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2035|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[2][1]  ( .D(n918), .CK(clk), .RN(n6544), .Q(\S[2][1] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2036|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[2][2]  ( .D(n912), .CK(clk), .RN(n6544), .Q(\S[2][2] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2037|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[2][3]  ( .D(n906), .CK(clk), .RN(n6543), .Q(\S[2][3] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2038|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[2][4]  ( .D(n900), .CK(clk), .RN(n6543), .Q(\S[2][4] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2039|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[2][5]  ( .D(n894), .CK(clk), .RN(n6543), .Q(\S[2][5] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2040|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[2][6]  ( .D(n888), .CK(clk), .RN(n6543), .Q(\S[2][6] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2041|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[2][7]  ( .D(n882), .CK(clk), .RN(n6534), .Q(\S[2][7] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2042|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[2][8]  ( .D(n876), .CK(clk), .RN(n6554), .Q(\S[2][8] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2043|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[2][9]  ( .D(n870), .CK(clk), .RN(n6542), .Q(\S[2][9] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2044|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[4][0]  ( .D(n992), .CK(clk), .RN(n1498), .Q(\Edge[4][0] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2045|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[4][1]  ( .D(n986), .CK(clk), .RN(n1498), .Q(\Edge[4][1] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2047|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[4][2]  ( .D(n980), .CK(clk), .RN(n1498), .Q(\Edge[4][2] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2049|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[4][3]  ( .D(n974), .CK(clk), .RN(n6555), .Q(\Edge[4][3] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2051|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[4][4]  ( .D(n968), .CK(clk), .RN(n6554), .Q(\Edge[4][4] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2053|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[4][5]  ( .D(n962), .CK(clk), .RN(n6555), .Q(\Edge[4][5] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2055|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[4][6]  ( .D(n956), .CK(clk), .RN(n6555), .Q(\Edge[4][6] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2057|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[4][7]  ( .D(n950), .CK(clk), .RN(n6555), .Q(\Edge[4][7] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2059|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[4][8]  ( .D(n944), .CK(clk), .RN(n6557), .Q(\Edge[4][8] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2061|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[4][9]  ( .D(n938), .CK(clk), .RN(n6557), .Q(\Edge[4][9] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2063|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[4][10]  ( .D(n932), .CK(clk), .RN(n6557), .Q(\Edge[4][10] )
+                         |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2065|25): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[4][0]  ( .D(n926), .CK(clk), .RN(n6545), .Q(\S[4][0] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2067|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[4][1]  ( .D(n920), .CK(clk), .RN(n6544), .Q(\S[4][1] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2068|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[4][2]  ( .D(n914), .CK(clk), .RN(n6544), .Q(\S[4][2] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2069|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[4][3]  ( .D(n908), .CK(clk), .RN(n6543), .Q(\S[4][3] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2070|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[4][4]  ( .D(n902), .CK(clk), .RN(n6543), .Q(\S[4][4] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2071|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[4][5]  ( .D(n896), .CK(clk), .RN(n6533), .Q(\S[4][5] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2072|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[4][6]  ( .D(n890), .CK(clk), .RN(n6533), .Q(\S[4][6] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2073|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[4][7]  ( .D(n884), .CK(clk), .RN(n6559), .Q(\S[4][7] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2074|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[4][8]  ( .D(n878), .CK(clk), .RN(n6539), .Q(\S[4][8] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2075|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[4][9]  ( .D(n872), .CK(clk), .RN(n6542), .Q(\S[4][9] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2076|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[4][1][0]  ( .D(n1269), .CK(clk), .RN(n6557), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2083|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[0][1][1]  ( .D(n1092), .CK(clk), .RN(n6557), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2085|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[1][1][1]  ( .D(n1136), .CK(clk), .RN(n6557), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2087|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[3][1][1]  ( .D(n1224), .CK(clk), .RN(n6557), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2091|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[1][1][2]  ( .D(n1135), .CK(clk), .RN(n6556), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2095|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[2][1][2]  ( .D(n1179), .CK(clk), .RN(n6556), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2097|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[3][1][2]  ( .D(n1223), .CK(clk), .RN(n6556), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2099|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[0][1][3]  ( .D(n1090), .CK(clk), .RN(n6556), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2101|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[3][1][3]  ( .D(n1222), .CK(clk), .RN(n6556), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2107|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[2][1][4]  ( .D(n1177), .CK(clk), .RN(n6555), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2111|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[3][1][4]  ( .D(n1221), .CK(clk), .RN(n6555), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2113|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[0][1][5]  ( .D(n1088), .CK(clk), .RN(n6555), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2115|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[1][1][5]  ( .D(n1132), .CK(clk), .RN(n6555), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2117|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[2][1][5]  ( .D(n1176), .CK(clk), .RN(n6555), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2119|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[3][1][5]  ( .D(n1220), .CK(clk), .RN(n6555), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2121|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[0][1][7]  ( .D(n1086), .CK(clk), .RN(n6545), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2127|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[3][1][7]  ( .D(n1218), .CK(clk), .RN(n6556), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2133|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[1][1][8]  ( .D(n1129), .CK(clk), .RN(n6558), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2137|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[2][1][8]  ( .D(n1173), .CK(clk), .RN(n6552), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2139|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[0][1][9]  ( .D(n1084), .CK(clk), .RN(n6554), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2141|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[1][1][9]  ( .D(n1128), .CK(clk), .RN(n6554), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2143|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[2][1][9]  ( .D(n1172), .CK(clk), .RN(n6554), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2145|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[3][1][9]  ( .D(n1216), .CK(clk), .RN(n6554), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2147|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[1][0][0]  ( .D(n1115), .CK(clk), .RN(n6540), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2151|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[2][0][0]  ( .D(n1159), .CK(clk), .RN(n6540), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2153|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[3][0][0]  ( .D(n1203), .CK(clk), .RN(n6540), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2155|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[0][0][1]  ( .D(n1070), .CK(clk), .RN(n6540), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2159|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[2][0][1]  ( .D(n1158), .CK(clk), .RN(n6540), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2163|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[3][0][1]  ( .D(n1202), .CK(clk), .RN(n6540), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2165|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[2][0][2]  ( .D(n1157), .CK(clk), .RN(n1498), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2171|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[0][0][3]  ( .D(n1068), .CK(clk), .RN(n1498), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2175|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[4][0][3]  ( .D(n1244), .CK(clk), .RN(n1498), .QN(n6453)
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2183|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): Q
+
+  DFFRX1 \Vector_reg[0][0][5]  ( .D(n1066), .CK(clk), .RN(n6538), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2187|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[3][0][5]  ( .D(n1198), .CK(clk), .RN(n6538), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2193|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[0][0][7]  ( .D(n1064), .CK(clk), .RN(n6538), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2201|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[1][0][7]  ( .D(n1108), .CK(clk), .RN(n6548), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2203|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[3][0][7]  ( .D(n1196), .CK(clk), .RN(n6558), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2207|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[0][0][9]  ( .D(n1062), .CK(clk), .RN(n6560), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2215|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[1][0][9]  ( .D(n1106), .CK(clk), .RN(n6552), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2217|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[2][0][9]  ( .D(n1150), .CK(clk), .RN(n6558), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2219|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Vector_reg[3][0][9]  ( .D(n1194), .CK(clk), .RN(n6537), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2221|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[3][2][6]  ( .D(n1021), .CK(clk), .RN(n6537), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2265|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[3][2][7]  ( .D(n1020), .CK(clk), .RN(n6539), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2271|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[3][2][8]  ( .D(n1019), .CK(clk), .RN(n6554), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2277|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Dotseq_reg[3][2][9]  ( .D(n1018), .CK(clk), .RN(n6534), .Q(
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2283|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[0][0]  ( .D(n988), .CK(clk), .RN(n6533), .Q(\Edge[0][0] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2299|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[0][1]  ( .D(n982), .CK(clk), .RN(n6534), .Q(\Edge[0][1] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2301|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[0][2]  ( .D(n976), .CK(clk), .RN(n6534), .Q(\Edge[0][2] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2303|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[0][3]  ( .D(n970), .CK(clk), .RN(n6534), .Q(\Edge[0][3] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2305|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[0][4]  ( .D(n964), .CK(clk), .RN(n6533), .Q(\Edge[0][4] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2307|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[0][5]  ( .D(n958), .CK(clk), .RN(n6534), .Q(\Edge[0][5] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2309|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[0][6]  ( .D(n952), .CK(clk), .RN(n6533), .Q(\Edge[0][6] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2311|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[0][7]  ( .D(n946), .CK(clk), .RN(n6534), .Q(\Edge[0][7] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2313|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[0][8]  ( .D(n940), .CK(clk), .RN(n6533), .Q(\Edge[0][8] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2315|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[0][9]  ( .D(n934), .CK(clk), .RN(n6533), .Q(\Edge[0][9] )
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2317|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Edge_reg[0][10]  ( .D(n928), .CK(clk), .RN(n6533), .Q(\Edge[0][10] )
+                         |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2319|25): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[0][0]  ( .D(n922), .CK(clk), .RN(n6544), .Q(\S[0][0] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2321|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[0][1]  ( .D(n916), .CK(clk), .RN(n6544), .Q(\S[0][1] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2322|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[0][2]  ( .D(n910), .CK(clk), .RN(n6543), .Q(\S[0][2] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2323|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[0][3]  ( .D(n904), .CK(clk), .RN(n6543), .Q(\S[0][3] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2324|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[0][4]  ( .D(n898), .CK(clk), .RN(n6543), .Q(\S[0][4] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2325|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[0][5]  ( .D(n892), .CK(clk), .RN(n6543), .Q(\S[0][5] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2326|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[0][6]  ( .D(n886), .CK(clk), .RN(n6535), .Q(\S[0][6] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2327|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[0][7]  ( .D(n880), .CK(clk), .RN(n6555), .Q(\S[0][7] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2328|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[0][8]  ( .D(n874), .CK(clk), .RN(n6542), .Q(\S[0][8] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2329|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \S_reg[0][9]  ( .D(n867), .CK(clk), .RN(n6542), .Q(\S[0][9] ) );
+                     |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2330|21): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFSX1 origin_reg ( .D(n994), .CK(clk), .SN(n6541), .Q(origin) );
+                  |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,2331|18): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18583): QN
+
+  DFFRX1 \comarea_reg[1]  ( .D(n1290), .CK(clk), .RN(n6553), .Q(comarea[1]) );
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,3397|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \comarea_reg[2]  ( .D(n1289), .CK(clk), .RN(n6553), .Q(comarea[2]) );
+                        |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,3398|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX1 \Cur_state_reg[0]  ( .D(Next_state[0]), .CK(clk), .RN(n6554), .Q(
+                          |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,3399|26): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): QN
+
+  DFFRX2 \hexarea_reg[12]  ( .D(n1337), .CK(clk), .RN(n6556), .Q(hexarea[12])
+                         |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,4244|25): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18376): QN
+
+  DFFRX2 \hexarea_reg[11]  ( .D(n1338), .CK(clk), .RN(n6539), .Q(hexarea[11])
+                         |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,4258|25): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18376): QN
+
+  DFFRX1 \Dotseq_reg[4][0][0]  ( .D(n1192), .CK(clk), .RN(n6549), .QN(n6394)
+                             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,4314|29): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): Q
+
+  ADDFXL U1528 ( .A(n3975), .B(n5125), .CI(n5124), .CO(n5130) );
+             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,4409|13): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,14175): S
+
+  ADDFXL U3869 ( .A(n2449), .B(n2450), .CI(n2449), .CO(n3095) );
+             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,7206|13): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,14175): S
+
+  ADDFXL U4091 ( .A(n2450), .B(n3257), .CI(n2450), .CO(n3094) );
+             |
+ncelab: *W,CUVWSP (../syn/geofence_syn.v,7500|13): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,14175): S
+
 ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Reading SDF file from location "/home/YuChengWang/Verilog_pratice/2023_Winter/2021/syn/geofence_syn.sdf"
+	Compiled SDF file "geofence_syn.sdf.X" older than source SDF file "/home/YuChengWang/Verilog_pratice/2023_Winter/2021/syn/geofence_syn.sdf".
+	Recompiling.
+	Writing compiled SDF file to "geofence_syn.sdf.X".
+	Annotating SDF timing data:
+		Compiled SDF file:     geofence_syn.sdf.X
+		Log file:              
+		Backannotation scope:  testfixture.u_geofence
+		Configuration file:    
+		MTM control:           
+		Scale factors:         
+		Scale type:            
+	Annotation completed successfully...
+	SDF statistics: No. of Pathdelays = 34783  Annotated = 93.27% -- No. of Tchecks = 4104  Annotated = 71.05% 
+				        Total 	   Annotated	  Percentage
+		 Path Delays	       34783	       32443	       93.27
+		       $hold	          64	           0	        0.00
+		      $width	        1819	        1458	       80.15
+		  $setuphold	        2221	        1458	       65.65
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
-		worklib.geofence:v <0x19965f2d>
-			streams:  23, words: 27781
+		worklib.CLKXOR2X2:v <0x049e7340>
+			streams:   0, words:     0
+		worklib.CLKXOR2X4:v <0x366a317e>
+			streams:   0, words:     0
+		worklib.DFFRX4:v <0x6d6e898c>
+			streams:   0, words:     0
+		worklib.XNOR2XL:v <0x1adcf8c4>
+			streams:   0, words:     0
+		worklib.XOR2XL:v <0x5a7b15a5>
+			streams:   0, words:     0
+		worklib.XOR3X1:v <0x17056091>
+			streams:   0, words:     0
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
-		                  Instances  Unique
-		Modules:                  2       2
-		Registers:               29      29
-		Scalar wires:             6       -
-		Vectored wires:           3       -
-		Always blocks:            9       9
-		Initial blocks:           8       8
-		Cont. assignments:        3       3
-		Pseudo assignments:       4       4
-		Simulation timescale:  10ps
+		                     Instances  Unique
+		Modules:                  7246     529
+		UDPs:                      740      12
+		Primitives:              21108      10
+		Timing outputs:           8928     489
+		Registers:                 657     181
+		Scalar wires:             9572       -
+		Expanded wires:             31       3
+		Always blocks:               5       5
+		Initial blocks:              9       9
+		Pseudo assignments:          4       4
+		Timing checks:            6325     592
+		Interconnect:            20549       -
+		Delayed tcheck signals:   2033    1092
+		Simulation timescale:      1ps
 	Writing initial simulation snapshot: worklib.testfixture:sv
 Loading snapshot worklib.testfixture:sv .................... Done
 ncsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
@@ -59,7 +1439,7 @@ Object1(in):   X     Y     R
           4:  982,  280,  763
           5:  298,  560,  252
           6:  710,   50,  559
-Object1: Golde/Return => 1/0, FAIL
+Object1: Golde/Return => 1/1, PASS
 
 Object2(out):  X     Y     R
           1:  298,  560,  178
@@ -86,7 +1466,7 @@ Object4(in):   X     Y     R
           4:  710,   50,  580
           5:  982,  280,  850
           6:  103,  340,  183
-Object4: Golde/Return => 1/0, FAIL
+Object4: Golde/Return => 1/1, PASS
 
 Object5(in):   X     Y     R
           1:  755,  510,  345
@@ -95,7 +1475,7 @@ Object5(in):   X     Y     R
           4:  710,   50,  549
           5:  103,   50,  553
           6:  103,  340,  350
-Object5: Golde/Return => 1/0, FAIL
+Object5: Golde/Return => 1/1, PASS
 
 Object6(out):  X     Y     R
           1:  755,  510,  743
@@ -131,7 +1511,7 @@ Object9(in):   X     Y     R
           4:   10,  664,  468
           5:   43, 1003,  298
           6:  694, 1023,  354
-Object9: Golde/Return => 1/0, FAIL
+Object9: Golde/Return => 1/1, PASS
 
 Object10(out):  X     Y     R
           1:  710,  620,  316
@@ -149,7 +1529,7 @@ Object11(in):   X     Y     R
           4:  503,  521,  394
           5:   43, 1003,  322
           6:   10,  664,  146
-Object11: Golde/Return => 1/0, FAIL
+Object11: Golde/Return => 1/1, PASS
 
 Object12(in):   X     Y     R
           1:  980,  120,  733
@@ -158,7 +1538,7 @@ Object12(in):   X     Y     R
           4:  130,  210,  594
           5:  300,  800,  235
           6:  400,   80,  603
-Object12: Golde/Return => 1/0, FAIL
+Object12: Golde/Return => 1/1, PASS
 
 Object13(out):  X     Y     R
           1:  694, 1023,  392
@@ -176,7 +1556,7 @@ Object14(in):   X     Y     R
           4:  432,  123,  381
           5:  567, 1003,  560
           6:  970,  280,  668
-Object14: Golde/Return => 1/0, FAIL
+Object14: Golde/Return => 1/1, PASS
 
 Object15(out):  X     Y     R
           1:  755,  510,  390
@@ -212,7 +1592,7 @@ Object18(in):   X     Y     R
           4:   43, 1003,  562
           5:   10,  664,  490
           6:  302,  423,  320
-Object18: Golde/Return => 1/0, FAIL
+Object18: Golde/Return => 1/1, PASS
 
 Object19(in):   X     Y     R
           1:   43, 1003,  595
@@ -221,7 +1601,7 @@ Object19(in):   X     Y     R
           4:  694, 1023,  168
           5:  694,  768,  124
           6:  503,  521,  369
-Object19: Golde/Return => 1/0, FAIL
+Object19: Golde/Return => 1/1, PASS
 
 Object20(in):   X     Y     R
           1:  980,  120,  785
@@ -230,7 +1610,7 @@ Object20(in):   X     Y     R
           4:  130,  210,  142
           5:  300,  800,  486
           6:  400,   80,  300
-Object20: Golde/Return => 1/0, FAIL
+Object20: Golde/Return => 1/1, PASS
 
 Object21(out):  X     Y     R
           1:  432,  123,  834
@@ -248,7 +1628,7 @@ Object22(in):   X     Y     R
           4:  755,  510,  308
           5:  298,  560,  664
           6:  103,   50,  788
-Object22: Golde/Return => 1/0, FAIL
+Object22: Golde/Return => 1/1, PASS
 
 Object23(in):   X     Y     R
           1:  982,  280,  586
@@ -257,7 +1637,7 @@ Object23(in):   X     Y     R
           4:  710,   50,  348
           5:  103,  340,  324
           6:  298,  560,  364
-Object23: Golde/Return => 1/0, FAIL
+Object23: Golde/Return => 1/1, PASS
 
 Object24(in):   X     Y     R
           1:  503,  521,  205
@@ -266,7 +1646,7 @@ Object24(in):   X     Y     R
           4:   10,  664,  337
           5:  694, 1023,  661
           6:  694,  768,  481
-Object24: Golde/Return => 1/0, FAIL
+Object24: Golde/Return => 1/1, PASS
 
 Object25(out):  X     Y     R
           1:  321,  127,  922
@@ -284,7 +1664,7 @@ Object26(in):   X     Y     R
           4:  321,  127,  802
           5:  321,  870,  302
           6:  567, 1003,  144
-Object26: Golde/Return => 1/0, FAIL
+Object26: Golde/Return => 1/1, PASS
 
 Object27(out):  X     Y     R
           1:  755,  510,  386
@@ -320,7 +1700,7 @@ Object30(in):   X     Y     R
           4:  298,  560,  613
           5:  755,  510,  203
           6:  982,  280,  126
-Object30: Golde/Return => 1/0, FAIL
+Object30: Golde/Return => 1/1, PASS
 
 Object31(out):  X     Y     R
           1:  503,  521,  582
@@ -347,7 +1727,7 @@ Object33(in):   X     Y     R
           4:  970,  280,  490
           5:  321,  127,  595
           6:  432,  123,  549
-Object33: Golde/Return => 1/0, FAIL
+Object33: Golde/Return => 1/1, PASS
 
 Object34(in):   X     Y     R
           1:  103,  500,  307
@@ -356,7 +1736,7 @@ Object34(in):   X     Y     R
           4:  710,  620,  319
           5:  980,  120,  690
           6:  300,  800,  310
-Object34: Golde/Return => 1/0, FAIL
+Object34: Golde/Return => 1/1, PASS
 
 Object35(in):   X     Y     R
           1:  503,  521,  299
@@ -365,7 +1745,7 @@ Object35(in):   X     Y     R
           4:   10,  664,  214
           5:  694,  768,  496
           6:  302,  423,  213
-Object35: Golde/Return => 1/0, FAIL
+Object35: Golde/Return => 1/1, PASS
 
 Object36(out):  X     Y     R
           1:  103,   50,  918
@@ -401,7 +1781,7 @@ Object39(in):   X     Y     R
           4:  432,  123,  230
           5:  970,  280,  334
           6: 1010,  643,  561
-Object39: Golde/Return => 1/0, FAIL
+Object39: Golde/Return => 1/1, PASS
 
 Object40(in):   X     Y     R
           1:  400,   80,  493
@@ -410,7 +1790,7 @@ Object40(in):   X     Y     R
           4:  130,  210,  742
           5:  300,  800,  811
           6:  980,  120,  150
-Object40: Golde/Return => 1/0, FAIL
+Object40: Golde/Return => 1/1, PASS
 
 Object41(out):  X     Y     R
           1:  970,  280,  344
@@ -437,7 +1817,7 @@ Object43(in):   X     Y     R
           4:  321,  870,  599
           5:  432,  123,  520
           6:  970,  280,  282
-Object43: Golde/Return => 1/0, FAIL
+Object43: Golde/Return => 1/1, PASS
 
 Object44(in):   X     Y     R
           1:  710,  620,  514
@@ -446,7 +1826,7 @@ Object44(in):   X     Y     R
           4:  103,  500,  415
           5:  400,   80,  130
           6:  980,  120,  586
-Object44: Golde/Return => 1/0, FAIL
+Object44: Golde/Return => 1/1, PASS
 
 Object45(out):  X     Y     R
           1:   10,  664,  849
@@ -482,7 +1862,7 @@ Object48(in):   X     Y     R
           4:  567, 1003,  334
           5:  432,  123,  556
           6:  970,  280,  613
-Object48: Golde/Return => 1/0, FAIL
+Object48: Golde/Return => 1/1, PASS
 
 Object49(out):  X     Y     R
           1:  567, 1003, 1016
@@ -503,9 +1883,9 @@ Object50(out):  X     Y     R
 Object50: Golde/Return => 0/0, PASS
 
 -------------------------------------------------
--- Simulation finish,  Pass = 27 , Fail = 23   --
+--    Simulation finish,  ALL PASS             --
 -------------------------------------------------
-Simulation complete via $finish(1) at time 38050 NS + 0
+Simulation complete via $finish(1) at time 67750 NS + 0
 ../sim/tb.sv:146              $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s084: Exiting on Feb 20, 2023 at 23:11:50 CST  (total: 00:00:01)
+TOOL:	ncverilog	15.20-s084: Exiting on Feb 22, 2023 at 16:55:50 CST  (total: 00:00:07)

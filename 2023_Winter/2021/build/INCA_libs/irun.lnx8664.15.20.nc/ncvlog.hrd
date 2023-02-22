@@ -2,7 +2,10 @@
 // File created by:  ncverilog
 // Do not modify this file
 //
--INCDIR
-/home/YuChengWang/Verilog_pratice/2023_Winter/2021/src
+-sv
 -DEFINE
-FSDB_FILE=\"Geofence.fsdb\"
+FSDB_FILE=\"geofence.fsdb\"
+-DEFINE
+SDF
+-DEFINE
+SDFFILE=\"/home/YuChengWang/Verilog_pratice/2023_Winter/2021/syn/geofence_syn.sdf\"
