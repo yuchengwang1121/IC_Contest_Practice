@@ -1,0 +1,144 @@
+ncverilog(64): 15.20-s084: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s084: Started on Mar 19, 2023 at 17:50:49 CST
+ncverilog
+	/home/YuChengWang/Verilog_pratice/2023_Winter/2017/sim/testfixture.v
+	/home/YuChengWang/Verilog_pratice/2023_Winter/2017/src/DT.v
+	+incdir+/home/YuChengWang/Verilog_pratice/2023_Winter/2017/src
+	+nc64bit
+	+access+r
+	+define++TB1
+	+define+FSDB_FILE="DT.fsdb"
+Recompiling... reason: file '../src/DT.v' is newer than expected.
+	expected: Sun Mar 19 17:49:53 2023
+	actual:   Sun Mar 19 17:50:31 2023
+file: /home/YuChengWang/Verilog_pratice/2023_Winter/2017/src/DT.v
+	module worklib.DT:v
+		errors: 0, warnings: 0
+ncvlog: *W,SPDUSD: Include directory /home/YuChengWang/Verilog_pratice/2023_Winter/2017/src given but not used.
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 1
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.DT:v <0x064f7594>
+			streams:  15, words: 10140
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:                  4       4
+		Registers:               29      29
+		Scalar wires:            11       -
+		Vectored wires:           5       -
+		Always blocks:           10      10
+		Initial blocks:          11      11
+		Cont. assignments:        2       5
+		Pseudo assignments:       1       1
+		Simulation timescale:  10ps
+	Writing initial simulation snapshot: worklib.testfixture:v
+Loading snapshot worklib.testfixture:v .................... Done
+*Verdi* Loading libsscore_ius152.so
+ncsim> source /usr/cad/cadence/INCISIV/cur/tools/inca/files/ncsimrc
+ncsim> run
+FSDB Dumper for IUS, Release Verdi_O-2018.09, Linux x86_64/64bit, 08/30/2018
+(C) 1996 - 2018 by Synopsys, Inc.
+*Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
+*Verdi* : Create FSDB file 'DT.fsdb'
+*Verdi* : Begin traversing the scope (testfixture), layer (0).
+*Verdi* : Enable +struct and +mda dumping.
+*Verdi* : End of traversing.
+*Verdi* : Dumping the MDA (testfixture.u_sti_ROM.sti_M).
+*Verdi* : Dumping the MDA (testfixture.u_res_RAM.res_M).
+-----------------------------------------------------
+
+START!!! Simulation Start .....
+
+-----------------------------------------------------
+
+FWPASS : Output pixel: 0 ~           0 are correct!
+
+FWPASS : Output pixel: 0 ~        1000 are correct!
+
+FWPASS : Output pixel        1162 are wrong! the real output is 01, but expected result is 02
+FWPASS : Output pixel        1194 are wrong! the real output is 02, but expected result is 01
+FWPASS : Output pixel        1204 are wrong! the real output is 01, but expected result is 02
+FWPASS : Output pixel        1271 are wrong! the real output is 02, but expected result is 01
+FWPASS : Output pixel        1290 are wrong! the real output is 01, but expected result is 02
+FWPASS : Output pixel        1291 are wrong! the real output is 02, but expected result is 03
+FWPASS : Output pixel        1292 are wrong! the real output is 02, but expected result is 03
+FWPASS : Output pixel        1321 are wrong! the real output is 03, but expected result is 02
+FWPASS : Output pixel        1322 are wrong! the real output is 03, but expected result is 01
+FWPASS : Output pixel        1332 are wrong! the real output is 01, but expected result is 02
+FWPASS : Output pixel        1333 are wrong! the real output is 02, but expected result is 03
+FWPASS : Output pixel        1334 are wrong! the real output is 02, but expected result is 03
+FWPASS : Output pixel        1398 are wrong! the real output is 03, but expected result is 02
+FWPASS : Output pixel        1399 are wrong! the real output is 03, but expected result is 01
+FWPASS : Output pixel        1418 are wrong! the real output is 01, but expected result is 02
+FWPASS : Output pixel        1419 are wrong! the real output is 02, but expected result is 03
+FWPASS : Output pixel        1420 are wrong! the real output is 02, but expected result is 04
+FWPASS : Output pixel        1421 are wrong! the real output is 03, but expected result is 04
+FWPASS : Output pixel        1422 are wrong! the real output is 03, but expected result is 04
+FWPASS : Output pixel        1448 are wrong! the real output is 04, but expected result is 03
+FWPASS : Output pixel        1449 are wrong! the real output is 04, but expected result is 02
+FWPASS : Output pixel        1450 are wrong! the real output is 04, but expected result is 01
+FWPASS : Output pixel        1460 are wrong! the real output is 01, but expected result is 02
+FWPASS : Output pixel        1461 are wrong! the real output is 02, but expected result is 03
+FWPASS : Output pixel        1462 are wrong! the real output is 02, but expected result is 04
+FWPASS : Output pixel        1463 are wrong! the real output is 03, but expected result is 04
+FWPASS : Output pixel        1464 are wrong! the real output is 03, but expected result is 04
+FWPASS : Output pixel        1525 are wrong! the real output is 04, but expected result is 03
+FWPASS : Output pixel        1526 are wrong! the real output is 04, but expected result is 02
+FWPASS : Output pixel        1527 are wrong! the real output is 04, but expected result is 01
+FWPASS : Find the wrong pixel reached a total of more than 30 !, Please check the code .....
+
+FWPASS : Output Pixel: 0 ~        2000 are wrong ! The wrong pixel reached a total of         147 or more ! 
+
+FWPASS : Output Pixel: 0 ~        3000 are wrong ! The wrong pixel reached a total of         621 or more ! 
+
+FWPASS : Output Pixel: 0 ~        4000 are wrong ! The wrong pixel reached a total of         953 or more ! 
+
+FWPASS : Output Pixel: 0 ~        5000 are wrong ! The wrong pixel reached a total of        1230 or more ! 
+
+FWPASS : Output Pixel: 0 ~        6000 are wrong ! The wrong pixel reached a total of        1491 or more ! 
+
+FWPASS : Output Pixel: 0 ~        7000 are wrong ! The wrong pixel reached a total of        1762 or more ! 
+
+FWPASS : Output Pixel: 0 ~        8000 are wrong ! The wrong pixel reached a total of        2128 or more ! 
+
+FWPASS : Output Pixel: 0 ~        9000 are wrong ! The wrong pixel reached a total of        2502 or more ! 
+
+FWPASS : Output Pixel: 0 ~       10000 are wrong ! The wrong pixel reached a total of        2812 or more ! 
+
+FWPASS : Output Pixel: 0 ~       11000 are wrong ! The wrong pixel reached a total of        3263 or more ! 
+
+FWPASS : Output Pixel: 0 ~       12000 are wrong ! The wrong pixel reached a total of        3737 or more ! 
+
+FWPASS : Output Pixel: 0 ~       13000 are wrong ! The wrong pixel reached a total of        3998 or more ! 
+
+FWPASS : Output Pixel: 0 ~       14000 are wrong ! The wrong pixel reached a total of        3998 or more ! 
+
+FWPASS : Output Pixel: 0 ~       15000 are wrong ! The wrong pixel reached a total of        4049 or more ! 
+
+FWPASS : Output Pixel: 0 ~       16000 are wrong ! The wrong pixel reached a total of        4098 or more ! 
+
+                                                     
+
+Forward-Pass FAIL! There are        4098 errors at forward-pass run!
+
+---------- The test result is .....FAIL -------------
+
+                                                     
+
+-----------------------------------------------------
+
+Error!!! There is something wrong with your code ...!
+
+------The test result is .....FAIL ------------------
+
+-----------------------------------------------------
+
+Simulation complete via $finish(1) at time 100 MS + 0
+../sim/testfixture.v:96  	$finish;
+ncsim> exit
+TOOL:	ncverilog	15.20-s084: Exiting on Mar 19, 2023 at 17:50:55 CST  (total: 00:00:06)
