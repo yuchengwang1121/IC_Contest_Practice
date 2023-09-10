@@ -1,8 +1,0 @@
-//
-// File created by:  ncverilog
-// Do not modify this file
-//
--INCDIR
-/home/caid023/Verilog_pratice/HW2/src
--DEFINE
-FSDB_FILE=\"avg.fsdb\"
