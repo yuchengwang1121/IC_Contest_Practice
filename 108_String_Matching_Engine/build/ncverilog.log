@@ -1,360 +1,46 @@
 ncverilog(64): 15.20-s084: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s084: Started on Jul 21, 2022 at 11:48:03 CST
+TOOL:	ncverilog	15.20-s084: Started on Sep 11, 2023 at 00:41:00 CST
 ncverilog
-	tb_term.sv
-	SME_syn.v
-	-v
-	tsmc13_neg.v
-	+ncmaxdelays
-	+define+SDF
-	+access+r
+	/home/YuChengWang/IC_Contest_Practice/108_String_Matching_Engine/sim/tb_term.sv
+	/home/YuChengWang/IC_Contest_Practice/108_String_Matching_Engine/src/SME.v
+	+incdir+/home/YuChengWang/IC_Contest_Practice/108_String_Matching_Engine/src
 	+nc64bit
-file: tb_term.sv
+	+access+r
+	+define+FSDB_FILE="SME.fsdb"
+	+define+MD1
+file: /home/YuChengWang/IC_Contest_Practice/108_String_Matching_Engine/sim/tb_term.sv
 	module worklib.testfixture:sv
 		errors: 0, warnings: 0
-file: SME_syn.v
+file: /home/YuChengWang/IC_Contest_Practice/108_String_Matching_Engine/src/SME.v
 	module worklib.SME:v
 		errors: 0, warnings: 0
-file: tsmc13_neg.v
-	module tsmc13_neg.BUFX12:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.INVXL:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.INVX3:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.INVX12:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.AND2X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.AND2X2:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.AND3X2:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.AND4X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.AOI21X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.AOI211X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.AOI22X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.AOI221XL:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.AOI222XL:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.AOI2BB1X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.AOI2BB2X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.AO21X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.AO22XL:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.AO22X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.NAND2XL:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.NAND2X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.NAND2X2:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.NAND3X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.NAND3X2:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.NAND4XL:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.NAND4X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.NAND4BX1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.NOR2X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.NOR2X2:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.NOR3X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.NOR3X2:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.NOR3X4:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.NOR4XL:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.NOR4X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.NOR2BX1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.NOR3BXL:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.NOR3BX2:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.NOR4BX1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.OR2XL:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.OR2X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.OR2X2:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.OR3X2:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.OR4X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.OAI21XL:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.OAI21X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.OAI211X2:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.OAI22XL:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.OAI22X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.OAI221XL:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.OAI222XL:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.OAI31XL:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.OAI2BB2XL:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.OA21X2:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.OA22X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.XOR2XL:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.XOR2X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.XNOR2XL:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.XNOR2X1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.CLKBUFX3:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.CLKINVX1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.ADDHXL:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.DFFX1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.DFFQX1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.DFFRX1:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.DFFRX2:v
-		errors: 0, warnings: 0
-	module tsmc13_neg.TLATX1:v
-		errors: 0, warnings: 0
-	primitive tsmc13_neg.udp_dff:v
-		errors: 0, warnings: 0
-	primitive tsmc13_neg.udp_tlat:v
-		errors: 0, warnings: 0
+ncvlog: *W,SPDUSD: Include directory /home/YuChengWang/IC_Contest_Practice/108_String_Matching_Engine/src given but not used.
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 1
 		Caching library 'worklib' ....... Done
-		Caching library 'tsmc13_neg' ....... Done
 	Elaborating the design hierarchy:
-  TLATX1 \p_len_reg[0]  ( .G(N290), .D(p_count[0]), .Q(p_len[0]) );
-                      |
-ncelab: *W,CUVWSP (./SME_syn.v,222|22): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,26772): QN
-
-  TLATX1 \s_len_reg[3]  ( .G(N289), .D(s_count[3]), .Q(s_len[3]) );
-                      |
-ncelab: *W,CUVWSP (./SME_syn.v,223|22): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,26772): QN
-
-  TLATX1 \s_len_reg[2]  ( .G(N289), .D(s_count[2]), .Q(s_len[2]) );
-                      |
-ncelab: *W,CUVWSP (./SME_syn.v,224|22): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,26772): QN
-
-  TLATX1 \s_len_reg[0]  ( .G(N289), .D(s_count[0]), .Q(s_len[0]) );
-                      |
-ncelab: *W,CUVWSP (./SME_syn.v,225|22): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,26772): QN
-
-  TLATX1 \s_len_reg[5]  ( .G(N289), .D(s_count[5]), .Q(s_len[5]) );
-                      |
-ncelab: *W,CUVWSP (./SME_syn.v,226|22): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,26772): QN
-
-  TLATX1 \s_len_reg[4]  ( .G(N289), .D(s_count[4]), .Q(s_len[4]) );
-                      |
-ncelab: *W,CUVWSP (./SME_syn.v,227|22): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,26772): QN
-
-  TLATX1 \s_len_reg[1]  ( .G(N289), .D(s_count[1]), .Q(s_len[1]) );
-                      |
-ncelab: *W,CUVWSP (./SME_syn.v,228|22): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,26772): QN
-
-  TLATX1 \p_len_reg[5]  ( .G(N290), .D(p_count[5]), .Q(p_len[5]) );
-                      |
-ncelab: *W,CUVWSP (./SME_syn.v,229|22): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,26772): QN
-
-  TLATX1 \p_len_reg[4]  ( .G(N290), .D(p_count[4]), .Q(p_len[4]) );
-                      |
-ncelab: *W,CUVWSP (./SME_syn.v,230|22): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,26772): QN
-
-  TLATX1 \p_len_reg[1]  ( .G(N290), .D(p_count[1]), .Q(p_len[1]) );
-                      |
-ncelab: *W,CUVWSP (./SME_syn.v,231|22): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,26772): QN
-
-  TLATX1 \p_len_reg[2]  ( .G(N290), .D(p_count[2]), .Q(p_len[2]) );
-                      |
-ncelab: *W,CUVWSP (./SME_syn.v,232|22): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,26772): QN
-
-  TLATX1 \p_len_reg[3]  ( .G(N290), .D(p_count[3]), .Q(p_len[3]) );
-                      |
-ncelab: *W,CUVWSP (./SME_syn.v,233|22): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,26772): QN
-
-  TLATX1 \s_next_reg[0]  ( .G(N286), .D(N287), .Q(s_next[0]) );
-                       |
-ncelab: *W,CUVWSP (./SME_syn.v,235|23): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,26772): QN
-
-  DFFRX1 \mul_pointer_reg[0]  ( .D(n314), .CK(clk), .RN(n1162), .Q(
-                            |
-ncelab: *W,CUVWSP (./SME_syn.v,236|28): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,18307): QN
-
-  DFFRX1 \mul_pointer_reg[5]  ( .D(n295), .CK(clk), .RN(n1162), .Q(
-                            |
-ncelab: *W,CUVWSP (./SME_syn.v,238|28): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,18307): QN
-
-  DFFRX1 \mul_pointer_reg[2]  ( .D(n297), .CK(clk), .RN(n1184), .Q(
-                            |
-ncelab: *W,CUVWSP (./SME_syn.v,240|28): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,18307): QN
-
-  DFFRX1 \mul_pointer_reg[3]  ( .D(n296), .CK(clk), .RN(n1184), .Q(
-                            |
-ncelab: *W,CUVWSP (./SME_syn.v,242|28): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,18307): QN
-
-  DFFRX1 \mul_pointer_reg[4]  ( .D(n294), .CK(clk), .RN(n1184), .Q(
-                            |
-ncelab: *W,CUVWSP (./SME_syn.v,244|28): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,18307): QN
-
-  DFFRX1 \mul_pointer_reg[1]  ( .D(n298), .CK(clk), .RN(n1184), .Q(
-                            |
-ncelab: *W,CUVWSP (./SME_syn.v,246|28): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,18307): QN
-
-  DFFRX1 \p_count_reg[5]  ( .D(n641), .CK(clk), .RN(n1162), .Q(p_count[5]) );
-                        |
-ncelab: *W,CUVWSP (./SME_syn.v,251|24): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,18307): QN
-
-  DFFRX1 \s_pointer_reg[5]  ( .D(n306), .CK(clk), .RN(n1162), .Q(
-                          |
-ncelab: *W,CUVWSP (./SME_syn.v,256|26): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,18307): QN
-
-  DFFRX1 \s_pointer_reg[1]  ( .D(n304), .CK(clk), .RN(n1162), .Q(N102) );
-                          |
-ncelab: *W,CUVWSP (./SME_syn.v,584|26): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,18307): QN
-
-  DFFRX1 \p_count_reg[2]  ( .D(n644), .CK(clk), .RN(n1161), .Q(p_count[2]) );
-                        |
-ncelab: *W,CUVWSP (./SME_syn.v,589|24): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,18307): QN
-
-  DFFRX1 \p_count_reg[3]  ( .D(n643), .CK(clk), .RN(n1161), .Q(p_count[3]) );
-                        |
-ncelab: *W,CUVWSP (./SME_syn.v,590|24): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,18307): QN
-
-  DFFRX1 \p_count_reg[4]  ( .D(n642), .CK(clk), .RN(n1162), .Q(p_count[4]) );
-                        |
-ncelab: *W,CUVWSP (./SME_syn.v,591|24): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,18307): QN
-
-  DFFRX1 \s_count_reg[5]  ( .D(n571), .CK(clk), .RN(n1161), .Q(s_count[5]) );
-                        |
-ncelab: *W,CUVWSP (./SME_syn.v,592|24): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,18307): QN
-
-  DFFRX2 \s_pointer_reg[4]  ( .D(n301), .CK(clk), .RN(n1184), .QN(n895) );
-                          |
-ncelab: *W,CUVWSP (./SME_syn.v,610|26): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,18376): Q
-
-  DFFRX2 \s_count_reg[4]  ( .D(n572), .CK(clk), .RN(n1184), .Q(s_count[4]) );
-                        |
-ncelab: *W,CUVWSP (./SME_syn.v,619|24): 1 output port was not connected:
-ncelab: (./tsmc13_neg.v,18376): QN
-
 ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
-	Reading SDF file from location "./SME_syn.sdf"
-	Writing compiled SDF file to "SME_syn.sdf.X".
-	Annotating SDF timing data:
-		Compiled SDF file:     SME_syn.sdf.X
-		Log file:              
-		Backannotation scope:  testfixture.u_SME
-		Configuration file:    
-		MTM control:           
-		Scale factors:         
-		Scale type:            
-	Annotation completed successfully...
-	SDF statistics: No. of Pathdelays = 4640  Annotated = 100.00% -- No. of Tchecks = 1558  Annotated = 100.00% 
-				        Total 	   Annotated	  Percentage
-		 Path Delays	        4640	        4640	      100.00
-		      $width	         772	         772	      100.00
-		  $setuphold	         786	         786	      100.00
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
-		tsmc13_neg.ADDHXL:v <0x36e92049>
-			streams:   0, words:     0
-		tsmc13_neg.DFFQX1:v <0x5dde0fe4>
-			streams:   0, words:     0
-		tsmc13_neg.DFFRX1:v <0x3a74ffd1>
-			streams:   0, words:     0
-		tsmc13_neg.DFFRX2:v <0x6bd1aaff>
-			streams:   0, words:     0
-		tsmc13_neg.DFFX1:v <0x652fea46>
-			streams:   0, words:     0
-		tsmc13_neg.TLATX1:v <0x0912a3c0>
-			streams:   0, words:     0
-		tsmc13_neg.XNOR2X1:v <0x1d334bd6>
-			streams:   0, words:     0
-		tsmc13_neg.XNOR2XL:v <0x22cc205c>
-			streams:   0, words:     0
-		tsmc13_neg.XOR2X1:v <0x5d94a6b7>
-			streams:   0, words:     0
-		tsmc13_neg.XOR2XL:v <0x0e2c5c43>
-			streams:   0, words:     0
-		worklib.\$unit_0x40a49fc8 :compilation_unit <0x1e758ddc>
+		worklib.SME:v <0x00f8ad31>
+			streams:  15, words: 10759
+		worklib.\$unit_0x561e5469 :compilation_unit <0x4ee6796b>
 			streams:   1, words:  7301
-		worklib.testfixture:sv <0x14584bf8>
-			streams:  16, words: 26000
+		worklib.testfixture:sv <0x56b72a8a>
+			streams:  15, words: 25257
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
-		                    Instances  Unique
-		Modules:                 1550      67
-		UDPs:                     374       2
-		Primitives:              3897       8
-		Timing outputs:          1632      24
-		Registers:                403      36
-		Scalar wires:            2012       -
-		Expanded wires:             8       1
-		Always blocks:              5       5
-		Initial blocks:            11      11
-		Pseudo assignments:         1       1
-		Timing checks:           2344     387
-		Interconnect:            4730       -
-		Delayed tcheck signals:   786     381
-		Compilation units:          1       1
-		Simulation timescale:     1ps
+		                  Instances  Unique
+		Modules:                  2       2
+		Registers:               45      45
+		Scalar wires:             6       -
+		Vectored wires:           2       -
+		Always blocks:            8       8
+		Initial blocks:          10      10
+		Pseudo assignments:       1       1
+		Compilation units:        1       1
+		Simulation timescale:  10ps
 	Writing initial simulation snapshot: worklib.testfixture:sv
 Loading snapshot worklib.testfixture:sv .................... Done
 ncsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
@@ -373,20 +59,6 @@ FSDB Dumper for IUS, Release Verdi_O-2018.09, Linux x86_64/64bit, 08/30/2018
 ----------------------
 -- Simulation Start --
 ----------------------
-
-Warning!  Timing violation
-           $setuphold<setup>( negedge G &&& (SandR == 1):13189 PS, negedge D:13170 PS,  0.145 : 145 PS,  0.049 : 49 PS );
-            File: ./tsmc13_neg.v, line = 26816
-           Scope: testfixture.u_SME.\p_len_reg[5] 
-            Time: 13189 PS
-
-
-Warning!  Timing violation
-           $setuphold<setup>( negedge G &&& (SandR == 1):13189 PS, negedge D:13166 PS,  0.144 : 144 PS,  0.050 : 50 PS );
-            File: ./tsmc13_neg.v, line = 26816
-           Scope: testfixture.u_SME.\p_len_reg[4] 
-            Time: 13189 PS
-
   __________________________________________________________
   == String 1  "abcdijk lmnop q rstuv"
   -- Pattern 1  "1234"
@@ -506,6 +178,6 @@ Warning!  Timing violation
 -- cycle =1574 , Score =100       --
 ----------------------------------
 Simulation complete via $finish(1) at time 31480 NS + 0
-./tb_term.sv:201                     $finish;
+../sim/tb_term.sv:201                     $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s084: Exiting on Jul 21, 2022 at 11:48:05 CST  (total: 00:00:02)
+TOOL:	ncverilog	15.20-s084: Exiting on Sep 11, 2023 at 00:41:03 CST  (total: 00:00:03)
