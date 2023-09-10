@@ -10,6 +10,7 @@
 <img src=https://github.com/yuchengwang1121/IC_Contest_Practice/assets/73687292/743f3bdf-e600-4b3a-bfca-29187331014c width="400px" >
 </p>
 
+## I/O Pin & Description
 |Name|I/O|Description|
 |:---:|:---:|:---:|
 |clk|Input|System Clock|
