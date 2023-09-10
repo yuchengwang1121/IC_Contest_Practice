@@ -6,7 +6,7 @@
   The input is the original data, and participants should perform statistical analysis on the input data and generate the corresponding Huffman Codes as output.
 ## System Description
 <p align="center">
-<img src=h width="400px" >
+<img src=https://github.com/yuchengwang1121/IC_Contest_Practice/assets/73687292/0a5f1ba7-26f6-4fab-9440-7a6215d0d847 width="400px" >
 </p>
 
 ## I/O Pin & Description
