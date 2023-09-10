@@ -13,5 +13,3 @@
 |din|Input|Input one 16-bit positive integer every clock cycle|
 |ready|Output|When reset = 1, ready = 0.In the first half cycle before the first output, ready transitions from 0 to 1.|
 |dout|Output|Output one 16-bit approximate mean value every clock cycle.|
-
-## Final Result
