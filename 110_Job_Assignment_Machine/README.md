@@ -6,12 +6,12 @@
   In this question, input data regarding worker task costs will be provided, and participants are required to enumerate all possible pairings using an exhaustive search method.  
   Subsequently, they should find the lowest cost and determine the number of combinations that achieve this lowest cost.
 <p align="center">
-<img src= width="400px" >
+<img src=https://github.com/yuchengwang1121/IC_Contest_Practice/assets/73687292/2751b359-6532-40af-a9ad-a83f72cf7fd0 width="400px" >
 </p>
 
 ## System Description
 <p align="center">
-<img src= width="400px" >
+<img src=https://github.com/yuchengwang1121/IC_Contest_Practice/assets/73687292/4d98aeb9-4b30-435e-a085-32d1477a84c4 width="400px" >
 </p>
 
 ## I/O Pin & Description
