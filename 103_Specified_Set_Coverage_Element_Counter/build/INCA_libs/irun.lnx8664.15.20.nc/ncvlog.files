@@ -2,6 +2,5 @@
 // File created by:  ncverilog
 // Do not modify this file
 //
-/home/YuChengWang/Verilog_pratice/2022_Summer/HW3/sim/testfixture1.v
-/home/YuChengWang/Verilog_pratice/2022_Summer/HW3/src/def.v
-/home/YuChengWang/Verilog_pratice/2022_Summer/HW3/src/SET.v
+/home/YuChengWang/IC_Contest_Practice/103_Specified_Set_Coverage_Element_Counter/sim/testfixture1.v
+/home/YuChengWang/IC_Contest_Practice/103_Specified_Set_Coverage_Element_Counter/syn/SET_syn.v

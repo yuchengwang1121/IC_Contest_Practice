@@ -1,7 +1,7 @@
 #@ # 
 #@ # Running dc_shell Version T-2022.03 for linux64 -- Feb 22, 2022
-#@ # Date:   Thu Jul  7 16:21:54 2022
-#@ # Run by: caid023@caidcpuserver1
+#@ # Date:   Sun Sep 10 22:08:02 2023
+#@ # Run by: YuChengWang@caidcpuserver1
 #@ 
 
 source /home/nfs_cad/synopsys/synthesis/cur/admin/setup/.synopsys_dc.setup
@@ -8585,8 +8585,8 @@ source /home/nfs_cad/synopsys/synthesis/cur/admin/setup/.synopsys_dc.setup
 
 #@ # -- End source /home/nfs_cad/synopsys/synthesis/cur/admin/setup/.synopsys_dc.setup
 
-source /home/caid023/Verilog_pratice/HW3/build/.synopsys_dc.setup
-#@ # -- Starting source /home/caid023/Verilog_pratice/HW3/build/.synopsys_dc.setup
+source /home/YuChengWang/IC_Contest_Practice/103_Specified_Set_Coverage_Element_Counter/build/.synopsys_dc.setup
+#@ # -- Starting source /home/YuChengWang/IC_Contest_Practice/103_Specified_Set_Coverage_Element_Counter/build/.synopsys_dc.setup
 
 #@ set company "CIC"
 #@ set designer "Student"
@@ -8606,10 +8606,10 @@ source /home/caid023/Verilog_pratice/HW3/build/.synopsys_dc.setup
 #@ set bus_inference_style {%s[%d]}
 #@ set bus_naming_style {%s[%d]}
 #@ set hdlout_internal_busses true
-#@ # -- End source /home/caid023/Verilog_pratice/HW3/build/.synopsys_dc.setup
+#@ # -- End source /home/YuChengWang/IC_Contest_Practice/103_Specified_Set_Coverage_Element_Counter/build/.synopsys_dc.setup
 
-source -echo -verbose /home/caid023/Verilog_pratice/HW3/script/synthesize.tcl
-#@ # -- Starting source /home/caid023/Verilog_pratice/HW3/script/synthesize.tcl
+source -echo -verbose /home/YuChengWang/IC_Contest_Practice/103_Specified_Set_Coverage_Element_Counter/script/synthesize.tcl
+#@ # -- Starting source /home/YuChengWang/IC_Contest_Practice/103_Specified_Set_Coverage_Element_Counter/script/synthesize.tcl
 
 #@ # Edit your top module name here
 #@ set top SET
@@ -8662,7 +8662,7 @@ source -echo -verbose /home/caid023/Verilog_pratice/HW3/script/synthesize.tcl
 #@ 
 #@ #compile -map_effort high
 #@ #compile -map_effort high -inc
-#@ #compile_ultra -no_autoungroup -no_boundary_optimization -retime -gate_clock
+#@ compile_ultra -no_autoungroup -no_boundary_optimization -retime -gate_clock
 #@ compile_ultra
 #@ compile_ultra -incremental
 #@ 
@@ -8690,6 +8690,6 @@ source -echo -verbose /home/caid023/Verilog_pratice/HW3/script/synthesize.tcl
 #@ report_qor > ${top}_syn.qor
 #@ 
 #@ # exit
-#@ # -- End source /home/caid023/Verilog_pratice/HW3/script/synthesize.tcl
+#@ # -- End source /home/YuChengWang/IC_Contest_Practice/103_Specified_Set_Coverage_Element_Counter/script/synthesize.tcl
 
 exit

@@ -1,44 +1,482 @@
 ncverilog(64): 15.20-s084: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
-TOOL:	ncverilog	15.20-s084: Started on Jul 17, 2023 at 13:22:26 CST
+TOOL:	ncverilog	15.20-s084: Started on Sep 10, 2023 at 22:10:53 CST
 ncverilog
-	/home/YuChengWang/Verilog_pratice/2022_Summer/HW3/sim/testfixture1.v
-	/home/YuChengWang/Verilog_pratice/2022_Summer/HW3/src/def.v
-	/home/YuChengWang/Verilog_pratice/2022_Summer/HW3/src/SET.v
-	+incdir+/home/YuChengWang/Verilog_pratice/2022_Summer/HW3/src
+	/home/YuChengWang/IC_Contest_Practice/103_Specified_Set_Coverage_Element_Counter/sim/testfixture1.v
+	/home/YuChengWang/IC_Contest_Practice/103_Specified_Set_Coverage_Element_Counter/syn/SET_syn.v
+	-v
+	/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v
 	+nc64bit
 	+access+r
 	+define+FSDB_FILE="SET.fsdb"
+	+define+SDF
+	+define+SDFFILE="/home/YuChengWang/IC_Contest_Practice/103_Specified_Set_Coverage_Element_Counter/syn/SET_syn.sdf"
 	+define+MD1
-file: /home/YuChengWang/Verilog_pratice/2022_Summer/HW3/sim/testfixture1.v
+file: /home/YuChengWang/IC_Contest_Practice/103_Specified_Set_Coverage_Element_Counter/sim/testfixture1.v
+`define SDFFILE    "SET_syn.sdf"    // Modify your sdf file name here
+                                                                     |
+ncvlog: *W,MACNDF (/home/YuChengWang/IC_Contest_Practice/103_Specified_Set_Coverage_Element_Counter/sim/testfixture1.v,2|69): The text macro 'SDFFILE' has also been defined on the command line using the -DEFINE command line option.  The compiler will ignore the definition found in the Verilog source code.
 	module worklib.testfixture1:v
 		errors: 0, warnings: 0
-file: /home/YuChengWang/Verilog_pratice/2022_Summer/HW3/src/def.v
-file: /home/YuChengWang/Verilog_pratice/2022_Summer/HW3/src/SET.v
+file: /home/YuChengWang/IC_Contest_Practice/103_Specified_Set_Coverage_Element_Counter/syn/SET_syn.v
+	module worklib.SNPS_CLOCK_GATE_HIGH_SET_0:v
+		errors: 0, warnings: 0
+	module worklib.SNPS_CLOCK_GATE_HIGH_SET_4:v
+		errors: 0, warnings: 0
+	module worklib.SNPS_CLOCK_GATE_HIGH_SET_3:v
+		errors: 0, warnings: 0
+	module worklib.SNPS_CLOCK_GATE_HIGH_SET_2:v
+		errors: 0, warnings: 0
+	module worklib.SNPS_CLOCK_GATE_HIGH_SET_1:v
+		errors: 0, warnings: 0
 	module worklib.SET:v
 		errors: 0, warnings: 0
-ncvlog: *W,SPDUSD: Include directory /home/YuChengWang/Verilog_pratice/2022_Summer/HW3/src given but not used.
+file: /usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v
+	module tsmc13_neg.BUFX2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.BUFX4:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.BUFX6:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.INVXL:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.INVX1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.INVX3:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.INVX4:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.INVX12:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.INVX16:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.AND2X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.AND2X2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.AND3X2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.AOI21XL:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.AOI21X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.AOI211XL:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.AOI211X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.AOI211X2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.AOI211X4:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.AOI22X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.AOI22X2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.AOI222XL:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.AOI222X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.AOI222X4:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.AOI32X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.AOI33X4:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.AOI2BB2X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.AOI2BB2X2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.AO21X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.AO22X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.NAND2XL:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.NAND2X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.NAND2X2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.NAND3XL:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.NAND3X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.NAND3X4:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.NAND4XL:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.NAND4X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.NAND2BX1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.NAND2BX2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.NAND3BX1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.NOR2XL:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.NOR2X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.NOR2X2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.NOR3XL:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.NOR3X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.NOR3X2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.NOR2BX1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.NOR2BX2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.NOR3BX1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OR2X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OR2X2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OAI21XL:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OAI21X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OAI21X2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OAI21X4:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OAI211XL:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OAI211X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OAI22XL:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OAI22X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OAI22X2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OAI221X2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OAI222XL:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OAI31XL:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OAI31X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OAI32X4:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OAI2BB1XL:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OAI2BB1X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OAI2BB1X2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OAI2BB2XL:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OAI2BB2X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OAI2BB2X2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.OA22X1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.CLKBUFX3:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.CLKINVX1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.TLATNTSCAX2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.ADDFXL:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.ADDFX2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.DFFX1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.DFFRX1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.DFFRX2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.DFFSX1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.DFFSX2:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.DFFSRX1:v
+		errors: 0, warnings: 0
+	module tsmc13_neg.DFFSRHQX2:v
+		errors: 0, warnings: 0
+	primitive tsmc13_neg.udp_dff:v
+		errors: 0, warnings: 0
+	primitive tsmc13_neg.udp_tlat:v
+		errors: 0, warnings: 0
 	Total errors/warnings found outside modules and primitives:
 		errors: 0, warnings: 1
 		Caching library 'worklib' ....... Done
+		Caching library 'tsmc13_neg' ....... Done
 	Elaborating the design hierarchy:
+  DFFX1 r_reg_2__2_ ( .D(radius[2]), .CK(net5931), .QN(n1168) );
+                  |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,125|18): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): Q
+
+  DFFX1 r_reg_2__1_ ( .D(radius[1]), .CK(net5931), .QN(n1167) );
+                  |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,126|18): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): Q
+
+  DFFX1 r_reg_2__0_ ( .D(radius[0]), .CK(net5931), .QN(n1166) );
+                  |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,127|18): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): Q
+
+  DFFX1 r_reg_1__1_ ( .D(radius[5]), .CK(net5931), .Q(r[2]) );
+                  |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,129|18): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 r_reg_1__0_ ( .D(radius[4]), .CK(net5931), .QN(n1169) );
+                  |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,130|18): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): Q
+
+  DFFX1 r_reg_0__0_ ( .D(radius[8]), .CK(net5931), .QN(n1172) );
+                  |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,134|18): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): Q
+
+  DFFX1 cy_reg_2__3_ ( .D(central[3]), .CK(net5931), .Q(cy[11]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,135|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 cy_reg_2__2_ ( .D(central[2]), .CK(net5931), .Q(cy[10]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,136|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 cy_reg_2__1_ ( .D(central[1]), .CK(net5931), .Q(cy[9]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,137|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 cy_reg_2__0_ ( .D(central[0]), .CK(net5931), .Q(cy[8]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,138|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 cy_reg_1__2_ ( .D(central[10]), .CK(net5931), .Q(cy[6]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,140|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 cy_reg_0__2_ ( .D(central[18]), .CK(net5931), .Q(cy[2]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,142|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 cy_reg_0__0_ ( .D(central[16]), .CK(net5931), .Q(cy[0]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,143|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 cx_reg_2__2_ ( .D(central[6]), .CK(net5931), .Q(cx[10]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,145|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 cx_reg_2__1_ ( .D(central[5]), .CK(net5931), .Q(cx[9]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,146|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 cx_reg_2__0_ ( .D(central[4]), .CK(net5931), .Q(cx[8]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,147|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 cx_reg_1__3_ ( .D(central[15]), .CK(net5931), .Q(cx[7]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,148|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 cx_reg_1__2_ ( .D(central[14]), .CK(net5931), .Q(cx[6]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,149|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 cx_reg_0__3_ ( .D(central[23]), .CK(net5931), .Q(cx[3]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,150|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 cx_reg_0__2_ ( .D(central[22]), .CK(net5931), .Q(cx[2]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,151|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 cx_reg_0__1_ ( .D(central[21]), .CK(net5931), .Q(cx[1]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,152|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 cx_reg_0__0_ ( .D(central[20]), .CK(net5931), .Q(cx[0]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,153|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 cy_reg_1__1_ ( .D(central[9]), .CK(net5931), .Q(cy[5]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,154|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 cy_reg_1__0_ ( .D(central[8]), .CK(net5931), .Q(cy[4]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,155|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 cy_reg_0__1_ ( .D(central[17]), .CK(net5931), .Q(cy[1]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,156|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 cx_reg_1__0_ ( .D(central[12]), .CK(net5931), .Q(cx[4]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,157|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 r_reg_2__3_ ( .D(radius[3]), .CK(net5931), .Q(r[4]) );
+                  |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,158|18): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFX1 r_reg_1__3_ ( .D(radius[7]), .CK(net5931), .Q(r[3]) );
+                  |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,159|18): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFSRX1 candidate_reg_0_ ( .D(N2580), .CK(net5946), .SN(1'b1), .RN(n1644), 
+                         |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,163|25): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18873): Q
+
+  DFFSX1 x_reg_0_ ( .D(n2139), .CK(net5925), .SN(n1644), .Q(n1157) );
+                |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,165|16): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18583): QN
+
+  DFFSX1 x_reg_1_ ( .D(n2121), .CK(net5925), .SN(n1644), .Q(n1159) );
+                |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,166|16): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18583): QN
+
+  DFFSX1 y_reg_0_ ( .D(n2120), .CK(net5941), .SN(n1644), .Q(n1160) );
+                |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,167|16): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18583): QN
+
+  DFFSX1 temp_reg_1_ ( .D(n2119), .CK(net5936), .SN(n1644), .Q(
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,168|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18583): QN
+
+  DFFSX1 y_reg_1_ ( .D(n2118), .CK(net5941), .SN(n1644), .Q(n1158) );
+                |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,170|16): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18583): QN
+
+  DFFSX1 y_reg_2_ ( .D(n2117), .CK(net5941), .SN(n1644), .Q(n1161) );
+                |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,171|16): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18583): QN
+
+  DFFX1 cx_reg_1__1_ ( .D(central[13]), .CK(net5931), .Q(cx[5]) );
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,172|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,17873): QN
+
+  DFFSX1 candidate_reg_2_ ( .D(n2122), .CK(net5946), .SN(n1644), .Q(n2133) );
+                        |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,185|24): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18583): QN
+
+  DFFRX1 temp_reg_0_ ( .D(N2543), .CK(net5936), .RN(n1644), .QN(
+                   |
+ncelab: *W,CUVWSP (../syn/SET_syn.v,732|19): 1 output port was not connected:
+ncelab: (/usr/cad/lib/CBDK_IC_Contest_v2.1/Verilog/tsmc13_neg.v,18307): Q
+
+	Reading SDF file from location "/home/YuChengWang/IC_Contest_Practice/103_Specified_Set_Coverage_Element_Counter/syn/SET_syn.sdf"
+	Writing compiled SDF file to "SET_syn.sdf.X".
+	Annotating SDF timing data:
+		Compiled SDF file:     SET_syn.sdf.X
+		Log file:              
+		Backannotation scope:  testfixture1.u_set
+		Configuration file:    
+		MTM control:           
+		Scale factors:         
+		Scale type:            
+ncelab: *W,SDFNEP: Unable to annotate to non-existent path (IOPATH (posedge A) S) of instance testfixture1.u_set.U1275 of module ADDFXL <../syn/SET_syn.sdf, line 1889>.
+ncelab: *W,SDFNEP: Unable to annotate to non-existent path (IOPATH (negedge A) S) of instance testfixture1.u_set.U1275 of module ADDFXL <../syn/SET_syn.sdf, line 1890>.
+ncelab: *W,SDFNEP: Unable to annotate to non-existent path (IOPATH (posedge B) S) of instance testfixture1.u_set.U1275 of module ADDFXL <../syn/SET_syn.sdf, line 1895>.
+ncelab: *W,SDFNEP: Unable to annotate to non-existent path (IOPATH (negedge B) S) of instance testfixture1.u_set.U1275 of module ADDFXL <../syn/SET_syn.sdf, line 1896>.
+ncelab: *W,SDFNEP: Unable to annotate to non-existent path (IOPATH (posedge CI) S) of instance testfixture1.u_set.U1275 of module ADDFXL <../syn/SET_syn.sdf, line 1899>.
+ncelab: *W,SDFNEP: Unable to annotate to non-existent path (IOPATH (negedge CI) S) of instance testfixture1.u_set.U1275 of module ADDFXL <../syn/SET_syn.sdf, line 1900>.
+ncelab: *W,SDFNEP: Unable to annotate to non-existent path (IOPATH (posedge A) S) of instance testfixture1.u_set.U1220 of module ADDFX2 <../syn/SET_syn.sdf, line 2496>.
+ncelab: *W,SDFNEP: Unable to annotate to non-existent path (IOPATH (negedge A) S) of instance testfixture1.u_set.U1220 of module ADDFX2 <../syn/SET_syn.sdf, line 2497>.
+ncelab: *W,SDFNEP: Unable to annotate to non-existent path (IOPATH (posedge B) S) of instance testfixture1.u_set.U1220 of module ADDFX2 <../syn/SET_syn.sdf, line 2502>.
+ncelab: *W,SDFNEP: Unable to annotate to non-existent path (IOPATH (negedge B) S) of instance testfixture1.u_set.U1220 of module ADDFX2 <../syn/SET_syn.sdf, line 2503>.
+ncelab: *W,SDFNEP: Unable to annotate to non-existent path (IOPATH (posedge CI) S) of instance testfixture1.u_set.U1220 of module ADDFX2 <../syn/SET_syn.sdf, line 2506>.
+ncelab: *W,SDFNEP: Unable to annotate to non-existent path (IOPATH (negedge CI) S) of instance testfixture1.u_set.U1220 of module ADDFX2 <../syn/SET_syn.sdf, line 2507>.
+ncelab: *W,SDFNEP: Unable to annotate to non-existent path (IOPATH (posedge A) S) of instance testfixture1.u_set.U1217 of module ADDFX2 <../syn/SET_syn.sdf, line 2547>.
+ncelab: *W,SDFNEP: Unable to annotate to non-existent path (IOPATH (negedge A) S) of instance testfixture1.u_set.U1217 of module ADDFX2 <../syn/SET_syn.sdf, line 2548>.
+ncelab: *W,SDFNEP: Unable to annotate to non-existent path (IOPATH (posedge B) S) of instance testfixture1.u_set.U1217 of module ADDFX2 <../syn/SET_syn.sdf, line 2553>.
+ncelab: *W,SDFNEP: Unable to annotate to non-existent path (IOPATH (negedge B) S) of instance testfixture1.u_set.U1217 of module ADDFX2 <../syn/SET_syn.sdf, line 2554>.
+ncelab: *W,SDFNEP: Unable to annotate to non-existent path (IOPATH (posedge CI) S) of instance testfixture1.u_set.U1217 of module ADDFX2 <../syn/SET_syn.sdf, line 2557>.
+ncelab: *W,SDFNEP: Unable to annotate to non-existent path (IOPATH (negedge CI) S) of instance testfixture1.u_set.U1217 of module ADDFX2 <../syn/SET_syn.sdf, line 2558>.
+	Annotation completed with 0 Errors and 18 Warnings
+	SDF statistics: No. of Pathdelays = 1529  Annotated = 100.00% -- No. of Tchecks = 319  Annotated = 94.04% 
+				        Total 	   Annotated	  Percentage
+		 Path Delays	        1529	        1529	      100.00
+		       $hold	           6	           0	        0.00
+		      $width	         149	         149	      100.00
+		  $setuphold	         164	         151	       92.07
 	Building instance overlay tables: .................... Done
 	Generating native compiled code:
-		worklib.SET:v <0x093d727f>
-			streams:   9, words: 20913
-		worklib.testfixture1:v <0x4544083b>
-			streams:  10, words: 17066
+		tsmc13_neg.ADDFX2:v <0x1f6b0b0a>
+			streams:   0, words:     0
+		tsmc13_neg.ADDFXL:v <0x7c19ce30>
+			streams:   0, words:     0
+		tsmc13_neg.DFFRX1:v <0x5105f876>
+			streams:   0, words:     0
+		tsmc13_neg.DFFRX2:v <0x37f12395>
+			streams:   0, words:     0
+		tsmc13_neg.DFFSRHQX2:v <0x6a1cf17d>
+			streams:   0, words:     0
+		tsmc13_neg.DFFSRX1:v <0x684d72ba>
+			streams:   0, words:     0
+		tsmc13_neg.DFFSX1:v <0x171345e4>
+			streams:   0, words:     0
+		tsmc13_neg.DFFSX2:v <0x71e79e07>
+			streams:   0, words:     0
+		tsmc13_neg.DFFX1:v <0x2c98ac19>
+			streams:   0, words:     0
+		tsmc13_neg.TLATNTSCAX2:v <0x5ce1e399>
+			streams:   0, words:     0
+		worklib.SET:v <0x11d72ddc>
+			streams:   0, words:     0
+		worklib.testfixture1:v <0x784b88e0>
+			streams:  11, words: 17813
 	Building instance specific data structures.
 	Loading native compiled code:     .................... Done
 	Design hierarchy summary:
-		                  Instances  Unique
-		Modules:                  2       2
-		Registers:               23      23
-		Scalar wires:             5       -
-		Vectored wires:           4       -
-		Always blocks:            3       3
-		Initial blocks:           6       6
-		Pseudo assignments:       2       2
-		Simulation timescale:  10ps
+		                    Instances  Unique
+		Modules:                  565      91
+		UDPs:                      64       2
+		Primitives:              1120       7
+		Timing outputs:           619      27
+		Registers:                 76      22
+		Scalar wires:             697       -
+		Expanded wires:            38       3
+		Always blocks:              2       2
+		Initial blocks:             7       7
+		Pseudo assignments:         2       2
+		Timing checks:            483      88
+		Interconnect:            1472       -
+		Delayed tcheck signals:   159      77
+		Simulation timescale:     1ps
 	Writing initial simulation snapshot: worklib.testfixture1:v
 Loading snapshot worklib.testfixture1:v .................... Done
 *Verdi* Loading libsscore_ius152.so
@@ -60,7 +498,7 @@ FSDB Dumper for IUS, Release Verdi_O-2018.09, Linux x86_64/64bit, 08/30/2018
  Pattern           3 at Mode 0 is PASS !
  Pattern           4 at Mode 0 is PASS !
  Pattern           5 at Mode 0 is PASS !
- Pattern           6 at Mode 0 is PASS !
+ Pattern           6 at Mode 0 is FAIL !. Expected candidate =  20, but the Response candidate =  19 !! 
  Pattern           7 at Mode 0 is PASS !
  Pattern           8 at Mode 0 is PASS !
  Pattern           9 at Mode 0 is PASS !
@@ -121,10 +559,10 @@ FSDB Dumper for IUS, Release Verdi_O-2018.09, Linux x86_64/64bit, 08/30/2018
 --------------------------- Simulation FINISH !!---------------------------
 ============================================================================
 
- \(^o^)/ CONGRATULATIONS!!  The simulation result is PASS!!!
+ (T_T) FAIL!! The simulation result is FAIL!!! there were           1 errors at all.
 
 ============================================================================
 Simulation complete via $finish(1) at time 42290 NS + 0
 ../sim/testfixture1.v:132 $finish;
 ncsim> exit
-TOOL:	ncverilog	15.20-s084: Exiting on Jul 17, 2023 at 13:22:29 CST  (total: 00:00:03)
+TOOL:	ncverilog	15.20-s084: Exiting on Sep 10, 2023 at 22:10:54 CST  (total: 00:00:01)
