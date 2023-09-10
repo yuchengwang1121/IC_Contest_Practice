@@ -17,6 +17,7 @@ Various set operations are performed on Sets A and B, and the circuit ultimately
 <img src=https://github.com/yuchengwang1121/IC_Contest_Practice/assets/73687292/6658a1e2-0fe5-45d8-b9ed-9329e2a7e390 width="400px" >
 </p>
 
+## I/O Pin & Description
 |Name|I/O|Description|
 |:---:|:---:|:---:|
 |clk|Input|System Clock|
@@ -28,3 +29,16 @@ Various set operations are performed on Sets A and B, and the circuit ultimately
 |busy|Output|When this signal is 1, it indicates that the system is busy.|
 |valid|Output|the signal indicating valid data output. When the "valid" signal is high, the data output at the "candidate" output port is considered valid data.|
 |candidate|Output|Output the specified number of elements as per the given question.|
+
+## Additional
+`central[23:20]`: X-axis coordinate (x1) of Set A.  
+`central[19:16]`: Y-axis coordinate (y1) of Set A.  
+`central[15:12]`: X-axis coordinate (x2) of Set B.  
+`central[11:8]`: Y-axis coordinate (y2) of Set B.  
+`central[7:4]`: X-axis coordinate (x3) of Set C.  
+`central[3:0]`: Y-axis coordinate (y3) of Set C.  
+
+`radius[11:8]`: Radius value (r1) of Set A.  
+`radius[7:4]`: Radius value (r2) of Set B.  
+`radius[3:0]`: Radius value (r3) of Set C.  
+
