@@ -1,0 +1,11 @@
+//
+// File created by:  ncverilog
+// Do not modify this file
+//
+/home/YuChengWang/IC_Contest_Practice/112_LaserTreatment/sim/tb.sv
+/home/YuChengWang/IC_Contest_Practice/112_LaserTreatment/src/LASER.v
++incdir+/home/YuChengWang/IC_Contest_Practice/112_LaserTreatment/src
++nc64bit
++access+r
++define+USECOLOR
++define+FSDB_FILE=\"LASER.fsdb\"
