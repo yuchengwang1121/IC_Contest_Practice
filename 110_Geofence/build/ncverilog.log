@@ -1,0 +1,64 @@
+ncverilog(64): 15.20-s084: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	ncverilog	15.20-s084: Started on Nov 24, 2023 at 12:52:48 CST
+ncverilog
+	/home/YuChengWang/IC_Contest_Practice/109_GeoFence/sim/tb.sv
+	/home/YuChengWang/IC_Contest_Practice/109_GeoFence/src/def.v
+	/home/YuChengWang/IC_Contest_Practice/109_GeoFence/src/DW_sqrt.v
+	/home/YuChengWang/IC_Contest_Practice/109_GeoFence/src/geofence.v
+	+incdir+/home/YuChengWang/IC_Contest_Practice/109_GeoFence/src
+	+nc64bit
+	+access+r
+	+define+FSDB_FILE="geofence.fsdb"
+file: /home/YuChengWang/IC_Contest_Practice/109_GeoFence/sim/tb.sv
+	module worklib.testfixture:sv
+		errors: 0, warnings: 0
+file: /home/YuChengWang/IC_Contest_Practice/109_GeoFence/src/def.v
+file: /home/YuChengWang/IC_Contest_Practice/109_GeoFence/src/DW_sqrt.v
+	module worklib.DW_sqrt:v
+		errors: 0, warnings: 0
+file: /home/YuChengWang/IC_Contest_Practice/109_GeoFence/src/geofence.v
+	module worklib.geofence:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+    $fsdbDumpfile("geofence.fsdb");
+                |
+ncelab: *W,MISSYST (../sim/tb.sv,38|16): Unrecognized system task or function: $fsdbDumpfile (did not match built-in or user-defined names) [2.7.4(IEEE Std 1364-2001)].
+If item was defined in a shared-object library, the problem could be:
+libvpi.so: cannot open shared object file: No such file or directory or file is not valid ELFCLASS64 library.
+libpli.so: cannot open shared object file: No such file or directory or file is not valid ELFCLASS64 library..
+    $fsdbDumpvars("+struct", "+mda", testfixture);
+                |
+ncelab: *W,MISSYST (../sim/tb.sv,39|16): Unrecognized system task or function: $fsdbDumpvars (did not match built-in or user-defined names) [2.7.4(IEEE Std 1364-2001)].
+ncelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.DW_sqrt:v <0x31a07d8f>
+			streams:   4, words:  3284
+		worklib.geofence:v <0x564d9e11>
+			streams:  27, words: 44927
+		worklib.testfixture:sv <0x6d9bf095>
+			streams:  15, words: 25341
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                  Instances  Unique
+		Modules:                  4       3
+		Registers:               56      44
+		Scalar wires:             6       -
+		Vectored wires:           7       -
+		Always blocks:            9       9
+		Initial blocks:          10       9
+		Cont. assignments:        6       5
+		Pseudo assignments:       4       4
+		Simulation timescale:  10ps
+	Writing initial simulation snapshot: worklib.testfixture:sv
+Loading snapshot worklib.testfixture:sv .................... Done
+ncsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+    $fsdbDumpfile("geofence.fsdb");
+                |
+ncsim: *E,MSSYSTF (../sim/tb.sv,38|16): User Defined system task or function ($fsdbDumpfile) registered during elaboration and used within the simulation has not been registered during simulation.
+    $fsdbDumpvars("+struct", "+mda", testfixture);
+                |
+ncsim: *E,MSSYSTF (../sim/tb.sv,39|16): User Defined system task or function ($fsdbDumpvars) registered during elaboration and used within the simulation has not been registered during simulation.
+TOOL:	ncverilog	15.20-s084: Exiting on Nov 24, 2023 at 12:52:49 CST  (total: 00:00:01)

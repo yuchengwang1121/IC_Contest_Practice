@@ -1,0 +1,12 @@
+//
+// File created by:  ncverilog
+// Do not modify this file
+//
+/home/YuChengWang/IC_Contest_Practice/109_GeoFence/sim/tb.sv
+/home/YuChengWang/IC_Contest_Practice/109_GeoFence/src/def.v
+/home/YuChengWang/IC_Contest_Practice/109_GeoFence/src/DW_sqrt.v
+/home/YuChengWang/IC_Contest_Practice/109_GeoFence/src/geofence.v
++incdir+/home/YuChengWang/IC_Contest_Practice/109_GeoFence/src
++nc64bit
++access+r
++define+FSDB_FILE=\"geofence.fsdb\"
